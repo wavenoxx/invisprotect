@@ -120,12 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: pageTitle },
       { property: "og:description", content: BRAND_CONFIG.description },
       { property: "og:type", content: "website" },
-      ...(BRAND_CONFIG.domain ? [{ property: "og:url", content: BRAND_CONFIG.domain }] : []),
       { name: "twitter:card", content: "summary_large_image" },
     ];
 
     const links = [
-      ...(BRAND_CONFIG.domain ? [{ rel: "canonical", href: `${BRAND_CONFIG.domain}/` }] : []),
       { rel: "stylesheet", href: appCss },
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },

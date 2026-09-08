@@ -16,7 +16,10 @@ export interface PageSeoConfig {
  */
 export function buildMetaTags(config: PageSeoConfig) {
   const baseDomain = BRAND_CONFIG.domain ? BRAND_CONFIG.domain.replace(/\/$/, "") : "";
-  const canonicalUrl = baseDomain ? `${baseDomain}${config.canonicalPath ?? ""}` : "";
+  const rawPath = config.canonicalPath ?? "";
+  const normalizedPath =
+    rawPath === "" || rawPath === "/" ? "/" : rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
+  const canonicalUrl = baseDomain ? `${baseDomain}${normalizedPath}` : "";
   const brandName = BRAND_CONFIG.name;
   const fullTitle = brandName
     ? config.title.includes(brandName)
@@ -24,11 +27,14 @@ export function buildMetaTags(config: PageSeoConfig) {
       : `${config.title} — ${brandName}`
     : config.title;
 
-  const ogImage = config.ogImage
-    ? config.ogImage
-    : baseDomain
-      ? `${baseDomain}/images/homepage/banner-1-desktop.png`
-      : "/images/homepage/banner-1-desktop.png";
+  const resolvedOgImage = config.ogImage ? config.ogImage : "/images/homepage/banner-1-desktop.png";
+
+  const ogImage =
+    resolvedOgImage.startsWith("http://") || resolvedOgImage.startsWith("https://")
+      ? resolvedOgImage
+      : baseDomain
+        ? `${baseDomain}${resolvedOgImage.startsWith("/") ? resolvedOgImage : `/${resolvedOgImage}`}`
+        : resolvedOgImage;
 
   const robots = config.noIndex ? "noindex, follow" : "index, follow";
 

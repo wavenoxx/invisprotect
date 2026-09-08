@@ -718,6 +718,25 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
+  "cricket-sports-nets": {
+    id: "cricket-sports-nets",
+    title: "Cricket Sports Nets",
+    plainDescriptor: "Cricket Practice Net Cages & Pitch Enclosures",
+    editorialTitle: "The Batting Cage",
+    category: "specialty-solutions",
+    description:
+      "Custom sports enclosures engineered for cricket batting practice, golf drives, and turf sports.",
+    detailParagraphs: [
+      "Transform open terraces, backyards, or society clubhouses into professional cricket and sports practice zones.",
+      "Our high-density sports netting absorbs high-velocity ball impacts and prevents balls from flying off the roof or hitting nearby windows.",
+    ],
+    images: ["/images/cricket-sports-nets.png"],
+    specs: [
+      { label: "Netting Type", value: "High-impact braided nylon / HDPE sports mesh" },
+      { label: "Support Framework", value: "Galvanized iron (GI) structural poles" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+    ],
+  },
   "coconut-safety-nets": {
     id: "coconut-safety-nets",
     title: "Coconut Safety Nets",

@@ -23,10 +23,12 @@ export interface BrandConfig {
   };
 }
 
+const DEFAULT_SITE_URL = "https://invisprotect.in";
+
 const envSiteUrl =
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_SITE_URL) ||
   (typeof process !== "undefined" && process.env?.VITE_SITE_URL) ||
-  "";
+  DEFAULT_SITE_URL;
 
 const envBrandName =
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_BRAND_NAME) ||
@@ -40,8 +42,10 @@ export const BRAND_CONFIG: BrandConfig = {
   tagline: "Architectural Invisible Grills & Safety Solutions",
   description:
     "Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across Telangana & Andhra Pradesh.",
-  domain: envSiteUrl ? envSiteUrl.replace(/\/$/, "") : "",
-  domainHost: envSiteUrl ? envSiteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "") : "",
+  domain: envSiteUrl ? envSiteUrl.replace(/\/$/, "") : DEFAULT_SITE_URL,
+  domainHost: envSiteUrl
+    ? envSiteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    : "invisprotect.in",
 
   contact: {
     enabled: false,
