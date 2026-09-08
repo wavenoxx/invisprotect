@@ -30,8 +30,11 @@ const Hero = () => {
         <img
           src="/images/homepage/hero-desktop.png"
           alt="Widescreen Architectural Balcony Safety View"
+          width={1672}
+          height={941}
           className="w-full h-full object-cover"
           loading="eager"
+          fetchPriority="high"
           decoding="async"
         />
       </div>
@@ -44,8 +47,11 @@ const Hero = () => {
         <img
           src="/images/homepage/hero-mobile.png"
           alt="Architectural Safety — Mobile Balcony View (9:16)"
+          width={941}
+          height={1672}
           className="w-full h-full object-cover object-center"
           loading="eager"
+          fetchPriority="high"
           decoding="async"
         />
       </div>

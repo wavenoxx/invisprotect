@@ -137,6 +137,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "preload",
         as: "image",
         href: "/images/homepage/hero-desktop.png",
+        media: "(min-width: 768px)",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/images/homepage/hero-mobile.png",
+        media: "(max-width: 767px)",
       },
     ];
 
