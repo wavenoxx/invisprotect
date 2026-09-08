@@ -2,22 +2,16 @@ import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { User } from "lucide-react";
 import { BRAND_CONFIG } from "@/config/brand";
-import { BrandMark } from "./BrandLogo";
 import ContactDrawer from "./ContactDrawer";
 import MenuDrawer from "./MenuDrawer";
 
 /**
  * SiteNav — Quiet Luxury Architectural Header.
  *
- * Mobile View:
- * - Left: Clean 2-line minimal icon.
- * - Center: Architectural Brand Mark.
- * - Right: Clean luxury Profile / Contact icon.
- *
- * Desktop View:
- * - Left: 2-line icon + 'Menu' label.
- * - Center: Pure, uncluttered brand serif typography.
- * - Right: 'Contact us' client advisory link.
+ * Mobile & Desktop:
+ * - Left: Clean 2-line minimal icon (+ 'Menu' label on sm+).
+ * - Center: Pure, ultra-luxurious brand serif typography (InvisProtect).
+ * - Right: Clean luxury Profile / Contact icon (text on sm+).
  */
 export function SiteNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,33 +78,24 @@ export function SiteNav() {
           </div>
 
           {/* ─────────────────────────────────────────────────────────────
-              CENTER: Brand Identity (Mobile: Brand Mark | Desktop: Pure Lettermark)
+              CENTER: Brand Identity (Pure Ultra-Luxurious Typography)
               ───────────────────────────────────────────────────────────── */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center min-w-0 px-1">
             <Link
               to="/"
-              className="flex items-center justify-center min-h-11 px-2 focus-ring transition-opacity hover:opacity-85"
+              className="flex items-center justify-center min-h-11 px-1 focus-ring transition-opacity hover:opacity-85"
               aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
             >
-              {/* Mobile View: Brand Mark */}
-              <div className="md:hidden flex items-center justify-center py-1">
-                <BrandMark
-                  className="h-9 sm:h-10 w-auto max-w-[44px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
-                  isDark={isScrolled}
-                />
-              </div>
-
-              {/* Desktop View: Pure, Clean Luxury Typography */}
-              <div className="hidden md:flex items-center">
-                <span
-                  className={`font-serif text-[18px] lg:text-[21px] tracking-[0.34em] uppercase font-light transition-colors whitespace-nowrap ${
-                    isScrolled ? "text-[#1C1917]" : "text-white"
-                  }`}
-                  style={{ fontWeight: 300 }}
-                >
-                  {BRAND_CONFIG.name || "InvisProtect"}
-                </span>
-              </div>
+              <span
+                className={`font-serif text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] tracking-[0.22em] sm:tracking-[0.28em] md:tracking-[0.34em] uppercase font-light transition-colors whitespace-nowrap select-none ${
+                  isScrolled
+                    ? "text-[#1C1917]"
+                    : "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+                }`}
+                style={{ fontWeight: 300 }}
+              >
+                {BRAND_CONFIG.name || "InvisProtect"}
+              </span>
             </Link>
           </div>
 
