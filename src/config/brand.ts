@@ -23,6 +23,7 @@ export interface BrandConfig {
   };
 }
 
+const DEFAULT_BRAND_NAME = "InvisProtect";
 const DEFAULT_SITE_URL = "https://invisprotect.in";
 
 const envSiteUrl =
@@ -33,12 +34,12 @@ const envSiteUrl =
 const envBrandName =
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_BRAND_NAME) ||
   (typeof process !== "undefined" && process.env?.VITE_BRAND_NAME) ||
-  "";
+  DEFAULT_BRAND_NAME;
 
 export const BRAND_CONFIG: BrandConfig = {
-  status: envBrandName ? "active" : "pending",
-  name: envBrandName || "",
-  legalName: envBrandName || "",
+  status: "pending",
+  name: envBrandName || DEFAULT_BRAND_NAME,
+  legalName: "",
   tagline: "Architectural Invisible Grills & Safety Solutions",
   description:
     "Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across Telangana & Andhra Pradesh.",

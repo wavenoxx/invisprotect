@@ -47,7 +47,7 @@ export function buildMetaTags(config: PageSeoConfig) {
     ...(canonicalUrl ? [{ property: "og:url", content: canonicalUrl }] : []),
     { property: "og:type", content: config.ogType ?? "website" },
     { property: "og:image", content: ogImage },
-    { property: "og:site_name", content: brandName || "Architectural Safety Solutions" },
+    { property: "og:site_name", content: brandName || "InvisProtect" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: fullTitle },
     { name: "twitter:description", content: config.description },

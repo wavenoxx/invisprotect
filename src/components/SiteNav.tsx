@@ -90,7 +90,7 @@ export function SiteNav() {
             <Link
               to="/"
               className="flex items-center justify-center min-h-11 px-2 focus-ring transition-opacity hover:opacity-85"
-              aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "Home"}
+              aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
             >
               {/* Mobile View: Brand Mark */}
               <div className="md:hidden flex items-center justify-center py-1">
@@ -108,7 +108,7 @@ export function SiteNav() {
                   }`}
                   style={{ fontWeight: 300 }}
                 >
-                  {BRAND_CONFIG.name || "ARCHITECTURAL SAFETY"}
+                  {BRAND_CONFIG.name || "InvisProtect"}
                 </span>
               </div>
             </Link>

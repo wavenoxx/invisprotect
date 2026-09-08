@@ -394,8 +394,8 @@ export function Footer() {
               className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em]"
               style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
             >
-              © {new Date().getFullYear()} {BRAND_CONFIG.name || "Architectural Safety Solutions"}.
-              All Rights Reserved.
+              © {new Date().getFullYear()} {BRAND_CONFIG.name || "InvisProtect"}. All Rights
+              Reserved.
             </p>
           </div>
         </div>

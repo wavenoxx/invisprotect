@@ -66,7 +66,7 @@ Each service route contains a plain factual `<h1>`, specification matrix, instal
 15. `/service/monkey-safety-nets`
 16. `/service/mosquito-safety-nets`
 17. `/service/swimming-pool-nets`
-18. `/service/cricket-sports-nets`
+18. `/service/sports-practice-nets`
 19. `/service/coconut-safety-nets`
 20. `/service/cloth-drying-hangers`
 

@@ -83,7 +83,7 @@ export function BrandLogo({
   variant = "full",
   isDark = true,
   color,
-  alt = BRAND_CONFIG.name || "Architectural Safety Solutions",
+  alt = BRAND_CONFIG.name || "InvisProtect",
 }: BrandLogoProps) {
   if (variant === "monogram") {
     return <BrandMark className={className} isDark={isDark} alt={alt} />;
@@ -94,7 +94,7 @@ export function BrandLogo({
   const textColor = effectiveIsDark ? "text-[#1C1917]" : "text-[#FAF8F5]";
   const subColor = effectiveIsDark ? "text-[#78716C]" : "text-[#A8A29E]";
 
-  const displayName = BRAND_CONFIG.name || "ARCHITECTURAL SAFETY";
+  const displayName = BRAND_CONFIG.name || "InvisProtect";
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`} aria-label={alt}>

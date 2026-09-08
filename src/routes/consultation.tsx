@@ -124,7 +124,7 @@ function ConsultationPage() {
       return;
     }
 
-    if (BRAND_CONFIG.status === "pending") {
+    if (BRAND_CONFIG.status === "pending" || !BRAND_CONFIG.contact.enabled) {
       setErrorMessage("Site survey requests will be enabled at launch.");
       return;
     }
@@ -268,7 +268,7 @@ function ConsultationPage() {
               </p>
             </div>
 
-            {BRAND_CONFIG.status === "pending" && (
+            {(BRAND_CONFIG.status === "pending" || !BRAND_CONFIG.contact.enabled) && (
               <div className="mb-10 p-6 bg-[#F4EFEA] border border-[#1C1917]/15 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                   <span className="text-xs uppercase tracking-widest text-[#F37021] font-medium block mb-1">
@@ -498,10 +498,15 @@ function ConsultationPage() {
                   </p>
                   <button
                     type="submit"
-                    disabled={!isFormValid || isSubmitting || BRAND_CONFIG.status === "pending"}
+                    disabled={
+                      !isFormValid ||
+                      isSubmitting ||
+                      BRAND_CONFIG.status === "pending" ||
+                      !BRAND_CONFIG.contact.enabled
+                    }
                     className="sn-btn-luxury-solid w-full sm:w-auto disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                   >
-                    {BRAND_CONFIG.status === "pending" ? (
+                    {BRAND_CONFIG.status === "pending" || !BRAND_CONFIG.contact.enabled ? (
                       "Site Survey Requests Enabled at Launch"
                     ) : isSubmitting ? (
                       "Registering Survey..."

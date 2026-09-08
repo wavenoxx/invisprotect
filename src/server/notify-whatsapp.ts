@@ -58,8 +58,7 @@ export async function notifyOwnerWhatsApp(
     };
   }
 
-  const brandName =
-    process.env.SITE_BRAND_NAME || process.env.VITE_BRAND_NAME || "Architectural Safety Atelier";
+  const brandName = process.env.SITE_BRAND_NAME || process.env.VITE_BRAND_NAME || "InvisProtect";
 
   // Clean owner destination phone: digits only
   const cleanPhone = ownerPhone.replace(/[^\d]/g, "");

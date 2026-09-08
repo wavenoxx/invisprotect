@@ -77,8 +77,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: BRAND_CONFIG.name || "Architectural Safety Atelier",
-  legalName: BRAND_CONFIG.legalName || "Architectural Safety Atelier",
+  name: BRAND_CONFIG.name || "InvisProtect",
+  ...(BRAND_CONFIG.legalName ? { legalName: BRAND_CONFIG.legalName } : {}),
   description: BRAND_CONFIG.description,
   address: {
     "@type": "PostalAddress",
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: pageTitle },
       { name: "description", content: BRAND_CONFIG.description },
-      { name: "author", content: BRAND_CONFIG.name || "Architectural Safety Atelier" },
+      { name: "author", content: BRAND_CONFIG.name || "InvisProtect" },
       { property: "og:title", content: pageTitle },
       { property: "og:description", content: BRAND_CONFIG.description },
       { property: "og:type", content: "website" },
