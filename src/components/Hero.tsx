@@ -10,8 +10,11 @@ import { BRAND_CONFIG } from "@/config/brand";
  * - Separate desktop and mobile image slots.
  * - H1 Headline: "Invisible Grills & Safety Nets" (Cormorant Garamond 300).
  * - Subtext: "Architectural safety for modern discerning homes." (Inter 300).
- * - Hermès signature orange solid CTA + framed exploration CTA.
+ * - Paired transparent glass-outline actions.
  */
+const heroCtaBase =
+  "inline-flex min-h-[42px] items-center justify-center border px-[1.85rem] py-[0.65rem] font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-white backdrop-blur-md transition-[border-color,background-color,color,box-shadow,transform] duration-[240ms] ease-out hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
+
 const Hero = () => {
   return (
     <section
@@ -77,12 +80,18 @@ const Hero = () => {
           Architectural safety for modern discerning homes.
         </p>
 
-        {/* Luxury Framed Action Buttons */}
+        {/* Transparent Glass-Outline Actions */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <Link to="/consultation" className="sn-btn-luxury-solid w-full sm:w-auto focus-ring">
+          <Link
+            to="/consultation"
+            className={`${heroCtaBase} w-full border-white/70 bg-white/[0.13] shadow-[0_6px_20px_rgba(0,0,0,0.14),inset_0_1px_0_rgba(255,255,255,0.25)] hover:border-white/90 hover:bg-white/[0.2] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.32)] sm:w-auto`}
+          >
             Request Site Survey
           </Link>
-          <Link to="/solutions" className="sn-btn-luxury w-full sm:w-auto focus-ring">
+          <Link
+            to="/solutions"
+            className={`${heroCtaBase} w-full border-white/38 bg-black/[0.05] text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.12)] hover:border-white/65 hover:bg-white/[0.11] hover:text-white hover:shadow-[0_6px_20px_rgba(0,0,0,0.14),inset_0_1px_0_rgba(255,255,255,0.2)] sm:w-auto`}
+          >
             Explore Solutions
           </Link>
         </div>
