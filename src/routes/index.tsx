@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { CinematicScrollway } from "@/components/CinematicScrollway";
 import Hero from "@/components/Hero";
 import { ProofSection } from "@/components/ProofSection";
+import { LuxuryContactDock } from "@/components/LuxuryContactDock";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
 
@@ -48,6 +49,7 @@ function Index() {
       <CinematicScrollway />
       <ProofSection />
       <Footer />
+      <LuxuryContactDock />
     </div>
   );
 }

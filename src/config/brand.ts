@@ -81,6 +81,13 @@ function validEmail(value: string): string {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
 }
 
+const DEFAULT_PHONE_DISPLAY = "8977555232";
+const DEFAULT_PHONE_DIAL = "+918977555232";
+const DEFAULT_WHATSAPP_DISPLAY = "7075870054";
+const DEFAULT_WHATSAPP_DIAL = "917075870054";
+const DEFAULT_WHATSAPP_LINK = "https://wa.me/917075870054";
+const DEFAULT_EMAIL = "invisprotect@gmail.com";
+
 export function createBrandConfig(env: PublicEnvironment): BrandConfig {
   const status = clean(env.VITE_SITE_STATUS).toLowerCase() === "active" ? "active" : "pending";
   const contactRequested = clean(env.VITE_CONTACT_ENABLED).toLowerCase() === "true";
@@ -142,4 +149,16 @@ const publicEnvironment: PublicEnvironment =
       ? process.env
       : {};
 
-export const BRAND_CONFIG = createBrandConfig(publicEnvironment);
+const liveProductionEnv: PublicEnvironment = {
+  VITE_SITE_STATUS: "active",
+  VITE_CONTACT_ENABLED: "true",
+  VITE_BUSINESS_PHONE_DISPLAY: "8977555232",
+  VITE_BUSINESS_PHONE_DIAL: "+918977555232",
+  VITE_BUSINESS_WHATSAPP_DISPLAY: "7075870054",
+  VITE_BUSINESS_WHATSAPP_DIAL: "917075870054",
+  VITE_BUSINESS_WHATSAPP_LINK: "https://wa.me/917075870054",
+  VITE_BUSINESS_EMAIL: "invisprotect@gmail.com",
+  ...publicEnvironment,
+};
+
+export const BRAND_CONFIG = createBrandConfig(liveProductionEnv);
