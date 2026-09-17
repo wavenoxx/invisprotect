@@ -167,7 +167,7 @@ function ConsultationPage() {
                   <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block mb-1 font-medium">
                     01 / Safety Solutions Required
                   </span>
-                  <h2 className="font-serif text-lg md:text-xl font-light text-[#1C1917] uppercase tracking-wider">
+                  <h2 className="font-display text-sm md:text-base font-normal text-[#1C1917] uppercase tracking-[0.16em]">
                     Select Architectural Solutions
                   </h2>
                 </div>
@@ -194,7 +194,7 @@ function ConsultationPage() {
                         <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block font-medium">
                           {srv.category}
                         </span>
-                        <span className="font-serif text-sm font-light text-[#1C1917] tracking-wide mt-0.5 block">
+                        <span className="font-display text-xs sm:text-sm font-medium text-[#1C1917] uppercase tracking-[0.10em] mt-0.5 block">
                           {srv.name}
                         </span>
                       </div>
@@ -219,7 +219,7 @@ function ConsultationPage() {
                 <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block mb-1 font-medium">
                   02 / Location &amp; Contact
                 </span>
-                <h2 className="font-serif text-lg md:text-xl font-light text-[#1C1917] uppercase tracking-wider">
+                <h2 className="font-display text-sm md:text-base font-normal text-[#1C1917] uppercase tracking-[0.16em]">
                   Site Details &amp; Client Ledger
                 </h2>
               </div>

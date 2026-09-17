@@ -198,7 +198,7 @@ function ServiceAreasPage() {
                 <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
                   Hub 0{idx + 1}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl font-light text-[#1C1917] uppercase tracking-wide mt-1">
+                <h2 className="sn-h2 text-[#1C1917] mt-1">
                   {hub.city}
                 </h2>
               </div>

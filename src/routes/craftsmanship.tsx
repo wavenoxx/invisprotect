@@ -86,7 +86,7 @@ function CraftsmanshipPage() {
       <section className="max-w-6xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         <div className="text-center mb-12">
           <p className="sn-eyebrow text-[#F37021] font-medium">The Technical Ledger</p>
-          <h2 className="sn-h1 text-[#1C1917] mt-3 mb-2">Materials of Consequence</h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-3 mb-2">Materials of Consequence</h2>
         </div>
 
         {ledger.map((b) => (
@@ -96,7 +96,7 @@ function CraftsmanshipPage() {
           >
             <div>
               <p className="sn-eyebrow text-[#F37021] font-medium">{b.eyebrow}</p>
-              <h3 className="font-serif text-lg md:text-xl font-light text-[#1C1917] uppercase tracking-wider mt-3">
+              <h3 className="font-display text-sm md:text-base font-medium text-[#1C1917] uppercase tracking-[0.16em] mt-2">
                 {b.title}
               </h3>
             </div>
@@ -112,7 +112,7 @@ function CraftsmanshipPage() {
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
             <p className="sn-eyebrow text-[#F37021] font-medium">Tolerances</p>
-            <h2 className="sn-h1 text-[#1C1917] mt-3">Specifications</h2>
+            <h2 className="sn-h2 text-[#1C1917] mt-3">Specifications</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-[#1C1917]/10">
             {specs.map((s) => (
@@ -121,7 +121,7 @@ function CraftsmanshipPage() {
                 className="border-r border-b border-[#1C1917]/10 p-8 text-center bg-white shadow-xs"
               >
                 <p className="sn-eyebrow text-[#F37021] font-medium">{s.label}</p>
-                <p className="font-serif text-2xl md:text-3xl text-[#1C1917] font-light mt-4 tracking-wide">
+                <p className="font-display text-xl md:text-2xl text-[#1C1917] font-light mt-3 tracking-wide">
                   {s.value}
                 </p>
                 <p className="mt-2 text-[11px] font-light text-[#78716C] tracking-wide">{s.note}</p>
@@ -135,7 +135,7 @@ function CraftsmanshipPage() {
       <section className="py-20 md:py-28 border-t border-[#1C1917]/10">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <p className="sn-eyebrow text-[#F37021] font-medium">By Appointment</p>
-          <h2 className="sn-h1 text-[#1C1917] mt-4 mb-4">Inspect Your Space</h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-4 mb-4">Inspect Your Space</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
             A safety advisor will visit your residence, conduct precision site measurements, and
             propose an installation tailored to your architecture.

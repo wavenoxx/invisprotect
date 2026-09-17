@@ -69,8 +69,8 @@ export function SiteNav() {
                 />
               </span>
               <span
-                className="hidden sm:inline text-[12px] sm:text-[13px] font-light tracking-[0.06em]"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                className="hidden sm:inline text-[10.5px] uppercase font-medium tracking-[0.20em]"
+                style={{ fontFamily: "'Jost', system-ui, sans-serif" }}
               >
                 Menu
               </span>
@@ -87,12 +87,11 @@ export function SiteNav() {
               aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
             >
               <span
-                className={`font-serif text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] tracking-[0.22em] sm:tracking-[0.28em] md:tracking-[0.34em] uppercase font-light transition-colors whitespace-nowrap select-none ${
+                className={`font-display text-[13px] sm:text-[15px] md:text-[16px] tracking-[0.28em] sm:tracking-[0.34em] md:tracking-[0.38em] uppercase font-normal transition-colors whitespace-nowrap select-none ${
                   isScrolled
                     ? "text-[#1C1917]"
                     : "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
                 }`}
-                style={{ fontWeight: 300 }}
               >
                 {BRAND_CONFIG.name || "InvisProtect"}
               </span>
@@ -120,8 +119,8 @@ export function SiteNav() {
 
               {/* Desktop View: Clean Text */}
               <span
-                className="hidden sm:inline text-[12px] sm:text-[13px] font-light tracking-[0.06em]"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                className="hidden sm:inline text-[10.5px] uppercase font-medium tracking-[0.20em]"
+                style={{ fontFamily: "'Jost', system-ui, sans-serif" }}
               >
                 Contact us
               </span>

@@ -43,8 +43,7 @@ export function BrandLogo({
   if (variant === "monogram") {
     return (
       <span
-        className={`font-serif text-[16px] sm:text-[18px] tracking-[0.28em] uppercase font-light leading-tight transition-colors ${textColor} ${className}`}
-        style={{ fontWeight: 300 }}
+        className={`font-display text-[13px] sm:text-[15px] tracking-[0.34em] uppercase font-normal leading-tight transition-colors ${textColor} ${className}`}
         aria-label={alt}
       >
         {displayName}
@@ -55,8 +54,7 @@ export function BrandLogo({
   return (
     <div className={`flex flex-col text-left select-none ${className}`} aria-label={alt}>
       <span
-        className={`font-serif text-[16px] sm:text-[18px] tracking-[0.26em] sm:tracking-[0.30em] uppercase font-light leading-tight transition-colors ${textColor}`}
-        style={{ fontWeight: 300 }}
+        className={`font-display text-[13px] sm:text-[15px] tracking-[0.32em] sm:tracking-[0.36em] uppercase font-normal leading-tight transition-colors ${textColor}`}
       >
         {displayName}
       </span>

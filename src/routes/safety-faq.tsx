@@ -119,7 +119,7 @@ function SafetyFaqPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Category 0{secIdx + 1}
             </span>
-            <h2 className="font-serif text-2xl font-light text-[#1C1917] uppercase tracking-wide mt-1 mb-8">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">
               {sec.category}
             </h2>
 
@@ -133,7 +133,7 @@ function SafetyFaqPage() {
                       type="button"
                       onClick={() => toggleItem(key)}
                       aria-expanded={isOpen}
-                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-base md:text-lg font-light text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-sm md:text-base font-normal text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
                     >
                       <span>{faq.q}</span>
                       <span className="text-xl font-light text-[#F37021] shrink-0">
@@ -142,7 +142,7 @@ function SafetyFaqPage() {
                     </button>
 
                     {isOpen && (
-                      <div className="px-6 pb-6 pt-2 text-xs md:text-sm text-[#44403C] font-light leading-relaxed border-t border-[#1C1917]/8 bg-[#FAF8F5]/50">
+                      <div className="px-6 pb-6 pt-2 text-xs md:text-sm text-[#44403C] font-light leading-relaxed border-t border-[#1C1917]/5">
                         {faq.a}
                       </div>
                     )}
@@ -155,7 +155,7 @@ function SafetyFaqPage() {
 
         {/* Still have questions */}
         <div className="text-center pt-8">
-          <h3 className="font-serif text-xl font-light text-[#1C1917] uppercase tracking-wider mb-3">
+          <h3 className="font-display text-sm md:text-base font-normal text-[#1C1917] uppercase tracking-[0.16em] mb-3">
             Have a Specific Architectural Query?
           </h3>
           <p className="text-xs text-[#78716C] font-light mb-6">

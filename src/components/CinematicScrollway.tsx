@@ -174,7 +174,7 @@ export function CinematicScrollway() {
             </span>
 
             {/* Collection / Section Title */}
-            <h2 className="sn-h1 text-white max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] mb-1.5 sm:mb-2 px-2 text-center">
+            <h2 className="sn-h2 text-white max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] mb-2 px-2 text-center">
               {slide.title}
             </h2>
 

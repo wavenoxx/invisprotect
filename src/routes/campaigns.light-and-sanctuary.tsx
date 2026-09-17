@@ -144,7 +144,7 @@ function CampaignOne() {
         <span className="font-sans text-[10px] tracking-[0.25em] text-[#F37021] mb-4 uppercase font-medium block">
           The Edit
         </span>
-        <h1 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-[#1C1917] mb-6 uppercase block">
+        <h1 className="sn-h1 text-[#1C1917] mb-6 block">
           Light &amp; Sanctuary
         </h1>
         <p className="text-[13px] md:text-[14px] leading-relaxed text-[#44403C] font-light max-w-2xl mx-auto">
@@ -160,7 +160,7 @@ function CampaignOne() {
       ))}
 
       <section className="py-24 bg-[#F4EFEA] border-t border-[#1C1917]/10 flex flex-col items-center justify-center text-center px-6">
-        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-[#1C1917] mb-8 uppercase">
+        <h2 className="sn-h2 text-[#1C1917] mb-8">
           Curate Your Sanctuary
         </h2>
         <Link to="/consultation" className="sn-btn-luxury-solid">

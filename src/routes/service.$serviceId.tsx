@@ -284,7 +284,7 @@ function ServicePage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Related Systems
             </span>
-            <h2 className="font-serif text-2xl font-light uppercase tracking-wide mt-1 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1">
               Explore Complementary {category?.title}
             </h2>
           </div>
@@ -306,7 +306,7 @@ function ServicePage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="font-serif text-base font-light text-[#1C1917] uppercase tracking-wide group-hover:text-[#F37021] transition-colors">
+                  <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-[#F37021] transition-colors">
                     {rel.title}
                   </h3>
                   <p className="text-xs text-[#78716C] font-light mt-1 line-clamp-2">

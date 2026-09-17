@@ -128,10 +128,10 @@ function SolutionsExplorer() {
                 Category
               </span>
               <h2
-                className={`font-serif text-2xl font-light text-white mb-6 uppercase block transition-all duration-[1000ms] ease-out transform ${
+                className={`font-display text-base sm:text-lg font-normal text-white mb-5 uppercase block transition-all duration-[1000ms] ease-out transform tracking-[0.20em] ${
                   activeMobileIndex === index
-                    ? "opacity-100 translate-y-0 tracking-[0.1em]"
-                    : "opacity-0 translate-y-6 tracking-[0.05em]"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
                 }`}
               >
                 {col.title}
@@ -191,7 +191,7 @@ function SolutionsExplorer() {
                   >
                     Category
                   </p>
-                  <h2 className="font-serif text-xl tracking-[0.15em] text-white mb-6 uppercase">
+                  <h2 className="font-display text-base md:text-lg tracking-[0.18em] text-white mb-4 uppercase font-normal">
                     {col.title}
                   </h2>
                 </div>

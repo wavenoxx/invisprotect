@@ -27,7 +27,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
               01 / Metallurgy
             </span>
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-3">
+            <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
               AISI 316 Marine Alloy
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
@@ -47,7 +47,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
               02 / Anchoring
             </span>
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-3">
+            <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
               6063-T6 Aluminum Track
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
@@ -67,7 +67,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
               03 / Accountability
             </span>
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-3">
+            <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
               Written Warranty
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
@@ -87,7 +87,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
               04 / Advisory
             </span>
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-3">
+            <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
               Regional Operations
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
@@ -110,7 +110,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Verified Installations
             </span>
-            <h3 className="font-serif text-2xl md:text-3xl font-light text-[#1C1917] uppercase tracking-wide mt-2">
+            <h3 className="sn-h2 text-[#1C1917] mt-2">
               Architectural Sanctuaries in Practice
             </h3>
             <p className="text-xs text-[#78716C] font-light mt-2">

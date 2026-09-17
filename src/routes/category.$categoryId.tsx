@@ -121,7 +121,7 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Curated Catalog
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1">
               Available {cat.title} Configurations
             </h2>
           </div>
@@ -151,8 +151,7 @@ function CategoryPage() {
                   {s.editorialTitle ?? s.category}
                 </span>
                 <h3
-                  className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wide group-hover:text-[#F37021] transition-colors"
-                  style={{ fontWeight: 400 }}
+                  className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-[#F37021] transition-colors"
                 >
                   {s.title}
                 </h3>
@@ -180,7 +179,7 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Authority 01 / Architectural Definition
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-6 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
               System Overview &amp; Function
             </h2>
             <p className="text-sm md:text-base text-[#44403C] font-light leading-relaxed">
@@ -193,7 +192,7 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Authority 02 / Applications
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-6 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
               Where {cat.title} are Specified
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -216,13 +215,13 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Authority 03 / Metallurgy &amp; Chemistry
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-6 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
               Verified Material Standards
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {cat.materials.map((mat) => (
                 <div key={mat.name} className="p-6 border border-[#1C1917]/8 bg-white shadow-sm">
-                  <h3 className="font-serif text-base font-medium text-[#1C1917] uppercase tracking-wider mb-2">
+                  <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
                     {mat.name}
                   </h3>
                   <p className="text-xs text-[#78716C] font-light leading-relaxed">{mat.detail}</p>
@@ -236,7 +235,7 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Authority 04 / Engineering Methodology
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-6 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
               Measurement &amp; Installation Process
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
@@ -260,7 +259,7 @@ function CategoryPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Authority 05 / Maintenance &amp; Scope
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-6 text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
               Care Guidelines &amp; Structural Limits
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
@@ -297,7 +296,7 @@ function CategoryPage() {
               <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
                 Authority 06 / Knowledge Base
               </span>
-              <h2 className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wide mt-1 mb-8 text-[#1C1917]">
+              <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">
                 {cat.title} FAQs
               </h2>
 
@@ -313,7 +312,7 @@ function CategoryPage() {
                         type="button"
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         aria-expanded={isOpen}
-                        className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-base md:text-lg font-light text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
+                        className="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-sm md:text-base font-normal text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
                       >
                         <span>{faq.question}</span>
                         <span className="text-xl font-light text-[#F37021] shrink-0">

@@ -32,7 +32,7 @@ export const Route = createFileRoute("/lp/$landingId")({
         <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
           Campaign page unavailable
         </p>
-        <h1 className="mt-3 font-serif text-4xl font-light">
+        <h1 className="mt-3 sn-h1">
           This landing page could not be found.
         </h1>
         <Link to="/" className="sn-btn-luxury-solid mt-7">
@@ -125,10 +125,10 @@ function PaidLandingPage() {
               <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#F37021]">
                 {landing.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-2xl font-serif text-5xl font-light leading-[0.94] tracking-[-0.02em] text-[#1C1917] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-3 max-w-xl sn-h1 text-[#1C1917]">
                 {landing.headline}
               </h1>
-              <p className="mt-5 max-w-xl text-base leading-7 text-[#57534E]">{landing.summary}</p>
+              <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#57534E] font-light">{landing.summary}</p>
               <ul className="mt-6 space-y-2.5" aria-label="Service highlights">
                 {landing.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2.5 text-sm text-[#44403C]">
@@ -170,7 +170,7 @@ function PaidLandingPage() {
                   <p className="text-[10px] uppercase tracking-[0.25em] text-white/70">
                     Measured for your opening
                   </p>
-                  <p className="mt-2 max-w-sm font-serif text-2xl font-light">
+                  <p className="mt-2 max-w-sm font-display text-lg sm:text-xl font-light">
                     A site survey confirms dimensions, material options, and installation scope.
                   </p>
                 </div>
@@ -184,7 +184,7 @@ function PaidLandingPage() {
             <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
               Why request a survey
             </p>
-            <h2 className="mt-3 max-w-lg font-serif text-4xl font-light leading-tight">
+            <h2 className="mt-2 max-w-lg sn-h2">
               Clear specifications before installation.
             </h2>
             <div className="mt-8 space-y-7">

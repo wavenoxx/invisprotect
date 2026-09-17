@@ -94,10 +94,10 @@ function LifestylePage() {
               </div>
               <div className="px-2 md:px-8">
                 <p className="sn-eyebrow text-[#F37021] font-medium">{p.eyebrow}</p>
-                <h2 className="font-serif uppercase mt-4 text-xl md:text-2xl tracking-wider text-[#1C1917] font-light">
+                <h2 className="font-display uppercase mt-3 text-base md:text-lg tracking-[0.18em] text-[#1C1917] font-normal">
                   {p.title}
                 </h2>
-                <p className="mt-6 text-sm md:text-[15px] leading-relaxed font-light text-[#44403C] tracking-wide">
+                <p className="mt-4 text-sm md:text-[14px] leading-relaxed font-light text-[#44403C] tracking-wide">
                   {p.copy}
                 </p>
               </div>
@@ -110,7 +110,7 @@ function LifestylePage() {
       <section className="py-20 md:py-28 border-t border-[#1C1917]/10 bg-[#F4EFEA]">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <p className="sn-eyebrow text-[#F37021] font-medium">An Invitation</p>
-          <h2 className="sn-h1 text-[#1C1917] mt-4 mb-4">Curate Your Sanctuary</h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-3 mb-3">Curate Your Sanctuary</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
             Begin a private survey of your space. Our advisors will compose a protection plan worthy
             of the home you've built.

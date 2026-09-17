@@ -50,7 +50,7 @@ export function ConsentBanner() {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 mt-1" />
         </div>
 
-        <h3 className="font-serif text-sm font-light text-[#1C1917] uppercase tracking-wider mb-2">
+        <h3 className="font-display text-xs font-medium text-[#1C1917] uppercase tracking-[0.16em] mb-2">
           Your Privacy Choices
         </h3>
 

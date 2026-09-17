@@ -98,7 +98,7 @@ function CampaignThree() {
           <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
             INTERACTIVE EXPERIENCE 01
           </span>
-          <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5 text-[#1C1917]">
+          <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
             THE CELESTIAL SKYDECK
           </h2>
           <p className="font-serif italic text-sm md:text-base text-[#44403C] font-light max-w-xl mx-auto">
@@ -157,7 +157,7 @@ function CampaignThree() {
             <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
               INTERACTIVE EXPERIENCE 02
             </span>
-            <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5 text-[#1C1917]">
+            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
               THE GUARDIAN PROMISE
             </h2>
             <p className="font-serif italic text-sm md:text-base text-[#78716C] font-light max-w-xl mx-auto">
@@ -242,7 +242,7 @@ function CampaignThree() {
             <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
               INTERACTIVE EXPERIENCE 03
             </span>
-            <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5 text-[#1C1917]">
+            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
               THE HORIZON PORTAL
             </h2>
             <p className="font-serif italic text-sm md:text-base text-[#44403C] font-light max-w-xl mx-auto">
@@ -313,7 +313,7 @@ function CampaignThree() {
         <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] mb-4 uppercase font-medium">
           TAILORED PROTECTION
         </span>
-        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-[#1C1917] mb-8 uppercase">
+        <h2 className="sn-h2 text-[#1C1917] mb-8">
           CURATE YOUR VOIDS
         </h2>
         <Link to="/consultation" className="sn-btn-luxury-solid">

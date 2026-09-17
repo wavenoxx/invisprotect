@@ -58,7 +58,7 @@ function WeightlessPavilion() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Curatorial Essay
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-light text-[#1C1917] mt-3 mb-6">
+          <h2 className="sn-h2 text-[#1C1917] mt-3 mb-6">
             The Liberation of Elevated Living
           </h2>
           <div className="space-y-6 text-sm md:text-base font-light text-[#44403C] leading-relaxed">
@@ -82,7 +82,7 @@ function WeightlessPavilion() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <Compass className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-2">
+            <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               01 / Horizon Integrity
             </h3>
             <p className="text-xs text-[#78716C] font-light leading-relaxed">
@@ -93,7 +93,7 @@ function WeightlessPavilion() {
 
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <Ruler className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-2">
+            <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               02 / Wind Aero-Acoustics
             </h3>
             <p className="text-xs text-[#78716C] font-light leading-relaxed">
@@ -104,7 +104,7 @@ function WeightlessPavilion() {
 
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <ShieldCheck className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
-            <h3 className="font-serif text-lg font-light text-[#1C1917] uppercase tracking-wider mb-2">
+            <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               03 / Emergency Egress
             </h3>
             <p className="text-xs text-[#78716C] font-light leading-relaxed">
@@ -117,7 +117,7 @@ function WeightlessPavilion() {
         {/* Action Card */}
         <div className="p-8 sm:p-12 bg-white border border-[#1C1917]/10 text-center shadow-lg">
           <p className="sn-eyebrow text-[#F37021] mb-3">Architectural Advisory</p>
-          <h3 className="font-serif text-2xl md:text-3xl font-light text-[#1C1917] mb-4">
+          <h3 className="sn-h2 text-[#1C1917] mb-3">
             Commission a Private Balcony Evaluation
           </h3>
           <p className="text-xs md:text-sm font-light text-[#78716C] max-w-xl mx-auto mb-8">

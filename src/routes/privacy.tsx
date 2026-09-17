@@ -46,7 +46,7 @@ function PrivacyPage() {
         <article className="space-y-12 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           {/* 1. Introduction */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               01. Philosophy of Privacy
             </h2>
             <p>
@@ -61,7 +61,7 @@ function PrivacyPage() {
 
           {/* 2. Categories of Data Collected */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               02. Categories of Information We Collect
             </h2>
             <p>We strictly collect only the data necessary to fulfill your site survey request:</p>
@@ -96,7 +96,7 @@ function PrivacyPage() {
 
           {/* 3. Third-Party Processors */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               03. Disclosed Third-Party Processors
             </h2>
             <p>
@@ -136,7 +136,7 @@ function PrivacyPage() {
 
           {/* 4. Purpose of Processing */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               04. Purpose &amp; Lawful Basis of Processing
             </h2>
             <p>We process your personal information based on:</p>
@@ -161,7 +161,7 @@ function PrivacyPage() {
 
           {/* 5. Retention & Erasure */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               05. Data Retention &amp; Security
             </h2>
             <p>
@@ -178,7 +178,7 @@ function PrivacyPage() {
 
           {/* 6. Your Rights & Contact */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base font-serif uppercase tracking-wider font-medium text-[#1C1917]">
+            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
               06. Access, Correction, Erasure &amp; Withdrawal
             </h2>
             <p>You maintain the right to:</p>

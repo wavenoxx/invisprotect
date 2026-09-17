@@ -140,7 +140,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
         <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#F37021]">
           Request received
         </p>
-        <h2 className="mt-2 font-serif text-3xl font-light text-[#1C1917]">
+        <h2 className="mt-2 sn-h2 text-[#1C1917]">
           Your site survey is registered.
         </h2>
         <p className="mt-3 text-sm leading-6 text-[#57534E]">
@@ -190,7 +190,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
       <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#F37021]">
         Request a site survey
       </p>
-      <h2 className="mt-2 font-serif text-3xl font-light text-[#1C1917]">
+      <h2 className="mt-2 sn-h2 text-[#1C1917]">
         Tell us where you need protection.
       </h2>
       <p className="mt-2 text-sm text-[#78716C]">{landing.serviceName} is already selected.</p>

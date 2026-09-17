@@ -51,7 +51,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 01 / Invisible Grills
           </span>
-          <h2 className="font-serif text-2xl font-light text-[#1C1917] uppercase tracking-wider mt-2 mb-6">
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
             Invisible Grills Maintenance Protocol
           </h2>
           <div className="space-y-4 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
@@ -88,7 +88,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 02 / Renovation Guidelines
           </span>
-          <h2 className="font-serif text-2xl font-light text-[#1C1917] uppercase tracking-wider mt-2 mb-6">
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
             Building Exterior Painting &amp; Civil Work
           </h2>
           <p className="text-xs md:text-sm text-[#44403C] font-light leading-relaxed mb-6">
@@ -131,7 +131,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 03 / Balcony Safety Nets
           </span>
-          <h2 className="font-serif text-2xl font-light text-[#1C1917] uppercase tracking-wider mt-2 mb-6">
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
             Balcony &amp; Window Netting Care
           </h2>
           <div className="space-y-4 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
@@ -166,7 +166,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 04 / Professional Services
           </span>
-          <h2 className="font-serif text-2xl font-light text-[#1C1917] uppercase tracking-wider mt-2 mb-6">
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
             Professional Inspection &amp; Retensioning
           </h2>
           <p className="text-xs md:text-sm text-[#44403C] font-light leading-relaxed mb-8">

@@ -239,7 +239,7 @@ function StoryPage() {
 
                 {/* Chapter / Phase Title */}
                 <h2
-                  className={`font-serif uppercase text-xl sm:text-2xl font-light text-center mt-1.5 tracking-[0.18em] ${
+                  className={`font-display uppercase text-base sm:text-lg font-normal text-center mt-1.5 tracking-[0.22em] ${
                     phase.dark ? "text-white" : "text-[#1C1917]"
                   }`}
                 >
@@ -267,7 +267,7 @@ function StoryPage() {
               <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
                 Atelier Heritage &amp; Ethos
               </span>
-              <h2 className="font-serif uppercase text-2xl sm:text-3xl md:text-4xl font-light text-center text-white tracking-[0.16em]">
+              <h2 className="sn-h1 text-white text-center">
                 The Foundry of Transparency
               </h2>
               <p className="text-xs sm:text-sm text-[#E7E5E4] text-center font-light mt-4 mb-6 leading-relaxed max-w-lg">
