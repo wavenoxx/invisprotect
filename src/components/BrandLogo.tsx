@@ -16,6 +16,7 @@ export function BrandMark(_props?: BrandMarkProps) {
 interface BrandLogoProps {
   className?: string;
   variant?: "monogram" | "full" | "horizontal";
+  align?: "left" | "center";
   isDark?: boolean;
   color?: string;
   goldColor?: string;
@@ -29,6 +30,7 @@ interface BrandLogoProps {
 export function BrandLogo({
   className = "",
   variant = "full",
+  align = "left",
   isDark = true,
   color,
   alt = BRAND_CONFIG.name || "InvisProtect",
@@ -39,6 +41,10 @@ export function BrandLogo({
   const subColor = effectiveIsDark ? "text-[#78716C]" : "text-[#A8A29E]";
 
   const displayName = BRAND_CONFIG.name || "InvisProtect";
+
+  const isCenter =
+    align === "center" || className.includes("text-center") || className.includes("items-center");
+  const alignmentClass = isCenter ? "items-center text-center" : "items-start text-left";
 
   if (variant === "monogram") {
     return (
@@ -52,7 +58,7 @@ export function BrandLogo({
   }
 
   return (
-    <div className={`flex flex-col text-left select-none ${className}`} aria-label={alt}>
+    <div className={`flex flex-col select-none ${alignmentClass} ${className}`} aria-label={alt}>
       <span
         className={`font-display text-[13px] sm:text-[15px] tracking-[0.32em] sm:tracking-[0.36em] uppercase font-normal leading-tight transition-colors ${textColor}`}
       >

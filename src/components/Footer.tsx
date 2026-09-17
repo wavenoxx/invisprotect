@@ -10,11 +10,36 @@ export function Footer() {
   return (
     <footer className="bg-[#1C1917] border-t border-[#1C1917] text-[#FAF8F5] select-none">
       {/* BRAND HEADER */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-6 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <BrandLogo variant="horizontal" color="#FAF8F5" goldColor="#C5A880" />
-        <span className="text-[10px] tracking-[0.3em] uppercase text-[#A8A29E] font-light">
-          Architectural Safety Atelier
-        </span>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-6 border-b border-white/10">
+        {/* Desktop Layout: Left BrandLogo, Right Atelier Tagline */}
+        <div className="hidden sm:flex items-center justify-between w-full">
+          <BrandLogo variant="horizontal" color="#FAF8F5" goldColor="#C5A880" />
+          <span
+            className="text-[10px] tracking-[0.3em] uppercase text-[#A8A29E] font-light"
+            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+          >
+            Architectural Safety Atelier
+          </span>
+        </div>
+
+        {/* Mobile Layout: Symmetrical Maison Centered Lockup */}
+        <div className="sm:hidden flex flex-col items-center text-center">
+          <span className="font-display text-[14px] tracking-[0.36em] uppercase font-normal text-[#FAF8F5]">
+            {BRAND_CONFIG.name || "InvisProtect"}
+          </span>
+          <span
+            className="text-[9.5px] tracking-[0.28em] uppercase text-[#A8A29E] font-light mt-1.5"
+            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+          >
+            Architectural Safety Atelier
+          </span>
+          <span
+            className="text-[8px] tracking-[0.22em] uppercase text-[#78716C] font-light mt-1"
+            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+          >
+            Invisible Grills &amp; Safety Nets
+          </span>
+        </div>
       </div>
 
       {/* SECTION 1: 4-COLUMN LINK GRID */}
@@ -29,7 +54,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
-                color: "#F37021",
+                color: "#FAF8F5",
               }}
             >
               Services
@@ -69,7 +94,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
-                color: "#F37021",
+                color: "#FAF8F5",
               }}
             >
               Customer Care
@@ -152,7 +177,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
-                color: "#F37021",
+                color: "#FAF8F5",
               }}
             >
               The {BRAND_CONFIG.name ? `${BRAND_CONFIG.name} House` : "Atelier House"}
@@ -221,7 +246,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
-                color: "#F37021",
+                color: "#FAF8F5",
               }}
             >
               Legal &amp; Index
@@ -284,7 +309,7 @@ export function Footer() {
                   fontSize: "11px",
                   fontWeight: 500,
                   letterSpacing: "0.25em",
-                  color: "#F37021",
+                  color: "#FAF8F5",
                 }}
               >
                 Client Service &amp; Site Surveys
@@ -380,7 +405,7 @@ export function Footer() {
                   className="absolute bottom-full left-0 mb-2 w-80 bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
-                  <p className="font-medium text-[#FAF8F5] text-[11px] uppercase tracking-wider text-[#F37021]">
+                  <p className="font-medium text-[11px] uppercase tracking-wider text-[#F37021]">
                     Operational Hubs (7 Cities)
                   </p>
                   <p>• Telangana: Hyderabad &amp; Secunderabad, Warangal, Hanamkonda</p>
