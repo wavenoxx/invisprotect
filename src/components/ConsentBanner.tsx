@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 import { readStoredConsent, updateGoogleConsent } from "@/lib/consent";
+import { clearPersistedAttribution, persistCurrentAttribution } from "@/lib/attribution";
 
 export function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,11 +22,13 @@ export function ConsentBanner() {
 
   const handleAcceptAll = () => {
     updateGoogleConsent(true);
+    persistCurrentAttribution();
     setIsVisible(false);
   };
 
   const handleEssentialOnly = () => {
     updateGoogleConsent(false);
+    clearPersistedAttribution();
     setIsVisible(false);
   };
 

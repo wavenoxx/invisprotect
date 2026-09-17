@@ -1,3 +1,5 @@
+import type { ServiceId } from "./serviceIds";
+
 export interface ServiceDetail {
   id: string;
   title: string;
@@ -775,4 +777,4 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Warranty Terms", value: "2-Year Mechanism Warranty" },
     ],
   },
-};
+} satisfies Record<ServiceId, ServiceDetail>;

@@ -8,6 +8,7 @@ import { trackConsultationLead, trackEngagement } from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
 import { buildMetaTags } from "@/lib/seo";
 import { Check, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import type { ServiceId } from "@/data/serviceIds";
 
 export const Route = createFileRoute("/consultation")({
   head: () =>
@@ -21,7 +22,7 @@ export const Route = createFileRoute("/consultation")({
 });
 
 interface ServiceOption {
-  id: string;
+  id: ServiceId;
   name: string;
   category: string;
 }
@@ -46,7 +47,7 @@ const SERVICE_OPTIONS: ServiceOption[] = [
   { id: "balcony-safety-nets", name: "Balcony Safety Nets", category: "Core Safety Nets" },
   { id: "children-safety-nets", name: "Children Safety Nets", category: "Core Safety Nets" },
   { id: "pigeon-safety-nets", name: "Pigeon Protection Nets", category: "Bird Protection" },
-  { id: "stainless-steel-bird-spikes", name: "Stainless Bird Spikes", category: "Bird Protection" },
+  { id: "pigeons-bird-spikes", name: "Stainless Bird Spikes", category: "Bird Protection" },
   { id: "construction-safety-nets", name: "Industrial & Debris Nets", category: "Specialty" },
   { id: "sports-practice-nets", name: "Sports Practice Nets", category: "Specialty" },
 ];
@@ -55,7 +56,7 @@ function ConsultationPage() {
   const navigate = useNavigate();
 
   // Form State
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [selectedServices, setSelectedServices] = useState<ServiceId[]>([]);
   const [pincode, setPincode] = useState("");
   const [localityCity, setLocalityCity] = useState("");
   const [phone, setPhone] = useState("");
@@ -89,7 +90,7 @@ function ConsultationPage() {
     }
   }, []);
 
-  const toggleService = (id: string) => {
+  const toggleService = (id: ServiceId) => {
     setSelectedServices((prev) =>
       prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
     );

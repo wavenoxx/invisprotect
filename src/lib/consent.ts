@@ -32,6 +32,11 @@ export function readStoredConsent(): ConsentState | null {
   }
 }
 
+export function hasMeasurementConsent(): boolean {
+  const consent = readStoredConsent();
+  return Boolean(consent && consentKeys.every((key) => consent[key] === "granted"));
+}
+
 export function updateGoogleConsent(granted: boolean) {
   if (typeof window === "undefined") return;
   const state = granted ? "granted" : "denied";

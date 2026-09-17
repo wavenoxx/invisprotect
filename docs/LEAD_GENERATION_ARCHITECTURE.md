@@ -23,9 +23,9 @@ Add another campaign by adding one typed configuration entry. Reuse approved ser
 6. The database function takes a transaction-scoped advisory lock for the normalized phone, checks the preceding ten minutes, and inserts the lead with status `new` only when no recent row exists. This closes the concurrent-request gap across server instances.
 7. The browser receives a real lead UUID and displays a reference.
 8. Only then does the browser emit `consultation_submission` and the configured Google Ads primary conversion.
-9. The server starts the optional owner WhatsApp notification. Notification failure does not roll back or invalidate the lead.
+9. The server registers the optional owner WhatsApp notification with the request runtime's `waitUntil` facility. If that facility is unavailable, the server awaits the same four-second-bounded attempt. Notification failure does not roll back or invalidate the lead.
 
-If storage is blocked, attribution capture returns available query parameters in memory and the lead can still be submitted.
+Before optional measurement consent, attribution remains only in bounded module memory for the current SPA session. It still reaches a lead submitted during that session. `Essential Only` does not write attribution identifiers to persistent browser storage and removes any prior persisted attribution record. `Accept All` permits the current attribution state to be saved in `localStorage` for later navigation. If storage is blocked, the in-memory path still works and lead submission continues.
 
 ## 3. Google Ads and Consent Mode
 
@@ -51,6 +51,8 @@ The following fields are retained from first arrival through submission:
 - `form_variant`
 
 The original landing URL and referrer are kept once captured. Later internal navigation does not overwrite them. Current URL campaign parameters can refresh individual campaign/click fields while the original landing remains stable.
+
+Persistent attribution storage is consent-gated. No attribution cookies are created.
 
 ## 5. Environment configuration
 
@@ -117,7 +119,7 @@ The lifecycle migration adds stage timestamps and a trigger-maintained `consulta
 
 ## 7. Owner notifications
 
-After persistence, the server formats a notification with lead ID, customer, phone, service, locality/city, pincode, source, medium, campaign, original landing URL, paid landing ID, form variant, and whether a Google Ads click ID is present. API secrets are never included. Missing configuration or Meta API failure is logged server-side and does not change the successful lead response.
+After persistence, the server formats a notification with lead ID, customer, phone, service, locality/city, pincode, source, medium, campaign, original landing URL, paid landing ID, form variant, and whether a Google Ads click ID is present. API secrets are never included. The installed TanStack Start/H3/Nitro stack exposes the runtime request's `waitUntil` extension, which Nitro maps to Cloudflare's execution context for the default deployment preset. The task is registered before returning success. On a runtime without that extension, the response waits for the same notification attempt, whose network request aborts after four seconds. Missing configuration, timeout, or Meta API failure is logged without response bodies, tokens, customer details, or raw network errors and never changes the persisted lead result.
 
 ## 8. Future offline conversion readiness
 

@@ -1,6 +1,8 @@
+import type { ServiceId } from "./serviceIds";
+
 export interface PaidLandingPageConfig {
   id: string;
-  serviceId: string;
+  serviceId: ServiceId;
   serviceName: string;
   city: string;
   eyebrow: string;

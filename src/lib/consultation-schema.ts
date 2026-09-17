@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isApprovedServiceId } from "../data/serviceIds.ts";
 
 export function normalizeIndianPhone(value: string): string | null {
   const digits = value.replace(/\D/g, "");
@@ -16,7 +17,16 @@ export const ConsultationInputSchema = z.object({
     .string()
     .trim()
     .regex(/^[1-9]\d{5}$/, "Please enter a valid 6-digit pincode"),
-  services: z.array(z.string().trim().min(1)).min(1, "Select at least one safety solution").max(10),
+  services: z
+    .array(
+      z
+        .string()
+        .trim()
+        .min(1)
+        .refine(isApprovedServiceId, "Select a recognized InvisProtect safety solution"),
+    )
+    .min(1, "Select at least one safety solution")
+    .max(10),
   notes: z.string().trim().max(1000).optional(),
   contact_consent: z.literal(true, { message: "Please agree to be contacted about this request" }),
   consent_version: z.string().trim().min(1).max(40).default("v2-2026"),

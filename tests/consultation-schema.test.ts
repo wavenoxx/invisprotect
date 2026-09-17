@@ -27,4 +27,9 @@ test("paid lead input requires explicit contact consent and a six-digit pincode"
     false,
   );
   assert.equal(ConsultationInputSchema.safeParse({ ...base, pincode: "5000" }).success, false);
+  assert.equal(
+    ConsultationInputSchema.safeParse({ ...base, services: ["not-an-invisprotect-service"] })
+      .success,
+    false,
+  );
 });

@@ -5,6 +5,7 @@ import {
   normalizeIndianPhone,
   type ConsultationInput,
 } from "@/lib/consultation-schema";
+import { registerOrAwaitTask, type WaitUntil } from "@/server/request-lifetime";
 
 // Rate limiting state: in-memory map per phone digits
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -112,8 +113,10 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
 
       const leadId = insertionResult.lead_id;
 
-      // 4. Trigger the server-side owner notification without changing lead success.
-      notifyOwnerWhatsApp({
+      // 4. Register the bounded notification task with the request runtime. Nitro's
+      // Cloudflare adapter maps Request.waitUntil to ExecutionContext.waitUntil.
+      // Other targets without that extension await the same task before responding.
+      const notificationTask = notifyOwnerWhatsApp({
         leadId,
         customerName: data.name.trim(),
         mobileNumber: formattedPhone,
@@ -131,10 +134,20 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
         wbraid: data.wbraid,
         gbraid: data.gbraid,
         createdAt: now,
-      }).catch((err) => {
-        const message = err instanceof Error ? err.message : "Unknown notification failure";
-        console.info("[Consultation] Background notification note:", message);
+      }).catch(() => {
+        console.error("[Consultation] Owner notification failed after lead persistence.");
       });
+
+      let waitUntil: WaitUntil | undefined;
+      try {
+        const { getRequest } = await import("@tanstack/react-start/server");
+        const request = getRequest() as Request & { waitUntil?: WaitUntil };
+        waitUntil =
+          typeof request.waitUntil === "function" ? request.waitUntil.bind(request) : undefined;
+      } catch {
+        console.info("[Consultation] Request deferral unavailable; awaiting notification attempt.");
+      }
+      await registerOrAwaitTask(notificationTask, waitUntil);
 
       return {
         success: true,

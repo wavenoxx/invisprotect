@@ -81,8 +81,9 @@ function PrivacyPage() {
                   Measurement &amp; Attribution Identifiers:
                 </strong>{" "}
                 Technical identifiers (such as Google Click ID / GCLID, WBRAID, GBRAID, and campaign
-                UTM parameters) captured during website entry to accurately measure ad channel
-                efficiency without collecting personal identity.
+                UTM parameters) held in memory during the current visit and included with a site
+                survey request to identify its source. Persistent browser storage is used only after
+                optional measurement consent is granted.
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">Technical Log Data:</strong> IP
@@ -152,8 +153,8 @@ function PrivacyPage() {
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">Explicit Consent:</strong> Processing
-                optional advertising and analytics cookies in accordance with your Consent Banner
-                selection.
+                optional advertising and analytics measurement and browser storage in accordance
+                with your Consent Banner selection.
               </li>
             </ul>
           </section>

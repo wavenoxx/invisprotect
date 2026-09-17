@@ -35,6 +35,8 @@ export interface NotificationResult {
   error?: string;
 }
 
+const NOTIFICATION_TIMEOUT_MS = 4_000;
+
 export async function notifyOwnerWhatsApp(
   payload: LeadNotificationPayload,
 ): Promise<NotificationResult> {
@@ -104,6 +106,9 @@ export async function notifyOwnerWhatsApp(
     .filter((line) => line !== null)
     .join("\n");
 
+  const abortController = new AbortController();
+  const timeout = setTimeout(() => abortController.abort(), NOTIFICATION_TIMEOUT_MS);
+
   try {
     const response = await fetch(`https://graph.facebook.com/v21.0/${phoneNumberId}/messages`, {
       method: "POST",
@@ -121,6 +126,7 @@ export async function notifyOwnerWhatsApp(
           body: messageBody,
         },
       }),
+      signal: abortController.signal,
     });
 
     if (!response.ok) {
@@ -138,19 +144,20 @@ export async function notifyOwnerWhatsApp(
     const data = (await response.json()) as { messages?: Array<{ id: string }> };
     const messageId = data.messages?.[0]?.id;
 
-    console.info(`[WhatsApp Adapter] Lead notification sent successfully (ID: ${messageId})`);
+    console.info("[WhatsApp Adapter] Lead notification sent successfully.");
     return {
       success: true,
       status: "dispatched",
       messageId,
     };
   } catch (err) {
-    const errMessage = err instanceof Error ? err.message : String(err);
-    console.error(`[WhatsApp Adapter] Network or dispatch error: ${errMessage}`);
+    console.error("[WhatsApp Adapter] Network failure or notification timeout.");
     return {
       success: false,
       status: "failed",
-      error: errMessage,
+      error: "Notification request failed or timed out",
     };
+  } finally {
+    clearTimeout(timeout);
   }
 }

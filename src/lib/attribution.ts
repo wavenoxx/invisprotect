@@ -1,3 +1,5 @@
+import { hasMeasurementConsent } from "./consent.ts";
+
 export interface AttributionData {
   gclid?: string;
   wbraid?: string;
@@ -17,7 +19,7 @@ export interface AttributionData {
   captured_at?: string;
 }
 
-const STORAGE_KEY = "attribution_data";
+export const ATTRIBUTION_STORAGE_KEY = "attribution_data";
 let memoryAttribution: AttributionData = {};
 
 function boundedString(value: unknown, maxLength: number): string | undefined {
@@ -108,19 +110,19 @@ export function captureAttribution(): AttributionData {
   };
   memoryAttribution = current;
 
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
-  } catch {
-    // Attribution must never block a lead when storage is unavailable.
-  }
+  persistCurrentAttribution();
 
   return current;
 }
 
 export function getStoredAttribution(): AttributionData {
   if (typeof window === "undefined") return {};
+  if (!hasMeasurementConsent()) {
+    clearPersistedAttribution();
+    return memoryAttribution;
+  }
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(ATTRIBUTION_STORAGE_KEY);
     if (!raw) return memoryAttribution;
     const parsed = JSON.parse(raw);
     const normalized = normalizeAttribution(parsed);
@@ -128,5 +130,26 @@ export function getStoredAttribution(): AttributionData {
     return normalized;
   } catch {
     return memoryAttribution;
+  }
+}
+
+export function persistCurrentAttribution(): boolean {
+  if (typeof window === "undefined" || !hasMeasurementConsent()) return false;
+  if (Object.keys(memoryAttribution).length === 0) return false;
+  try {
+    localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(memoryAttribution));
+    return true;
+  } catch {
+    // Attribution must never block a lead when storage is unavailable.
+    return false;
+  }
+}
+
+export function clearPersistedAttribution(): void {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem(ATTRIBUTION_STORAGE_KEY);
+  } catch {
+    // Keep the in-memory copy so the current lead can still retain its source.
   }
 }
