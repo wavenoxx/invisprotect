@@ -183,26 +183,26 @@
 .sn-brand-title {
   font-family: "Cormorant Garamond", Georgia, serif !important;
   font-weight: 300 !important;
-  letter-spacing: 0.22em !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
-  font-size: clamp(0.75rem, 3vw, 1.4rem) !important;
-  line-height: 1.25 !important;
+  font-size: clamp(1.85rem, 4.2vw, 3.25rem) !important;
+  line-height: 1.2 !important;
 }
 
 .sn-eyebrow {
   font-family: "Inter", system-ui, sans-serif !important;
-  font-weight: 400 !important;
-  font-size: clamp(7px, 1.5vw, 9px) !important;
-  letter-spacing: 0.32em !important;
+  font-weight: 500 !important;
+  font-size: clamp(10px, 1.1vw, 12px) !important;
+  letter-spacing: 0.26em !important;
   text-transform: uppercase !important;
 }
 
 .sn-subtext {
   font-family: "Inter", system-ui, sans-serif !important;
   font-weight: 300 !important;
-  font-size: clamp(8px, 1.9vw, 11px) !important;
-  letter-spacing: 0.04em !important;
-  line-height: 1.55 !important;
+  font-size: clamp(13px, 1.3vw, 16px) !important;
+  letter-spacing: 0.03em !important;
+  line-height: 1.65 !important;
 }
 
 /* Hermès Outlined Luxury Button */
@@ -210,21 +210,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background-color: rgba(28, 25, 23, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
-  padding: 0.35rem 1.15rem;
+  padding: 0.7rem 1.75rem;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: clamp(7px, 1.5vw, 8.5px);
-  font-weight: 400;
-  letter-spacing: 0.25em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   transition:
     border-color 200ms ease,
     background-color 200ms ease,
     color 200ms ease,
     box-shadow 200ms ease;
-  min-height: 28px;
+  min-height: 44px;
 }
 
 .sn-btn-luxury:hover {
@@ -242,17 +244,17 @@
   border: 1px solid rgba(28, 25, 23, 0.25);
   background-color: transparent;
   color: #1c1917;
-  padding: 0.5rem 1.4rem;
+  padding: 0.7rem 1.75rem;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.25em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   transition:
     border-color 200ms ease,
     background-color 200ms ease,
     color 200ms ease;
-  min-height: 38px;
+  min-height: 44px;
 }
 
 .sn-btn-luxury-dark:hover {
@@ -271,18 +273,18 @@
   border: 1px solid #f37021;
   background-color: #f37021;
   color: #ffffff;
-  padding: 0.65rem 1.85rem;
+  padding: 0.7rem 1.85rem;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   transition:
     border-color 200ms ease,
     background-color 200ms ease,
     color 200ms ease,
     box-shadow 200ms ease;
-  min-height: 42px;
+  min-height: 44px;
   box-shadow: 0 2px 10px rgba(243, 112, 33, 0.22);
 }
 

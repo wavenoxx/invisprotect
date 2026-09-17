@@ -260,22 +260,45 @@ function StoryPage() {
           );
         })}
 
-        {/* Midnight Below: Curate Your Sanctuary Liquid Glass Box */}
-        <section className="w-screen min-h-screen snap-start relative flex flex-col items-center justify-between overflow-hidden bg-transparent">
-          <div className="flex-1 flex items-center justify-center w-full pt-28 pb-12 px-6">
-            <div className="border border-white/30 bg-[#1C1917]/40 backdrop-blur-2xl backdrop-saturate-150 p-8 sm:p-10 md:p-14 w-full max-w-sm sm:max-w-md flex flex-col items-center text-center shadow-[0_16px_48px_rgba(0,0,0,0.5)]">
+        {/* Atelier Heritage & Manifesto Section */}
+        <section className="w-screen min-h-screen snap-start relative flex flex-col items-center justify-between overflow-y-auto bg-transparent">
+          <div className="flex-1 flex items-center justify-center w-full pt-28 pb-16 px-6">
+            <div className="border border-white/20 bg-[#1C1917]/75 backdrop-blur-2xl backdrop-saturate-150 p-8 sm:p-12 md:p-16 w-full max-w-2xl flex flex-col items-center text-center shadow-[0_24px_64px_rgba(0,0,0,0.6)]">
               <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
-                Genesis of Serenity
+                Atelier Heritage &amp; Ethos
               </span>
-              <h3 className="font-serif uppercase text-2xl font-light text-center text-white tracking-[0.18em]">
-                Curate Your Sanctuary
-              </h3>
-              <p className="text-xs text-[#E7E5E4] text-center font-light mt-3 mb-8 leading-relaxed max-w-xs">
-                From dawn to midnight, preserve your sanctuary with invisible architectural grace.
+              <h2 className="font-serif uppercase text-2xl sm:text-3xl md:text-4xl font-light text-center text-white tracking-[0.16em]">
+                The Foundry of Transparency
+              </h2>
+              <p className="text-xs sm:text-sm text-[#E7E5E4] text-center font-light mt-4 mb-6 leading-relaxed max-w-lg">
+                InvisProtect was conceived with a singular architectural mission: to liberate homes across Telangana and Andhra Pradesh from the prison of heavy iron grilles without sacrificing a millimeter of family safety.
               </p>
-              <Link to="/consultation" className="sn-btn-luxury-solid focus-ring">
-                Request Survey
-              </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left w-full my-6 border-y border-white/10 py-6">
+                <div>
+                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-[#F37021] mb-1">
+                    Master Certified Installers
+                  </h4>
+                  <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
+                    Zero third-party subcontractors. Every cable is laser-aligned and mechanically tension-locked by our in-house specialists.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-[#F37021] mb-1">
+                    Regional Provenance
+                  </h4>
+                  <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
+                    Rooted in Hyderabad, Visakhapatnam, and Vijayawada—metallurgically calibrated for coastal salt air and high-rise thermal winds.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
+                <Link to="/consultation" className="sn-btn-luxury-solid w-full sm:w-auto focus-ring">
+                  Request Site Survey
+                </Link>
+                <Link to="/solutions" className="sn-btn-luxury w-full sm:w-auto focus-ring">
+                  Explore Solutions
+                </Link>
+              </div>
             </div>
           </div>
           <div className="w-full relative z-20">

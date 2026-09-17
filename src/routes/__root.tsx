@@ -78,15 +78,49 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
   name: BRAND_CONFIG.name || "InvisProtect",
   ...(BRAND_CONFIG.legalName ? { legalName: BRAND_CONFIG.legalName } : {}),
   description: BRAND_CONFIG.description,
+  priceRange: "₹₹₹",
+  currenciesAccepted: "INR",
+  paymentAccepted: "Cash, Credit Card, UPI, Bank Transfer",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "08:00",
+      closes: "20:00",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Hyderabad",
     addressRegion: "Telangana & Andhra Pradesh",
     addressCountry: "IN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 17.385,
+    longitude: 78.4867,
+  },
+  areaServed: [
+    { "@type": "City", name: "Hyderabad" },
+    { "@type": "City", name: "Visakhapatnam" },
+    { "@type": "City", name: "Vijayawada" },
+    { "@type": "City", name: "Amaravati" },
+    { "@type": "City", name: "Tirupati" },
+    { "@type": "City", name: "Warangal" },
+    { "@type": "City", name: "Hanamkonda" },
+  ],
   ...(BRAND_CONFIG.domain
     ? {
         url: BRAND_CONFIG.domain,
@@ -95,6 +129,7 @@ const organizationSchema = {
     : {}),
   ...(BRAND_CONFIG.contact.enabled && BRAND_CONFIG.contact.phoneDial
     ? {
+        telephone: BRAND_CONFIG.contact.phoneDial,
         contactPoint: {
           "@type": "ContactPoint",
           telephone: BRAND_CONFIG.contact.phoneDial,
