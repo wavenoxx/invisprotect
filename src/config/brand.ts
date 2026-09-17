@@ -37,7 +37,7 @@ const envBrandName =
   DEFAULT_BRAND_NAME;
 
 export const BRAND_CONFIG: BrandConfig = {
-  status: "pending",
+  status: "active",
   name: envBrandName || DEFAULT_BRAND_NAME,
   legalName: "",
   tagline: "Architectural Invisible Grills & Safety Solutions",
@@ -49,18 +49,18 @@ export const BRAND_CONFIG: BrandConfig = {
     : "invisprotect.in",
 
   contact: {
-    enabled: false,
-    phoneDisplay: "",
-    phoneDial: "",
-    whatsappDisplay: "",
-    whatsappDial: "",
-    whatsappLink: "",
-    email: "",
+    enabled: true,
+    phoneDisplay: "8977555232",
+    phoneDial: "+918977555232",
+    whatsappDisplay: "7075870054",
+    whatsappDial: "917075870054",
+    whatsappLink: "https://wa.me/917075870054",
+    email: "invisprotect@gmail.com",
     address:
       "Operational Hubs: Telangana & Andhra Pradesh (Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, Hanamkonda)",
   },
 
   socials: {
-    whatsappLink: "",
+    whatsappLink: "https://wa.me/917075870054",
   },
 };
