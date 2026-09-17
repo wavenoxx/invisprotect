@@ -1,4 +1,3 @@
-import { Phone } from "lucide-react";
 import { BRAND_CONFIG } from "@/config/brand";
 import { trackEngagement } from "@/lib/analytics";
 
@@ -12,6 +11,23 @@ function trackDockEngagement(action: ContactAction) {
   }
 }
 
+function PhoneIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.35"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="m7.1 3.75 2.2-.55c.45-.11.91.13 1.1.56l1.15 2.74c.17.4.07.87-.26 1.15L9.8 8.95a12.2 12.2 0 0 0 5.24 5.24l1.29-1.5c.28-.33.75-.43 1.15-.26l2.74 1.15c.43.18.67.65.56 1.1l-.55 2.2a2.35 2.35 0 0 1-2.29 1.8c-6.98 0-12.62-5.64-12.62-12.62a2.35 2.35 0 0 1 1.78-2.31Z" />
+    </svg>
+  );
+}
+
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -19,7 +35,7 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.45"
+      strokeWidth="1.35"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
@@ -31,10 +47,7 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 }
 
 const glassActionClass =
-  "group relative flex h-11 w-11 overflow-hidden rounded-full border border-white/30 bg-[linear-gradient(145deg,rgba(87,83,78,0.42),rgba(28,25,23,0.25))] text-[#FAF8F5] shadow-[0_7px_22px_rgba(12,10,8,0.13),inset_0_1px_0_rgba(255,255,255,0.38),inset_0_-1px_0_rgba(0,0,0,0.12)] backdrop-blur-[18px] transition-[width,transform,border-color,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] after:pointer-events-none after:absolute after:inset-px after:rounded-full after:border after:border-white/10 after:content-[''] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent md:hover:-translate-y-0.5 md:hover:scale-[1.03] md:hover:border-white/48 md:hover:bg-[linear-gradient(145deg,rgba(105,100,94,0.48),rgba(28,25,23,0.3))] md:hover:shadow-[0_9px_26px_rgba(12,10,8,0.16),inset_0_1px_0_rgba(255,255,255,0.48),inset_0_-1px_0_rgba(0,0,0,0.1)]";
-
-const glassLabelClass =
-  "pointer-events-none relative z-10 hidden max-w-0 translate-y-px overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] md:block md:group-focus-visible:max-w-[92px] md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100 md:group-hover:max-w-[92px] md:group-hover:translate-y-0 md:group-hover:opacity-100";
+  "group relative flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-0.5 before:rounded-full before:border before:border-white/38 before:bg-[linear-gradient(145deg,rgba(255,255,255,0.24),rgba(120,113,108,0.16)_46%,rgba(28,25,23,0.24))] before:shadow-[0_6px_18px_rgba(12,10,8,0.15),inset_0_1px_0_rgba(255,255,255,0.42),inset_0_-1px_0_rgba(0,0,0,0.12)] before:backdrop-blur-[12px] before:transition-[border-color,background-color,box-shadow] before:duration-[240ms] before:content-[''] after:pointer-events-none after:absolute after:top-[5px] after:left-[9px] after:h-[8px] after:w-[18px] after:rounded-full after:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.48),rgba(255,255,255,0))] after:opacity-70 after:transition-opacity after:duration-[240ms] after:content-[''] active:scale-[0.97] active:after:opacity-45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent md:hover:-translate-y-0.5 md:hover:scale-[1.03] md:hover:before:border-white/58 md:hover:before:bg-[linear-gradient(145deg,rgba(255,255,255,0.31),rgba(120,113,108,0.2)_46%,rgba(28,25,23,0.27))] md:hover:before:shadow-[0_8px_20px_rgba(12,10,8,0.17),inset_0_1px_0_rgba(255,255,255,0.52),inset_0_-1px_0_rgba(0,0,0,0.1)] md:hover:after:opacity-100";
 
 export function LuxuryContactDock() {
   if (!BRAND_CONFIG.contact.enabled) return null;
@@ -52,15 +65,10 @@ export function LuxuryContactDock() {
             href={`tel:${phoneDial}`}
             aria-label="Call InvisProtect"
             onClick={() => trackDockEngagement("phone")}
-            className={`${glassActionClass} justify-start md:focus-visible:w-[136px] md:hover:w-[136px]`}
+            className={glassActionClass}
           >
-            <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center text-[#E99662] transition-transform duration-[250ms] md:group-focus-visible:-translate-y-px md:group-hover:-translate-y-px">
-              <Phone aria-hidden="true" size={16} strokeWidth={1.45} />
-            </span>
-            <span className={glassLabelClass}>
-              <span className="block whitespace-nowrap pr-4 pl-1 font-sans text-[9px] font-medium tracking-[0.2em]">
-                CALL US
-              </span>
+            <span className="relative z-10 text-[#E99A68] transition-[color,filter] duration-[240ms] group-focus-visible:text-[#FFB07D] md:group-hover:text-[#FFB07D] md:group-hover:drop-shadow-[0_0_4px_rgba(233,154,104,0.24)]">
+              <PhoneIcon className="h-[17px] w-[17px]" />
             </span>
           </a>
         </div>
@@ -74,15 +82,10 @@ export function LuxuryContactDock() {
             rel="noopener noreferrer"
             aria-label="Contact InvisProtect on WhatsApp"
             onClick={() => trackDockEngagement("whatsapp")}
-            className={`${glassActionClass} justify-end md:focus-visible:w-[136px] md:hover:w-[136px]`}
+            className={glassActionClass}
           >
-            <span className={glassLabelClass}>
-              <span className="block whitespace-nowrap pr-1 pl-4 font-sans text-[9px] font-medium tracking-[0.2em]">
-                WHATSAPP
-              </span>
-            </span>
-            <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center text-[#6EAA89] transition-transform duration-[250ms] md:group-focus-visible:-translate-y-px md:group-hover:-translate-y-px">
-              <WhatsAppIcon className="h-[17px] w-[17px]" />
+            <span className="relative z-10 text-[#74B691] transition-[color,filter] duration-[240ms] group-focus-visible:text-[#8CC9A7] md:group-hover:text-[#8CC9A7] md:group-hover:drop-shadow-[0_0_4px_rgba(116,182,145,0.24)]">
+              <WhatsAppIcon className="h-[18px] w-[18px]" />
             </span>
           </a>
         </div>
