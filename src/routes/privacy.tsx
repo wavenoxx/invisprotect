@@ -115,7 +115,7 @@ function PrivacyPage() {
               </div>
               <div className="p-4 bg-[#FAF8F5]">
                 <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-[#F37021]">
-                  Google LLC (Google Ads &amp; Google Tag Manager)
+                  Google LLC (Google Ads &amp; Google tag)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
                   Purpose: Campaign conversion measurement and website performance analytics
@@ -127,8 +127,7 @@ function PrivacyPage() {
                   Meta Platforms Inc. (WhatsApp Business Cloud API)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
-                  Purpose: Instant notification dispatch to internal installation coordinators and
-                  customer consultation confirmations.
+                  Purpose: Internal owner notification when a consultation request is stored.
                 </p>
               </div>
             </div>
@@ -196,26 +195,30 @@ function PrivacyPage() {
                 To submit an access, correction, or erasure request, reach out directly to:
               </p>
               <div className="space-y-1 text-[#44403C]">
-                {BRAND_CONFIG.contact.enabled ? (
+                {BRAND_CONFIG.contact.emailHref || BRAND_CONFIG.contact.phoneHref ? (
                   <>
-                    <p>
-                      • Email:{" "}
-                      <a
-                        href={`mailto:${BRAND_CONFIG.contact.email}`}
-                        className="underline focus-ring text-[#F37021]"
-                      >
-                        {BRAND_CONFIG.contact.email}
-                      </a>
-                    </p>
-                    <p>
-                      • Phone:{" "}
-                      <a
-                        href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
-                        className="underline focus-ring text-[#F37021]"
-                      >
-                        {BRAND_CONFIG.contact.phoneDisplay}
-                      </a>
-                    </p>
+                    {BRAND_CONFIG.contact.emailHref ? (
+                      <p>
+                        • Email:{" "}
+                        <a
+                          href={BRAND_CONFIG.contact.emailHref}
+                          className="underline focus-ring text-[#F37021]"
+                        >
+                          {BRAND_CONFIG.contact.email}
+                        </a>
+                      </p>
+                    ) : null}
+                    {BRAND_CONFIG.contact.phoneHref ? (
+                      <p>
+                        • Phone:{" "}
+                        <a
+                          href={BRAND_CONFIG.contact.phoneHref}
+                          className="underline focus-ring text-[#F37021]"
+                        >
+                          {BRAND_CONFIG.contact.phoneDisplay}
+                        </a>
+                      </p>
+                    ) : null}
                   </>
                 ) : (
                   <p className="italic text-[#78716C]">

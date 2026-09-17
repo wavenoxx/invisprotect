@@ -297,31 +297,39 @@ export function Footer() {
                 measurements across Telangana &amp; Andhra Pradesh:
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-light text-[#D6D3D1]">
-                {BRAND_CONFIG.contact.enabled ? (
+                {BRAND_CONFIG.contact.phoneHref ||
+                BRAND_CONFIG.contact.whatsappLink ||
+                BRAND_CONFIG.contact.emailHref ? (
                   <>
-                    <a
-                      href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
-                      onClick={() => trackEngagement("phone", "footer")}
-                      className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
-                    >
-                      Call: {BRAND_CONFIG.contact.phoneDisplay}
-                    </a>
-                    <a
-                      href={BRAND_CONFIG.socials.whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackEngagement("whatsapp", "footer")}
-                      className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
-                    >
-                      WhatsApp: {BRAND_CONFIG.contact.whatsappDisplay}
-                    </a>
-                    <a
-                      href={`mailto:${BRAND_CONFIG.contact.email}`}
-                      onClick={() => trackEngagement("email", "footer")}
-                      className="hover:text-[#F37021] hover:underline underline-offset-4 text-[#D6D3D1] focus-ring transition-colors"
-                    >
-                      Email: {BRAND_CONFIG.contact.email}
-                    </a>
+                    {BRAND_CONFIG.contact.phoneHref ? (
+                      <a
+                        href={BRAND_CONFIG.contact.phoneHref}
+                        onClick={() => trackEngagement("phone", "footer")}
+                        className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
+                      >
+                        Call: {BRAND_CONFIG.contact.phoneDisplay}
+                      </a>
+                    ) : null}
+                    {BRAND_CONFIG.contact.whatsappLink ? (
+                      <a
+                        href={BRAND_CONFIG.contact.whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEngagement("whatsapp", "footer")}
+                        className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
+                      >
+                        WhatsApp: {BRAND_CONFIG.contact.whatsappDisplay}
+                      </a>
+                    ) : null}
+                    {BRAND_CONFIG.contact.emailHref ? (
+                      <a
+                        href={BRAND_CONFIG.contact.emailHref}
+                        onClick={() => trackEngagement("email", "footer")}
+                        className="hover:text-[#F37021] hover:underline underline-offset-4 text-[#D6D3D1] focus-ring transition-colors"
+                      >
+                        Email: {BRAND_CONFIG.contact.email}
+                      </a>
+                    ) : null}
                   </>
                 ) : (
                   <span className="text-[#A8A29E] tracking-wider text-[11px] uppercase">

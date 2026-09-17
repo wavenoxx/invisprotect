@@ -1,7 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { notifyOwnerWhatsApp } from "@/server/notify-whatsapp";
+import {
+  ConsultationInputSchema,
+  normalizeIndianPhone,
+  type ConsultationInput,
+} from "@/lib/consultation-schema";
 
 // Rate limiting state: in-memory map per phone digits
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -22,35 +25,6 @@ function checkRateLimit(key: string): boolean {
   return true;
 }
 
-export const ConsultationInputSchema = z.object({
-  name: z.string().min(1, "Name is required").max(120),
-  phone: z
-    .string()
-    .min(10, "Valid 10-digit mobile number required")
-    .max(15)
-    .regex(/^(?:\+91|91)?[6-9]\d{9}$/, "Please provide a valid Indian mobile number"),
-  city_hub: z.string().min(1, "Location is required").max(100),
-  pincode: z.string().min(4, "Valid pincode required").max(10),
-  services: z.array(z.string()).min(1, "Select at least one safety solution"),
-  notes: z.string().max(1000).optional(),
-  consent_version: z.string().default("1.0"),
-  verification_method: z.enum(["sms_otp", "direct_phone", "unverified"]).default("direct_phone"),
-  verified: z.boolean().default(false),
-  // Attribution parameters
-  source: z.string().max(100).optional(),
-  medium: z.string().max(100).optional(),
-  campaign: z.string().max(100).optional(),
-  term: z.string().max(100).optional(),
-  content: z.string().max(100).optional(),
-  landing_page: z.string().max(255).optional(),
-  referrer: z.string().max(255).optional(),
-  gclid: z.string().max(255).optional(),
-  wbraid: z.string().max(255).optional(),
-  gbraid: z.string().max(255).optional(),
-});
-
-export type ConsultationInput = z.infer<typeof ConsultationInputSchema>;
-
 export interface ConsultationResponse {
   success: boolean;
   leadId?: string;
@@ -70,57 +44,58 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
       };
     }
 
-    // 2. Phone Normalization: ensure clean format
-    const cleanPhone = data.phone.replace(/[^\d+]/g, "");
-    const formattedPhone = cleanPhone.startsWith("+91")
-      ? cleanPhone
-      : cleanPhone.startsWith("91") && cleanPhone.length === 12
-        ? `+${cleanPhone}`
-        : `+91${cleanPhone.slice(-10)}`;
+    // 2. Normalize only after the shared schema validates the number.
+    const formattedPhone = normalizeIndianPhone(data.phone);
+    if (!formattedPhone) {
+      return { success: false, error: "Please enter a valid 10-digit Indian mobile number." };
+    }
 
     const rawDigits = formattedPhone.replace(/\D/g, "").slice(-10);
     if (!checkRateLimit(rawDigits)) {
-      console.warn(`[Consultation] Rate limit exceeded for phone: ${rawDigits}`);
+      console.warn("[Consultation] Local burst limit exceeded.");
       return {
         success: false,
-        error:
-          "A consultation request was recently created for this phone number. Our team will contact you shortly.",
+        error: "Unable to register another request right now. Please try again later.",
       };
     }
 
     const now = new Date().toISOString();
 
     try {
-      // 3. Database Insertion via Supabase Admin
-      const { data: inserted, error: dbError } = await supabaseAdmin
-        .from("consultations")
-        .insert({
-          name: data.name.trim(),
-          phone: formattedPhone,
-          city_hub: data.city_hub.trim(),
-          pincode: data.pincode.trim(),
-          services: data.services,
-          notes: data.notes?.trim() || null,
-          status: "new",
-          source: data.source || null,
-          medium: data.medium || null,
-          campaign: data.campaign || null,
-          term: data.term || null,
-          content: data.content || null,
-          landing_page: data.landing_page || null,
-          referrer: data.referrer || null,
-          gclid: data.gclid || null,
-          wbraid: data.wbraid || null,
-          gbraid: data.gbraid || null,
-          consent_version: data.consent_version,
-          consent_at: now,
-          verified_at: data.verified ? now : null,
-          verification_method: data.verification_method,
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+      // 3. The database function holds a transaction-scoped advisory lock for
+      // this normalized phone, making duplicate detection safe across instances.
+      const { data: insertionResult, error: dbError } = await supabaseAdmin
+        .rpc("create_consultation_if_not_recent", {
+          p_lead: {
+            name: data.name.trim(),
+            phone: formattedPhone,
+            city_hub: data.city_hub.trim(),
+            pincode: data.pincode.trim(),
+            services: data.services,
+            notes: data.notes?.trim() || null,
+            source: data.source || null,
+            medium: data.medium || null,
+            campaign: data.campaign || null,
+            term: data.term || null,
+            content: data.content || null,
+            landing_page: data.landing_page || null,
+            referrer: data.referrer || null,
+            gclid: data.gclid || null,
+            wbraid: data.wbraid || null,
+            gbraid: data.gbraid || null,
+            consent_version: data.consent_version,
+            contact_consent: data.contact_consent,
+            verified: data.verified,
+            verification_method: data.verification_method,
+            landing_id: data.landing_id || null,
+            form_variant: data.form_variant || null,
+          },
         })
-        .select("id")
         .single();
 
-      if (dbError || !inserted?.id) {
+      if (dbError) {
         console.error("[Consultation] Database insertion failure:", dbError?.message);
         return {
           success: false,
@@ -128,9 +103,16 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
         };
       }
 
-      const leadId = inserted.id;
+      if (!insertionResult?.was_created || !insertionResult.lead_id) {
+        return {
+          success: false,
+          error: "Unable to register another request right now. Please try again later.",
+        };
+      }
 
-      // 4. Trigger Server-Side WhatsApp Owner Notification (async non-blocking if configured)
+      const leadId = insertionResult.lead_id;
+
+      // 4. Trigger the server-side owner notification without changing lead success.
       notifyOwnerWhatsApp({
         leadId,
         customerName: data.name.trim(),
@@ -143,10 +125,15 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
         medium: data.medium,
         campaign: data.campaign,
         landingPage: data.landing_page,
+        landingId: data.landing_id,
+        formVariant: data.form_variant,
         gclid: data.gclid,
+        wbraid: data.wbraid,
+        gbraid: data.gbraid,
         createdAt: now,
       }).catch((err) => {
-        console.info("[Consultation] Background notification note:", err);
+        const message = err instanceof Error ? err.message : "Unknown notification failure";
+        console.info("[Consultation] Background notification note:", message);
       });
 
       return {
@@ -154,10 +141,13 @@ export const submitConsultationServerFn = createServerFn({ method: "POST" })
         leadId,
       };
     } catch (err) {
-      console.error("[Consultation] Processing exception:", err);
+      const message = err instanceof Error ? err.message : "Unknown processing failure";
+      console.error("[Consultation] Processing exception:", message);
       return {
         success: false,
         error: "Unable to process request at this time. Please try again later.",
       };
     }
   });
+
+export { ConsultationInputSchema, type ConsultationInput };

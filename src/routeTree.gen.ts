@@ -25,6 +25,7 @@ import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
 import { Route as ConsultationRouteImport } from './routes/consultation'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServiceServiceIdRouteImport } from './routes/service.$serviceId'
+import { Route as LpLandingIdRouteImport } from './routes/lp.$landingId'
 import { Route as CategoryCategoryIdRouteImport } from './routes/category.$categoryId'
 import { Route as CampaignsWeightlessPavilionRouteImport } from './routes/campaigns.weightless-pavilion'
 import { Route as CampaignsSilentPromiseRouteImport } from './routes/campaigns.silent-promise'
@@ -110,6 +111,11 @@ const ServiceServiceIdRoute = ServiceServiceIdRouteImport.update({
   path: '/service/$serviceId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LpLandingIdRoute = LpLandingIdRouteImport.update({
+  id: '/lp/$landingId',
+  path: '/lp/$landingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoryCategoryIdRoute = CategoryCategoryIdRouteImport.update({
   id: '/category/$categoryId',
   path: '/category/$categoryId',
@@ -153,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
   '/category/$categoryId': typeof CategoryCategoryIdRoute
+  '/lp/$landingId': typeof LpLandingIdRoute
   '/service/$serviceId': typeof ServiceServiceIdRoute
 }
 export interface FileRoutesByTo {
@@ -175,6 +182,7 @@ export interface FileRoutesByTo {
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
   '/category/$categoryId': typeof CategoryCategoryIdRoute
+  '/lp/$landingId': typeof LpLandingIdRoute
   '/service/$serviceId': typeof ServiceServiceIdRoute
 }
 export interface FileRoutesById {
@@ -198,6 +206,7 @@ export interface FileRoutesById {
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
   '/category/$categoryId': typeof CategoryCategoryIdRoute
+  '/lp/$landingId': typeof LpLandingIdRoute
   '/service/$serviceId': typeof ServiceServiceIdRoute
 }
 export interface FileRouteTypes {
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
     | '/category/$categoryId'
+    | '/lp/$landingId'
     | '/service/$serviceId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
     | '/category/$categoryId'
+    | '/lp/$landingId'
     | '/service/$serviceId'
   id:
     | '__root__'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
     | '/category/$categoryId'
+    | '/lp/$landingId'
     | '/service/$serviceId'
   fileRoutesById: FileRoutesById
 }
@@ -289,6 +301,7 @@ export interface RootRouteChildren {
   CampaignsSilentPromiseRoute: typeof CampaignsSilentPromiseRoute
   CampaignsWeightlessPavilionRoute: typeof CampaignsWeightlessPavilionRoute
   CategoryCategoryIdRoute: typeof CategoryCategoryIdRoute
+  LpLandingIdRoute: typeof LpLandingIdRoute
   ServiceServiceIdRoute: typeof ServiceServiceIdRoute
 }
 
@@ -406,6 +419,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceServiceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lp/$landingId': {
+      id: '/lp/$landingId'
+      path: '/lp/$landingId'
+      fullPath: '/lp/$landingId'
+      preLoaderRoute: typeof LpLandingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/category/$categoryId': {
       id: '/category/$categoryId'
       path: '/category/$categoryId'
@@ -457,6 +477,7 @@ const rootRouteChildren: RootRouteChildren = {
   CampaignsSilentPromiseRoute: CampaignsSilentPromiseRoute,
   CampaignsWeightlessPavilionRoute: CampaignsWeightlessPavilionRoute,
   CategoryCategoryIdRoute: CategoryCategoryIdRoute,
+  LpLandingIdRoute: LpLandingIdRoute,
   ServiceServiceIdRoute: ServiceServiceIdRoute,
 }
 export const routeTree = rootRouteImport

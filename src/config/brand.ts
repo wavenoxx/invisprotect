@@ -2,10 +2,12 @@ export interface BrandContactConfig {
   enabled: boolean;
   phoneDisplay: string;
   phoneDial: string;
+  phoneHref: string;
   whatsappDisplay: string;
   whatsappDial: string;
   whatsappLink: string;
   email: string;
+  emailHref: string;
   address: string;
 }
 
@@ -18,49 +20,126 @@ export interface BrandConfig {
   domain: string;
   domainHost: string;
   contact: BrandContactConfig;
-  socials: {
-    whatsappLink: string;
-  };
+  socials: { whatsappLink: string };
 }
+
+type PublicEnvironment = Record<string, string | undefined>;
 
 const DEFAULT_BRAND_NAME = "InvisProtect";
 const DEFAULT_SITE_URL = "https://invisprotect.in";
 
-const envSiteUrl =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_SITE_URL) ||
-  (typeof process !== "undefined" && process.env?.VITE_SITE_URL) ||
-  DEFAULT_SITE_URL;
+function clean(value: string | undefined): string {
+  return value?.trim() ?? "";
+}
 
-const envBrandName =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_BRAND_NAME) ||
-  (typeof process !== "undefined" && process.env?.VITE_BRAND_NAME) ||
-  DEFAULT_BRAND_NAME;
+function validSiteUrl(value: string): string {
+  if (!value) return DEFAULT_SITE_URL;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:"
+      ? url.toString().replace(/\/$/, "")
+      : DEFAULT_SITE_URL;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
 
-export const BRAND_CONFIG: BrandConfig = {
-  status: "pending",
-  name: envBrandName || DEFAULT_BRAND_NAME,
-  legalName: "",
-  tagline: "Architectural Invisible Grills & Safety Solutions",
-  description:
-    "Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across Telangana & Andhra Pradesh.",
-  domain: envSiteUrl ? envSiteUrl.replace(/\/$/, "") : DEFAULT_SITE_URL,
-  domainHost: envSiteUrl
-    ? envSiteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
-    : "invisprotect.in",
+function normalizedDial(value: string): string {
+  const compact = clean(value).replace(/[\s()-]/g, "");
+  return /^\+?[1-9]\d{7,14}$/.test(compact) ? compact : "";
+}
 
-  contact: {
-    enabled: false,
-    phoneDisplay: "",
-    phoneDial: "",
-    whatsappDisplay: "",
-    whatsappDial: "",
-    whatsappLink: "",
-    email: "",
-    address:
-      "Operational Hubs: Telangana & Andhra Pradesh (Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, Hanamkonda)",
-  },
+function normalizedWhatsAppDial(value: string): string {
+  const digits = clean(value).replace(/\D/g, "");
+  return /^[1-9]\d{7,14}$/.test(digits) ? digits : "";
+}
 
-  socials: {
-    whatsappLink: "",
-  },
-};
+function whatsappNumberFromUrl(url: URL): string {
+  const candidate =
+    url.hostname === "wa.me"
+      ? url.pathname.replace(/\D/g, "")
+      : url.searchParams.get("phone") || "";
+  return /^[1-9]\d{7,14}$/.test(candidate) ? candidate : "";
+}
+
+function validWhatsAppLink(value: string): { link: string; dial: string } | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:" || !["wa.me", "api.whatsapp.com"].includes(url.hostname)) {
+      return null;
+    }
+    const dial = whatsappNumberFromUrl(url);
+    return dial ? { link: url.toString(), dial } : null;
+  } catch {
+    return null;
+  }
+}
+
+function validEmail(value: string): string {
+  const email = clean(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
+}
+
+export function createBrandConfig(env: PublicEnvironment): BrandConfig {
+  const status = clean(env.VITE_SITE_STATUS).toLowerCase() === "active" ? "active" : "pending";
+  const contactRequested = clean(env.VITE_CONTACT_ENABLED).toLowerCase() === "true";
+  const contactAllowed = status === "active" && contactRequested;
+  const domain = validSiteUrl(clean(env.VITE_SITE_URL));
+  const configuredPhoneDial = contactAllowed
+    ? normalizedDial(env.VITE_BUSINESS_PHONE_DIAL ?? "")
+    : "";
+  const requestedWhatsappDial = contactAllowed
+    ? normalizedWhatsAppDial(env.VITE_BUSINESS_WHATSAPP_DIAL ?? "")
+    : "";
+  const configuredWhatsAppLink = contactAllowed
+    ? validWhatsAppLink(clean(env.VITE_BUSINESS_WHATSAPP_LINK))
+    : null;
+  const configuredWhatsappDial = requestedWhatsappDial || configuredWhatsAppLink?.dial || "";
+  const configuredWhatsappDestination =
+    configuredWhatsAppLink?.link ||
+    (configuredWhatsappDial ? `https://wa.me/${configuredWhatsappDial}` : "");
+  const configuredEmail = contactAllowed ? validEmail(env.VITE_BUSINESS_EMAIL ?? "") : "";
+  const contactEnabled =
+    contactAllowed && Boolean(configuredPhoneDial && configuredWhatsappDestination);
+  const phoneDial = contactEnabled ? configuredPhoneDial : "";
+  const whatsappDial = contactEnabled ? configuredWhatsappDial : "";
+  const whatsappLink = contactEnabled ? configuredWhatsappDestination : "";
+  const email = contactEnabled ? configuredEmail : "";
+
+  return {
+    status,
+    name: clean(env.VITE_BRAND_NAME) || DEFAULT_BRAND_NAME,
+    legalName: "",
+    tagline: "Architectural Invisible Grills & Safety Solutions",
+    description:
+      "Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across Telangana & Andhra Pradesh.",
+    domain,
+    domainHost: domain.replace(/^https?:\/\//, ""),
+    contact: {
+      enabled: contactEnabled,
+      phoneDisplay: phoneDial ? clean(env.VITE_BUSINESS_PHONE_DISPLAY) || phoneDial : "",
+      phoneDial,
+      phoneHref: phoneDial ? `tel:${phoneDial}` : "",
+      whatsappDisplay: whatsappLink
+        ? clean(env.VITE_BUSINESS_WHATSAPP_DISPLAY) || whatsappDial
+        : "",
+      whatsappDial,
+      whatsappLink,
+      email,
+      emailHref: email ? `mailto:${email}` : "",
+      address:
+        "Operational Hubs: Telangana & Andhra Pradesh (Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, Hanamkonda)",
+    },
+    socials: { whatsappLink },
+  };
+}
+
+const publicEnvironment: PublicEnvironment =
+  typeof import.meta !== "undefined" && import.meta.env
+    ? (import.meta.env as PublicEnvironment)
+    : typeof process !== "undefined"
+      ? process.env
+      : {};
+
+export const BRAND_CONFIG = createBrandConfig(publicEnvironment);

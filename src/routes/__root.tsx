@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -14,8 +15,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { BRAND_CONFIG } from "@/config/brand";
 import { captureAttribution } from "@/lib/attribution";
-import { trackEngagement } from "@/lib/analytics";
-import { ConsentBanner, initializeGoogleConsentDefaults } from "@/components/ConsentBanner";
+import { GADS_ACCOUNT_ID, trackEngagement, trackPageView } from "@/lib/analytics";
+import { getGoogleTagHeadScripts } from "@/lib/google-tag";
+import { ConsentBanner } from "@/components/ConsentBanner";
 
 function NotFoundComponent() {
   return (
@@ -96,7 +98,7 @@ const organizationSchema = {
         contactPoint: {
           "@type": "ContactPoint",
           telephone: BRAND_CONFIG.contact.phoneDial,
-          email: BRAND_CONFIG.contact.email,
+          ...(BRAND_CONFIG.contact.email ? { email: BRAND_CONFIG.contact.email } : {}),
           contactType: "customer service",
           areaServed: "IN",
           availableLanguage: ["English", "Telugu", "Hindi"],
@@ -133,24 +135,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
-      {
-        rel: "preload",
-        as: "image",
-        href: "/images/homepage/hero-desktop.png",
-        media: "(min-width: 768px)",
-      },
-      {
-        rel: "preload",
-        as: "image",
-        href: "/images/homepage/hero-mobile.png",
-        media: "(max-width: 767px)",
-      },
     ];
 
     return {
       meta,
       links,
       scripts: [
+        ...getGoogleTagHeadScripts(GADS_ACCOUNT_ID),
         {
           type: "application/ld+json",
           children: JSON.stringify(organizationSchema),
@@ -166,12 +157,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
-    // Initialize Google Consent Mode v2 defaults immediately
-    initializeGoogleConsentDefaults();
-
-    // Capture attribution parameters (gclid, wbraid, gbraid, utms)
-    captureAttribution();
-
     // Compatibility shim: map legacy trackGoogleConversion calls safely to secondary trackEngagement
     window.trackGoogleConversion = function (actionType: string) {
       trackEngagement(
@@ -194,12 +179,24 @@ function RootShell({ children }: { children: ReactNode }) {
         style={{ backgroundColor: "#FAF8F5", color: "#1C1917" }}
         className="bg-[#FAF8F5] text-[#1C1917] selection:bg-[#F37021]/20"
       >
+        <MeasurementLifecycle />
         {children}
         <ConsentBanner />
         <Scripts />
       </body>
     </html>
   );
+}
+
+function MeasurementLifecycle() {
+  const href = useRouterState({ select: (state) => state.location.href });
+
+  useEffect(() => {
+    captureAttribution();
+    trackPageView(window.location.href, document.title);
+  }, [href]);
+
+  return null;
 }
 
 function RootComponent() {

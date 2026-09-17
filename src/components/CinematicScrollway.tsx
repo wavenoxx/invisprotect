@@ -133,22 +133,28 @@ export function CinematicScrollway() {
           {/* Visual Image Background Container */}
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
             {/* Desktop Visual Image (2.39:1 Panoramic Widescreen) */}
-            <img
-              src={slide.imageDesktop}
-              alt={`${slide.title} — ${slide.descriptor} (Desktop View)`}
-              className="hidden md:block w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture className="hidden h-full w-full md:block">
+              <source srcSet={slide.imageDesktop.replace(/\.png$/, ".webp")} type="image/webp" />
+              <img
+                src={slide.imageDesktop}
+                alt={`${slide.title} — ${slide.descriptor}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
 
             {/* Mobile Visual Image (4:5 Portrait Aspect Ratio) */}
-            <img
-              src={slide.imageMobile}
-              alt={`${slide.title} — ${slide.descriptor} (Mobile View 4:5)`}
-              className="md:hidden w-full h-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture className="block h-full w-full md:hidden">
+              <source srcSet={slide.imageMobile.replace(/\.png$/, ".webp")} type="image/webp" />
+              <img
+                src={slide.imageMobile}
+                alt={`${slide.title} — ${slide.descriptor}`}
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           {/* Soft Warm Ambient Vignette Overlay for Crisp Text Legibility */}

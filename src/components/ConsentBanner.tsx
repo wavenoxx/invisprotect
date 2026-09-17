@@ -1,88 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
-
-const CONSENT_STORAGE_KEY = "consent_settings_v2";
-
-interface ConsentState {
-  ad_storage: "granted" | "denied";
-  analytics_storage: "granted" | "denied";
-  ad_user_data: "granted" | "denied";
-  ad_personalization: "granted" | "denied";
-  timestamp: string;
-}
-
-export function initializeGoogleConsentDefaults() {
-  if (typeof window === "undefined") return;
-
-  // Define dataLayer and gtag if not yet defined
-  window.dataLayer = window.dataLayer || [];
-  if (!window.gtag) {
-    window.gtag = function (...args: unknown[]) {
-      (window.dataLayer as unknown as unknown[]).push(args);
-    };
-  }
-
-  // Retrieve stored consent if available
-  try {
-    const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
-    if (stored) {
-      const consent: ConsentState = JSON.parse(stored);
-      window.gtag("consent", "default", {
-        ad_storage: consent.ad_storage,
-        analytics_storage: consent.analytics_storage,
-        ad_user_data: consent.ad_user_data,
-        ad_personalization: consent.ad_personalization,
-      });
-      return;
-    }
-  } catch {
-    // Ignore localStorage parse errors
-  }
-
-  // Default state: Deny measurement storage until user explicitly accepts
-  window.gtag("consent", "default", {
-    ad_storage: "denied",
-    analytics_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  });
-}
-
-export function updateGoogleConsent(granted: boolean) {
-  if (typeof window === "undefined") return;
-
-  const state = granted ? "granted" : "denied";
-  const consentData: ConsentState = {
-    ad_storage: state,
-    analytics_storage: state,
-    ad_user_data: state,
-    ad_personalization: state,
-    timestamp: new Date().toISOString(),
-  };
-
-  try {
-    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consentData));
-  } catch {
-    // Ignore localStorage write error
-  }
-
-  if (window.gtag) {
-    window.gtag("consent", "update", {
-      ad_storage: state,
-      analytics_storage: state,
-      ad_user_data: state,
-      ad_personalization: state,
-    });
-  }
-}
+import { readStoredConsent, updateGoogleConsent } from "@/lib/consent";
 
 export function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
+      const stored = readStoredConsent();
       if (!stored) {
         // Delay slightly for a smooth, non-intrusive appearance
         const timer = setTimeout(() => setIsVisible(true), 1200);

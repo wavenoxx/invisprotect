@@ -27,16 +27,19 @@ const Hero = () => {
         className="hidden md:block absolute inset-0 w-full h-full z-0"
         data-slot="desktop-hero-canvas"
       >
-        <img
-          src="/images/homepage/hero-desktop.png"
-          alt="Widescreen Architectural Balcony Safety View"
-          width={1672}
-          height={941}
-          className="w-full h-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/images/homepage/hero-desktop.webp" type="image/webp" />
+          <img
+            src="/images/homepage/hero-desktop.png"
+            alt="Widescreen architectural balcony with an unobstructed safety view"
+            width={1672}
+            height={941}
+            className="h-full w-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
 
       {/* Mobile Visual Container (9:16 Mobile Portrait Hero Canvas) */}
@@ -44,16 +47,19 @@ const Hero = () => {
         className="md:hidden absolute inset-0 w-full h-full z-0"
         data-slot="mobile-hero-canvas-9-16"
       >
-        <img
-          src="/images/homepage/hero-mobile.png"
-          alt="Architectural Safety — Mobile Balcony View (9:16)"
-          width={941}
-          height={1672}
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/images/homepage/hero-mobile.webp" type="image/webp" />
+          <img
+            src="/images/homepage/hero-mobile.png"
+            alt="Residential balcony opening designed for discreet safety protection"
+            width={941}
+            height={1672}
+            className="h-full w-full object-cover object-center"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
 
       {/* Warm Atmospheric Vignette for Pristine Color & Text Legibility */}

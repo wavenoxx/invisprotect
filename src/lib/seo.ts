@@ -7,6 +7,7 @@ export interface PageSeoConfig {
   ogImage?: string;
   ogType?: "website" | "article";
   noIndex?: boolean;
+  noFollow?: boolean;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
@@ -36,7 +37,7 @@ export function buildMetaTags(config: PageSeoConfig) {
         ? `${baseDomain}${resolvedOgImage.startsWith("/") ? resolvedOgImage : `/${resolvedOgImage}`}`
         : resolvedOgImage;
 
-  const robots = config.noIndex ? "noindex, follow" : "index, follow";
+  const robots = `${config.noIndex ? "noindex" : "index"}, ${config.noFollow ? "nofollow" : "follow"}`;
 
   const meta = [
     { title: fullTitle },

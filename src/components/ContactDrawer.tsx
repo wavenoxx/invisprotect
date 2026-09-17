@@ -108,9 +108,9 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
             </Link>
 
             {/* WhatsApp */}
-            {BRAND_CONFIG.contact.enabled ? (
+            {BRAND_CONFIG.contact.whatsappLink ? (
               <a
-                href={BRAND_CONFIG.socials.whatsappLink}
+                href={BRAND_CONFIG.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEngagement("whatsapp", "contact_drawer")}
@@ -155,9 +155,9 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
             )}
 
             {/* Call Us */}
-            {BRAND_CONFIG.contact.enabled ? (
+            {BRAND_CONFIG.contact.phoneHref ? (
               <a
-                href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
+                href={BRAND_CONFIG.contact.phoneHref}
                 onClick={() => trackEngagement("phone", "contact_drawer")}
                 className="w-full border border-[#1C1917]/10 bg-white p-5 flex items-center justify-between text-left hover:border-[#F37021] hover:shadow-sm transition-all duration-300 group min-h-11 focus-ring"
               >
@@ -200,9 +200,9 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
             )}
 
             {/* Email */}
-            {BRAND_CONFIG.contact.enabled ? (
+            {BRAND_CONFIG.contact.emailHref ? (
               <a
-                href={`mailto:${BRAND_CONFIG.contact.email}`}
+                href={BRAND_CONFIG.contact.emailHref}
                 onClick={() => trackEngagement("email", "contact_drawer")}
                 className="w-full border border-[#1C1917]/10 bg-white p-5 flex items-center justify-between text-left hover:border-[#F37021] hover:shadow-sm transition-all duration-300 group min-h-11 focus-ring"
               >

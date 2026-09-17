@@ -1,11 +1,11 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BRAND_CONFIG } from "@/config/brand";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { submitConsultationServerFn } from "@/functions/consultation";
-import { trackQualifiedLead, trackEngagement } from "@/lib/analytics";
-import { getStoredAttribution } from "@/lib/attribution";
+import { trackConsultationLead, trackEngagement } from "@/lib/analytics";
+import { captureAttribution } from "@/lib/attribution";
 import { buildMetaTags } from "@/lib/seo";
 import { Check, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
@@ -61,7 +61,7 @@ function ConsultationPage() {
   const [phone, setPhone] = useState("");
   const [fullName, setFullName] = useState("");
   const [notes, setNotes] = useState("");
-  const [agreedToConsent, setAgreedToConsent] = useState(true);
+  const [agreedToConsent, setAgreedToConsent] = useState(false);
 
   // Status & Submission State
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,6 +71,7 @@ function ConsultationPage() {
     name: string;
     whatsappUrl?: string;
   } | null>(null);
+  const submittingRef = useRef(false);
 
   // Auto-select service if passed in URL search params
   useEffect(() => {
@@ -108,6 +109,7 @@ function ConsultationPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submittingRef.current) return;
     setErrorMessage(null);
 
     const cleanPhone = phone.replace(/\D/g, "");
@@ -129,10 +131,11 @@ function ConsultationPage() {
       return;
     }
 
+    submittingRef.current = true;
     setIsSubmitting(true);
 
     try {
-      const attribution = getStoredAttribution();
+      const attribution = captureAttribution();
       const payload = {
         name: fullName.trim(),
         phone: cleanPhone,
@@ -140,6 +143,7 @@ function ConsultationPage() {
         city_hub: localityCity.trim(),
         pincode: pincode.trim(),
         notes: notes.trim() || undefined,
+        contact_consent: agreedToConsent,
         consent_version: "v2-2026",
         gclid: attribution?.gclid,
         wbraid: attribution?.wbraid,
@@ -151,16 +155,16 @@ function ConsultationPage() {
         content: attribution?.utm_content,
         landing_page: attribution?.landing_page,
         referrer: attribution?.referrer,
+        form_variant: "organic-consultation-v1",
       };
 
       const result = await submitConsultationServerFn({ data: payload });
       if (result && result.success && result.leadId) {
-        // Only track qualified lead conversion when actually persisted to database
+        // Track the primary consultation conversion only after database persistence.
         try {
-          trackQualifiedLead({
+          trackConsultationLead({
             leadId: result.leadId,
             city: localityCity.trim(),
-            phone: cleanPhone,
           });
         } catch (trackErr) {
           console.warn("[Analytics] Track notice:", trackErr);
@@ -177,6 +181,7 @@ function ConsultationPage() {
       console.warn("[Consultation] Request exception:", err);
       setErrorMessage("Site survey requests will be enabled at launch.");
     } finally {
+      submittingRef.current = false;
       setIsSubmitting(false);
     }
   };
@@ -220,7 +225,7 @@ function ConsultationPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               {BRAND_CONFIG.contact.enabled && BRAND_CONFIG.socials.whatsappLink && (
                 <a
-                  href={BRAND_CONFIG.socials.whatsappLink}
+                  href={BRAND_CONFIG.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEngagement("whatsapp", "survey_success")}
@@ -232,7 +237,7 @@ function ConsultationPage() {
               )}
               {BRAND_CONFIG.contact.enabled && BRAND_CONFIG.contact.phoneDial && (
                 <a
-                  href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
+                  href={BRAND_CONFIG.contact.phoneHref}
                   onClick={() => trackEngagement("phone", "survey_success")}
                   className="sn-btn-luxury-dark w-full sm:w-auto"
                 >

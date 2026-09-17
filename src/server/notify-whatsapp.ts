@@ -20,7 +20,11 @@ export interface LeadNotificationPayload {
   medium?: string;
   campaign?: string;
   landingPage?: string;
+  landingId?: string;
+  formVariant?: string;
   gclid?: string;
+  wbraid?: string;
+  gbraid?: string;
   createdAt: string;
 }
 
@@ -74,7 +78,7 @@ export async function notifyOwnerWhatsApp(
       payload.source ? `Source: ${payload.source}` : null,
       payload.medium ? `Medium: ${payload.medium}` : null,
       payload.campaign ? `Campaign: ${payload.campaign}` : null,
-      payload.gclid ? `Google Ads (GCLID): Yes` : null,
+      payload.gclid || payload.wbraid || payload.gbraid ? `Google Ads click ID: Present` : null,
     ]
       .filter(Boolean)
       .join(" | ") || "Direct / Organic";
@@ -91,6 +95,8 @@ export async function notifyOwnerWhatsApp(
     ``,
     `*Attribution:* ${attributionSummary}`,
     payload.landingPage ? `*Landing:* ${payload.landingPage}` : null,
+    payload.landingId ? `*Paid Landing ID:* ${payload.landingId}` : null,
+    payload.formVariant ? `*Form Variant:* ${payload.formVariant}` : null,
     `*Time:* ${new Date(payload.createdAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST`,
     ``,
     `_Action: Safety coordinator should connect via call/WhatsApp to confirm laser survey timing._`,
@@ -118,12 +124,10 @@ export async function notifyOwnerWhatsApp(
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      const errorMsg =
-        (errorData as { error?: { message?: string } })?.error?.message ||
-        `HTTP ${response.status} ${response.statusText}`;
+      await response.body?.cancel().catch(() => undefined);
+      const errorMsg = `Meta API rejected notification (HTTP ${response.status})`;
 
-      console.error(`[WhatsApp Adapter] Meta Cloud API call failed: ${errorMsg}`);
+      console.error(`[WhatsApp Adapter] ${errorMsg}`);
       return {
         success: false,
         status: "failed",

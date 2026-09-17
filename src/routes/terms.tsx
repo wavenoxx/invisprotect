@@ -89,15 +89,26 @@ function TermsPage() {
             <p>
               For legal inquiries, terms clarification, or maintenance support, contact our Client
               Service team at{" "}
-              {BRAND_CONFIG.contact.enabled ? (
+              {BRAND_CONFIG.contact.emailHref || BRAND_CONFIG.contact.phoneHref ? (
                 <>
-                  <a
-                    href={`mailto:${BRAND_CONFIG.contact.email}`}
-                    className="underline text-[#F37021] font-medium"
-                  >
-                    {BRAND_CONFIG.contact.email}
-                  </a>{" "}
-                  or call {BRAND_CONFIG.contact.phoneDisplay}.
+                  {BRAND_CONFIG.contact.emailHref ? (
+                    <a
+                      href={BRAND_CONFIG.contact.emailHref}
+                      className="underline text-[#F37021] font-medium"
+                    >
+                      {BRAND_CONFIG.contact.email}
+                    </a>
+                  ) : null}
+                  {BRAND_CONFIG.contact.emailHref && BRAND_CONFIG.contact.phoneHref ? " or " : null}
+                  {BRAND_CONFIG.contact.phoneHref ? (
+                    <a
+                      href={BRAND_CONFIG.contact.phoneHref}
+                      className="underline text-[#F37021] font-medium"
+                    >
+                      {BRAND_CONFIG.contact.phoneDisplay}
+                    </a>
+                  ) : null}
+                  .
                 </>
               ) : (
                 <span className="italic text-[#78716C]">

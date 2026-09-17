@@ -35,6 +35,17 @@ export type Database = {
           verified_at: string | null;
           verification_method: string;
           revenue_value: number | null;
+          landing_id: string | null;
+          form_variant: string | null;
+          contact_consent: boolean;
+          contacted_at: string | null;
+          qualified_at: string | null;
+          survey_booked_at: string | null;
+          quoted_at: string | null;
+          won_at: string | null;
+          lost_at: string | null;
+          lost_reason: string | null;
+          legacy_status: string | null;
         };
         Insert: {
           id?: string;
@@ -62,6 +73,17 @@ export type Database = {
           verified_at?: string | null;
           verification_method?: string;
           revenue_value?: number | null;
+          landing_id?: string | null;
+          form_variant?: string | null;
+          contact_consent?: boolean;
+          contacted_at?: string | null;
+          qualified_at?: string | null;
+          survey_booked_at?: string | null;
+          quoted_at?: string | null;
+          won_at?: string | null;
+          lost_at?: string | null;
+          lost_reason?: string | null;
+          legacy_status?: string | null;
         };
         Update: {
           id?: string;
@@ -89,15 +111,64 @@ export type Database = {
           verified_at?: string | null;
           verification_method?: string;
           revenue_value?: number | null;
+          landing_id?: string | null;
+          form_variant?: string | null;
+          contact_consent?: boolean;
+          contacted_at?: string | null;
+          qualified_at?: string | null;
+          survey_booked_at?: string | null;
+          quoted_at?: string | null;
+          won_at?: string | null;
+          lost_at?: string | null;
+          lost_reason?: string | null;
+          legacy_status?: string | null;
         };
         Relationships: [];
+      };
+      consultation_status_history: {
+        Row: {
+          id: string;
+          consultation_id: string;
+          from_status: string | null;
+          to_status: string;
+          changed_at: string;
+          metadata: Json;
+        };
+        Insert: {
+          id?: string;
+          consultation_id: string;
+          from_status?: string | null;
+          to_status: string;
+          changed_at?: string;
+          metadata?: Json;
+        };
+        Update: {
+          id?: string;
+          consultation_id?: string;
+          from_status?: string | null;
+          to_status?: string;
+          changed_at?: string;
+          metadata?: Json;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "consultation_status_history_consultation_id_fkey";
+            columns: ["consultation_id"];
+            isOneToOne: false;
+            referencedRelation: "consultations";
+            referencedColumns: ["id"];
+          },
+        ];
       };
     };
     Views: {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      create_consultation_if_not_recent: {
+        Args: { p_lead: Json };
+        Returns: Array<{ lead_id: string | null; was_created: boolean }>;
+      };
     };
     Enums: {
       [_ in never]: never;
