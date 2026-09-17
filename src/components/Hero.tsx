@@ -13,7 +13,7 @@ import { BRAND_CONFIG } from "@/config/brand";
  * - Paired transparent hairline actions.
  */
 const heroCtaBase =
-  "inline-flex min-h-[38px] items-center justify-center border bg-transparent px-[1.45rem] py-[0.45rem] font-sans text-[9.5px] font-medium uppercase tracking-[0.25em] text-white transition-[border-color,background-color,color,transform] duration-[220ms] ease-out hover:-translate-y-px focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/65 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
+  "inline-flex min-h-9 max-w-[calc(100vw-3rem)] items-center justify-center whitespace-nowrap border bg-transparent px-6 font-sans text-[9.5px] font-medium uppercase tracking-[0.25em] text-white transition-[border-color,background-color,color,box-shadow,transform] duration-200 ease-out md:hover:-translate-y-px md:hover:border-[#F37021] md:hover:bg-[#F37021] md:hover:shadow-[0_4px_14px_rgba(243,112,33,0.24)] focus-visible:-translate-y-px focus-visible:border-[#F37021] focus-visible:bg-[#F37021] focus-visible:shadow-[0_4px_14px_rgba(243,112,33,0.24)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F37021]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent active:translate-y-0 active:scale-[0.99] active:border-[#F37021] active:bg-[#F37021]";
 
 const Hero = () => {
   return (
@@ -81,17 +81,11 @@ const Hero = () => {
         </p>
 
         {/* Transparent Editorial Actions */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <Link
-            to="/consultation"
-            className={`${heroCtaBase} w-full border-white/68 hover:border-white/90 hover:bg-white/[0.06] sm:w-auto`}
-          >
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <Link to="/consultation" className={`${heroCtaBase} border-white/68 px-7`}>
             Request Site Survey
           </Link>
-          <Link
-            to="/solutions"
-            className={`${heroCtaBase} w-full border-white/35 text-white/85 hover:border-white/58 hover:bg-white/[0.04] hover:text-white sm:w-auto`}
-          >
+          <Link to="/solutions" className={`${heroCtaBase} border-white/40 text-white/85`}>
             Explore Solutions
           </Link>
         </div>
