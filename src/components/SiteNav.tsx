@@ -108,7 +108,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
             >
               <span
-                className={`font-display font-semibold uppercase leading-none tracking-[0.08em] mr-[-0.08em] text-[clamp(17px,calc(0.5rem+2.8vw),20px)] md:text-[30px] lg:text-[36px] transition-colors whitespace-nowrap select-none ${
+                className={`font-brand font-extrabold uppercase leading-none tracking-[0.22em] mr-[-0.22em] text-[clamp(14px,calc(0.5rem+1.8vw),16px)] md:text-[20px] lg:text-[22px] transition-colors whitespace-nowrap select-none ${
                   tone === "dark-on-cream"
                     ? "text-[#1C1917]"
                     : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
