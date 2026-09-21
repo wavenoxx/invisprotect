@@ -25,7 +25,7 @@ export function Footer() {
 
         {/* Mobile Layout: Symmetrical Maison Centered Lockup */}
         <div className="sm:hidden flex flex-col items-center text-center">
-          <span className="font-brand font-extrabold text-[15px] tracking-[0.03em] mr-[-0.03em] uppercase text-[#FAF8F5]">
+          <span className="font-brand font-extrabold text-[15px] tracking-[0.13em] mr-[-0.13em] uppercase text-[#FAF8F5]">
             {BRAND_CONFIG.name || "InvisProtect"}
           </span>
           <span
