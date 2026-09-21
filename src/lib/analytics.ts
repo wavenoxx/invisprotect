@@ -66,7 +66,7 @@ function analyticsMetadata(metadata: AnalyticsMetadata): Record<string, string> 
 }
 
 export function trackEngagement(
-  action: "phone" | "whatsapp" | "email" | "navigation" | "survey_open",
+  action: "phone" | "whatsapp" | "email" | "navigation" | "survey_open" | "social",
   location: string,
   metadata: Omit<AnalyticsMetadata, "interactionLocation"> = {},
 ) {

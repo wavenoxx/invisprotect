@@ -47,7 +47,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           tone === "dark-on-cream"
             ? "bg-[#FAF8F5]/94 backdrop-blur-xl border-b border-[#1C1917]/10 text-[#1C1917] shadow-[0_4px_24px_rgba(28,25,23,0.06)]"
-            : "bg-transparent border-b border-transparent text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
+            : "bg-transparent border-b border-transparent text-white"
         }`}
       >
         {/* Overlay legibility scrim */}
@@ -73,7 +73,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               className={`flex items-center gap-2.5 min-h-11 min-w-11 px-1 cursor-pointer group focus-ring transition-colors ${
                 tone === "dark-on-cream"
                   ? "text-[#1C1917] hover:text-[#F37021]"
-                  : "text-white hover:text-white/80"
+                  : "text-white hover:text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               }`}
               aria-label="Open navigation menu"
             >
@@ -108,10 +108,10 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
             >
               <span
-                className={`font-display text-[13px] sm:text-[15px] md:text-[16px] tracking-[0.28em] sm:tracking-[0.34em] md:tracking-[0.38em] uppercase font-normal transition-colors whitespace-nowrap select-none ${
+                className={`font-display font-semibold uppercase leading-none tracking-[0.08em] mr-[-0.08em] text-[clamp(17px,calc(0.5rem+2.8vw),20px)] md:text-[30px] lg:text-[36px] transition-colors whitespace-nowrap select-none ${
                   tone === "dark-on-cream"
                     ? "text-[#1C1917]"
-                    : "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+                    : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
                 }`}
               >
                 {BRAND_CONFIG.name || "InvisProtect"}
@@ -129,7 +129,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               className={`flex items-center justify-end gap-2 min-h-11 min-w-11 px-1 cursor-pointer focus-ring transition-colors ${
                 tone === "dark-on-cream"
                   ? "text-[#1C1917] hover:text-[#F37021]"
-                  : "text-white hover:text-white/80"
+                  : "text-white hover:text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               }`}
               aria-label="Open client service contact"
             >

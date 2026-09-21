@@ -78,3 +78,47 @@ test("a direct WhatsApp link must contain a valid destination number", () => {
   assert.equal(valid.contact.enabled, true);
   assert.equal(valid.contact.whatsappDisplay, "919812345678");
 });
+
+test("brand config provides valid default social channels", () => {
+  const config = createBrandConfig({});
+
+  assert.equal(config.socials.instagram, "https://www.instagram.com/invisprotect");
+  assert.equal(config.socials.facebook, "https://www.facebook.com/share/1HbM6NCtiM/");
+  assert.equal(config.socials.youtube, "https://www.youtube.com/@invisprotect");
+});
+
+test("brand config accepts valid custom social overrides", () => {
+  const config = createBrandConfig({
+    VITE_SOCIAL_INSTAGRAM_URL: "https://instagram.com/custom_invis",
+    VITE_SOCIAL_FACEBOOK_URL: "https://www.facebook.com/custompage",
+    VITE_SOCIAL_YOUTUBE_URL: "https://www.youtube.com/@customchannel",
+  });
+
+  assert.equal(config.socials.instagram, "https://instagram.com/custom_invis");
+  assert.equal(config.socials.facebook, "https://www.facebook.com/custompage");
+  assert.equal(config.socials.youtube, "https://www.youtube.com/@customchannel");
+});
+
+test("brand config rejects non-https and disallowed hosts for social channels", () => {
+  const insecure = createBrandConfig({
+    VITE_SOCIAL_INSTAGRAM_URL: "http://www.instagram.com/invisprotect",
+    VITE_SOCIAL_FACEBOOK_URL: "javascript:alert(1)",
+    VITE_SOCIAL_YOUTUBE_URL: "https://phishing-youtube.com/@invisprotect",
+  });
+
+  assert.equal(insecure.socials.instagram, "");
+  assert.equal(insecure.socials.facebook, "");
+  assert.equal(insecure.socials.youtube, "");
+});
+
+test("brand config allows explicitly disabling a social channel with empty string", () => {
+  const disabled = createBrandConfig({
+    VITE_SOCIAL_INSTAGRAM_URL: "",
+    VITE_SOCIAL_FACEBOOK_URL: "",
+    VITE_SOCIAL_YOUTUBE_URL: "",
+  });
+
+  assert.equal(disabled.socials.instagram, "");
+  assert.equal(disabled.socials.facebook, "");
+  assert.equal(disabled.socials.youtube, "");
+});

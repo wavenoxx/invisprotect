@@ -11,6 +11,13 @@ export interface BrandContactConfig {
   address: string;
 }
 
+export interface BrandSocialsConfig {
+  whatsappLink: string;
+  instagram: string;
+  facebook: string;
+  youtube: string;
+}
+
 export interface BrandConfig {
   status: "pending" | "active";
   name: string;
@@ -20,7 +27,7 @@ export interface BrandConfig {
   domain: string;
   domainHost: string;
   contact: BrandContactConfig;
-  socials: { whatsappLink: string };
+  socials: BrandSocialsConfig;
 }
 
 type PublicEnvironment = Record<string, string | undefined>;
@@ -87,6 +94,25 @@ const DEFAULT_WHATSAPP_DISPLAY = "7075870054";
 const DEFAULT_WHATSAPP_DIAL = "917075870054";
 const DEFAULT_WHATSAPP_LINK = "https://wa.me/917075870054";
 const DEFAULT_EMAIL = "invisprotect@gmail.com";
+const DEFAULT_INSTAGRAM_URL = "https://www.instagram.com/invisprotect";
+const DEFAULT_FACEBOOK_URL = "https://www.facebook.com/share/1HbM6NCtiM/";
+const DEFAULT_YOUTUBE_URL = "https://www.youtube.com/@invisprotect";
+
+const INSTAGRAM_HOSTS = ["instagram.com", "www.instagram.com"];
+const FACEBOOK_HOSTS = ["facebook.com", "www.facebook.com", "m.facebook.com"];
+const YOUTUBE_HOSTS = ["youtube.com", "www.youtube.com"];
+
+function validSocialUrl(value: string, allowedHosts: string[]): string {
+  if (!value) return "";
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:") return "";
+    if (!allowedHosts.includes(url.hostname.toLowerCase())) return "";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
 
 export function createBrandConfig(env: PublicEnvironment): BrandConfig {
   const status = clean(env.VITE_SITE_STATUS).toLowerCase() === "active" ? "active" : "pending";
@@ -114,6 +140,25 @@ export function createBrandConfig(env: PublicEnvironment): BrandConfig {
   const whatsappLink = contactEnabled ? configuredWhatsappDestination : "";
   const email = contactEnabled ? configuredEmail : "";
 
+  const instagram =
+    env.VITE_SOCIAL_INSTAGRAM_URL !== undefined
+      ? clean(env.VITE_SOCIAL_INSTAGRAM_URL)
+        ? validSocialUrl(clean(env.VITE_SOCIAL_INSTAGRAM_URL), INSTAGRAM_HOSTS)
+        : ""
+      : DEFAULT_INSTAGRAM_URL;
+  const facebook =
+    env.VITE_SOCIAL_FACEBOOK_URL !== undefined
+      ? clean(env.VITE_SOCIAL_FACEBOOK_URL)
+        ? validSocialUrl(clean(env.VITE_SOCIAL_FACEBOOK_URL), FACEBOOK_HOSTS)
+        : ""
+      : DEFAULT_FACEBOOK_URL;
+  const youtube =
+    env.VITE_SOCIAL_YOUTUBE_URL !== undefined
+      ? clean(env.VITE_SOCIAL_YOUTUBE_URL)
+        ? validSocialUrl(clean(env.VITE_SOCIAL_YOUTUBE_URL), YOUTUBE_HOSTS)
+        : ""
+      : DEFAULT_YOUTUBE_URL;
+
   return {
     status,
     name: clean(env.VITE_BRAND_NAME) || DEFAULT_BRAND_NAME,
@@ -138,7 +183,12 @@ export function createBrandConfig(env: PublicEnvironment): BrandConfig {
       address:
         "Operational Hubs: Telangana & Andhra Pradesh (Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, Hanamkonda)",
     },
-    socials: { whatsappLink },
+    socials: {
+      whatsappLink,
+      instagram,
+      facebook,
+      youtube,
+    },
   };
 }
 

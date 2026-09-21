@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 import { trackEngagement } from "@/lib/analytics";
 import { BrandLogo } from "./BrandLogo";
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
   const [showServiceArea, setShowServiceArea] = useState(false);
@@ -387,9 +388,12 @@ export function Footer() {
       {/* SECTION 3: SUB-BOTTOM BAR */}
       <div className="border-t border-white/10 bg-[#141210]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Mobile view (< md): Centered column: Socials, then Hubs, then Copyright */}
+          <div className="flex flex-col items-center gap-4 md:hidden">
+            <SocialLinks />
+
             {/* SERVICE AREA */}
-            <div className="relative">
+            <div className="relative flex justify-center">
               <button
                 type="button"
                 onClick={() => setShowServiceArea(!showServiceArea)}
@@ -402,7 +406,7 @@ export function Footer() {
               </button>
               {showServiceArea && (
                 <div
-                  className="absolute bottom-full left-0 mb-2 w-80 bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50"
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 max-w-[calc(100vw-2rem)] bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50 text-left"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
                   <p className="font-medium text-[11px] uppercase tracking-wider text-[#F37021]">
@@ -424,12 +428,65 @@ export function Footer() {
 
             {/* COPYRIGHT */}
             <p
-              className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em]"
+              className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em] text-center"
               style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
             >
               © {new Date().getFullYear()} {BRAND_CONFIG.name || "InvisProtect"}. All Rights
               Reserved.
             </p>
+          </div>
+
+          {/* Desktop view (md+): Row 1 has Hubs left + Socials right; Row 2 has Copyright left */}
+          <div className="hidden md:block">
+            <div className="flex items-center justify-between">
+              {/* SERVICE AREA */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowServiceArea(!showServiceArea)}
+                  className="text-[11px] text-[#A8A29E] hover:text-[#F37021] font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer transition-colors"
+                  style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  aria-expanded={showServiceArea}
+                >
+                  <span>Verified Service Hubs: Telangana &amp; Andhra Pradesh</span>
+                  <span className="text-[9px]">{showServiceArea ? "▲" : "▼"}</span>
+                </button>
+                {showServiceArea && (
+                  <div
+                    className="absolute bottom-full left-0 mb-2 w-80 bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50 text-left"
+                    style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  >
+                    <p className="font-medium text-[11px] uppercase tracking-wider text-[#F37021]">
+                      Operational Hubs (7 Cities)
+                    </p>
+                    <p>• Telangana: Hyderabad &amp; Secunderabad, Warangal, Hanamkonda</p>
+                    <p>• Andhra Pradesh: Visakhapatnam, Vijayawada, Amaravati, Tirupati</p>
+                    <div className="pt-2 border-t border-white/10">
+                      <Link
+                        to="/service-areas"
+                        className="text-[10px] uppercase tracking-wider text-[#F37021] underline underline-offset-4 hover:text-[#FAF8F5]"
+                      >
+                        View All Locality Details →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* SOCIAL LINKS */}
+              <SocialLinks />
+            </div>
+
+            {/* ROW 2: COPYRIGHT */}
+            <div className="mt-4">
+              <p
+                className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em]"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+              >
+                © {new Date().getFullYear()} {BRAND_CONFIG.name || "InvisProtect"}. All Rights
+                Reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

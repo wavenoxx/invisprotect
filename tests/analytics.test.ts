@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { trackConsultationLead } from "../src/lib/analytics.ts";
+import { trackConsultationLead, trackEngagement } from "../src/lib/analytics.ts";
 
 test("a persisted lead emits one primary event with no artificial value", () => {
   const dataLayer: Array<Record<string, unknown> | unknown[]> = [];
@@ -38,4 +38,29 @@ test("a persisted lead emits one primary event with no artificial value", () => 
   assert.equal(events[0]?.landing_id, lead.landingId);
   assert.equal("phone" in events[0]!, false);
   assert.equal(storage.get(`gads_primary_lead:${lead.leadId}`), "1");
+});
+
+test("trackEngagement records social clicks with interaction location", () => {
+  const dataLayer: Array<Record<string, unknown> | unknown[]> = [];
+  const gtagCalls: unknown[][] = [];
+  Object.assign(globalThis, {
+    window: {
+      dataLayer,
+      gtag: (...args: unknown[]) => gtagCalls.push(args),
+    },
+  });
+
+  trackEngagement("social", "footer_instagram");
+
+  const events = dataLayer.filter(
+    (entry): entry is Record<string, unknown> =>
+      !Array.isArray(entry) && entry.event === "click_social",
+  );
+  assert.equal(events.length, 1);
+  assert.equal(events[0]?.event_category, "Engagement");
+  assert.equal(events[0]?.engagement_type, "social");
+  assert.equal(events[0]?.interaction_location, "footer_instagram");
+  assert.equal(gtagCalls.length, 1);
+  assert.equal(gtagCalls[0]?.[0], "event");
+  assert.equal(gtagCalls[0]?.[1], "click_social");
 });
