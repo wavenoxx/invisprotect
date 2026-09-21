@@ -21,7 +21,7 @@ export const Route = createFileRoute("/campaigns/weightless-pavilion")({
 function WeightlessPavilion() {
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen">
-      <SiteNav />
+      <SiteNav appearance="overlay" />
 
       {/* Hero Header */}
       <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#1C1917]">
@@ -58,22 +58,20 @@ function WeightlessPavilion() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Curatorial Essay
           </span>
-          <h2 className="sn-h2 text-[#1C1917] mt-3 mb-6">
-            The Liberation of Elevated Living
-          </h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-3 mb-6">The Liberation of Elevated Living</h2>
           <div className="space-y-6 text-sm md:text-base font-light text-[#44403C] leading-relaxed">
             <p>
               Contemporary high-rise architecture across Hyderabad and Andhra Pradesh celebrates the
               cantilevered balcony as an extension of interior sanctuary. Yet, traditional security
-              interventions—welded mild steel grates and ornamental iron cages—fracture the facade and
-              confine the resident, visually severing the home from the horizon.
+              interventions—welded mild steel grates and ornamental iron cages—fracture the facade
+              and confine the resident, visually severing the home from the horizon.
             </p>
             <p>
               {BRAND_CONFIG.name} conceives the balcony perimeter not as a cage to be closed, but as
-              a weightless pavilion. By anchoring precision-extruded 6063-T6 aluminum tracks directly
-              into the reinforced concrete slab and threading continuous AISI 316 marine-grade
-              stainless steel cables under 400+ kg individual tension, physical security transforms
-              into an almost imperceptible diaphragm of air and light.
+              a weightless pavilion. By anchoring precision-extruded 6063-T6 aluminum tracks
+              directly into the reinforced concrete slab and threading continuous AISI 316
+              marine-grade stainless steel cables under 400+ kg individual tension, physical
+              security transforms into an almost imperceptible diaphragm of air and light.
             </p>
           </div>
         </div>
@@ -97,8 +95,8 @@ function WeightlessPavilion() {
               02 / Wind Aero-Acoustics
             </h3>
             <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Aerodynamic multi-strand cabling eliminates high-rise wind whistling and turbulent drag
-              common with flat glass partitions and perforated metal sheets.
+              Aerodynamic multi-strand cabling eliminates high-rise wind whistling and turbulent
+              drag common with flat glass partitions and perforated metal sheets.
             </p>
           </div>
 
@@ -108,8 +106,8 @@ function WeightlessPavilion() {
               03 / Emergency Egress
             </h3>
             <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Unlike welded iron barriers that trap occupants during fire emergencies, each cable can
-              be severed in seconds with handheld cutters for immediate evacuation.
+              Unlike welded iron barriers that trap occupants during fire emergencies, each cable
+              can be severed in seconds with handheld cutters for immediate evacuation.
             </p>
           </div>
         </div>
@@ -117,9 +115,7 @@ function WeightlessPavilion() {
         {/* Action Card */}
         <div className="p-8 sm:p-12 bg-white border border-[#1C1917]/10 text-center shadow-lg">
           <p className="sn-eyebrow text-[#F37021] mb-3">Architectural Advisory</p>
-          <h3 className="sn-h2 text-[#1C1917] mb-3">
-            Commission a Private Balcony Evaluation
-          </h3>
+          <h3 className="sn-h2 text-[#1C1917] mb-3">Commission a Private Balcony Evaluation</h3>
           <p className="text-xs md:text-sm font-light text-[#78716C] max-w-xl mx-auto mb-8">
             Experience the architectural liberation of invisible safety. Our regional technical
             advisors provide laser measurements and structural load assessments across Hyderabad,

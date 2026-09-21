@@ -50,7 +50,7 @@ const specs = [
 function CraftsmanshipPage() {
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen">
-      <SiteNav />
+      <SiteNav appearance="overlay" />
 
       {/* Hero Header with Exact Cinematic Visual */}
       <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#FAF8F5]">

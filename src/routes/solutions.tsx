@@ -98,7 +98,7 @@ function SolutionsExplorer() {
 
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen">
-      <SiteNav />
+      <SiteNav appearance="overlay" />
 
       {/* Mobile Magazine Lookbook */}
       <div

@@ -182,16 +182,28 @@
 
 .sn-h1,
 .sn-brand-title {
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
   font-weight: 300 !important;
-  letter-spacing: 0.20em !important;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
   font-size: clamp(1.25rem, 2.2vw, 1.85rem) !important;
   line-height: 1.35 !important;
 }
 
 .sn-h2 {
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
   font-weight: 400 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
@@ -200,7 +212,13 @@
 }
 
 .sn-eyebrow {
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
   font-weight: 500 !important;
   font-size: clamp(9.5px, 0.95vw, 11px) !important;
   letter-spacing: 0.26em !important;
@@ -226,7 +244,13 @@
   -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   padding: 0.65rem 1.65rem;
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.24em;
@@ -255,7 +279,13 @@
   background-color: transparent;
   color: #1c1917;
   padding: 0.65rem 1.65rem;
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.24em;
@@ -284,7 +314,13 @@
   background-color: #f37021;
   color: #ffffff;
   padding: 0.65rem 1.75rem;
-  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Jost",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.24em;

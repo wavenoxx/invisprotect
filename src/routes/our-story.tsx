@@ -267,11 +267,11 @@ function StoryPage() {
               <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
                 Atelier Heritage &amp; Ethos
               </span>
-              <h2 className="sn-h1 text-white text-center">
-                The Foundry of Transparency
-              </h2>
+              <h2 className="sn-h1 text-white text-center">The Foundry of Transparency</h2>
               <p className="text-xs sm:text-sm text-[#E7E5E4] text-center font-light mt-4 mb-6 leading-relaxed max-w-lg">
-                InvisProtect was conceived with a singular architectural mission: to liberate homes across Telangana and Andhra Pradesh from the prison of heavy iron grilles without sacrificing a millimeter of family safety.
+                InvisProtect was conceived with a singular architectural mission: to liberate homes
+                across Telangana and Andhra Pradesh from the prison of heavy iron grilles without
+                sacrificing a millimeter of family safety.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left w-full my-6 border-y border-white/10 py-6">
                 <div>
@@ -279,7 +279,8 @@ function StoryPage() {
                     Master Certified Installers
                   </h4>
                   <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
-                    Zero third-party subcontractors. Every cable is laser-aligned and mechanically tension-locked by our in-house specialists.
+                    Zero third-party subcontractors. Every cable is laser-aligned and mechanically
+                    tension-locked by our in-house specialists.
                   </p>
                 </div>
                 <div>
@@ -287,12 +288,16 @@ function StoryPage() {
                     Regional Provenance
                   </h4>
                   <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
-                    Rooted in Hyderabad, Visakhapatnam, and Vijayawada—metallurgically calibrated for coastal salt air and high-rise thermal winds.
+                    Rooted in Hyderabad, Visakhapatnam, and Vijayawada—metallurgically calibrated
+                    for coastal salt air and high-rise thermal winds.
                   </p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
-                <Link to="/consultation" className="sn-btn-luxury-solid w-full sm:w-auto focus-ring">
+                <Link
+                  to="/consultation"
+                  className="sn-btn-luxury-solid w-full sm:w-auto focus-ring"
+                >
                   Request Site Survey
                 </Link>
                 <Link to="/solutions" className="sn-btn-luxury w-full sm:w-auto focus-ring">

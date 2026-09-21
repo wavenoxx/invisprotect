@@ -51,9 +51,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 01 / Invisible Grills
           </span>
-          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
-            Invisible Grills Maintenance Protocol
-          </h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">Invisible Grills Maintenance Protocol</h2>
           <div className="space-y-4 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
             <p>
               The AISI 316 stainless steel cables are sheathed in a transparent UV-stabilized
@@ -131,9 +129,7 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
             Section 03 / Balcony Safety Nets
           </span>
-          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
-            Balcony &amp; Window Netting Care
-          </h2>
+          <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">Balcony &amp; Window Netting Care</h2>
           <div className="space-y-4 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
             <p>
               Our high-density monofilament HDPE netting is treated with carbon-black UV

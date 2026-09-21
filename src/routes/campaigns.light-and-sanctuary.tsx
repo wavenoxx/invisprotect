@@ -144,9 +144,7 @@ function CampaignOne() {
         <span className="font-sans text-[10px] tracking-[0.25em] text-[#F37021] mb-4 uppercase font-medium block">
           The Edit
         </span>
-        <h1 className="sn-h1 text-[#1C1917] mb-6 block">
-          Light &amp; Sanctuary
-        </h1>
+        <h1 className="sn-h1 text-[#1C1917] mb-6 block">Light &amp; Sanctuary</h1>
         <p className="text-[13px] md:text-[14px] leading-relaxed text-[#44403C] font-light max-w-2xl mx-auto">
           An exploration of architectural lightness. At {BRAND_CONFIG.name}, we believe security
           should enhance your view, not hide it. Our campaign captures the dialogue between open
@@ -160,9 +158,7 @@ function CampaignOne() {
       ))}
 
       <section className="py-24 bg-[#F4EFEA] border-t border-[#1C1917]/10 flex flex-col items-center justify-center text-center px-6">
-        <h2 className="sn-h2 text-[#1C1917] mb-8">
-          Curate Your Sanctuary
-        </h2>
+        <h2 className="sn-h2 text-[#1C1917] mb-8">Curate Your Sanctuary</h2>
         <Link to="/consultation" className="sn-btn-luxury-solid">
           Request Survey
         </Link>

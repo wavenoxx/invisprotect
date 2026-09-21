@@ -32,9 +32,7 @@ export const Route = createFileRoute("/lp/$landingId")({
         <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
           Campaign page unavailable
         </p>
-        <h1 className="mt-3 sn-h1">
-          This landing page could not be found.
-        </h1>
+        <h1 className="mt-3 sn-h1">This landing page could not be found.</h1>
         <Link to="/" className="sn-btn-luxury-solid mt-7">
           Visit InvisProtect
         </Link>
@@ -125,10 +123,10 @@ function PaidLandingPage() {
               <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#F37021]">
                 {landing.eyebrow}
               </p>
-              <h1 className="mt-3 max-w-xl sn-h1 text-[#1C1917]">
-                {landing.headline}
-              </h1>
-              <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#57534E] font-light">{landing.summary}</p>
+              <h1 className="mt-3 max-w-xl sn-h1 text-[#1C1917]">{landing.headline}</h1>
+              <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#57534E] font-light">
+                {landing.summary}
+              </p>
               <ul className="mt-6 space-y-2.5" aria-label="Service highlights">
                 {landing.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2.5 text-sm text-[#44403C]">
@@ -184,9 +182,7 @@ function PaidLandingPage() {
             <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
               Why request a survey
             </p>
-            <h2 className="mt-2 max-w-lg sn-h2">
-              Clear specifications before installation.
-            </h2>
+            <h2 className="mt-2 max-w-lg sn-h2">Clear specifications before installation.</h2>
             <div className="mt-8 space-y-7">
               {landing.trustSignals.map((signal, index) => {
                 const Icon = index === 0 ? ShieldCheck : Ruler;

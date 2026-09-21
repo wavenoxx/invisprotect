@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { User } from "lucide-react";
 import { BRAND_CONFIG } from "@/config/brand";
+import { resolveNavTone, type NavAppearance } from "@/lib/nav-appearance";
 import ContactDrawer from "./ContactDrawer";
 import MenuDrawer from "./MenuDrawer";
+
+export interface SiteNavProps {
+  appearance?: NavAppearance;
+}
 
 /**
  * SiteNav — Quiet Luxury Architectural Header.
@@ -13,12 +18,14 @@ import MenuDrawer from "./MenuDrawer";
  * - Center: Pure, ultra-luxurious brand serif typography (InvisProtect).
  * - Right: Clean luxury Profile / Contact icon (text on sm+).
  */
-export function SiteNav() {
+export function SiteNav({ appearance = "solid" }: SiteNavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (appearance !== "overlay") return;
+
     const handleScroll = () => {
       if (window.scrollY > 15) {
         setIsScrolled(true);
@@ -30,18 +37,32 @@ export function SiteNav() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [appearance]);
+
+  const tone = resolveNavTone(appearance, isScrolled);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-          isScrolled
+          tone === "dark-on-cream"
             ? "bg-[#FAF8F5]/94 backdrop-blur-xl border-b border-[#1C1917]/10 text-[#1C1917] shadow-[0_4px_24px_rgba(28,25,23,0.06)]"
             : "bg-transparent border-b border-transparent text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
         }`}
       >
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8 lg:px-12 py-2.5 sm:py-3.5 lg:py-4 w-full">
+        {/* Overlay legibility scrim */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out ${
+            tone === "light-on-image" ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(28,25,23,0.45) 0%, rgba(28,25,23,0.25) 60%, rgba(28,25,23,0) 100%)",
+          }}
+        />
+
+        <div className="relative grid grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8 lg:px-12 py-2.5 sm:py-3.5 lg:py-4 w-full">
           {/* ─────────────────────────────────────────────────────────────
               LEFT: Minimal 2-Line Menu Icon (Icon only on mobile, text on desktop)
               ───────────────────────────────────────────────────────────── */}
@@ -50,7 +71,7 @@ export function SiteNav() {
               type="button"
               onClick={() => setIsMenuOpen(true)}
               className={`flex items-center gap-2.5 min-h-11 min-w-11 px-1 cursor-pointer group focus-ring transition-colors ${
-                isScrolled
+                tone === "dark-on-cream"
                   ? "text-[#1C1917] hover:text-[#F37021]"
                   : "text-white hover:text-white/80"
               }`}
@@ -59,12 +80,12 @@ export function SiteNav() {
               <span className="flex flex-col gap-[5.5px] justify-center py-1">
                 <span
                   className={`block w-[20px] sm:w-[17px] h-[1.5px] sm:h-px transition-colors ${
-                    isScrolled ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
+                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
                   }`}
                 />
                 <span
                   className={`block w-[20px] sm:w-[17px] h-[1.5px] sm:h-px transition-colors ${
-                    isScrolled ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
+                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
                   }`}
                 />
               </span>
@@ -88,7 +109,7 @@ export function SiteNav() {
             >
               <span
                 className={`font-display text-[13px] sm:text-[15px] md:text-[16px] tracking-[0.28em] sm:tracking-[0.34em] md:tracking-[0.38em] uppercase font-normal transition-colors whitespace-nowrap select-none ${
-                  isScrolled
+                  tone === "dark-on-cream"
                     ? "text-[#1C1917]"
                     : "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
                 }`}
@@ -106,7 +127,7 @@ export function SiteNav() {
               type="button"
               onClick={() => setIsContactOpen(true)}
               className={`flex items-center justify-end gap-2 min-h-11 min-w-11 px-1 cursor-pointer focus-ring transition-colors ${
-                isScrolled
+                tone === "dark-on-cream"
                   ? "text-[#1C1917] hover:text-[#F37021]"
                   : "text-white hover:text-white/80"
               }`}

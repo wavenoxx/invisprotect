@@ -98,9 +98,7 @@ function CampaignThree() {
           <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
             INTERACTIVE EXPERIENCE 01
           </span>
-          <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
-            THE CELESTIAL SKYDECK
-          </h2>
+          <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE CELESTIAL SKYDECK</h2>
           <p className="font-serif italic text-sm md:text-base text-[#44403C] font-light max-w-xl mx-auto">
             Move your cursor across the window deck. Your cursor acts as a sunlight source,
             projecting dynamic angles of safety lines on the floor.
@@ -157,9 +155,7 @@ function CampaignThree() {
             <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
               INTERACTIVE EXPERIENCE 02
             </span>
-            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
-              THE GUARDIAN PROMISE
-            </h2>
+            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE GUARDIAN PROMISE</h2>
             <p className="font-serif italic text-sm md:text-base text-[#78716C] font-light max-w-xl mx-auto">
               Hover over the structural connection nodes to activate the integrity telemetry of{" "}
               {BRAND_CONFIG.name}'s safety anchors.
@@ -242,9 +238,7 @@ function CampaignThree() {
             <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
               INTERACTIVE EXPERIENCE 03
             </span>
-            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">
-              THE HORIZON PORTAL
-            </h2>
+            <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE HORIZON PORTAL</h2>
             <p className="font-serif italic text-sm md:text-base text-[#44403C] font-light max-w-xl mx-auto">
               Adjust the viewport layer selector to examine how {BRAND_CONFIG.name} integrates
               safety grids and insect screening without compromising your view.
@@ -313,9 +307,7 @@ function CampaignThree() {
         <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] mb-4 uppercase font-medium">
           TAILORED PROTECTION
         </span>
-        <h2 className="sn-h2 text-[#1C1917] mb-8">
-          CURATE YOUR VOIDS
-        </h2>
+        <h2 className="sn-h2 text-[#1C1917] mb-8">CURATE YOUR VOIDS</h2>
         <Link to="/consultation" className="sn-btn-luxury-solid">
           REQUEST SURVEY
         </Link>

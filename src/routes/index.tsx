@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917]">
-      <SiteNav />
+      <SiteNav appearance="overlay" />
       <Hero />
       <CinematicScrollway />
       <ProofSection />

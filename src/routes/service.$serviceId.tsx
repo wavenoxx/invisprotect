@@ -284,9 +284,7 @@ function ServicePage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Related Systems
             </span>
-            <h2 className="sn-h2 text-[#1C1917] mt-1">
-              Explore Complementary {category?.title}
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mt-1">Explore Complementary {category?.title}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

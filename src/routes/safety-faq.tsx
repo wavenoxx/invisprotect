@@ -119,9 +119,7 @@ function SafetyFaqPage() {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Category 0{secIdx + 1}
             </span>
-            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">
-              {sec.category}
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">{sec.category}</h2>
 
             <div className="space-y-4">
               {sec.questions.map((faq, faqIdx) => {

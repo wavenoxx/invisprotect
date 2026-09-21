@@ -110,18 +110,19 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
               Verified Installations
             </span>
-            <h3 className="sn-h2 text-[#1C1917] mt-2">
-              Architectural Sanctuaries in Practice
-            </h3>
+            <h3 className="sn-h2 text-[#1C1917] mt-2">Architectural Sanctuaries in Practice</h3>
             <p className="text-xs text-[#78716C] font-light mt-2">
-              Endorsed by leading high-rise residents and interior architects across Telangana &amp; Andhra Pradesh.
+              Endorsed by leading high-rise residents and interior architects across Telangana &amp;
+              Andhra Pradesh.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
               <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “Our 34th-floor duplex in Kokapet needed rigorous safety for our twin toddlers without turning our panoramic city view into a cage. InvisProtect's AISI 316 invisible grills gave us total peace of mind and pristine aesthetics.”
+                “Our 34th-floor duplex in Kokapet needed rigorous safety for our twin toddlers
+                without turning our panoramic city view into a cage. InvisProtect's AISI 316
+                invisible grills gave us total peace of mind and pristine aesthetics.”
               </p>
               <div className="border-t border-[#1C1917]/8 pt-4">
                 <p className="text-xs font-medium text-[#1C1917]">K. V. Rao</p>
@@ -133,7 +134,9 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
 
             <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
               <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “As an interior architect designing sea-facing luxury residences in Rushikonda, standard iron grilles oxidize rapidly. The marine-grade 316 alloy and flush track profiles specified by InvisProtect remain pristine through coastal monsoons.”
+                “As an interior architect designing sea-facing luxury residences in Rushikonda,
+                standard iron grilles oxidize rapidly. The marine-grade 316 alloy and flush track
+                profiles specified by InvisProtect remain pristine through coastal monsoons.”
               </p>
               <div className="border-t border-[#1C1917]/8 pt-4">
                 <p className="text-xs font-medium text-[#1C1917]">Ar. Sunita Varma</p>
@@ -145,7 +148,9 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
 
             <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
               <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “The laser survey and anchoring into our post-tensioned balcony slabs was conducted with surgical discipline. Zero dust, zero vibration damage, and perfectly calibrated tension lines across our entire terrace opening.”
+                “The laser survey and anchoring into our post-tensioned balcony slabs was conducted
+                with surgical discipline. Zero dust, zero vibration damage, and perfectly calibrated
+                tension lines across our entire terrace opening.”
               </p>
               <div className="border-t border-[#1C1917]/8 pt-4">
                 <p className="text-xs font-medium text-[#1C1917]">Dr. M. S. Reddy</p>
