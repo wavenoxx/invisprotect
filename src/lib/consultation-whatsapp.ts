@@ -10,9 +10,10 @@ export interface ConsultationWhatsappDetails {
 export function buildConsultationWhatsappUrl(
   whatsappBaseUrl: string,
   details: ConsultationWhatsappDetails,
+  brandName = "InvisProtect",
 ) {
   const message = [
-    "Hello InvisProtect,",
+    `Hello ${brandName},`,
     "",
     "I would like to request a quote / site survey.",
     "",

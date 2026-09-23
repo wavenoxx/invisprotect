@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
+import { BUSINESS, hubCityList } from "@/config/business";
 
 export const Route = createFileRoute("/our-story")({
   head: () =>
@@ -22,68 +23,68 @@ const CHAPTERS: Chapter[] = [
   {
     time: "05:00",
     name: "Dawn",
-    copy: "A silent guardian wakes. Before the first light touches Telangana and Andhra Pradesh, your sanctuary is secured.",
-    image: "/images/our-story/chapter-1.jpg",
+    copy: `A silent guardian wakes. Before the first light touches ${BUSINESS.regionLabel}, your sanctuary is secured.`,
+    image: "/images/our-story/chapter-1.webp",
   },
   {
     time: "06:15",
     name: "Sunrise",
     copy: "Horizon liberated. We greet the morning light without iron bars. Boundless skies.",
-    image: "/images/our-story/chapter-2.jpg",
+    image: "/images/our-story/chapter-2.webp",
   },
   {
     time: "08:30",
     name: "Morning",
     copy: "Pure natural daylight without visual confinement. The view is entirely yours.",
-    image: "/images/our-story/chapter-3.jpg",
+    image: "/images/our-story/chapter-3.webp",
   },
   {
     time: "12:00",
     name: "Midday",
     copy: "Zenith strength. Under the blazing sun, our marine elements stand unyielding.",
-    image: "/images/our-story/chapter-4.jpg",
+    image: "/images/our-story/chapter-4.webp",
   },
   {
     time: "15:00",
     name: "Afternoon",
     copy: "Play without borders. Children explore freely with engineered perimeter micro-spacing.",
-    image: "/images/our-story/chapter-5.jpg",
+    image: "/images/our-story/chapter-5.webp",
   },
   {
     time: "17:30",
     name: "Evening",
     copy: "The evening breeze. Engineered barriers invite cooling airflow while keeping vectors out.",
-    image: "/images/our-story/chapter-6.jpg",
+    image: "/images/our-story/chapter-6.webp",
   },
   {
     time: "18:15",
     name: "Sunset",
     copy: "Pristine dusk. Pigeons seek other ledges; your balcony remains untouched.",
-    image: "/images/our-story/chapter-7.jpg",
+    image: "/images/our-story/chapter-7.webp",
   },
   {
     time: "18:45",
     name: "Twilight",
     copy: "Velvet horizons. The city lights fade in through a screen of pure transparency.",
-    image: "/images/our-story/chapter-8.jpg",
+    image: "/images/our-story/chapter-8.webp",
   },
   {
     time: "19:15",
     name: "Dusk",
     copy: "Shadows merge. The boundary between home and nature dissolves.",
-    image: "/images/our-story/chapter-9.jpg",
+    image: "/images/our-story/chapter-9.webp",
   },
   {
     time: "21:00",
     name: "Night",
     copy: "Under the stars. Woven lines of steel stand watch while your home rests.",
-    image: "/images/our-story/chapter-10.jpg",
+    image: "/images/our-story/chapter-10.webp",
   },
   {
     time: "24:00",
     name: "Midnight",
     copy: `Breathe deeply. ${BRAND_CONFIG.name} guards the edge. Rest well.`,
-    image: "/images/our-story/chapter-11.jpg",
+    image: "/images/our-story/chapter-11.webp",
   },
 ];
 
@@ -168,7 +169,7 @@ function StoryPage() {
         className={`fixed pointer-events-none z-0 rounded-full ${
           isMoon
             ? "w-20 h-20 bg-slate-200 blur-2xl opacity-50"
-            : "w-28 h-28 bg-[#F37021]/30 blur-3xl opacity-60"
+            : "w-28 h-28 bg-brand/30 blur-3xl opacity-60"
         }`}
         style={{ left: `${orbX}vw`, top: `${orbY}vh` }}
         aria-hidden="true"
@@ -231,7 +232,7 @@ function StoryPage() {
 
                 {/* Time Indicator */}
                 <p
-                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-medium text-[#F37021]"
+                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-medium text-brand"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {c.time}
@@ -264,32 +265,32 @@ function StoryPage() {
         <section className="w-screen min-h-screen snap-start relative flex flex-col items-center justify-between overflow-y-auto bg-transparent">
           <div className="flex-1 flex items-center justify-center w-full pt-28 pb-16 px-6">
             <div className="border border-white/20 bg-[#1C1917]/75 backdrop-blur-2xl backdrop-saturate-150 p-8 sm:p-12 md:p-16 w-full max-w-2xl flex flex-col items-center text-center shadow-[0_24px_64px_rgba(0,0,0,0.6)]">
-              <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
+              <span className="sn-eyebrow text-brand mb-3 block font-medium">
                 Atelier Heritage &amp; Ethos
               </span>
               <h2 className="sn-h1 text-white text-center">The Foundry of Transparency</h2>
               <p className="text-xs sm:text-sm text-[#E7E5E4] text-center font-light mt-4 mb-6 leading-relaxed max-w-lg">
-                InvisProtect was conceived with a singular architectural mission: to liberate homes
-                across Telangana and Andhra Pradesh from the prison of heavy iron grilles without
+                {BRAND_CONFIG.name} was conceived with a singular architectural mission: to liberate
+                homes across {BUSINESS.regionLabel} from the prison of heavy iron grilles without
                 sacrificing a millimeter of family safety.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left w-full my-6 border-y border-white/10 py-6">
                 <div>
-                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-[#F37021] mb-1">
-                    Master Certified Installers
+                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-brand mb-1">
+                    Trained In-House Installers
                   </h4>
                   <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
-                    Zero third-party subcontractors. Every cable is laser-aligned and mechanically
-                    tension-locked by our in-house specialists.
+                    Every cable is laser-aligned and mechanically tension-locked by our own
+                    installation team.
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-[#F37021] mb-1">
+                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-brand mb-1">
                     Regional Provenance
                   </h4>
                   <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
-                    Rooted in Hyderabad, Visakhapatnam, and Vijayawada—metallurgically calibrated
-                    for coastal salt air and high-rise thermal winds.
+                    Serving {hubCityList("shortName")}—specified for coastal salt air and high-rise
+                    thermal winds.
                   </p>
                 </div>
               </div>

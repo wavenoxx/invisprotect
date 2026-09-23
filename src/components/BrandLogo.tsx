@@ -33,14 +33,14 @@ export function BrandLogo({
   align = "left",
   isDark = true,
   color,
-  alt = BRAND_CONFIG.name || "InvisProtect",
+  alt = BRAND_CONFIG.name,
 }: BrandLogoProps) {
   const effectiveIsDark =
     color === "#FAF8F5" || color === "#FFFFFF" || color === "white" ? false : isDark;
   const textColor = effectiveIsDark ? "text-[#1C1917]" : "text-[#FAF8F5]";
   const subColor = effectiveIsDark ? "text-[#78716C]" : "text-[#A8A29E]";
 
-  const displayName = BRAND_CONFIG.name || "InvisProtect";
+  const displayName = BRAND_CONFIG.name;
 
   const isCenter =
     align === "center" || className.includes("text-center") || className.includes("items-center");

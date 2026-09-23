@@ -21,7 +21,7 @@ function TermsPage() {
 
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
-          <p className="sn-eyebrow text-[#F37021] mb-3 font-medium">
+          <p className="sn-eyebrow text-brand mb-3 font-medium">
             Legal &amp; Operational Standards
           </p>
           <h1 className="sn-h1 text-[#1C1917]">Terms and Conditions</h1>
@@ -75,7 +75,7 @@ function TermsPage() {
               Warranty protections apply exclusively to systems installed by authorized{" "}
               {BRAND_CONFIG.name} technicians according to manufacturer specifications. Complete
               warranty terms and coverage durations are detailed on our{" "}
-              <Link to="/warranty" className="underline text-[#F37021] font-medium">
+              <Link to="/warranty" className="underline text-brand font-medium">
                 Warranty Policy Page
               </Link>
               .
@@ -94,7 +94,7 @@ function TermsPage() {
                   {BRAND_CONFIG.contact.emailHref ? (
                     <a
                       href={BRAND_CONFIG.contact.emailHref}
-                      className="underline text-[#F37021] font-medium"
+                      className="underline text-brand font-medium"
                     >
                       {BRAND_CONFIG.contact.email}
                     </a>
@@ -103,7 +103,7 @@ function TermsPage() {
                   {BRAND_CONFIG.contact.phoneHref ? (
                     <a
                       href={BRAND_CONFIG.contact.phoneHref}
-                      className="underline text-[#F37021] font-medium"
+                      className="underline text-brand font-medium"
                     >
                       {BRAND_CONFIG.contact.phoneDisplay}
                     </a>

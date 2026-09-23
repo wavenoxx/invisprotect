@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
+import { BUSINESS, hubCityList } from "@/config/business";
 
 export const Route = createFileRoute("/material-standards")({
   head: () =>
@@ -21,7 +22,7 @@ function MaterialStandardsPage() {
 
       <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 pt-32 pb-24">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
-          <p className="sn-eyebrow text-[#F37021] mb-3 font-medium">Engineering Governance</p>
+          <p className="sn-eyebrow text-brand mb-3 font-medium">Engineering Governance</p>
           <h1 className="sn-h1 text-[#1C1917]">Material Standards &amp; Tolerances</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
             Architectural integrity through verified metallurgical and polymer specifications.
@@ -41,9 +42,8 @@ function MaterialStandardsPage() {
                 standard 304 stainless steel.
               </p>
               <p className="text-xs text-[#78716C]">
-                Ideal for high-humidity coastal and urban environments across Telangana &amp; Andhra
-                Pradesh, including Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati,
-                Warangal, and Hanamkonda.
+                Ideal for high-humidity coastal and urban environments across {BUSINESS.regionLabel}
+                , including {hubCityList()}.
               </p>
             </div>
           </div>

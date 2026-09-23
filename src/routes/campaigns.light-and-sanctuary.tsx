@@ -20,15 +20,15 @@ const HARP_LINES = 8;
 
 const REVEAL_SECTIONS = [
   {
-    image: "/images/campaigns/campaign-1-story-1.jpg",
+    image: "/images/campaigns/campaign-1-story-1.webp",
     quote: "We do not build walls. We liberate the threshold.",
   },
   {
-    image: "/images/campaigns/campaign-1-story-2.jpg",
+    image: "/images/campaigns/campaign-1-story-2.webp",
     quote: "Security is not a cage. It is a dialogue with the sky.",
   },
   {
-    image: "/images/campaigns/campaign-1-story-3.jpg",
+    image: "/images/campaigns/campaign-1-story-3.webp",
     quote: "Where the edge fades, absolute trust begins.",
   },
 ];
@@ -56,7 +56,7 @@ function SafetyHarp() {
           return (
             <div key={i}>
               <div
-                className={`absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#F37021]/50 to-transparent ${active ? "animate-strum" : ""}`}
+                className={`absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand/50 to-transparent ${active ? "animate-strum" : ""}`}
                 style={{ left: `${leftPct}%` }}
               />
               <div
@@ -117,11 +117,11 @@ function CampaignOne() {
     <div className="relative bg-[#FAF8F5] text-[#1C1917] min-h-screen">
       <style>{`
         @keyframes strum {
-          0%, 100% { transform: translateX(0) scaleX(1); filter: drop-shadow(0 0 0px rgba(243,112,33,0)); }
-          20% { transform: translateX(-10px) scaleX(1.15); filter: drop-shadow(0 0 10px rgba(243,112,33,0.8)); }
-          40% { transform: translateX(8px) scaleX(0.9); filter: drop-shadow(0 0 8px rgba(243,112,33,0.6)); }
-          60% { transform: translateX(-5px) scaleX(1.08); filter: drop-shadow(0 0 5px rgba(243,112,33,0.4)); }
-          80% { transform: translateX(3px) scaleX(0.97); filter: drop-shadow(0 0 3px rgba(243,112,33,0.2)); }
+          0%, 100% { transform: translateX(0) scaleX(1); filter: drop-shadow(0 0 0px color-mix(in oklab, var(--brand) 0%, transparent)); }
+          20% { transform: translateX(-10px) scaleX(1.15); filter: drop-shadow(0 0 10px color-mix(in oklab, var(--brand) 80%, transparent)); }
+          40% { transform: translateX(8px) scaleX(0.9); filter: drop-shadow(0 0 8px color-mix(in oklab, var(--brand) 60%, transparent)); }
+          60% { transform: translateX(-5px) scaleX(1.08); filter: drop-shadow(0 0 5px color-mix(in oklab, var(--brand) 40%, transparent)); }
+          80% { transform: translateX(3px) scaleX(0.97); filter: drop-shadow(0 0 3px color-mix(in oklab, var(--brand) 20%, transparent)); }
         }
         .animate-strum {
           animation: strum 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -141,7 +141,7 @@ function CampaignOne() {
       </section>
 
       <section className="py-20 px-6 max-w-3xl mx-auto text-center">
-        <span className="font-sans text-[10px] tracking-[0.25em] text-[#F37021] mb-4 uppercase font-medium block">
+        <span className="font-sans text-[10px] tracking-[0.25em] text-brand mb-4 uppercase font-medium block">
           The Edit
         </span>
         <h1 className="sn-h1 text-[#1C1917] mb-6 block">Light &amp; Sanctuary</h1>

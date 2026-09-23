@@ -8,6 +8,8 @@
  * - Fails safely without breaking client lead confirmation if unconfigured.
  */
 
+import { DEFAULT_BRAND_NAME } from "@/config/brand";
+
 export interface LeadNotificationPayload {
   leadId: string;
   customerName: string;
@@ -64,7 +66,8 @@ export async function notifyOwnerWhatsApp(
     };
   }
 
-  const brandName = process.env.SITE_BRAND_NAME || process.env.VITE_BRAND_NAME || "InvisProtect";
+  const brandName =
+    process.env.SITE_BRAND_NAME || process.env.VITE_BRAND_NAME || DEFAULT_BRAND_NAME;
 
   // Clean owner destination phone: digits only
   const cleanPhone = ownerPhone.replace(/[^\d]/g, "");

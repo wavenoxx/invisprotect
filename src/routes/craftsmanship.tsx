@@ -4,13 +4,14 @@ import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
 import { buildMetaTags } from "@/lib/seo";
+import { BUSINESS } from "@/config/business";
 
 export const Route = createFileRoute("/craftsmanship")({
   head: () =>
     buildMetaTags({
       title: `Materials, Metallurgy & Tensile Engineering — ${BRAND_CONFIG.name}`,
       description:
-        "Precision engineering and architectural strength. Verified AISI 316 marine-grade stainless steel cables, UV-stabilized Nylon-12 coating, and 6063-T6 aluminum tracks.",
+        "Precision engineering and architectural strength. AISI 316 marine-grade stainless steel cables, UV-stabilized Nylon-12 coating, and 6063-T6 aluminum tracks.",
       canonicalPath: "/craftsmanship",
       ogImage: "/images/craftsmanship/hero.jpg",
     }),
@@ -21,7 +22,7 @@ const ledger = [
   {
     eyebrow: "01 — AISI 316 Marine Grade Stainless Steel Core",
     title: "The Core",
-    copy: "The spine of our system. We utilize AISI 316-grade marine stainless steel, alloyed with molybdenum for superior rust resistance. This alloy resists corrosion in highly humid and coastal environments across Telangana & Andhra Pradesh, ensuring long-term structural integrity.",
+    copy: `The spine of our system. We utilize AISI 316-grade marine stainless steel, alloyed with molybdenum for superior rust resistance. This alloy resists corrosion in highly humid and coastal environments across ${BUSINESS.regionLabel}, ensuring long-term structural integrity.`,
   },
   {
     eyebrow: "02 — Nylon-12 Protective Shield",
@@ -55,7 +56,7 @@ function CraftsmanshipPage() {
       {/* Hero Header with Exact Cinematic Visual */}
       <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#FAF8F5]">
         <img
-          src="/images/craftsmanship-hero.png"
+          src="/images/craftsmanship-hero.webp"
           alt="Precision Engineering and Architectural Strength"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
@@ -85,7 +86,7 @@ function CraftsmanshipPage() {
       {/* Technical Ledger */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         <div className="text-center mb-12">
-          <p className="sn-eyebrow text-[#F37021] font-medium">The Technical Ledger</p>
+          <p className="sn-eyebrow text-brand font-medium">The Technical Ledger</p>
           <h2 className="sn-h2 text-[#1C1917] mt-3 mb-2">Materials of Consequence</h2>
         </div>
 
@@ -95,7 +96,7 @@ function CraftsmanshipPage() {
             className="border-t border-[#1C1917]/10 py-12 px-2 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white my-4 border border-[#1C1917]/8 shadow-sm"
           >
             <div>
-              <p className="sn-eyebrow text-[#F37021] font-medium">{b.eyebrow}</p>
+              <p className="sn-eyebrow text-brand font-medium">{b.eyebrow}</p>
               <h3 className="font-display text-sm md:text-base font-medium text-[#1C1917] uppercase tracking-[0.16em] mt-2">
                 {b.title}
               </h3>
@@ -111,7 +112,7 @@ function CraftsmanshipPage() {
       <section className="bg-[#F4EFEA] mt-20 md:mt-28 py-20 md:py-28 border-t border-b border-[#1C1917]/10">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
-            <p className="sn-eyebrow text-[#F37021] font-medium">Tolerances</p>
+            <p className="sn-eyebrow text-brand font-medium">Tolerances</p>
             <h2 className="sn-h2 text-[#1C1917] mt-3">Specifications</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-[#1C1917]/10">
@@ -120,7 +121,7 @@ function CraftsmanshipPage() {
                 key={s.label}
                 className="border-r border-b border-[#1C1917]/10 p-8 text-center bg-white shadow-xs"
               >
-                <p className="sn-eyebrow text-[#F37021] font-medium">{s.label}</p>
+                <p className="sn-eyebrow text-brand font-medium">{s.label}</p>
                 <p className="font-display text-xl md:text-2xl text-[#1C1917] font-light mt-3 tracking-wide">
                   {s.value}
                 </p>
@@ -134,7 +135,7 @@ function CraftsmanshipPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 border-t border-[#1C1917]/10">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <p className="sn-eyebrow text-[#F37021] font-medium">By Appointment</p>
+          <p className="sn-eyebrow text-brand font-medium">By Appointment</p>
           <h2 className="sn-h2 text-[#1C1917] mt-4 mb-4">Inspect Your Space</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
             A safety advisor will visit your residence, conduct precision site measurements, and

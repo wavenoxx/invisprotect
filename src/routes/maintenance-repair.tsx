@@ -34,7 +34,7 @@ function MaintenanceRepairPage() {
       {/* Hero Header */}
       <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF8F5] border-b border-[#1C1917]/10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="sn-eyebrow text-[#F37021] mb-4 font-medium">System Longevity</p>
+          <p className="sn-eyebrow text-brand mb-4 font-medium">System Longevity</p>
           <h1 className="sn-h1 text-[#1C1917] mb-4">Care, Maintenance &amp; Retensioning</h1>
           <p className="sn-subtext text-[#44403C] max-w-2xl mx-auto">
             {BRAND_CONFIG.name} architectural safety systems are engineered for enduring durability.
@@ -48,7 +48,7 @@ function MaintenanceRepairPage() {
       <main className="max-w-5xl mx-auto px-6 md:px-12 py-16 md:py-24 space-y-20">
         {/* 1. Invisible Grills Care */}
         <article className="border-b border-[#1C1917]/10 pb-16">
-          <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+          <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
             Section 01 / Invisible Grills
           </span>
           <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">Invisible Grills Maintenance Protocol</h2>
@@ -59,7 +59,7 @@ function MaintenanceRepairPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
               <div className="bg-white border border-[#1C1917]/10 p-6 shadow-sm">
-                <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-[#F37021]">
+                <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-brand">
                   Recommended Cleaning
                 </h3>
                 <p className="text-[#78716C]">
@@ -69,7 +69,7 @@ function MaintenanceRepairPage() {
                 </p>
               </div>
               <div className="bg-white border border-[#1C1917]/10 p-6 shadow-sm">
-                <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-[#F37021]">
+                <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-brand">
                   Avoid Abrasives
                 </h3>
                 <p className="text-[#78716C]">
@@ -83,7 +83,7 @@ function MaintenanceRepairPage() {
 
         {/* 2. Renovation & Civil Work Guidelines */}
         <article className="border-b border-[#1C1917]/10 pb-16">
-          <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+          <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
             Section 02 / Renovation Guidelines
           </span>
           <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
@@ -95,7 +95,7 @@ function MaintenanceRepairPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-[#44403C] font-light leading-relaxed">
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-[#F37021]">
+              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-brand">
                 1. Masking Protection
               </h3>
               <p className="text-[#78716C]">
@@ -104,7 +104,7 @@ function MaintenanceRepairPage() {
               </p>
             </div>
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-[#F37021]">
+              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-brand">
                 2. Paint Overspray
               </h3>
               <p className="text-[#78716C]">
@@ -113,7 +113,7 @@ function MaintenanceRepairPage() {
               </p>
             </div>
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-[#F37021]">
+              <h3 className="font-medium text-[#1C1917] mb-2 uppercase text-xs tracking-wider text-brand">
                 3. Substrate Integrity
               </h3>
               <p className="text-[#78716C]">
@@ -126,7 +126,7 @@ function MaintenanceRepairPage() {
 
         {/* 3. Safety Nets Care */}
         <article className="border-b border-[#1C1917]/10 pb-16">
-          <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+          <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
             Section 03 / Balcony Safety Nets
           </span>
           <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">Balcony &amp; Window Netting Care</h2>
@@ -145,8 +145,8 @@ function MaintenanceRepairPage() {
                 engaged in their eyelets.
               </p>
             </div>
-            <div className="bg-[#F37021]/8 border border-[#F37021]/30 p-6 text-xs text-[#1C1917] font-light leading-relaxed mt-4">
-              <h3 className="font-medium uppercase text-[11px] tracking-wider mb-2 text-[#F37021]">
+            <div className="bg-brand/8 border border-brand/30 p-6 text-xs text-[#1C1917] font-light leading-relaxed mt-4">
+              <h3 className="font-medium uppercase text-[11px] tracking-wider mb-2 text-brand">
                 Safety Caution
               </h3>
               <p>
@@ -159,7 +159,7 @@ function MaintenanceRepairPage() {
 
         {/* 4. Retensioning & Inspection Services */}
         <article>
-          <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+          <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
             Section 04 / Professional Services
           </span>
           <h2 className="sn-h2 text-[#1C1917] mt-2 mb-6">
@@ -172,7 +172,7 @@ function MaintenanceRepairPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-[#44403C] font-light">
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <span className="font-medium text-[#1C1917] block mb-1 text-[#F37021]">
+              <span className="font-medium text-[#1C1917] block mb-1 text-brand">
                 Tension Recalibration
               </span>
               <p className="text-[#78716C]">
@@ -180,7 +180,7 @@ function MaintenanceRepairPage() {
               </p>
             </div>
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <span className="font-medium text-[#1C1917] block mb-1 text-[#F37021]">
+              <span className="font-medium text-[#1C1917] block mb-1 text-brand">
                 Single-Line Replacement
               </span>
               <p className="text-[#78716C]">
@@ -188,7 +188,7 @@ function MaintenanceRepairPage() {
               </p>
             </div>
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">
-              <span className="font-medium text-[#1C1917] block mb-1 text-[#F37021]">
+              <span className="font-medium text-[#1C1917] block mb-1 text-brand">
                 Anchor Inspection
               </span>
               <p className="text-[#78716C]">

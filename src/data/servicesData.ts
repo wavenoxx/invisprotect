@@ -41,7 +41,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
     title: "Invisible Grills",
     plainDescriptor: "High-Tensile Stainless Steel Cable Safety Grills",
     quote: "A dialogue between open space and architectural safety.",
-    heroImage: "/images/category-invisible-grills.png",
+    heroImage: "/images/category-invisible-grills.webp",
     services: [
       "balcony-invisible-grills",
       "staircase-invisible-grills",
@@ -109,7 +109,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
     title: "Core Safety Nets",
     plainDescriptor: "UV-Stabilized High-Density Safety Netting Systems",
     quote: "The quiet embrace of edge-to-edge fall containment.",
-    heroImage: "/images/category-core-safety-nets.png",
+    heroImage: "/images/category-core-safety-nets.webp",
     services: [
       "balcony-safety-nets",
       "children-safety-nets",
@@ -177,7 +177,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
     title: "Construction & Industrial",
     plainDescriptor: "Heavy-Duty Structural & Debris Containment Systems",
     quote: "Industrial strength engineered for active structural horizons.",
-    heroImage: "/images/category-construction-industrial.png",
+    heroImage: "/images/category-construction-industrial.webp",
     services: [
       "construction-safety-nets",
       "industrial-safety-nets",
@@ -240,7 +240,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
     title: "Animal & Bird Protection",
     plainDescriptor: "Humane Bird Spikes, Pigeon Nets & Monkey Deterrence",
     quote: "Humane, discreet barriers preserving hygiene and serene living.",
-    heroImage: "/images/category-animal-bird-protection.png",
+    heroImage: "/images/category-animal-bird-protection.webp",
     services: [
       "pigeon-safety-nets",
       "pigeons-bird-spikes",
@@ -303,7 +303,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
     title: "Specialty Solutions",
     plainDescriptor: "Sports Practice Cages, Coconut Drop Nets & Pulley Systems",
     quote: "Bespoke protection crafted for unique architectural requirements.",
-    heroImage: "/images/category-specialty-solutions.png",
+    heroImage: "/images/category-specialty-solutions.webp",
     services: [
       "sports-practice-nets",
       "coconut-safety-nets",
@@ -371,7 +371,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Your view is a luxury, not a vulnerability. A balcony should be a sanctuary of open horizons, not a source of constant anxiety. Traditional iron grates secure your space by enclosing it, cutting off the breeze and the skyline. We believe you shouldn't have to compromise on natural light or aesthetic calm.",
       "Using precision-engineered AISI 316 marine-grade stainless steel cables wrapped in a translucent nylon-12 protective sleeve, we install an architectural barrier. High tensile resistance paired with high transparency allows you to enjoy true peace of mind.",
     ],
-    images: ["/images/balcony-invisible-grills.png"],
+    images: ["/images/balcony-invisible-grills.webp"],
     specs: [
       { label: "Material Composition", value: "AISI 316 Marine Grade Stainless Steel Core" },
       { label: "Cable Thickness", value: "2.5 mm / 3.0 mm calibrated options" },
@@ -402,7 +402,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Open volume shouldn't carry hidden risks. Modern stairwells are architectural statements of light and geometry. Traditional railings feel heavy and intrusive, while open voids provoke anxiety for children and elders. We secure the space without closing in the air.",
       "Our staircase safety lines create a translucent architectural screen. It serves as a structural barrier that blends seamlessly with your handrails, maintaining the spatial elegance of your home's core.",
     ],
-    images: ["/images/staircase-invisible-grills.png"],
+    images: ["/images/staircase-invisible-grills.webp"],
     specs: [
       { label: "Material Composition", value: "AISI 316 Stainless Steel Core" },
       { label: "Spacing Option", value: "3-inch gap density (stair void protection)" },
@@ -426,7 +426,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Eradicate the cage. Traditional iron bars secure your windows but trap your mind, framing every window view with the aesthetics of confinement. Securing your family shouldn't mean living behind heavy grates.",
       "Our window-specific safety grids replace heavy bars with fine, high-tension lines. They fit neatly inside your existing window sash or sliding channels, maximizing natural daylight while safeguarding against accidental falls.",
     ],
-    images: ["/images/windows-invisible-grills.png"],
+    images: ["/images/windows-invisible-grills.webp"],
     specs: [
       { label: "Material Composition", value: "AISI 316 Stainless Steel Core" },
       { label: "Cable Gauge", value: "2.5 mm thin profile" },
@@ -450,7 +450,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Unseen vigilance for what you cherish most. Children explore the world with boundless curiosity and little hesitation. For a parent, this means constant vigilance near balconies and high windows. Our team provides an architectural safeguard.",
       "Our child-safety grids feature high-density 2-inch micro-spacing and dual-key tension lockers. It serves as a calm, protective boundary that watches over your toddlers and pets, letting you breathe easy in your own home.",
     ],
-    images: ["/images/child-safety-invisible-grills.png"],
+    images: ["/images/child-safety-invisible-grills.webp"],
     specs: [
       { label: "Material Composition", value: "Heavy-duty 3.0 mm stainless steel cables" },
       { label: "Cable Spacing", value: "2-inch micro-gap child safety spacing" },
@@ -474,7 +474,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Complete perimeter security without structural enclosure. Open balconies on upper floors create constant concern when children, pets, or visitors lean against railings.",
       "Our balcony safety nets are crafted from virgin HDPE monofilament with integrated carbon-black UV stabilizers. They anchor edge-to-edge to create a resilient, flexible containment barrier.",
     ],
-    images: ["/images/balcony-safety-nets.png"],
+    images: ["/images/balcony-safety-nets.webp"],
     specs: [
       { label: "Polymer", value: "100% Virgin High-Density Polyethylene (HDPE)" },
       { label: "Mesh Size", value: "25 mm / 30 mm square diamond mesh" },
@@ -495,7 +495,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Peace of mind for growing families. Toddlers are naturally drawn to open edges and railing slats. Our children safety nets close every void from floor to ceiling.",
       "Tightly woven heat-set knots ensure that the netting never loosens, giving you the freedom to let children play safely in the open air.",
     ],
-    images: ["/images/children-safety-nets.png"],
+    images: ["/images/children-safety-nets.webp"],
     specs: [
       { label: "Mesh Pitch", value: "20 mm micro-gap child safety mesh" },
       { label: "Cord Ply", value: "Multi-ply high-tenacity HDPE yarn" },
@@ -515,7 +515,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Open central stairwells look grand but represent a serious vertical drop hazard. Our staircase containment nets fit cleanly between banisters and ceilings.",
       "They secure the drop zone while preserving natural air circulation and ambient light throughout your stairwell.",
     ],
-    images: ["/images/staircase-safety-nets.png"],
+    images: ["/images/staircase-safety-nets.webp"],
     specs: [
       { label: "Application", value: "Duplex stairwells, school corridors, atriums" },
       { label: "Cord Material", value: "High-tenacity nylon / HDPE monofilament" },
@@ -535,7 +535,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Building duct shafts and central courtyards in modern apartment complexes require protective containment to prevent falling objects and accidental falls.",
       "Our technicians engineer large-span building safety nets anchored into concrete beams, protecting technicians, residents, and utility systems below.",
     ],
-    images: ["/images/building-safety-nets.png"],
+    images: ["/images/building-safety-nets.webp"],
     specs: [
       { label: "Coverage", value: "Large-span duct shafts & internal lightwells" },
       { label: "Anchoring", value: "Heavy-duty steel tension wire & turnbuckles" },
@@ -555,7 +555,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "On active construction job sites, safety is the primary priority. Our heavy-duty safety nets are rigged around building perimeters and floor slabs.",
       "They capture falling debris and tools, protecting site personnel and pedestrians below.",
     ],
-    images: ["/images/construction-safety-nets.png"],
+    images: ["/images/construction-safety-nets.webp"],
     specs: [
       { label: "Material", value: "Braided polyamide / high-tenacity polypropylene" },
       { label: "Overlay", value: "Fine mesh debris liner attached" },
@@ -575,7 +575,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Industrial facilities face risks from falling warehouse inventory and open mezzanine walkways.",
       "Our industrial nets secure high-bay storage racks and elevated platforms, preventing product loss and workplace injuries.",
     ],
-    images: ["/images/industrial-safety-nets.png"],
+    images: ["/images/industrial-safety-nets.webp"],
     specs: [
       { label: "Application", value: "Warehouse racking, mezzanine edges, plants" },
       { label: "Breaking Load", value: "Engineered for industrial pallet/box containment" },
@@ -595,7 +595,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Open terrace rooftops provide great outdoor recreation space, but low parapet walls pose a risk during family gatherings or sports.",
       "Our terrace top netting systems enclose rooftops completely, keeping balls within the court and preventing falls over the edge.",
     ],
-    images: ["/images/terrace-top-nets.png"],
+    images: ["/images/terrace-top-nets.webp"],
     specs: [
       { label: "Structure", value: "Galvanized steel support posts with overhead wire grid" },
       { label: "Netting Type", value: "UV-stabilized HDPE sports/containment mesh" },
@@ -614,7 +614,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Vehicles parked in open-to-sky podium bays or older apartment basements are exposed to falling plaster, concrete spalling, and bird fouling.",
       "Our team installs horizontal canopy nets suspended above parking slots to keep vehicles clean and protected.",
     ],
-    images: ["/images/car-parking-safety-nets.png"],
+    images: ["/images/car-parking-safety-nets.webp"],
     specs: [
       { label: "Netting", value: "High-density shade/safety mesh composite" },
       { label: "Rigging", value: "Stainless steel tension cables & turnbuckles" },
@@ -633,7 +633,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Pigeons cause severe hygiene issues, droppings, and respiratory allergens in urban high-rises. Our pigeon nets solve this permanently without harming birds.",
       "The fine translucent mesh creates an impenetrable physical boundary that blends into building facades.",
     ],
-    images: ["/images/pigeon-safety-nets.png"],
+    images: ["/images/pigeon-safety-nets.webp"],
     specs: [
       { label: "Mesh Gauge", value: "0.8 mm / 1.0 mm translucent monofilament" },
       { label: "Mesh Gap", value: "1-inch / 1.25-inch pigeon-exclusion spacing" },
@@ -653,7 +653,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Narrow window ledges, parapet copings, and AC outdoor compressors are prime roosting spots for pigeons. Our bird spikes eliminate landing spots cleanly.",
       "Manufactured with 304-grade stainless steel rods on UV-stabilized polycarbonate bases, they withstand intense weathering without rusting.",
     ],
-    images: ["/images/pigeons-bird-spikes.png"],
+    images: ["/images/pigeons-bird-spikes.webp"],
     specs: [
       { label: "Rod Material", value: "AISI 304 Stainless Steel (Blunt tip)" },
       { label: "Base Material", value: "100% Virgin UV-Stabilized Polycarbonate" },
@@ -673,7 +673,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Residences located near hills, green belts, or suburban zones frequently deal with aggressive monkey incursions onto balconies and terraces.",
       "Our monkey nets use extra-thick braided cords and structural perimeter fasteners that withstand pulling and biting forces without tearing.",
     ],
-    images: ["/images/monkey-safety-nets.png"],
+    images: ["/images/monkey-safety-nets.webp"],
     specs: [
       { label: "Cord Thickness", value: "2.5 mm heavy-gauge braided HDPE" },
       { label: "Mesh Spacing", value: "40 mm square mesh" },
@@ -693,7 +693,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Enjoy the cool evening breeze without worrying about mosquitoes, flies, or pests. Our window insect screens integrate flush with your existing window frames.",
       "Available in sliding, pleated, magnetic, and openable aluminum shutter configurations.",
     ],
-    images: ["/images/mosquito-safety-nets.png"],
+    images: ["/images/mosquito-safety-nets.webp"],
     specs: [
       { label: "Mesh Screen", value: "Fiberglass / SS 304 micro-mesh" },
       { label: "Frame Material", value: "Extruded 6063 Aluminum Profile" },
@@ -713,7 +713,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Transform open terraces, backyards, or society clubhouses into professional cricket and sports practice zones.",
       "Our sports netting absorbs high-velocity ball impacts and prevents balls from flying off the roof or hitting nearby windows.",
     ],
-    images: ["/images/sports-practice-nets.png"],
+    images: ["/images/sports-practice-nets.webp"],
     specs: [
       { label: "Netting Type", value: "High-impact braided nylon / HDPE sports mesh" },
       { label: "Support Framework", value: "Galvanized iron (GI) structural poles" },
@@ -732,7 +732,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Tall coconut trees surrounding driveways, walkways, and parking areas pose a significant hazard from falling coconuts.",
       "Our coconut nets are rigged beneath palm crowns on high-tensile steel wire ropes, catching falling coconuts gently before they can cause damage.",
     ],
-    images: ["/images/coconut-safety-nets.png"],
+    images: ["/images/coconut-safety-nets.webp"],
     specs: [
       { label: "Netting", value: "Thick multi-strand knotted HDPE grid" },
       { label: "Support", value: "Stainless steel tension wire harness" },
@@ -751,7 +751,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Open swimming pools in private villas and apartment communities require vigilant containment to prevent accidental drowning incidents.",
       "Our swimming pool safety nets anchor securely into pool coping stones, creating a taut horizontal barrier that keeps children and pets safe.",
     ],
-    images: ["/images/swimming-pool-nets.png"],
+    images: ["/images/swimming-pool-nets.webp"],
     specs: [
       { label: "Material", value: "High-tensile UV-resistant HDPE mesh" },
       { label: "Anchorage", value: "Flush brass / stainless steel deck anchors" },
@@ -770,7 +770,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Free up your balcony floor space while drying laundry effortlessly. Our ceiling cloth drying hangers feature individual rods that lower smoothly for loading.",
       "Constructed with rust-proof stainless steel or aluminum pipes and smooth nylon pulleys for effortless daily use.",
     ],
-    images: ["/images/cloth-drying-hangers.png"],
+    images: ["/images/cloth-drying-hangers.webp"],
     specs: [
       { label: "Pipes", value: "6 / 8 independent stainless steel / aluminum rods" },
       { label: "Pulley System", value: "Heavy-duty nylon pulleys with braided nylon rope" },

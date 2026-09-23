@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { ProofSection } from "@/components/ProofSection";
+import { PriceGuide } from "@/components/PriceGuide";
 import { BRAND_CONFIG } from "@/config/brand";
 import { categoriesData, servicesData, ServiceDetail } from "@/data/servicesData";
 import { buildMetaTags } from "@/lib/seo";
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/category/$categoryId")({
     }
     return buildMetaTags({
       title: `${cat.title} — Architectural Safety Systems | ${BRAND_CONFIG.name}`,
-      description: `${cat.plainDescriptor}. Certified AISI 316 marine-grade and UV-stabilized architectural installations with transparent specifications.`,
+      description: `${cat.plainDescriptor}. AISI 316 marine-grade and UV-stabilized architectural installations with transparent specifications.`,
       canonicalPath: `/category/${cat.id}`,
       jsonLd: {
         "@context": "https://schema.org",
@@ -118,7 +119,7 @@ function CategoryPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
         <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-10 pb-4 border-b border-[#1C1917]/10">
           <div>
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Curated Catalog
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1">Available {cat.title} Configurations</h2>
@@ -134,7 +135,7 @@ function CategoryPage() {
               key={s.id}
               to="/service/$serviceId"
               params={{ serviceId: s.id }}
-              className="group flex flex-col justify-between border border-[#1C1917]/10 bg-white p-6 hover:border-[#F37021] hover:shadow-lg transition-all duration-300 focus-ring min-h-[44px]"
+              className="group flex flex-col justify-between border border-[#1C1917]/10 bg-white p-6 hover:border-brand hover:shadow-lg transition-all duration-300 focus-ring min-h-[44px]"
             >
               <div>
                 <div className="sn-luxury-frame aspect-[4/5] bg-neutral-100 mb-6 border border-[#1C1917]/8 overflow-hidden relative">
@@ -145,10 +146,10 @@ function CategoryPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block mb-1 font-medium">
+                <span className="text-[9px] font-mono tracking-widest text-brand uppercase block mb-1 font-medium">
                   {s.editorialTitle ?? s.category}
                 </span>
-                <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-[#F37021] transition-colors">
+                <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-brand transition-colors">
                   {s.title}
                 </h3>
                 <p className="text-[11.5px] text-[#78716C] font-light mt-2 line-clamp-2 leading-relaxed">
@@ -156,11 +157,9 @@ function CategoryPage() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#1C1917]/8 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] group-hover:text-[#F37021] transition-colors">
+              <div className="mt-6 pt-4 border-t border-[#1C1917]/8 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] group-hover:text-brand transition-colors">
                 <span>View Specifications</span>
-                <span className="text-[#F37021] group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
+                <span className="text-brand group-hover:translate-x-1 transition-transform">→</span>
               </div>
             </Link>
           ))}
@@ -172,7 +171,7 @@ function CategoryPage() {
         <div className="max-w-5xl mx-auto px-6 md:px-12 space-y-20">
           {/* Overview */}
           <article className="border-b border-[#1C1917]/10 pb-16">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Authority 01 / Architectural Definition
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">System Overview &amp; Function</h2>
@@ -183,7 +182,7 @@ function CategoryPage() {
 
           {/* Key Applications */}
           <article className="border-b border-[#1C1917]/10 pb-16">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Authority 02 / Applications
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">Where {cat.title} are Specified</h2>
@@ -193,21 +192,19 @@ function CategoryPage() {
                   key={i}
                   className="p-5 border border-[#1C1917]/8 bg-white flex items-start gap-4 text-xs md:text-sm text-[#44403C] font-light shadow-sm"
                 >
-                  <span className="font-mono text-[#F37021] text-xs mt-0.5 font-medium">
-                    0{i + 1}
-                  </span>
+                  <span className="font-mono text-brand text-xs mt-0.5 font-medium">0{i + 1}</span>
                   <span>{app}</span>
                 </div>
               ))}
             </div>
           </article>
 
-          {/* Verified Materials */}
+          {/* Materials */}
           <article className="border-b border-[#1C1917]/10 pb-16">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Authority 03 / Metallurgy &amp; Chemistry
             </span>
-            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">Verified Material Standards</h2>
+            <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">Material Standards</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {cat.materials.map((mat) => (
                 <div key={mat.name} className="p-6 border border-[#1C1917]/8 bg-white shadow-sm">
@@ -222,7 +219,7 @@ function CategoryPage() {
 
           {/* Measurement & Installation Methodology */}
           <article className="border-b border-[#1C1917]/10 pb-16">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Authority 04 / Engineering Methodology
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
@@ -230,13 +227,13 @@ function CategoryPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-[#44403C] font-light leading-relaxed">
               <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-                <h3 className="font-medium text-[#1C1917] uppercase tracking-wider text-xs mb-3 text-[#F37021]">
+                <h3 className="font-medium text-[#1C1917] uppercase tracking-wider text-xs mb-3 text-brand">
                   Laser Site Measurement
                 </h3>
                 <p>{cat.measurementProcess}</p>
               </div>
               <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-                <h3 className="font-medium text-[#1C1917] uppercase tracking-wider text-xs mb-3 text-[#F37021]">
+                <h3 className="font-medium text-[#1C1917] uppercase tracking-wider text-xs mb-3 text-brand">
                   Mechanical Anchoring &amp; Tensioning
                 </h3>
                 <p>{cat.installationMethod}</p>
@@ -246,7 +243,7 @@ function CategoryPage() {
 
           {/* Care, Maintenance & Boundaries */}
           <article className="border-b border-[#1C1917]/10 pb-16">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Authority 05 / Maintenance &amp; Scope
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1 mb-6">
@@ -260,7 +257,7 @@ function CategoryPage() {
                 <p className="text-[#78716C] mb-4">{cat.maintenanceGuide}</p>
                 <Link
                   to="/maintenance-repair"
-                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
                 >
                   Full Maintenance Guide →
                 </Link>
@@ -272,7 +269,7 @@ function CategoryPage() {
                 <p className="text-[#78716C] mb-4">{cat.limitations}</p>
                 <Link
                   to="/warranty"
-                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
                 >
                   Warranty Terms &amp; Exclusions →
                 </Link>
@@ -283,7 +280,7 @@ function CategoryPage() {
           {/* Category FAQs */}
           {cat.faqs?.length > 0 && (
             <article>
-              <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+              <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
                 Authority 06 / Knowledge Base
               </span>
               <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">{cat.title} FAQs</h2>
@@ -303,7 +300,7 @@ function CategoryPage() {
                         className="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-sm md:text-base font-normal text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
                       >
                         <span>{faq.question}</span>
-                        <span className="text-xl font-light text-[#F37021] shrink-0">
+                        <span className="text-xl font-light text-brand shrink-0">
                           {isOpen ? "−" : "+"}
                         </span>
                       </button>
@@ -322,6 +319,7 @@ function CategoryPage() {
         </div>
       </section>
 
+      <PriceGuide categorySlug={cat.id} />
       <ProofSection categorySlug={cat.id} />
       <Footer />
     </div>

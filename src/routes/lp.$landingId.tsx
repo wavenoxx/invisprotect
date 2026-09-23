@@ -13,7 +13,8 @@ export const Route = createFileRoute("/lp/$landingId")({
     const landing = getPaidLandingPage(params.landingId);
     return buildMetaTags({
       title: landing ? `${landing.serviceName} in ${landing.city}` : "Campaign landing page",
-      description: landing?.summary || "Request an InvisProtect architectural safety site survey.",
+      description:
+        landing?.summary || `Request a ${BRAND_CONFIG.name} architectural safety site survey.`,
       canonicalPath: `/lp/${params.landingId}`,
       ogImage: landing?.heroImageWebp,
       noIndex: true,
@@ -29,12 +30,12 @@ export const Route = createFileRoute("/lp/$landingId")({
   notFoundComponent: () => (
     <main className="flex min-h-screen items-center justify-center bg-[#FAF8F5] px-6 text-[#1C1917]">
       <div className="max-w-md text-center">
-        <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
+        <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-brand">
           Campaign page unavailable
         </p>
         <h1 className="mt-3 sn-h1">This landing page could not be found.</h1>
         <Link to="/" className="sn-btn-luxury-solid mt-7">
-          Visit InvisProtect
+          Visit {BRAND_CONFIG.name}
         </Link>
       </div>
     </main>
@@ -74,7 +75,7 @@ function ContactAction({
       className={
         compact
           ? "flex min-h-12 flex-1 items-center justify-center gap-1.5 border-r border-white/15 px-2 text-[10px] font-medium uppercase tracking-[0.12em] text-white last:border-r-0"
-          : "inline-flex min-h-12 items-center justify-center gap-2 border border-[#1C1917]/20 bg-white/90 px-5 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1C1917] transition hover:border-[#F37021] hover:text-[#F37021] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
+          : "inline-flex min-h-12 items-center justify-center gap-2 border border-[#1C1917]/20 bg-white/90 px-5 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1C1917] transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
       }
     >
       <Icon aria-hidden="true" className="size-4" /> {label}
@@ -120,7 +121,7 @@ function PaidLandingPage() {
           <div className="absolute inset-y-0 right-0 hidden w-[46%] bg-[#1C1917] lg:block" />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-10 sm:px-8 md:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-10 lg:py-16">
             <div className="flex flex-col justify-center">
-              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#F37021]">
+              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-brand">
                 {landing.eyebrow}
               </p>
               <h1 className="mt-3 max-w-xl sn-h1 text-[#1C1917]">{landing.headline}</h1>
@@ -130,7 +131,7 @@ function PaidLandingPage() {
               <ul className="mt-6 space-y-2.5" aria-label="Service highlights">
                 {landing.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2.5 text-sm text-[#44403C]">
-                    <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-[#F37021]" />
+                    <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-brand" />
                     {benefit}
                   </li>
                 ))}
@@ -179,7 +180,7 @@ function PaidLandingPage() {
 
         <section className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-8 md:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
           <div>
-            <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#F37021]">
+            <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-brand">
               Why request a survey
             </p>
             <h2 className="mt-2 max-w-lg sn-h2">Clear specifications before installation.</h2>
@@ -191,7 +192,7 @@ function PaidLandingPage() {
                     key={signal.title}
                     className="grid grid-cols-[2rem_1fr] gap-3 border-t border-[#1C1917]/10 pt-5"
                   >
-                    <Icon aria-hidden="true" className="mt-0.5 size-5 text-[#F37021]" />
+                    <Icon aria-hidden="true" className="mt-0.5 size-5 text-brand" />
                     <div>
                       <h3 className="text-sm font-medium text-[#1C1917]">{signal.title}</h3>
                       <p className="mt-1 text-sm leading-6 text-[#78716C]">{signal.detail}</p>
@@ -211,10 +212,10 @@ function PaidLandingPage() {
             © {new Date().getFullYear()} {BRAND_CONFIG.name}
           </span>
           <nav aria-label="Legal" className="flex gap-5">
-            <Link to="/privacy" className="underline-offset-4 hover:text-[#F37021] hover:underline">
+            <Link to="/privacy" className="underline-offset-4 hover:text-brand hover:underline">
               Privacy
             </Link>
-            <Link to="/terms" className="underline-offset-4 hover:text-[#F37021] hover:underline">
+            <Link to="/terms" className="underline-offset-4 hover:text-brand hover:underline">
               Terms
             </Link>
           </nav>
@@ -230,7 +231,7 @@ function PaidLandingPage() {
         <button
           type="button"
           onClick={() => scrollToForm("paid_mobile_sticky")}
-          className="flex min-h-12 flex-[1.35] cursor-pointer items-center justify-center bg-[#F37021] px-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-white focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-white"
+          className="flex min-h-12 flex-[1.35] cursor-pointer items-center justify-center bg-brand px-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-white focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-white"
         >
           Get Quote
         </button>

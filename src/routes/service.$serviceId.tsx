@@ -6,6 +6,7 @@ import { ProofSection } from "@/components/ProofSection";
 import { servicesData, categoriesData, type ServiceDetail } from "@/data/servicesData";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
+import { BUSINESS } from "@/config/business";
 
 export const Route = createFileRoute("/service/$serviceId")({
   head: ({ params }) => {
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/service/$serviceId")({
           },
           areaServed: {
             "@type": "AdministrativeArea",
-            name: "Telangana & Andhra Pradesh",
+            name: BUSINESS.regionLabel,
           },
           description: s.description,
         }
@@ -143,7 +144,7 @@ function ServicePage() {
               <span
                 key={i}
                 className={`w-2.5 h-2.5 rounded-full border border-white transition-colors duration-300 ${
-                  active === i ? "bg-[#F37021]" : "bg-white/40"
+                  active === i ? "bg-brand" : "bg-white/40"
                 }`}
               />
             ))}
@@ -159,18 +160,18 @@ function ServicePage() {
                 className="uppercase text-[9px] text-[#78716C] font-mono tracking-widest"
                 style={{ fontWeight: 400 }}
               >
-                <Link to="/" className="hover:text-[#F37021] focus-ring transition-colors">
+                <Link to="/" className="hover:text-brand focus-ring transition-colors">
                   HOME
                 </Link>{" "}
                 /{" "}
                 <Link
                   to="/category/$categoryId"
                   params={{ categoryId: service.category }}
-                  className="hover:text-[#F37021] focus-ring transition-colors"
+                  className="hover:text-brand focus-ring transition-colors"
                 >
                   {(category?.title ?? service.category).toUpperCase()}
                 </Link>{" "}
-                / <span className="text-[#F37021] font-medium">{service.title.toUpperCase()}</span>
+                / <span className="text-brand font-medium">{service.title.toUpperCase()}</span>
               </p>
             </nav>
 
@@ -184,7 +185,7 @@ function ServicePage() {
 
             {/* Price upon request & survey link */}
             <div className="mt-4 pb-6 border-b border-[#1C1917]/10 flex items-center justify-between">
-              <span className="text-xs uppercase tracking-[0.2em] font-medium text-[#F37021]">
+              <span className="text-xs uppercase tracking-[0.2em] font-medium text-brand">
                 Custom Architectural Fabrication
               </span>
               <span className="text-[11px] text-[#78716C] font-light">
@@ -208,7 +209,7 @@ function ServicePage() {
             {/* Process Steps */}
             {service.processSteps && service.processSteps.length > 0 && (
               <div className="mt-8 pt-6 border-t border-[#1C1917]/10">
-                <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase block mb-3 font-medium">
+                <span className="text-[10px] font-mono tracking-widest text-brand uppercase block mb-3 font-medium">
                   Installation Sequence
                 </span>
                 <ol className="space-y-2 text-xs text-[#44403C] font-light list-decimal pl-4">
@@ -223,7 +224,7 @@ function ServicePage() {
 
             {/* Specs Matrix */}
             <div className="mt-8 bg-white p-6 border border-[#1C1917]/10 shadow-sm">
-              <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase block mb-3 font-medium">
+              <span className="text-[10px] font-mono tracking-widest text-brand uppercase block mb-3 font-medium">
                 Technical Specification Table
               </span>
               {service.specs.map((sp) => (
@@ -245,13 +246,13 @@ function ServicePage() {
             <div className="mt-6 flex flex-wrap gap-4 text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917]">
               <Link
                 to="/maintenance-repair"
-                className="hover:text-[#F37021] underline underline-offset-4 focus-ring transition-colors"
+                className="hover:text-brand underline underline-offset-4 focus-ring transition-colors"
               >
                 Care &amp; Cleaning Guide →
               </Link>
               <Link
                 to="/warranty"
-                className="hover:text-[#F37021] underline underline-offset-4 focus-ring transition-colors"
+                className="hover:text-brand underline underline-offset-4 focus-ring transition-colors"
               >
                 Written Warranty Matrix →
               </Link>
@@ -269,7 +270,7 @@ function ServicePage() {
             </Link>
             <Link
               to="/safety-faq"
-              className="inline-flex items-center justify-center border border-[#1C1917]/25 px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] text-[#1C1917] hover:border-[#F37021] hover:text-[#F37021] transition-colors duration-300 min-h-11 focus-ring"
+              className="inline-flex items-center justify-center border border-[#1C1917]/25 px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] text-[#1C1917] hover:border-brand hover:text-brand transition-colors duration-300 min-h-11 focus-ring"
             >
               Safety FAQ
             </Link>
@@ -281,7 +282,7 @@ function ServicePage() {
       {relatedServices.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-[#1C1917]/10">
           <div className="mb-8">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Related Systems
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1">Explore Complementary {category?.title}</h2>
@@ -293,7 +294,7 @@ function ServicePage() {
                 key={rel.id}
                 to="/service/$serviceId"
                 params={{ serviceId: rel.id }}
-                className="border border-[#1C1917]/10 p-6 bg-white hover:border-[#F37021] hover:shadow-lg transition-all duration-300 group focus-ring min-h-11 flex flex-col justify-between"
+                className="border border-[#1C1917]/10 p-6 bg-white hover:border-brand hover:shadow-lg transition-all duration-300 group focus-ring min-h-11 flex flex-col justify-between"
               >
                 <div>
                   <div className="aspect-[4/3] bg-neutral-100 mb-4 border border-[#1C1917]/8 overflow-hidden relative">
@@ -304,14 +305,14 @@ function ServicePage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-[#F37021] transition-colors">
+                  <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] group-hover:text-brand transition-colors">
                     {rel.title}
                   </h3>
                   <p className="text-xs text-[#78716C] font-light mt-1 line-clamp-2">
                     {rel.description}
                   </p>
                 </div>
-                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] group-hover:text-[#F37021] transition-colors">
+                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] group-hover:text-brand transition-colors">
                   View Specs →
                 </span>
               </Link>

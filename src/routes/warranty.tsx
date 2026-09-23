@@ -21,9 +21,7 @@ function WarrantyPage() {
 
       <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 pt-32 pb-24">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
-          <p className="sn-eyebrow text-[#F37021] mb-3 font-medium">
-            Client Assurance &amp; Integrity
-          </p>
+          <p className="sn-eyebrow text-brand mb-3 font-medium">Client Assurance &amp; Integrity</p>
           <h1 className="sn-h1 text-[#1C1917]">Warranty Policy &amp; Terms</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
             Warranty coverage varies by installed system; see written warranty terms issued upon
@@ -52,9 +50,7 @@ function WarrantyPage() {
                     Invisible Grills (Balcony / Window / Stair)
                   </td>
                   <td className="py-4 px-6">AISI 316 Marine Grade Stainless Steel</td>
-                  <td className="py-4 px-6 font-medium text-[#F37021]">
-                    5-Year Structural Warranty
-                  </td>
+                  <td className="py-4 px-6 font-medium text-brand">5-Year Structural Warranty</td>
                   <td className="py-4 px-6 text-[#78716C]">
                     Cable tensile integrity, track anchorage &amp; corrosion resistance under
                     standard atmospheric exposure.
@@ -65,7 +61,7 @@ function WarrantyPage() {
                     Core Safety Nets (Balcony / Children / Stair)
                   </td>
                   <td className="py-4 px-6">UV-Stabilized High-Density Polyethylene</td>
-                  <td className="py-4 px-6 font-medium text-[#F37021]">
+                  <td className="py-4 px-6 font-medium text-brand">
                     3 to 5-Year Material Warranty
                   </td>
                   <td className="py-4 px-6 text-[#78716C]">
@@ -77,7 +73,7 @@ function WarrantyPage() {
                     Bird Deterrence &amp; Spikes
                   </td>
                   <td className="py-4 px-6">Polycarbonate base + Stainless steel tips</td>
-                  <td className="py-4 px-6 font-medium text-[#F37021]">3-Year System Warranty</td>
+                  <td className="py-4 px-6 font-medium text-brand">3-Year System Warranty</td>
                   <td className="py-4 px-6 text-[#78716C]">
                     Base track weatherability, spike bonding &amp; installation adhesion.
                   </td>
@@ -87,7 +83,7 @@ function WarrantyPage() {
                     Specialty &amp; Industrial Systems
                   </td>
                   <td className="py-4 px-6">Nylon / Anodized Aluminum / Polymer Weave</td>
-                  <td className="py-4 px-6 font-medium text-[#F37021]">As specified per project</td>
+                  <td className="py-4 px-6 font-medium text-brand">As specified per project</td>
                   <td className="py-4 px-6 text-[#78716C]">
                     Customized written terms formulated according to commercial load specifications.
                   </td>
@@ -104,7 +100,7 @@ function WarrantyPage() {
           </h2>
           <ul className="space-y-3 list-disc pl-5 text-[#78716C]">
             <li>
-              Warranty is valid exclusively for original installations inspected and certified by{" "}
+              Warranty is valid exclusively for original installations completed and inspected by{" "}
               {BRAND_CONFIG.name} technicians.
             </li>
             <li>

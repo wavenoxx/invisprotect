@@ -30,6 +30,7 @@ import { Route as CategoryCategoryIdRouteImport } from './routes/category.$categ
 import { Route as CampaignsWeightlessPavilionRouteImport } from './routes/campaigns.weightless-pavilion'
 import { Route as CampaignsSilentPromiseRouteImport } from './routes/campaigns.silent-promise'
 import { Route as CampaignsLightAndSanctuaryRouteImport } from './routes/campaigns.light-and-sanctuary'
+import { Route as ApiHealthRouteImport } from './routes/api.health'
 
 const WarrantyRoute = WarrantyRouteImport.update({
   id: '/warranty',
@@ -138,6 +139,11 @@ const CampaignsLightAndSanctuaryRoute =
     path: '/campaigns/light-and-sanctuary',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -155,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/warranty': typeof WarrantyRoute
+  '/api/health': typeof ApiHealthRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/warranty': typeof WarrantyRoute
+  '/api/health': typeof ApiHealthRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -202,6 +210,7 @@ export interface FileRoutesById {
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
   '/warranty': typeof WarrantyRoute
+  '/api/health': typeof ApiHealthRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -227,6 +236,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/terms'
     | '/warranty'
+    | '/api/health'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -250,6 +260,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/terms'
     | '/warranty'
+    | '/api/health'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -273,6 +284,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/terms'
     | '/warranty'
+    | '/api/health'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -297,6 +309,7 @@ export interface RootRouteChildren {
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
   WarrantyRoute: typeof WarrantyRoute
+  ApiHealthRoute: typeof ApiHealthRoute
   CampaignsLightAndSanctuaryRoute: typeof CampaignsLightAndSanctuaryRoute
   CampaignsSilentPromiseRoute: typeof CampaignsSilentPromiseRoute
   CampaignsWeightlessPavilionRoute: typeof CampaignsWeightlessPavilionRoute
@@ -454,6 +467,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsLightAndSanctuaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -473,6 +493,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
   WarrantyRoute: WarrantyRoute,
+  ApiHealthRoute: ApiHealthRoute,
   CampaignsLightAndSanctuaryRoute: CampaignsLightAndSanctuaryRoute,
   CampaignsSilentPromiseRoute: CampaignsSilentPromiseRoute,
   CampaignsWeightlessPavilionRoute: CampaignsWeightlessPavilionRoute,

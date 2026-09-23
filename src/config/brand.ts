@@ -1,3 +1,27 @@
+import { BUSINESS, hubCityList } from "./business.ts";
+
+/**
+ * ============================================================================
+ * BRAND IDENTITY & CONTACT — edit this block for each new business owner.
+ * ============================================================================
+ * Environment variables (see .env.example) override these defaults at build
+ * time. Areas served, reviews and the price guide live in ./business.ts; the
+ * brand colour lives in src/styles.css (--brand, --brand-deep).
+ */
+export const DEFAULT_BRAND_NAME = "InvisProtect";
+const DEFAULT_SITE_URL = "https://invisprotect.in";
+const DEFAULT_TAGLINE = "Architectural Invisible Grills & Safety Solutions";
+const DEFAULT_PHONE_DISPLAY = "9154626354";
+const DEFAULT_PHONE_DIAL = "+919154626354";
+const DEFAULT_WHATSAPP_DISPLAY = "7075870054";
+const DEFAULT_WHATSAPP_DIAL = "917075870054";
+const DEFAULT_WHATSAPP_LINK = "https://wa.me/917075870054";
+const DEFAULT_EMAIL = "invisprotect@gmail.com";
+const DEFAULT_INSTAGRAM_URL = "https://www.instagram.com/invisprotect";
+const DEFAULT_FACEBOOK_URL = "https://www.facebook.com/share/1HbM6NCtiM/";
+const DEFAULT_YOUTUBE_URL = "https://www.youtube.com/@invisprotect";
+/* ========================================================================== */
+
 export interface BrandContactConfig {
   enabled: boolean;
   phoneDisplay: string;
@@ -31,9 +55,6 @@ export interface BrandConfig {
 }
 
 type PublicEnvironment = Record<string, string | undefined>;
-
-const DEFAULT_BRAND_NAME = "InvisProtect";
-const DEFAULT_SITE_URL = "https://invisprotect.in";
 
 function clean(value: string | undefined): string {
   return value?.trim() ?? "";
@@ -87,16 +108,6 @@ function validEmail(value: string): string {
   const email = clean(value);
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
 }
-
-const DEFAULT_PHONE_DISPLAY = "9154626354";
-const DEFAULT_PHONE_DIAL = "+919154626354";
-const DEFAULT_WHATSAPP_DISPLAY = "7075870054";
-const DEFAULT_WHATSAPP_DIAL = "917075870054";
-const DEFAULT_WHATSAPP_LINK = "https://wa.me/917075870054";
-const DEFAULT_EMAIL = "invisprotect@gmail.com";
-const DEFAULT_INSTAGRAM_URL = "https://www.instagram.com/invisprotect";
-const DEFAULT_FACEBOOK_URL = "https://www.facebook.com/share/1HbM6NCtiM/";
-const DEFAULT_YOUTUBE_URL = "https://www.youtube.com/@invisprotect";
 
 const INSTAGRAM_HOSTS = ["instagram.com", "www.instagram.com"];
 const FACEBOOK_HOSTS = ["facebook.com", "www.facebook.com", "m.facebook.com"];
@@ -163,9 +174,8 @@ export function createBrandConfig(env: PublicEnvironment): BrandConfig {
     status,
     name: clean(env.VITE_BRAND_NAME) || DEFAULT_BRAND_NAME,
     legalName: "",
-    tagline: "Architectural Invisible Grills & Safety Solutions",
-    description:
-      "Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across Telangana & Andhra Pradesh.",
+    tagline: DEFAULT_TAGLINE,
+    description: `Bespoke architectural safety solutions: invisible grills, precision safety netting, and bird protection across ${BUSINESS.regionLabel}.`,
     domain,
     domainHost: domain.replace(/^https?:\/\//, ""),
     contact: {
@@ -180,8 +190,7 @@ export function createBrandConfig(env: PublicEnvironment): BrandConfig {
       whatsappLink,
       email,
       emailHref: email ? `mailto:${email}` : "",
-      address:
-        "Operational Hubs: Telangana & Andhra Pradesh (Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, Hanamkonda)",
+      address: `Service areas: ${BUSINESS.regionLabel} (${hubCityList()})`,
     },
     socials: {
       whatsappLink,
@@ -202,12 +211,12 @@ const publicEnvironment: PublicEnvironment =
 const liveProductionEnv: PublicEnvironment = {
   VITE_SITE_STATUS: "active",
   VITE_CONTACT_ENABLED: "true",
-  VITE_BUSINESS_PHONE_DISPLAY: "9154626354",
-  VITE_BUSINESS_PHONE_DIAL: "+919154626354",
-  VITE_BUSINESS_WHATSAPP_DISPLAY: "7075870054",
-  VITE_BUSINESS_WHATSAPP_DIAL: "917075870054",
-  VITE_BUSINESS_WHATSAPP_LINK: "https://wa.me/917075870054",
-  VITE_BUSINESS_EMAIL: "invisprotect@gmail.com",
+  VITE_BUSINESS_PHONE_DISPLAY: DEFAULT_PHONE_DISPLAY,
+  VITE_BUSINESS_PHONE_DIAL: DEFAULT_PHONE_DIAL,
+  VITE_BUSINESS_WHATSAPP_DISPLAY: DEFAULT_WHATSAPP_DISPLAY,
+  VITE_BUSINESS_WHATSAPP_DIAL: DEFAULT_WHATSAPP_DIAL,
+  VITE_BUSINESS_WHATSAPP_LINK: DEFAULT_WHATSAPP_LINK,
+  VITE_BUSINESS_EMAIL: DEFAULT_EMAIL,
   ...publicEnvironment,
 };
 
