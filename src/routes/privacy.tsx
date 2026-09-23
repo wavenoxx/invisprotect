@@ -31,7 +31,7 @@ function PrivacyPage() {
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col">
       <SiteNav />
 
-      <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <main className="flex-1 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 pt-32 pb-24 w-full">
         {/* Header */}
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
           <p className="sn-eyebrow text-brand mb-3 font-medium">Governance &amp; Transparency</p>
@@ -45,9 +45,7 @@ function PrivacyPage() {
         <article className="space-y-12 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           {/* 1. Introduction */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
-              01. Philosophy of Privacy
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">01. Philosophy of Privacy</h2>
             <p>
               At {BRAND_CONFIG.name} (&quot;we&quot;, &quot;our&quot;, or &quot;the Atelier&quot;),
               we hold privacy to the same rigorous standard of quiet elegance that defines our
@@ -60,9 +58,7 @@ function PrivacyPage() {
 
           {/* 2. Categories of Data Collected */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
-              02. Categories of Information We Collect
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">02. Categories of Information We Collect</h2>
             <p>We strictly collect only the data necessary to fulfill your site survey request:</p>
             <ul className="list-disc pl-5 space-y-2 text-[#78716C]">
               <li>
@@ -95,9 +91,7 @@ function PrivacyPage() {
 
           {/* 3. Third-Party Processors */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
-              03. Disclosed Third-Party Processors
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">03. Disclosed Third-Party Processors</h2>
             <p>
               To maintain high operational security, {BRAND_CONFIG.name} engages trusted cloud
               processors. We do NOT sell, lease, or rent customer personal information to data
@@ -135,7 +129,7 @@ function PrivacyPage() {
 
           {/* 4. Purpose of Processing */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
               04. Purpose &amp; Lawful Basis of Processing
             </h2>
             <p>We process your personal information based on:</p>
@@ -160,9 +154,7 @@ function PrivacyPage() {
 
           {/* 5. Retention & Erasure */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
-              05. Data Retention &amp; Security
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">05. Data Retention &amp; Security</h2>
             <p>
               Site survey lead records are retained in our secure database for up to 24 months to
               support active warranties, maintenance history, and retensioning requests. If an
@@ -177,7 +169,7 @@ function PrivacyPage() {
 
           {/* 6. Your Rights & Contact */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-sm font-display uppercase tracking-[0.14em] font-medium text-[#1C1917]">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
               06. Access, Correction, Erasure &amp; Withdrawal
             </h2>
             <p>You maintain the right to:</p>

@@ -150,13 +150,13 @@ function ConsultationPage() {
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col selection:bg-brand/20">
       <SiteNav />
 
-      <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 sm:pt-36 pb-28 w-full">
+      <main className="flex-1 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 pt-32 sm:pt-36 pb-28 w-full">
         <div className="w-full">
           {/* Header / Editorial Intro */}
           <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
             <span className="sn-eyebrow text-brand mb-3 block font-medium">Private Commission</span>
-            <h1 className="sn-h1 text-[#1C1917] mb-3">The Private Site Survey</h1>
-            <p className="sn-subtext text-[#44403C] max-w-lg mx-auto">
+            <h1 className="sn-h1 text-[#1C1917] mb-3 text-balance">The Private Site Survey</h1>
+            <p className="sn-subtext text-[#44403C] max-w-lg mx-auto text-balance">
               Complimentary digital laser calibration, structural anchorage evaluation, and
               architectural specification across {BUSINESS.regionLabel}.
             </p>

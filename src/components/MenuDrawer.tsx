@@ -36,7 +36,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
 
   return (
     <div
-      className={`fixed inset-0 z-[80] transition-all duration-300 ${
+      className={`fixed inset-0 z-[80] overflow-hidden transition-all duration-300 ${
         isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"
       }`}
       aria-hidden={!isOpen}

@@ -22,7 +22,7 @@ function SitemapPage() {
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col">
       <SiteNav />
 
-      <main className="flex-1 max-w-6xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <main className="flex-1 max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-32 pb-24 w-full">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
           <p className="sn-eyebrow text-brand mb-3 font-medium">Index &amp; Navigation</p>
           <h1 className="sn-h1 text-[#1C1917]">Site Directory</h1>

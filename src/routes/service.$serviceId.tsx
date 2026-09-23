@@ -152,7 +152,7 @@ function ServicePage() {
         </div>
 
         {/* RIGHT: Sticky Architectural Specifications */}
-        <div className="w-full md:w-1/2 md:h-[calc(100vh-80px)] md:sticky md:top-[80px] overflow-y-auto flex flex-col justify-between p-8 md:p-14 border-l border-[#1C1917]/10 bg-[#FAF8F5]">
+        <div className="w-full md:w-1/2 md:h-[calc(100vh-80px)] md:sticky md:top-[80px] overflow-y-auto flex flex-col justify-between px-5 py-8 sm:p-10 md:p-14 border-l border-[#1C1917]/10 bg-[#FAF8F5]">
           <div>
             {/* Breadcrumb Eyebrow */}
             <nav aria-label="Breadcrumb" className="mb-4">
@@ -196,11 +196,7 @@ function ServicePage() {
             {/* Detail Paragraphs */}
             <div className="mt-6 space-y-4">
               {service.detailParagraphs.map((p, i) => (
-                <p
-                  key={i}
-                  className="text-[13px] font-light leading-relaxed text-[#44403C]"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
+                <p key={i} className="text-[13px] font-light leading-relaxed text-[#44403C]">
                   {p}
                 </p>
               ))}

@@ -19,7 +19,7 @@ function TermsPage() {
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col">
       <SiteNav />
 
-      <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <main className="flex-1 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 pt-32 pb-24 w-full">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
           <p className="sn-eyebrow text-brand mb-3 font-medium">
             Legal &amp; Operational Standards
@@ -33,7 +33,7 @@ function TermsPage() {
 
         <article className="space-y-8 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917] mb-3">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
               1. Architectural Services &amp; Site Survey
             </h2>
             <p>
@@ -45,7 +45,7 @@ function TermsPage() {
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917] mb-3">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
               2. Structural Feasibility &amp; Sub-base Verification
             </h2>
             <p>
@@ -57,7 +57,7 @@ function TermsPage() {
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917] mb-3">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
               3. Quotations, Pricing &amp; Milestone Payments
             </h2>
             <p>
@@ -68,9 +68,7 @@ function TermsPage() {
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917] mb-3">
-              4. Warranty &amp; Maintenance Policy
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">4. Warranty &amp; Maintenance Policy</h2>
             <p>
               Warranty protections apply exclusively to systems installed by authorized{" "}
               {BRAND_CONFIG.name} technicians according to manufacturer specifications. Complete
@@ -83,9 +81,7 @@ function TermsPage() {
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917] mb-3">
-              5. Client Advisory &amp; Contact
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">5. Client Advisory &amp; Contact</h2>
             <p>
               For legal inquiries, terms clarification, or maintenance support, contact our Client
               Service team at{" "}

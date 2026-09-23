@@ -199,13 +199,13 @@ function StoryPage() {
       {/* 6. Scroll-snap Container for 11 Times of Day */}
       <div
         ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory relative z-10 bg-transparent"
+        className="h-screen w-full max-w-full overflow-y-scroll snap-y snap-mandatory relative z-10 bg-transparent"
       >
         {CHAPTERS.map((c) => {
           return (
             <section
               key={c.name}
-              className="w-screen h-screen snap-start relative flex items-center justify-center overflow-hidden bg-transparent p-4 sm:p-6"
+              className="w-full max-w-full h-screen snap-start relative flex items-center justify-center overflow-hidden bg-transparent p-4 sm:p-6"
             >
               {/* Apple Liquid Glass UI Card Container */}
               <div
@@ -231,16 +231,13 @@ function StoryPage() {
                 </div>
 
                 {/* Time Indicator */}
-                <p
-                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-medium text-brand"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-medium text-brand font-sans">
                   {c.time}
                 </p>
 
                 {/* Chapter / Phase Title */}
                 <h2
-                  className={`font-display uppercase text-base sm:text-lg font-normal text-center mt-1.5 tracking-[0.22em] ${
+                  className={`sn-h2 text-center mt-1.5 ${
                     phase.dark ? "text-white" : "text-[#1C1917]"
                   }`}
                 >
@@ -249,10 +246,9 @@ function StoryPage() {
 
                 {/* Narrative Copy */}
                 <p
-                  className={`text-[12px] sm:text-[13px] text-center mt-2.5 font-light max-w-xs leading-relaxed ${
+                  className={`text-[12px] sm:text-[13px] text-center mt-2.5 font-light max-w-xs leading-relaxed font-sans ${
                     phase.dark ? "text-[#E7E5E4]" : "text-[#44403C]"
                   }`}
-                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {c.copy}
                 </p>
@@ -262,7 +258,7 @@ function StoryPage() {
         })}
 
         {/* Atelier Heritage & Manifesto Section */}
-        <section className="w-screen min-h-screen snap-start relative flex flex-col items-center justify-between overflow-y-auto bg-transparent">
+        <section className="w-full max-w-full min-h-screen snap-start relative flex flex-col items-center justify-between overflow-y-auto bg-transparent">
           <div className="flex-1 flex items-center justify-center w-full pt-28 pb-16 px-6">
             <div className="border border-white/20 bg-[#1C1917]/75 backdrop-blur-2xl backdrop-saturate-150 p-8 sm:p-12 md:p-16 w-full max-w-2xl flex flex-col items-center text-center shadow-[0_24px_64px_rgba(0,0,0,0.6)]">
               <span className="sn-eyebrow text-brand mb-3 block font-medium">
@@ -315,10 +311,7 @@ function StoryPage() {
 
       {/* Scroll Hint */}
       {activeIndex === 0 && (
-        <div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-[0.35em] opacity-75 pointer-events-none z-30 font-medium text-[#1C1917]"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-[0.35em] opacity-75 pointer-events-none z-30 font-medium text-[#1C1917]">
           Scroll to Begin
         </div>
       )}

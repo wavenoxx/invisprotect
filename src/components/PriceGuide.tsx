@@ -42,12 +42,12 @@ export function PriceGuide({ categorySlug }: PriceGuideProps) {
           {guide.items.map((item) => (
             <article
               key={item.service}
-              className="flex flex-col bg-[#FAF8F5] border border-[#1C1917]/10 p-7 md:p-8"
+              className="flex flex-col bg-[#FAF8F5] border border-[#1C1917]/10 p-6 sm:p-7 md:p-8"
             >
-              <h3 className="font-display text-[12px] font-medium text-[#1C1917] uppercase tracking-[0.16em]">
+              <h3 className="font-display text-[12px] font-medium text-[#1C1917] uppercase tracking-[0.14em]">
                 {item.service}
               </h3>
-              <p className="mt-5 font-serif text-4xl md:text-[2.6rem] leading-none text-[#1C1917] tabular-nums">
+              <p className="mt-5 font-display text-3xl sm:text-4xl md:text-[2.5rem] font-light leading-none text-[#1C1917] tracking-tight tabular-nums">
                 {item.range}
               </p>
               <p className="mt-2 text-[10px] font-mono uppercase tracking-widest text-brand font-medium">

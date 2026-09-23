@@ -75,14 +75,14 @@ const Hero = () => {
       />
 
       {/* Editorial Content Overlay (Lower-Third Placement) */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-14 sm:pb-20 md:pb-24 px-6 md:px-12 text-center">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-14 sm:pb-20 md:pb-24 px-4 sm:px-8 md:px-12 text-center w-full max-w-full">
         {/* Unified H1 Headline with crisp contrast drop-shadow */}
-        <h1 className="sn-h1 text-white max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] mb-3">
+        <h1 className="sn-h1 text-white max-w-xl sm:max-w-2xl px-2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] mb-3 text-balance">
           Invisible Grills &amp; Safety Nets
         </h1>
 
         {/* Unified Subtext Descriptor */}
-        <p className="sn-subtext text-[#FAF8F5] max-w-md drop-shadow-[0_1.5px_6px_rgba(0,0,0,0.85)] mb-8">
+        <p className="sn-subtext text-[#FAF8F5] max-w-md px-4 drop-shadow-[0_1.5px_6px_rgba(0,0,0,0.85)] mb-8 text-balance">
           Architectural safety for modern discerning homes.
         </p>
 

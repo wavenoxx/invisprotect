@@ -20,7 +20,7 @@ function MaterialStandardsPage() {
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col">
       <SiteNav />
 
-      <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <main className="flex-1 max-w-5xl mx-auto px-5 sm:px-8 md:px-12 pt-32 pb-24 w-full">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
           <p className="sn-eyebrow text-brand mb-3 font-medium">Engineering Governance</p>
           <h1 className="sn-h1 text-[#1C1917]">Material Standards &amp; Tolerances</h1>
@@ -31,9 +31,7 @@ function MaterialStandardsPage() {
 
         <section className="space-y-12 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           <div className="border-t border-[#1C1917]/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917]">
-              01. AISI 316 Stainless Steel
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917]">01. AISI 316 Stainless Steel</h2>
             <div className="md:col-span-2 space-y-3">
               <p>
                 The core structural element of our Invisible Grills consists of austenitic AISI 316
@@ -49,9 +47,7 @@ function MaterialStandardsPage() {
           </div>
 
           <div className="border-t border-[#1C1917]/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917]">
-              02. Nylon-12 Translucent Sheathing
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917]">02. Nylon-12 Translucent Sheathing</h2>
             <div className="md:col-span-2 space-y-3">
               <p>
                 Each steel cable core is encapsulated in an extruded translucent Nylon-12 membrane.
@@ -63,9 +59,7 @@ function MaterialStandardsPage() {
           </div>
 
           <div className="border-t border-[#1C1917]/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917]">
-              03. 6063-T6 Structural Aluminum Profiles
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917]">03. 6063-T6 Structural Aluminum Profiles</h2>
             <div className="md:col-span-2 space-y-3">
               <p>
                 Anchoring tracks are precision-extruded from architectural 6063-T6 tempered aluminum
@@ -76,9 +70,7 @@ function MaterialStandardsPage() {
           </div>
 
           <div className="border-t border-[#1C1917]/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="text-base uppercase tracking-widest font-medium text-[#1C1917]">
-              04. Virgin High-Density Polyethylene (HDPE)
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917]">04. Virgin High-Density Polyethylene (HDPE)</h2>
             <div className="md:col-span-2 space-y-3">
               <p>
                 Our safety netting lines utilize 100% virgin polymer monofilaments blended with UV

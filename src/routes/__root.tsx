@@ -22,12 +22,10 @@ import { BUSINESS, SERVICE_HUBS } from "@/config/business";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] px-5 sm:px-8">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-light text-[#1C1917] font-serif">404</h1>
-        <h2 className="mt-4 text-xl font-normal text-[#1C1917] uppercase tracking-widest font-serif">
-          Page not found
-        </h2>
+        <h1 className="text-7xl font-light text-[#1C1917] font-display">404</h1>
+        <h2 className="mt-4 sn-h2 text-[#1C1917]">Page not found</h2>
         <p className="mt-2 text-sm text-[#78716C] font-light">
           The requested page does not exist or has been moved.
         </p>
@@ -49,11 +47,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#FAF8F5] px-5 sm:px-8">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-normal tracking-wide text-[#1C1917] uppercase font-serif">
-          An error occurred
-        </h1>
+        <h1 className="sn-h2 text-[#1C1917]">An error occurred</h1>
         <p className="mt-2 text-sm text-[#78716C] font-light">
           Something went wrong loading this view. You may refresh or return home.
         </p>
@@ -197,14 +193,14 @@ function RootShell({ children }: { children: ReactNode }) {
     <html
       lang="en"
       style={{ backgroundColor: "#FAF8F5", color: "#1C1917" }}
-      className="bg-[#FAF8F5]"
+      className="bg-[#FAF8F5] overflow-x-clip max-w-full"
     >
       <head>
         <HeadContent />
       </head>
       <body
         style={{ backgroundColor: "#FAF8F5", color: "#1C1917" }}
-        className="bg-[#FAF8F5] text-[#1C1917] selection:bg-brand/20"
+        className="bg-[#FAF8F5] text-[#1C1917] selection:bg-brand/20 overflow-x-clip max-w-full"
       >
         <MeasurementLifecycle />
         {children}
