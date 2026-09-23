@@ -28,7 +28,7 @@ export const paidLandingPages = {
     headline: "Invisible Grills in Hyderabad",
     summary:
       "Request a site survey for high-tensile stainless steel cable safety grills for balconies, windows, and staircases.",
-    heroImage: "/images/category-invisible-grills.png",
+    heroImage: "/images/category-invisible-grills.webp",
     heroImageWebp: "/images/paid/invisible-grills-hyderabad.webp",
     heroImageWidth: 960,
     heroImageHeight: 403,
@@ -64,7 +64,7 @@ export const paidLandingPages = {
     headline: "Safety Nets in Hyderabad",
     summary:
       "Request a site survey for UV-stabilized safety netting for balconies, staircases, children’s areas, and building openings.",
-    heroImage: "/images/category-core-safety-nets.png",
+    heroImage: "/images/category-core-safety-nets.webp",
     heroImageWebp: "/images/paid/safety-nets-hyderabad.webp",
     heroImageWidth: 960,
     heroImageHeight: 401,

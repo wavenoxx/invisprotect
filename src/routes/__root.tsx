@@ -18,6 +18,7 @@ import { captureAttribution } from "@/lib/attribution";
 import { GADS_ACCOUNT_ID, trackEngagement, trackPageView } from "@/lib/analytics";
 import { getGoogleTagHeadScripts } from "@/lib/google-tag";
 import { ConsentBanner } from "@/components/ConsentBanner";
+import { BUSINESS, SERVICE_HUBS } from "@/config/business";
 
 function NotFoundComponent() {
   return (
@@ -85,7 +86,7 @@ const socialProfiles = [
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
-  name: BRAND_CONFIG.name || "InvisProtect",
+  name: BRAND_CONFIG.name,
   ...(BRAND_CONFIG.legalName ? { legalName: BRAND_CONFIG.legalName } : {}),
   description: BRAND_CONFIG.description,
   priceRange: "₹₹₹",
@@ -101,29 +102,21 @@ const organizationSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana & Andhra Pradesh",
+    addressLocality: BUSINESS.primaryCity,
+    addressRegion: BUSINESS.primaryRegion,
     addressCountry: "IN",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 17.385,
-    longitude: 78.4867,
+    latitude: BUSINESS.geo.latitude,
+    longitude: BUSINESS.geo.longitude,
   },
-  areaServed: [
-    { "@type": "City", name: "Hyderabad" },
-    { "@type": "City", name: "Visakhapatnam" },
-    { "@type": "City", name: "Vijayawada" },
-    { "@type": "City", name: "Amaravati" },
-    { "@type": "City", name: "Tirupati" },
-    { "@type": "City", name: "Warangal" },
-    { "@type": "City", name: "Hanamkonda" },
-  ],
+  areaServed: SERVICE_HUBS.map((hub) => ({ "@type": "City", name: hub.schemaName })),
   ...(socialProfiles.length > 0 ? { sameAs: socialProfiles } : {}),
   ...(BRAND_CONFIG.domain
     ? {
         url: BRAND_CONFIG.domain,
-        image: `${BRAND_CONFIG.domain}/images/homepage/hero-desktop.png`,
+        image: `${BRAND_CONFIG.domain}/images/homepage/hero-desktop.jpg`,
       }
     : {}),
   ...(BRAND_CONFIG.contact.enabled && BRAND_CONFIG.contact.phoneDial
@@ -152,7 +145,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: pageTitle },
       { name: "description", content: BRAND_CONFIG.description },
-      { name: "author", content: BRAND_CONFIG.name || "InvisProtect" },
+      { name: "author", content: BRAND_CONFIG.name },
       { property: "og:title", content: pageTitle },
       { property: "og:description", content: BRAND_CONFIG.description },
       { property: "og:type", content: "website" },
@@ -211,7 +204,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body
         style={{ backgroundColor: "#FAF8F5", color: "#1C1917" }}
-        className="bg-[#FAF8F5] text-[#1C1917] selection:bg-[#F37021]/20"
+        className="bg-[#FAF8F5] text-[#1C1917] selection:bg-brand/20"
       >
         <MeasurementLifecycle />
         {children}

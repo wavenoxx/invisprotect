@@ -63,7 +63,7 @@ export function LuxuryContactDock() {
         <div className="pointer-events-auto absolute bottom-[calc(0.5rem+env(safe-area-inset-bottom))] left-4 md:bottom-7 md:left-7">
           <a
             href={`tel:${phoneDial}`}
-            aria-label="Call InvisProtect"
+            aria-label={`Call ${BRAND_CONFIG.name}`}
             onClick={() => trackDockEngagement("phone")}
             className={glassActionClass}
           >
@@ -80,7 +80,7 @@ export function LuxuryContactDock() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contact InvisProtect on WhatsApp"
+            aria-label={`Contact ${BRAND_CONFIG.name} on WhatsApp`}
             onClick={() => trackDockEngagement("whatsapp")}
             className={glassActionClass}
           >

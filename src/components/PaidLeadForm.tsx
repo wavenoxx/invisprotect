@@ -136,8 +136,8 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
         aria-live="polite"
         className="border border-[#1C1917]/10 bg-white p-7 md:p-9 shadow-xl"
       >
-        <CheckCircle2 aria-hidden="true" className="mb-5 size-9 text-[#F37021]" />
-        <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#F37021]">
+        <CheckCircle2 aria-hidden="true" className="mb-5 size-9 text-brand" />
+        <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-brand">
           Request received
         </p>
         <h2 className="mt-2 sn-h2 text-[#1C1917]">Your site survey is registered.</h2>
@@ -185,7 +185,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
 
   return (
     <section id="quote-form" className="border border-[#1C1917]/10 bg-white p-6 shadow-2xl sm:p-8">
-      <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#F37021]">
+      <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-brand">
         Request a site survey
       </p>
       <h2 className="mt-2 sn-h2 text-[#1C1917]">Tell us where you need protection.</h2>
@@ -216,7 +216,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
             autoComplete="name"
             value={form.name}
             onChange={(event) => setField("name", event.target.value)}
-            className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/20"
+            className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             required
           />
         </div>
@@ -237,7 +237,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
               value={form.phone}
               onChange={(event) => setField("phone", event.target.value.replace(/\D/g, ""))}
               placeholder="10-digit number"
-              className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/20"
+              className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
               required
             />
           </div>
@@ -256,7 +256,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
               value={form.pincode}
               onChange={(event) => setField("pincode", event.target.value.replace(/\D/g, ""))}
               placeholder="6-digit pincode"
-              className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/20"
+              className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
               required
             />
           </div>
@@ -274,7 +274,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
             value={form.locality}
             onChange={(event) => setField("locality", event.target.value)}
             placeholder={`Locality in ${landing.city}`}
-            className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/20"
+            className="min-h-12 w-full border border-[#1C1917]/15 bg-[#FAF8F5] px-4 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             required
           />
         </div>
@@ -292,7 +292,7 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
             value={form.notes}
             onChange={(event) => setField("notes", event.target.value)}
             placeholder="Balcony, window, staircase, or any site details"
-            className="w-full resize-y border border-[#1C1917]/15 bg-[#FAF8F5] px-4 py-3 outline-none transition focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/20"
+            className="w-full resize-y border border-[#1C1917]/15 bg-[#FAF8F5] px-4 py-3 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
           />
         </div>
         <label className="flex cursor-pointer items-start gap-3 text-xs leading-5 text-[#57534E]">
@@ -300,12 +300,12 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
             type="checkbox"
             checked={form.consent}
             onChange={(event) => setField("consent", event.target.checked)}
-            className="mt-1 size-4 shrink-0 accent-[#F37021]"
+            className="mt-1 size-4 shrink-0 accent-brand"
           />
           <span>
             I agree that {BRAND_CONFIG.name} may contact me by phone or WhatsApp about this request.
             See the{" "}
-            <Link to="/privacy" className="underline underline-offset-2 hover:text-[#F37021]">
+            <Link to="/privacy" className="underline underline-offset-2 hover:text-brand">
               Privacy Policy
             </Link>
             .

@@ -13,7 +13,7 @@ import { BRAND_CONFIG } from "@/config/brand";
  * - Paired transparent hairline actions.
  */
 const heroCtaBase =
-  "inline-flex min-h-11 max-w-[calc(100vw-3rem)] items-center justify-center whitespace-nowrap border bg-transparent px-7 text-[10px] font-medium uppercase tracking-[0.24em] text-white transition-[border-color,background-color,color,box-shadow,transform] duration-200 ease-out md:hover:-translate-y-px md:hover:border-[#F37021] md:hover:bg-[#F37021] md:hover:shadow-[0_4px_14px_rgba(243,112,33,0.24)] focus-visible:-translate-y-px focus-visible:border-[#F37021] focus-visible:bg-[#F37021] focus-visible:shadow-[0_4px_14px_rgba(243,112,33,0.24)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F37021]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent active:translate-y-0 active:scale-[0.99] active:border-[#F37021] active:bg-[#F37021]";
+  "inline-flex min-h-11 max-w-[calc(100vw-3rem)] items-center justify-center whitespace-nowrap border bg-transparent px-7 text-[10px] font-medium uppercase tracking-[0.24em] text-white transition-[border-color,background-color,color,box-shadow,transform] duration-200 ease-out md:hover:-translate-y-px md:hover:border-brand md:hover:bg-brand md:hover:shadow-[0_4px_14px_color-mix(in_oklab,var(--brand)_24%,transparent)] focus-visible:-translate-y-px focus-visible:border-brand focus-visible:bg-brand focus-visible:shadow-[0_4px_14px_color-mix(in_oklab,var(--brand)_24%,transparent)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent active:translate-y-0 active:scale-[0.99] active:border-brand active:bg-brand";
 
 const Hero = () => {
   return (
@@ -33,7 +33,7 @@ const Hero = () => {
         <picture>
           <source srcSet="/images/homepage/hero-desktop.webp" type="image/webp" />
           <img
-            src="/images/homepage/hero-desktop.png"
+            src="/images/homepage/hero-desktop.jpg"
             alt="Widescreen architectural balcony with an unobstructed safety view"
             width={1672}
             height={941}
@@ -53,7 +53,7 @@ const Hero = () => {
         <picture>
           <source srcSet="/images/homepage/hero-mobile.webp" type="image/webp" />
           <img
-            src="/images/homepage/hero-mobile.png"
+            src="/images/homepage/hero-mobile.jpg"
             alt="Residential balcony opening designed for discreet safety protection"
             width={941}
             height={1672}

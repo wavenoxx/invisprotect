@@ -15,7 +15,7 @@ export interface SiteNavProps {
  *
  * Mobile & Desktop:
  * - Left: Clean 2-line minimal icon (+ 'Menu' label on sm+).
- * - Center: Pure, ultra-luxurious brand serif typography (InvisProtect).
+ * - Center: Pure, ultra-luxurious brand serif typography (brand name from config).
  * - Right: Clean luxury Profile / Contact icon (text on sm+).
  */
 export function SiteNav({ appearance = "solid" }: SiteNavProps) {
@@ -72,7 +72,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               onClick={() => setIsMenuOpen(true)}
               className={`flex items-center gap-2.5 min-h-11 min-w-11 px-1 cursor-pointer group focus-ring transition-colors ${
                 tone === "dark-on-cream"
-                  ? "text-[#1C1917] hover:text-[#F37021]"
+                  ? "text-[#1C1917] hover:text-brand"
                   : "text-white hover:text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               }`}
               aria-label="Open navigation menu"
@@ -80,12 +80,12 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               <span className="flex flex-col gap-[5.5px] justify-center py-1">
                 <span
                   className={`block w-[20px] sm:w-[17px] h-[1.5px] sm:h-px transition-colors ${
-                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
+                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-brand" : "bg-white"
                   }`}
                 />
                 <span
                   className={`block w-[20px] sm:w-[17px] h-[1.5px] sm:h-px transition-colors ${
-                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-[#F37021]" : "bg-white"
+                    tone === "dark-on-cream" ? "bg-[#1C1917] group-hover:bg-brand" : "bg-white"
                   }`}
                 />
               </span>
@@ -105,7 +105,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
             <Link
               to="/"
               className="flex items-center justify-center min-h-11 px-1 focus-ring transition-opacity hover:opacity-85"
-              aria-label={BRAND_CONFIG.name ? `${BRAND_CONFIG.name} Home` : "InvisProtect Home"}
+              aria-label={`${BRAND_CONFIG.name} Home`}
             >
               <span
                 className={`font-brand font-extrabold uppercase leading-none tracking-[0.13em] mr-[-0.13em] md:tracking-[0.18em] md:mr-[-0.18em] lg:tracking-[0.20em] lg:mr-[-0.20em] text-[clamp(15.5px,calc(0.5rem+1.8vw),16.5px)] md:text-[24px] lg:text-[26px] transition-colors whitespace-nowrap select-none ${
@@ -114,7 +114,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
                     : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
                 }`}
               >
-                {BRAND_CONFIG.name || "InvisProtect"}
+                {BRAND_CONFIG.name}
               </span>
             </Link>
           </div>
@@ -128,7 +128,7 @@ export function SiteNav({ appearance = "solid" }: SiteNavProps) {
               onClick={() => setIsContactOpen(true)}
               className={`flex items-center justify-end gap-2 min-h-11 min-w-11 px-1 cursor-pointer focus-ring transition-colors ${
                 tone === "dark-on-cream"
-                  ? "text-[#1C1917] hover:text-[#F37021]"
+                  ? "text-[#1C1917] hover:text-brand"
                   : "text-white hover:text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               }`}
               aria-label="Open client service contact"

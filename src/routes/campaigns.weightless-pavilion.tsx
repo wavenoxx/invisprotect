@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
 import { ShieldCheck, Compass, Ruler, ArrowRight } from "lucide-react";
+import { BUSINESS, hubCityList } from "@/config/business";
 
 export const Route = createFileRoute("/campaigns/weightless-pavilion")({
   head: () =>
@@ -12,7 +13,7 @@ export const Route = createFileRoute("/campaigns/weightless-pavilion")({
       description:
         "An architectural study on cantilever high-rise balconies, wind-load deflection, and the serene dissolution of physical barriers through marine-grade tensile engineering.",
       canonicalPath: "/campaigns/weightless-pavilion",
-      ogImage: "/images/homepage/banner-8-desktop.png",
+      ogImage: "/images/homepage/banner-8-desktop.jpg",
       noIndex: true,
     }),
   component: WeightlessPavilion,
@@ -26,7 +27,7 @@ function WeightlessPavilion() {
       {/* Hero Header */}
       <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#1C1917]">
         <img
-          src="/images/homepage/banner-8-desktop.png"
+          src="/images/homepage/banner-8-desktop.webp"
           alt="The Weightless Pavilion - Unobstructed Balcony Views"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-85"
           loading="eager"
@@ -55,13 +56,13 @@ function WeightlessPavilion() {
       {/* Monograph Essay */}
       <section className="max-w-4xl mx-auto px-6 md:px-12 py-20 md:py-28">
         <div className="border-b border-[#1C1917]/10 pb-12 mb-16">
-          <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+          <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
             Curatorial Essay
           </span>
           <h2 className="sn-h2 text-[#1C1917] mt-3 mb-6">The Liberation of Elevated Living</h2>
           <div className="space-y-6 text-sm md:text-base font-light text-[#44403C] leading-relaxed">
             <p>
-              Contemporary high-rise architecture across Hyderabad and Andhra Pradesh celebrates the
+              Contemporary high-rise architecture across {BUSINESS.regionLabel} celebrates the
               cantilevered balcony as an extension of interior sanctuary. Yet, traditional security
               interventions—welded mild steel grates and ornamental iron cages—fracture the facade
               and confine the resident, visually severing the home from the horizon.
@@ -70,7 +71,7 @@ function WeightlessPavilion() {
               {BRAND_CONFIG.name} conceives the balcony perimeter not as a cage to be closed, but as
               a weightless pavilion. By anchoring precision-extruded 6063-T6 aluminum tracks
               directly into the reinforced concrete slab and threading continuous AISI 316
-              marine-grade stainless steel cables under 400+ kg individual tension, physical
+              marine-grade stainless steel cables under calibrated individual tension, physical
               security transforms into an almost imperceptible diaphragm of air and light.
             </p>
           </div>
@@ -79,7 +80,7 @@ function WeightlessPavilion() {
         {/* 3 Architectural Principles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <Compass className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
+            <Compass className="size-6 text-brand mb-4" strokeWidth={1.5} />
             <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               01 / Horizon Integrity
             </h3>
@@ -90,7 +91,7 @@ function WeightlessPavilion() {
           </div>
 
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <Ruler className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
+            <Ruler className="size-6 text-brand mb-4" strokeWidth={1.5} />
             <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               02 / Wind Aero-Acoustics
             </h3>
@@ -101,7 +102,7 @@ function WeightlessPavilion() {
           </div>
 
           <div className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <ShieldCheck className="size-6 text-[#F37021] mb-4" strokeWidth={1.5} />
+            <ShieldCheck className="size-6 text-brand mb-4" strokeWidth={1.5} />
             <h3 className="font-display text-sm font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2">
               03 / Emergency Egress
             </h3>
@@ -114,12 +115,12 @@ function WeightlessPavilion() {
 
         {/* Action Card */}
         <div className="p-8 sm:p-12 bg-white border border-[#1C1917]/10 text-center shadow-lg">
-          <p className="sn-eyebrow text-[#F37021] mb-3">Architectural Advisory</p>
+          <p className="sn-eyebrow text-brand mb-3">Architectural Advisory</p>
           <h3 className="sn-h2 text-[#1C1917] mb-3">Commission a Private Balcony Evaluation</h3>
           <p className="text-xs md:text-sm font-light text-[#78716C] max-w-xl mx-auto mb-8">
             Experience the architectural liberation of invisible safety. Our regional technical
-            advisors provide laser measurements and structural load assessments across Hyderabad,
-            Visakhapatnam, and Vijayawada.
+            advisors provide laser measurements and structural load assessments across{" "}
+            {hubCityList()}.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/consultation" className="sn-btn-luxury-solid w-full sm:w-auto">

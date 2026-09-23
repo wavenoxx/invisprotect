@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 import { buildMetaTags } from "@/lib/seo";
+import { hubCityList } from "@/config/business";
 
 export const Route = createFileRoute("/privacy")({
   head: () =>
@@ -33,9 +34,7 @@ function PrivacyPage() {
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
         {/* Header */}
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
-          <p className="sn-eyebrow text-[#F37021] mb-3 font-medium">
-            Governance &amp; Transparency
-          </p>
+          <p className="sn-eyebrow text-brand mb-3 font-medium">Governance &amp; Transparency</p>
           <h1 className="sn-h1 text-[#1C1917]">Privacy Declaration</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
             Effective Date: 2026 · Client Privacy &amp; Data Stewardship Protocol
@@ -106,7 +105,7 @@ function PrivacyPage() {
             </p>
             <div className="border border-[#1C1917]/10 divide-y divide-[#1C1917]/10 mt-3">
               <div className="p-4 bg-[#FAF8F5]">
-                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-[#F37021]">
+                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-brand">
                   Supabase Inc. (Database &amp; Storage Infrastructure)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
@@ -115,7 +114,7 @@ function PrivacyPage() {
                 </p>
               </div>
               <div className="p-4 bg-[#FAF8F5]">
-                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-[#F37021]">
+                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-brand">
                   Google LLC (Google Ads &amp; Google tag)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
@@ -124,7 +123,7 @@ function PrivacyPage() {
                 </p>
               </div>
               <div className="p-4 bg-[#FAF8F5]">
-                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-[#F37021]">
+                <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-brand">
                   Meta Platforms Inc. (WhatsApp Business Cloud API)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
@@ -189,7 +188,7 @@ function PrivacyPage() {
               <li>Reset cookie and measurement choices at any time.</li>
             </ul>
             <div className="bg-[#FAF8F5] p-6 border border-[#1C1917]/10 mt-4">
-              <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-[#F37021]">
+              <h3 className="font-medium text-[#1C1917] uppercase text-xs tracking-wider mb-2 text-brand">
                 Data Privacy Officer &amp; Client Concierge
               </h3>
               <p className="text-[#44403C] mb-3">
@@ -203,7 +202,7 @@ function PrivacyPage() {
                         • Email:{" "}
                         <a
                           href={BRAND_CONFIG.contact.emailHref}
-                          className="underline focus-ring text-[#F37021]"
+                          className="underline focus-ring text-brand"
                         >
                           {BRAND_CONFIG.contact.email}
                         </a>
@@ -214,7 +213,7 @@ function PrivacyPage() {
                         • Phone:{" "}
                         <a
                           href={BRAND_CONFIG.contact.phoneHref}
-                          className="underline focus-ring text-[#F37021]"
+                          className="underline focus-ring text-brand"
                         >
                           {BRAND_CONFIG.contact.phoneDisplay}
                         </a>
@@ -226,10 +225,7 @@ function PrivacyPage() {
                     Client contact details will be published upon launch.
                   </p>
                 )}
-                <p>
-                  • Operating Hubs: Hyderabad, Visakhapatnam, Vijayawada, Amaravati, Tirupati,
-                  Warangal, Hanamkonda
-                </p>
+                <p>• Service Areas: {hubCityList()}</p>
               </div>
             </div>
           </section>
@@ -239,13 +235,13 @@ function PrivacyPage() {
         <div className="mt-16 pt-8 border-t border-[#1C1917]/10 flex flex-col sm:flex-row justify-between gap-4 text-xs font-light">
           <Link
             to="/terms"
-            className="text-[#78716C] hover:text-[#F37021] underline underline-offset-4 focus-ring transition-colors"
+            className="text-[#78716C] hover:text-brand underline underline-offset-4 focus-ring transition-colors"
           >
             ← View Terms and Conditions
           </Link>
           <Link
             to="/consultation"
-            className="text-[#F37021] font-medium hover:underline underline-offset-4 focus-ring transition-colors"
+            className="text-brand font-medium hover:underline underline-offset-4 focus-ring transition-colors"
           >
             Request Private Site Survey →
           </Link>

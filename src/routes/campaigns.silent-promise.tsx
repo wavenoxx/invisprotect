@@ -82,9 +82,7 @@ function CampaignThree() {
       {/* 1. HERO */}
       <div className="w-full relative overflow-hidden bg-[#F4EFEA] border-b border-[#1C1917]/10 min-h-[60vh] md:min-h-0 md:aspect-[2.39/1] flex items-center justify-center">
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24">
-          <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
-            CAMPAIGN SERIES Ⅲ
-          </span>
+          <span className="sn-eyebrow text-brand mb-3 block font-medium">CAMPAIGN SERIES Ⅲ</span>
           <h1 className="sn-h1 text-[#1C1917] max-w-xl mb-4">THE SILENT PROMISE</h1>
           <p className="font-serif italic text-sm md:text-base text-[#44403C] font-light tracking-wide max-w-sm">
             A promise of architectural protection, suspended in thin air.
@@ -95,7 +93,7 @@ function CampaignThree() {
       {/* 2. EXPERIENCE 01 — THE CELESTIAL SKYDECK */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
         <div className="text-center mb-14">
-          <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
+          <span className="font-sans text-[9px] tracking-[0.3em] text-brand uppercase font-medium">
             INTERACTIVE EXPERIENCE 01
           </span>
           <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE CELESTIAL SKYDECK</h2>
@@ -118,7 +116,14 @@ function CampaignThree() {
           >
             {/* Balcony floor */}
             <rect x="0" y="750" width="1000" height="50" fill="#EAE3D9" opacity="0.9" />
-            <rect x="0" y="445" width="1000" height="6" fill="#F37021" opacity="0.6" />
+            <rect
+              x="0"
+              y="445"
+              width="1000"
+              height="6"
+              style={{ fill: "var(--brand)" }}
+              opacity="0.6"
+            />
             {/* Vertical cords */}
             {wires.map((wX, idx) => (
               <line
@@ -127,7 +132,7 @@ function CampaignThree() {
                 y1={150}
                 x2={wX}
                 y2={450}
-                stroke="#F37021"
+                style={{ stroke: "var(--brand)" }}
                 strokeWidth={1}
                 opacity={0.65}
                 className="shimmer-wire"
@@ -152,7 +157,7 @@ function CampaignThree() {
       <section className="w-full bg-[#F4EFEA] text-[#1C1917] py-28 border-t border-b border-[#1C1917]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
-            <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
+            <span className="font-sans text-[9px] tracking-[0.3em] text-brand uppercase font-medium">
               INTERACTIVE EXPERIENCE 02
             </span>
             <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE GUARDIAN PROMISE</h2>
@@ -179,7 +184,7 @@ function CampaignThree() {
                       y1={a.y}
                       x2={b.x}
                       y2={b.y}
-                      stroke="#F37021"
+                      style={{ stroke: "var(--brand)" }}
                       strokeOpacity={0.3}
                       strokeWidth={0.8}
                     />
@@ -211,13 +216,13 @@ function CampaignThree() {
                   style={{ left: `${leftPct}%`, top: `${topPct}%` }}
                 >
                   <div className="relative w-6 h-6 flex items-center justify-center">
-                    <span className="absolute inset-0 rounded-full border border-[#F37021] pulse-node" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F37021]" />
+                    <span className="absolute inset-0 rounded-full border border-brand pulse-node" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand" />
                   </div>
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 mt-4 w-56 p-4 bg-white border border-[#F37021]/40 shadow-lg transition-all duration-500 z-20 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}
+                    className={`absolute left-1/2 -translate-x-1/2 mt-4 w-56 p-4 bg-white border border-brand/40 shadow-lg transition-all duration-500 z-20 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}
                   >
-                    <p className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium mb-1">
+                    <p className="font-sans text-[9px] tracking-[0.3em] text-brand uppercase font-medium mb-1">
                       {node.label}
                     </p>
                     <p className="font-serif italic text-xs text-[#44403C] font-light">
@@ -235,7 +240,7 @@ function CampaignThree() {
       <section className="w-full bg-[#FAF8F5] py-28 border-b border-[#1C1917]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
-            <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] uppercase font-medium">
+            <span className="font-sans text-[9px] tracking-[0.3em] text-brand uppercase font-medium">
               INTERACTIVE EXPERIENCE 03
             </span>
             <h2 className="sn-h2 text-center mt-3 mb-4 text-[#1C1917]">THE HORIZON PORTAL</h2>
@@ -258,8 +263,8 @@ function CampaignThree() {
                     onClick={() => setViewportState(btn.state)}
                     className={`w-full text-left p-4 border transition-all duration-500 rounded-none cursor-pointer font-sans text-[10px] tracking-[0.25em] uppercase font-medium ${
                       viewportState === btn.state
-                        ? "border-[#F37021] text-[#F37021] bg-[#F37021]/8 shadow-xs"
-                        : "border-[#1C1917]/15 text-[#44403C] hover:border-[#F37021]/40 bg-white"
+                        ? "border-brand text-brand bg-brand/8 shadow-xs"
+                        : "border-[#1C1917]/15 text-[#44403C] hover:border-brand/40 bg-white"
                     }`}
                   >
                     {btn.label}
@@ -269,7 +274,7 @@ function CampaignThree() {
             </div>
 
             <div className="w-full max-w-sm md:max-w-none aspect-[4/5] bg-white border border-[#1C1917]/10 relative overflow-hidden p-3 mx-auto md:mr-0 shadow-sm">
-              <div className="relative w-full h-full overflow-hidden border border-[#F37021]/40 bg-[#FAF8F5]">
+              <div className="relative w-full h-full overflow-hidden border border-brand/40 bg-[#FAF8F5]">
                 {/* Layer 1: THREAD */}
                 <div
                   className="absolute inset-0 transition-opacity duration-700"
@@ -279,7 +284,7 @@ function CampaignThree() {
                     className="absolute inset-0"
                     style={{
                       backgroundImage:
-                        "repeating-linear-gradient(90deg, rgba(243,112,33,0.7) 0 1px, transparent 1px 38px)",
+                        "repeating-linear-gradient(90deg, color-mix(in oklab, var(--brand) 70%, transparent) 0 1px, transparent 1px 38px)",
                     }}
                   />
                 </div>
@@ -304,7 +309,7 @@ function CampaignThree() {
 
       {/* 5. CTA */}
       <div className="py-28 bg-[#F4EFEA] w-full flex flex-col items-center justify-center text-center px-6">
-        <span className="font-sans text-[9px] tracking-[0.3em] text-[#F37021] mb-4 uppercase font-medium">
+        <span className="font-sans text-[9px] tracking-[0.3em] text-brand mb-4 uppercase font-medium">
           TAILORED PROTECTION
         </span>
         <h2 className="sn-h2 text-[#1C1917] mb-8">CURATE YOUR VOIDS</h2>

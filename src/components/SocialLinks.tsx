@@ -76,8 +76,8 @@ export function SocialLinks({ className = "" }: SocialLinksProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEngagement("social", `footer_${ch.key}`)}
-          className="flex h-11 w-11 items-center justify-center text-[#A8A29E] hover:text-[#F37021] transition-colors focus-ring cursor-pointer"
-          aria-label={`Follow ${BRAND_CONFIG.name || "InvisProtect"} on ${ch.label}`}
+          className="flex h-11 w-11 items-center justify-center text-[#A8A29E] hover:text-brand transition-colors focus-ring cursor-pointer"
+          aria-label={`Follow ${BRAND_CONFIG.name} on ${ch.label}`}
         >
           {ch.icon}
         </a>

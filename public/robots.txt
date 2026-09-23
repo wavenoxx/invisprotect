@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /consultation
 Disallow: /campaigns/
+Disallow: /api/
 
 Sitemap: https://invisprotect.in/sitemap.xml

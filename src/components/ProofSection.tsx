@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
+import { BUSINESS, HUB_COUNT, hubCityList } from "@/config/business";
 
 interface ProofSectionProps {
   categorySlug?: string;
@@ -11,7 +12,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-          <p className="sn-eyebrow text-[#F37021] mb-3 font-medium">Engineering Standards</p>
+          <p className="sn-eyebrow text-brand mb-3 font-medium">Engineering Standards</p>
           <h2 className="sn-h1 text-[#1C1917] mb-3">Proof, Not Promises</h2>
           <p className="sn-subtext text-[#44403C]">
             Every {BRAND_CONFIG.name ? `${BRAND_CONFIG.name} ` : ""}installation is built upon
@@ -24,7 +25,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 border-t border-[#1C1917]/10 pt-12">
           {/* 1. Metallurgy */}
           <div className="flex flex-col bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase mb-2 font-medium">
               01 / Metallurgy
             </span>
             <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
@@ -36,7 +37,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             </p>
             <Link
               to="/material-standards"
-              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
             >
               Material Standards →
             </Link>
@@ -44,7 +45,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
 
           {/* 2. Precision Anchoring */}
           <div className="flex flex-col bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase mb-2 font-medium">
               02 / Anchoring
             </span>
             <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
@@ -56,7 +57,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             </p>
             <Link
               to="/craftsmanship"
-              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
             >
               The Craftsmanship →
             </Link>
@@ -64,7 +65,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
 
           {/* 3. Documented Handover */}
           <div className="flex flex-col bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase mb-2 font-medium">
               03 / Accountability
             </span>
             <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
@@ -76,91 +77,66 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
             </p>
             <Link
               to="/warranty"
-              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
             >
               Warranty Matrix →
             </Link>
           </div>
 
-          {/* 4. Verified Service Hubs */}
+          {/* 4. Service Areas */}
           <div className="flex flex-col bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase mb-2 font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase mb-2 font-medium">
               04 / Advisory
             </span>
             <h3 className="font-display text-[13px] font-medium text-[#1C1917] uppercase tracking-[0.14em] mb-2.5">
               Regional Operations
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
-              Direct master installers and safety advisors serving residential communities and
-              commercial estates across 7 primary hubs in Telangana &amp; Andhra Pradesh: Hyderabad,
-              Visakhapatnam, Vijayawada, Amaravati, Tirupati, Warangal, and Hanamkonda.
+              Installers and safety advisors serving residential communities and commercial estates
+              across {HUB_COUNT} cities in {BUSINESS.regionLabel}: {hubCityList()}.
             </p>
             <Link
               to="/service-areas"
-              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+              className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
             >
               Service Areas →
             </Link>
           </div>
         </div>
 
-        {/* ── Client & Architect Endorsements (Trust & Soul) ── */}
-        <div className="mt-20 border-t border-[#1C1917]/10 pt-16">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
-              Verified Installations
-            </span>
-            <h3 className="sn-h2 text-[#1C1917] mt-2">Architectural Sanctuaries in Practice</h3>
-            <p className="text-xs text-[#78716C] font-light mt-2">
-              Endorsed by leading high-rise residents and interior architects across Telangana &amp;
-              Andhra Pradesh.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
-              <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “Our 34th-floor duplex in Kokapet needed rigorous safety for our twin toddlers
-                without turning our panoramic city view into a cage. InvisProtect's AISI 316
-                invisible grills gave us total peace of mind and pristine aesthetics.”
-              </p>
-              <div className="border-t border-[#1C1917]/8 pt-4">
-                <p className="text-xs font-medium text-[#1C1917]">K. V. Rao</p>
-                <p className="text-[10px] text-[#78716C] font-light uppercase tracking-wider mt-0.5">
-                  Kokapet, Hyderabad · Balcony Invisible Grills
-                </p>
-              </div>
+        {/* ── Customer Reviews ──
+            Rendered only when real reviews are added in src/config/business.ts.
+            Never add invented names or quotes here. */}
+        {BUSINESS.reviews.length > 0 && (
+          <div className="mt-20 border-t border-[#1C1917]/10 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
+                Customer Reviews
+              </span>
+              <h3 className="sn-h2 text-[#1C1917] mt-2">What Our Customers Say</h3>
             </div>
 
-            <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
-              <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “As an interior architect designing sea-facing luxury residences in Rushikonda,
-                standard iron grilles oxidize rapidly. The marine-grade 316 alloy and flush track
-                profiles specified by InvisProtect remain pristine through coastal monsoons.”
-              </p>
-              <div className="border-t border-[#1C1917]/8 pt-4">
-                <p className="text-xs font-medium text-[#1C1917]">Ar. Sunita Varma</p>
-                <p className="text-[10px] text-[#78716C] font-light uppercase tracking-wider mt-0.5">
-                  Rushikonda, Visakhapatnam · Coastal Villa Fenestration
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between">
-              <p className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
-                “The laser survey and anchoring into our post-tensioned balcony slabs was conducted
-                with surgical discipline. Zero dust, zero vibration damage, and perfectly calibrated
-                tension lines across our entire terrace opening.”
-              </p>
-              <div className="border-t border-[#1C1917]/8 pt-4">
-                <p className="text-xs font-medium text-[#1C1917]">Dr. M. S. Reddy</p>
-                <p className="text-[10px] text-[#78716C] font-light uppercase tracking-wider mt-0.5">
-                  Jubilee Hills, Hyderabad · High-Tensile Perimeter Safety
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {BUSINESS.reviews.map((review) => (
+                <figure
+                  key={`${review.name}-${review.context}`}
+                  className="bg-white p-7 border border-[#1C1917]/8 shadow-sm flex flex-col justify-between"
+                >
+                  <blockquote className="font-serif italic text-sm text-[#44403C] leading-relaxed mb-6">
+                    “{review.quote}”
+                  </blockquote>
+                  <figcaption className="border-t border-[#1C1917]/8 pt-4">
+                    <p className="text-xs font-medium text-[#1C1917]">{review.name}</p>
+                    <p className="text-[10px] text-[#78716C] font-light uppercase tracking-wider mt-0.5">
+                      {review.context}
+                    </p>
+                    <p className="text-[10px] text-[#A8A29E] font-light mt-1">{review.source}</p>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
-        </div>
+        )}
 
         {/* Action Banner */}
         <div className="mt-16 p-8 bg-[#F4EFEA] border border-[#1C1917]/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">

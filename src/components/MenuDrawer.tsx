@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 
 import { BrandLogo } from "./BrandLogo";
+import { BUSINESS } from "@/config/business";
 
 interface MenuDrawerProps {
   isOpen: boolean;
@@ -63,7 +64,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Close navigation menu"
-            className="flex items-center gap-1.5 text-[10px] md:text-xs font-light tracking-[0.2em] text-[#78716C] hover:text-[#F37021] cursor-pointer uppercase bg-transparent border-0 min-h-11 px-2 focus-ring transition-colors"
+            className="flex items-center gap-1.5 text-[10px] md:text-xs font-light tracking-[0.2em] text-[#78716C] hover:text-brand cursor-pointer uppercase bg-transparent border-0 min-h-11 px-2 focus-ring transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -90,7 +91,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               to="/category/$categoryId"
               params={{ categoryId: "invisible-grills" }}
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Invisible Grills
             </Link>
@@ -98,7 +99,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               to="/category/$categoryId"
               params={{ categoryId: "core-safety-nets" }}
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Core Safety Nets
             </Link>
@@ -106,7 +107,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               to="/category/$categoryId"
               params={{ categoryId: "construction-industrial" }}
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Construction &amp; Industrial
             </Link>
@@ -114,7 +115,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               to="/category/$categoryId"
               params={{ categoryId: "animal-bird-protection" }}
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Animal &amp; Bird Protection
             </Link>
@@ -122,7 +123,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               to="/category/$categoryId"
               params={{ categoryId: "specialty-solutions" }}
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Specialty Solutions
             </Link>
@@ -132,42 +133,42 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
             <Link
               to="/solutions"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Solutions Explorer
             </Link>
             <Link
               to="/lifestyle"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               The Lifestyle
             </Link>
             <Link
               to="/craftsmanship"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               The Craftsmanship
             </Link>
             <Link
               to="/our-story"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Our Story
             </Link>
             <Link
               to="/warranty"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Warranty Terms
             </Link>
             <Link
               to="/safety-faq"
               onClick={onClose}
-              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors py-2 focus-ring"
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
               Safety FAQ
             </Link>
@@ -178,10 +179,10 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
           <button
             type="button"
             onClick={onOpenContact}
-            className="flex items-center gap-3 font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-[#F37021] transition-colors cursor-pointer bg-transparent border-0 min-h-11 px-1 focus-ring text-left"
+            className="flex items-center gap-3 font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors cursor-pointer bg-transparent border-0 min-h-11 px-1 focus-ring text-left"
           >
             <svg
-              className="w-4 h-4 text-[#F37021]"
+              className="w-4 h-4 text-brand"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -212,7 +213,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               <line x1="2" y1="12" x2="22" y2="12" />
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
-            Regional Operations · Telangana &amp; Andhra Pradesh
+            Regional Operations · {BUSINESS.regionLabel}
           </div>
         </div>
       </div>

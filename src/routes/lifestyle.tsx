@@ -19,21 +19,21 @@ export const Route = createFileRoute("/lifestyle")({
 
 const pillars = [
   {
-    image: "/images/lifestyle/feature-1.png",
+    image: "/images/lifestyle/feature-1.webp",
     title: "CURIOSITY WITHOUT BOUNDARIES",
     eyebrow: "The Child's Exploration",
     copy: "Curiosity knows no limits, and safety shouldn't feel like confinement. A home should be a canvas of discovery, not a constant source of parental anxiety. We weave a silent, unyielding guardian around your edges, letting your children explore while you breathe freely.",
     reverse: false,
   },
   {
-    image: "/images/lifestyle/feature-2.png",
+    image: "/images/lifestyle/feature-2.webp",
     title: "WOVEN INTO THE LIGHT",
     eyebrow: "The Preserved Horizon",
     copy: `Your view is a premium asset — a daily connection to the sky. Traditional iron bars secure your space by building cages, trapping the light and blocking the breeze. ${BRAND_CONFIG.name} protects what you cherish while disappearing completely into the horizon. Security is invisible.`,
     reverse: true,
   },
   {
-    image: "/images/lifestyle/feature-3.png",
+    image: "/images/lifestyle/feature-3.webp",
     title: "THE NIGHT WIND",
     eyebrow: "The Sanctuary of Sleep",
     copy: "Welcoming the night breeze, keeping the vectors out. True rest is breathing natural air. Our micro-pore fiberglass meshes fit flush into your frame, letting in the cool night wind while locking out insect vectors. Sleep in pure, unpolluted ventilation.",
@@ -49,7 +49,7 @@ function LifestylePage() {
       {/* Hero Header with Exact 2.39:1 Cinematic Panoramic Visual */}
       <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#FAF8F5]">
         <img
-          src="/images/lifestyle/hero.png"
+          src="/images/lifestyle/hero.webp"
           alt="Architectural Living Spaces & Open Horizons"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
@@ -93,7 +93,7 @@ function LifestylePage() {
                 />
               </div>
               <div className="px-2 md:px-8">
-                <p className="sn-eyebrow text-[#F37021] font-medium">{p.eyebrow}</p>
+                <p className="sn-eyebrow text-brand font-medium">{p.eyebrow}</p>
                 <h2 className="font-display uppercase mt-3 text-base md:text-lg tracking-[0.18em] text-[#1C1917] font-normal">
                   {p.title}
                 </h2>
@@ -109,7 +109,7 @@ function LifestylePage() {
       {/* CTA */}
       <section className="py-20 md:py-28 border-t border-[#1C1917]/10 bg-[#F4EFEA]">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <p className="sn-eyebrow text-[#F37021] font-medium">An Invitation</p>
+          <p className="sn-eyebrow text-brand font-medium">An Invitation</p>
           <h2 className="sn-h2 text-[#1C1917] mt-3 mb-3">Curate Your Sanctuary</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
             Begin a private survey of your space. Our advisors will compose a protection plan worthy

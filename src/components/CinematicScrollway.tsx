@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { hubCityDots } from "@/config/business";
 
 export interface SlideItem {
   id: number;
@@ -25,8 +26,8 @@ export const slides: SlideItem[] = [
     descriptor: "Balcony & Window Invisible Grills",
     action: "Discover",
     link: "/category/invisible-grills",
-    imageDesktop: "/images/homepage/banner-1-desktop.png",
-    imageMobile: "/images/homepage/banner-1-mobile.png",
+    imageDesktop: "/images/homepage/banner-1-desktop.jpg",
+    imageMobile: "/images/homepage/banner-1-mobile.jpg",
   },
   {
     id: 2,
@@ -35,8 +36,8 @@ export const slides: SlideItem[] = [
     descriptor: "Balcony & Children Safety Nets",
     action: "Discover",
     link: "/category/core-safety-nets",
-    imageDesktop: "/images/homepage/banner-2-desktop.png",
-    imageMobile: "/images/homepage/banner-2-mobile.png",
+    imageDesktop: "/images/homepage/banner-2-desktop.jpg",
+    imageMobile: "/images/homepage/banner-2-mobile.jpg",
   },
   {
     id: 3,
@@ -45,8 +46,8 @@ export const slides: SlideItem[] = [
     descriptor: "Heavy-Duty Debris & Fall Containment",
     action: "Discover",
     link: "/category/construction-industrial",
-    imageDesktop: "/images/homepage/banner-3-desktop.png",
-    imageMobile: "/images/homepage/banner-3-mobile.png",
+    imageDesktop: "/images/homepage/banner-3-desktop.jpg",
+    imageMobile: "/images/homepage/banner-3-mobile.jpg",
   },
   {
     id: 4,
@@ -55,8 +56,8 @@ export const slides: SlideItem[] = [
     descriptor: "Pigeon Nets & Stainless Steel Bird Spikes",
     action: "Discover",
     link: "/category/animal-bird-protection",
-    imageDesktop: "/images/homepage/banner-4-desktop.png",
-    imageMobile: "/images/homepage/banner-4-mobile.png",
+    imageDesktop: "/images/homepage/banner-4-desktop.jpg",
+    imageMobile: "/images/homepage/banner-4-mobile.jpg",
   },
   {
     id: 5,
@@ -65,8 +66,8 @@ export const slides: SlideItem[] = [
     descriptor: "Sports Practice Nets & Ceiling Cloth Hangers",
     action: "Discover",
     link: "/category/specialty-solutions",
-    imageDesktop: "/images/homepage/banner-5-desktop.png",
-    imageMobile: "/images/homepage/banner-5-mobile.png",
+    imageDesktop: "/images/homepage/banner-5-desktop.jpg",
+    imageMobile: "/images/homepage/banner-5-mobile.jpg",
   },
   {
     id: 6,
@@ -75,8 +76,8 @@ export const slides: SlideItem[] = [
     descriptor: "Atelier Heritage & Brand Ethos",
     action: "Explore",
     link: "/our-story",
-    imageDesktop: "/images/homepage/banner-6-desktop.png",
-    imageMobile: "/images/homepage/banner-6-mobile.png",
+    imageDesktop: "/images/homepage/banner-6-desktop.jpg",
+    imageMobile: "/images/homepage/banner-6-mobile.jpg",
   },
   {
     id: 7,
@@ -85,8 +86,8 @@ export const slides: SlideItem[] = [
     descriptor: "Materials, Metallurgy & Tensile Science",
     action: "Explore",
     link: "/craftsmanship",
-    imageDesktop: "/images/homepage/banner-7-desktop.png",
-    imageMobile: "/images/homepage/banner-7-mobile.png",
+    imageDesktop: "/images/homepage/banner-7-desktop.jpg",
+    imageMobile: "/images/homepage/banner-7-mobile.jpg",
   },
   {
     id: 8,
@@ -95,8 +96,8 @@ export const slides: SlideItem[] = [
     descriptor: "Architectural Living Spaces & Views",
     action: "Explore",
     link: "/lifestyle",
-    imageDesktop: "/images/homepage/banner-8-desktop.png",
-    imageMobile: "/images/homepage/banner-8-mobile.png",
+    imageDesktop: "/images/homepage/banner-8-desktop.jpg",
+    imageMobile: "/images/homepage/banner-8-mobile.jpg",
   },
   {
     id: 9,
@@ -105,18 +106,18 @@ export const slides: SlideItem[] = [
     descriptor: "Cleaning, Inspection & Retensioning Protocol",
     action: "Learn More",
     link: "/maintenance-repair",
-    imageDesktop: "/images/homepage/banner-9-desktop.png",
-    imageMobile: "/images/homepage/banner-9-mobile.png",
+    imageDesktop: "/images/homepage/banner-9-desktop.jpg",
+    imageMobile: "/images/homepage/banner-9-mobile.jpg",
   },
   {
     id: 10,
     category: "Regional Operations",
-    title: "Verified Service Hubs",
-    descriptor: "Hyderabad · Vizag · Vijayawada · Amaravati · Tirupati · Warangal · Hanamkonda",
+    title: "Our Service Areas",
+    descriptor: hubCityDots("shortName"),
     action: "View Areas",
     link: "/service-areas",
-    imageDesktop: "/images/homepage/banner-10-desktop.png",
-    imageMobile: "/images/homepage/banner-10-mobile.png",
+    imageDesktop: "/images/homepage/banner-10-desktop.jpg",
+    imageMobile: "/images/homepage/banner-10-mobile.jpg",
   },
 ];
 
@@ -134,7 +135,7 @@ export function CinematicScrollway() {
           <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
             {/* Desktop Visual Image (2.39:1 Panoramic Widescreen) */}
             <picture className="hidden h-full w-full md:block">
-              <source srcSet={slide.imageDesktop.replace(/\.png$/, ".webp")} type="image/webp" />
+              <source srcSet={slide.imageDesktop.replace(/\.jpg$/, ".webp")} type="image/webp" />
               <img
                 src={slide.imageDesktop}
                 alt={`${slide.title} — ${slide.descriptor}`}
@@ -146,7 +147,7 @@ export function CinematicScrollway() {
 
             {/* Mobile Visual Image (4:5 Portrait Aspect Ratio) */}
             <picture className="block h-full w-full md:hidden">
-              <source srcSet={slide.imageMobile.replace(/\.png$/, ".webp")} type="image/webp" />
+              <source srcSet={slide.imageMobile.replace(/\.jpg$/, ".webp")} type="image/webp" />
               <img
                 src={slide.imageMobile}
                 alt={`${slide.title} — ${slide.descriptor}`}

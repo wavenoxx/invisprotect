@@ -4,12 +4,13 @@ import { SiteNav } from "@/components/SiteNav";
 import { BRAND_CONFIG } from "@/config/brand";
 
 import { buildMetaTags } from "@/lib/seo";
+import { BUSINESS } from "@/config/business";
 
 export const Route = createFileRoute("/solutions")({
   head: () =>
     buildMetaTags({
       title: `Architectural Safety Solutions Explorer — ${BRAND_CONFIG.name}`,
-      description: `Explore the complete architectural catalog of ${BRAND_CONFIG.name}: invisible grills, safety netting, construction containment, and bird protection across Telangana & Andhra Pradesh.`,
+      description: `Explore the complete architectural catalog of ${BRAND_CONFIG.name}: invisible grills, safety netting, construction containment, and bird protection across ${BUSINESS.regionLabel}.`,
       canonicalPath: "/solutions",
       ogImage: "/images/campaigns/campaign-2-card-1.jpg",
     }),
@@ -29,7 +30,7 @@ const columns: Column[] = [
     id: "invisible-grills",
     title: "Invisible Grills",
     color: "#8DA891",
-    backdrop: "/images/solutions/solution-1-invisible-grills.png",
+    backdrop: "/images/solutions/solution-1-invisible-grills.webp",
     services: [
       { label: "Balcony", slug: "balcony-invisible-grills" },
       { label: "Staircase", slug: "staircase-invisible-grills" },
@@ -41,7 +42,7 @@ const columns: Column[] = [
     id: "core-safety-nets",
     title: "Core Safety Nets",
     color: "#8FAFC4",
-    backdrop: "/images/solutions/solution-2-core-safety-nets.png",
+    backdrop: "/images/solutions/solution-2-core-safety-nets.webp",
     services: [
       { label: "Balcony", slug: "balcony-safety-nets" },
       { label: "Children", slug: "children-safety-nets" },
@@ -53,7 +54,7 @@ const columns: Column[] = [
     id: "construction-industrial",
     title: "Construction & Industrial",
     color: "#D1D1D1",
-    backdrop: "/images/solutions/solution-3-construction-industrial.png",
+    backdrop: "/images/solutions/solution-3-construction-industrial.webp",
     services: [
       { label: "Construction", slug: "construction-safety-nets" },
       { label: "Industrial", slug: "industrial-safety-nets" },
@@ -65,7 +66,7 @@ const columns: Column[] = [
     id: "animal-bird-protection",
     title: "Animal & Bird Protection",
     color: "#E5C1C5",
-    backdrop: "/images/solutions/solution-4-animal-bird-protection.png",
+    backdrop: "/images/solutions/solution-4-animal-bird-protection.webp",
     services: [
       { label: "Pigeon Nets", slug: "pigeon-safety-nets" },
       { label: "Bird Spikes", slug: "pigeons-bird-spikes" },
@@ -77,7 +78,7 @@ const columns: Column[] = [
     id: "specialty-solutions",
     title: "Specialty Solutions",
     color: "#A6C1C5",
-    backdrop: "/images/solutions/solution-5-specialty-solutions.png",
+    backdrop: "/images/solutions/solution-5-specialty-solutions.webp",
     services: [
       { label: "Sports Nets", slug: "sports-practice-nets" },
       { label: "Coconut Nets", slug: "coconut-safety-nets" },
@@ -124,7 +125,7 @@ function SolutionsExplorer() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/95 via-[#1C1917]/50 to-[#1C1917]/20" />
 
             <div className="relative z-10 w-full mt-auto pb-10 flex flex-col items-start text-white">
-              <span className="font-sans text-[9px] tracking-[0.25em] text-[#F37021] mb-1 uppercase font-medium">
+              <span className="font-sans text-[9px] tracking-[0.25em] text-brand mb-1 uppercase font-medium">
                 Category
               </span>
               <h2
@@ -147,12 +148,12 @@ function SolutionsExplorer() {
                       key={s.slug}
                       to="/service/$serviceId"
                       params={{ serviceId: s.slug }}
-                      className={`w-full border-t border-white/15 py-3.5 flex justify-between items-center text-[11px] font-sans font-light text-[#FAF8F5] hover:text-[#F37021] uppercase tracking-wider transition-all duration-700 ease-out transform focus-ring ${delay} ${
+                      className={`w-full border-t border-white/15 py-3.5 flex justify-between items-center text-[11px] font-sans font-light text-[#FAF8F5] hover:text-brand uppercase tracking-wider transition-all duration-700 ease-out transform focus-ring ${delay} ${
                         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                       }`}
                     >
                       <span>{s.label}</span>
-                      <span className="text-[#F37021] font-light">→</span>
+                      <span className="text-brand font-light">→</span>
                     </Link>
                   );
                 })}
@@ -186,7 +187,7 @@ function SolutionsExplorer() {
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
                   <p
-                    className="text-[10px] uppercase tracking-[0.3em] text-[#F37021] mb-3 font-medium"
+                    className="text-[10px] uppercase tracking-[0.3em] text-brand mb-3 font-medium"
                     style={{ fontWeight: 400 }}
                   >
                     Category
@@ -207,7 +208,7 @@ function SolutionsExplorer() {
                         key={s.slug}
                         to="/service/$serviceId"
                         params={{ serviceId: s.slug }}
-                        className="text-[12px] font-light text-[#FAF8F5] tracking-wider hover:text-[#F37021] block mb-4 underline decoration-[0.5px] underline-offset-4 focus-ring transition-colors"
+                        className="text-[12px] font-light text-[#FAF8F5] tracking-wider hover:text-brand block mb-4 underline decoration-[0.5px] underline-offset-4 focus-ring transition-colors"
                       >
                         {s.label}
                       </Link>
@@ -218,7 +219,7 @@ function SolutionsExplorer() {
                 <Link
                   to="/category/$categoryId"
                   params={{ categoryId: col.id }}
-                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-[#FAF8F5]/80 hover:text-[#F37021] mt-6 focus-ring transition-colors font-medium"
+                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-[#FAF8F5]/80 hover:text-brand mt-6 focus-ring transition-colors font-medium"
                 >
                   View Category →
                 </Link>

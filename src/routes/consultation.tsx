@@ -7,12 +7,13 @@ import { trackEngagement } from "@/lib/analytics";
 import { buildConsultationWhatsappUrl } from "@/lib/consultation-whatsapp";
 import { buildMetaTags } from "@/lib/seo";
 import { Check, ArrowRight } from "lucide-react";
+import { BUSINESS } from "@/config/business";
 
 export const Route = createFileRoute("/consultation")({
   head: () =>
     buildMetaTags({
       title: `Private Site Survey — ${BRAND_CONFIG.name}`,
-      description: `Schedule a complimentary on-site laser measurement and architectural safety evaluation with ${BRAND_CONFIG.name}. Transparent specification and certified technical installation.`,
+      description: `Schedule a complimentary on-site laser measurement and architectural safety evaluation with ${BRAND_CONFIG.name}. Transparent specification and professional installation.`,
       canonicalPath: "/consultation",
       noIndex: true,
     }),
@@ -123,14 +124,18 @@ function ConsultationPage() {
     const serviceNames = SERVICE_OPTIONS.filter((service) =>
       selectedServices.includes(service.id),
     ).map((service) => service.name);
-    const whatsappUrl = buildConsultationWhatsappUrl(BRAND_CONFIG.contact.whatsappLink, {
-      name: fullName,
-      mobile: cleanPhone,
-      serviceNames,
-      localityCity,
-      pincode,
-      notes,
-    });
+    const whatsappUrl = buildConsultationWhatsappUrl(
+      BRAND_CONFIG.contact.whatsappLink,
+      {
+        name: fullName,
+        mobile: cleanPhone,
+        serviceNames,
+        localityCity,
+        pincode,
+        notes,
+      },
+      BRAND_CONFIG.name,
+    );
 
     try {
       trackEngagement("whatsapp", "consultation_quote");
@@ -142,20 +147,18 @@ function ConsultationPage() {
   };
 
   return (
-    <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col selection:bg-[#F37021]/20">
+    <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col selection:bg-brand/20">
       <SiteNav />
 
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 sm:pt-36 pb-28 w-full">
         <div className="w-full">
           {/* Header / Editorial Intro */}
           <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-            <span className="sn-eyebrow text-[#F37021] mb-3 block font-medium">
-              Private Commission
-            </span>
+            <span className="sn-eyebrow text-brand mb-3 block font-medium">Private Commission</span>
             <h1 className="sn-h1 text-[#1C1917] mb-3">The Private Site Survey</h1>
             <p className="sn-subtext text-[#44403C] max-w-lg mx-auto">
               Complimentary digital laser calibration, structural anchorage evaluation, and
-              architectural specification across Telangana &amp; Andhra Pradesh.
+              architectural specification across {BUSINESS.regionLabel}.
             </p>
           </div>
 
@@ -164,7 +167,7 @@ function ConsultationPage() {
             <section className="space-y-6">
               <div className="border-b border-[#1C1917]/10 pb-4 flex items-baseline justify-between">
                 <div>
-                  <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block mb-1 font-medium">
+                  <span className="text-[9px] font-mono tracking-widest text-brand uppercase block mb-1 font-medium">
                     01 / Safety Solutions Required
                   </span>
                   <h2 className="font-display text-sm md:text-base font-normal text-[#1C1917] uppercase tracking-[0.16em]">
@@ -186,12 +189,12 @@ function ConsultationPage() {
                       onClick={() => toggleService(srv.id)}
                       className={`flex items-center justify-between p-4 text-left transition-all duration-300 cursor-pointer border ${
                         isSelected
-                          ? "bg-[#F37021]/8 border-[#F37021] text-[#1C1917] shadow-sm"
-                          : "bg-white border-[#1C1917]/10 text-[#44403C] hover:border-[#F37021]/50 hover:shadow-xs"
+                          ? "bg-brand/8 border-brand text-[#1C1917] shadow-sm"
+                          : "bg-white border-[#1C1917]/10 text-[#44403C] hover:border-brand/50 hover:shadow-xs"
                       }`}
                     >
                       <div>
-                        <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block font-medium">
+                        <span className="text-[9px] font-mono tracking-widest text-brand uppercase block font-medium">
                           {srv.category}
                         </span>
                         <span className="font-display text-xs sm:text-sm font-medium text-[#1C1917] uppercase tracking-[0.10em] mt-0.5 block">
@@ -201,7 +204,7 @@ function ConsultationPage() {
                       <div
                         className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
                           isSelected
-                            ? "border-[#F37021] bg-[#F37021] text-white"
+                            ? "border-brand bg-brand text-white"
                             : "border-[#1C1917]/25 bg-transparent"
                         }`}
                       >
@@ -216,7 +219,7 @@ function ConsultationPage() {
             {/* SECTION 02: LOCATION & SANCTUARY CONTACT */}
             <section className="space-y-6">
               <div className="border-b border-[#1C1917]/10 pb-4">
-                <span className="text-[9px] font-mono tracking-widest text-[#F37021] uppercase block mb-1 font-medium">
+                <span className="text-[9px] font-mono tracking-widest text-brand uppercase block mb-1 font-medium">
                   02 / Location &amp; Contact
                 </span>
                 <h2 className="font-display text-sm md:text-base font-normal text-[#1C1917] uppercase tracking-[0.16em]">
@@ -231,7 +234,7 @@ function ConsultationPage() {
                     htmlFor="pincode"
                     className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#78716C] block"
                   >
-                    Pincode <span className="text-[#F37021]">*</span>
+                    Pincode <span className="text-brand">*</span>
                   </label>
                   <input
                     id="pincode"
@@ -243,7 +246,7 @@ function ConsultationPage() {
                     placeholder="e.g. 500033"
                     autoComplete="postal-code"
                     required
-                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-[#F37021] focus:outline-none transition-colors"
+                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-brand focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -253,17 +256,17 @@ function ConsultationPage() {
                     htmlFor="localityCity"
                     className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#78716C] block"
                   >
-                    Locality &amp; City <span className="text-[#F37021]">*</span>
+                    Locality &amp; City <span className="text-brand">*</span>
                   </label>
                   <input
                     id="localityCity"
                     type="text"
                     value={localityCity}
                     onChange={(e) => setLocalityCity(e.target.value)}
-                    placeholder="e.g. Jubilee Hills, Hyderabad"
+                    placeholder={BUSINESS.localityPlaceholder}
                     autoComplete="address-level2"
                     required
-                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-[#F37021] focus:outline-none transition-colors"
+                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-brand focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -273,7 +276,7 @@ function ConsultationPage() {
                     htmlFor="phone"
                     className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#78716C] block"
                   >
-                    Mobile Number <span className="text-[#F37021]">*</span>
+                    Mobile Number <span className="text-brand">*</span>
                   </label>
                   <div className="relative flex items-center">
                     <span className="absolute left-4 text-sm font-medium text-[#78716C]">+91</span>
@@ -287,7 +290,7 @@ function ConsultationPage() {
                       placeholder="98765 43210"
                       autoComplete="tel-national"
                       required
-                      className="w-full bg-white border border-[#1C1917]/15 pl-14 pr-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-[#F37021] focus:outline-none transition-colors"
+                      className="w-full bg-white border border-[#1C1917]/15 pl-14 pr-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-brand focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -298,7 +301,7 @@ function ConsultationPage() {
                     htmlFor="fullName"
                     className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#78716C] block"
                   >
-                    Client Name <span className="text-[#F37021]">*</span>
+                    Client Name <span className="text-brand">*</span>
                   </label>
                   <input
                     id="fullName"
@@ -308,7 +311,7 @@ function ConsultationPage() {
                     placeholder="e.g. Anand Varma"
                     autoComplete="name"
                     required
-                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-[#F37021] focus:outline-none transition-colors"
+                    className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-brand focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -328,7 +331,7 @@ function ConsultationPage() {
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. 14th-floor balcony with curved railing, master bedroom french windows, child safety requirements."
-                  className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-[#F37021] focus:outline-none transition-colors resize-none"
+                  className="w-full bg-white border border-[#1C1917]/15 px-4 py-3 text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:border-brand focus:outline-none transition-colors resize-none"
                 />
               </div>
             </section>

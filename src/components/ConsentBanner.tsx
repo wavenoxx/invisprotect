@@ -64,7 +64,7 @@ export function ConsentBanner() {
           <button
             type="button"
             onClick={handleAcceptAll}
-            className="flex-1 inline-flex items-center justify-center bg-[#F37021] text-white px-4 py-2.5 text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-[#D9531E] shadow-sm transition-colors min-h-11 focus-ring cursor-pointer"
+            className="flex-1 inline-flex items-center justify-center bg-brand text-white px-4 py-2.5 text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-brand-deep shadow-sm transition-colors min-h-11 focus-ring cursor-pointer"
           >
             Accept All
           </button>
@@ -80,7 +80,7 @@ export function ConsentBanner() {
         <div className="mt-3 text-center">
           <Link
             to="/privacy"
-            className="text-[10px] uppercase tracking-widest text-[#78716C] hover:text-[#F37021] hover:underline underline-offset-4 focus-ring transition-colors"
+            className="text-[10px] uppercase tracking-widest text-[#78716C] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
           >
             Read Privacy Declaration →
           </Link>

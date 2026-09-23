@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
+import { BUSINESS, HUB_COUNT, hubsByState } from "@/config/business";
 import { trackEngagement } from "@/lib/analytics";
 import { BrandLogo } from "./BrandLogo";
 import { SocialLinks } from "./SocialLinks";
@@ -26,7 +27,7 @@ export function Footer() {
         {/* Mobile Layout: Symmetrical Maison Centered Lockup */}
         <div className="sm:hidden flex flex-col items-center text-center">
           <span className="font-brand font-extrabold text-[15px] tracking-[0.13em] mr-[-0.13em] uppercase text-[#FAF8F5]">
-            {BRAND_CONFIG.name || "InvisProtect"}
+            {BRAND_CONFIG.name}
           </span>
           <span
             className="text-[9.5px] tracking-[0.28em] uppercase text-[#A8A29E] font-light mt-1.5"
@@ -72,7 +73,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                    className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                     style={{
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontSize: "12px",
@@ -104,7 +105,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/consultation"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -117,7 +118,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/warranty"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -130,7 +131,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/safety-faq"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -143,7 +144,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/material-standards"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -156,7 +157,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/maintenance-repair"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -187,7 +188,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/our-story"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -200,7 +201,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/craftsmanship"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -213,7 +214,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/lifestyle"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -226,13 +227,13 @@ export function Footer() {
               <li>
                 <Link
                   to="/service-areas"
-                  className="text-[#FAF8F5] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring font-medium"
+                  className="text-[#FAF8F5] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring font-medium"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
                   }}
                 >
-                  Verified Service Areas →
+                  Service Areas →
                 </Link>
               </li>
             </ul>
@@ -256,7 +257,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/terms"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -269,7 +270,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/privacy"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -282,7 +283,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/sitemap"
-                  className="text-[#D6D3D1] hover:text-[#F37021] hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-[#D6D3D1] hover:text-brand hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -320,7 +321,7 @@ export function Footer() {
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 An architectural safety advisor is available for scheduling on-site precision
-                measurements across Telangana &amp; Andhra Pradesh:
+                measurements across {BUSINESS.regionLabel}:
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-light text-[#D6D3D1]">
                 {BRAND_CONFIG.contact.phoneHref ||
@@ -331,7 +332,7 @@ export function Footer() {
                       <a
                         href={BRAND_CONFIG.contact.phoneHref}
                         onClick={() => trackEngagement("phone", "footer")}
-                        className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
+                        className="hover:text-brand hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
                       >
                         Call: {BRAND_CONFIG.contact.phoneDisplay}
                       </a>
@@ -342,7 +343,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackEngagement("whatsapp", "footer")}
-                        className="hover:text-[#F37021] hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
+                        className="hover:text-brand hover:underline underline-offset-4 font-normal text-[#FAF8F5] focus-ring transition-colors"
                       >
                         WhatsApp: {BRAND_CONFIG.contact.whatsappDisplay}
                       </a>
@@ -351,7 +352,7 @@ export function Footer() {
                       <a
                         href={BRAND_CONFIG.contact.emailHref}
                         onClick={() => trackEngagement("email", "footer")}
-                        className="hover:text-[#F37021] hover:underline underline-offset-4 text-[#D6D3D1] focus-ring transition-colors"
+                        className="hover:text-brand hover:underline underline-offset-4 text-[#D6D3D1] focus-ring transition-colors"
                       >
                         Email: {BRAND_CONFIG.contact.email}
                       </a>
@@ -362,7 +363,7 @@ export function Footer() {
                     Direct inquiries coordinated via{" "}
                     <Link
                       to="/consultation"
-                      className="text-[#F37021] underline underline-offset-4 hover:text-white"
+                      className="text-brand underline underline-offset-4 hover:text-white"
                     >
                       Site Survey Request
                     </Link>
@@ -377,8 +378,11 @@ export function Footer() {
                 "The art of architectural protection — securing your sanctuary with quiet elegance."
               </p>
               <div className="mt-2.5 flex flex-col md:items-end gap-0.5 text-[9.5px] sm:text-[10px] tracking-[0.16em] uppercase text-[#A8A29E] font-light">
-                <span>Telangana: Hyderabad · Warangal · Hanamkonda</span>
-                <span>Andhra Pradesh: Vizag · Vijayawada · Amaravati · Tirupati</span>
+                {hubsByState("shortName").map(({ state, cities }) => (
+                  <span key={state}>
+                    {state}: {cities.join(" · ")}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -397,11 +401,11 @@ export function Footer() {
               <button
                 type="button"
                 onClick={() => setShowServiceArea(!showServiceArea)}
-                className="text-[11px] text-[#A8A29E] hover:text-[#F37021] font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer transition-colors"
+                className="text-[11px] text-[#A8A29E] hover:text-brand font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer transition-colors"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 aria-expanded={showServiceArea}
               >
-                <span>Verified Service Hubs: Telangana &amp; Andhra Pradesh</span>
+                <span>Service Areas: {BUSINESS.regionLabel}</span>
                 <span className="text-[9px]">{showServiceArea ? "▲" : "▼"}</span>
               </button>
               {showServiceArea && (
@@ -409,15 +413,18 @@ export function Footer() {
                   className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 max-w-[calc(100vw-2rem)] bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50 text-left"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
-                  <p className="font-medium text-[11px] uppercase tracking-wider text-[#F37021]">
-                    Operational Hubs (7 Cities)
+                  <p className="font-medium text-[11px] uppercase tracking-wider text-brand">
+                    Operational Hubs ({HUB_COUNT} Cities)
                   </p>
-                  <p>• Telangana: Hyderabad &amp; Secunderabad, Warangal, Hanamkonda</p>
-                  <p>• Andhra Pradesh: Visakhapatnam, Vijayawada, Amaravati, Tirupati</p>
+                  {hubsByState("city").map(({ state, cities }) => (
+                    <p key={state}>
+                      • {state}: {cities.join(", ")}
+                    </p>
+                  ))}
                   <div className="pt-2 border-t border-white/10">
                     <Link
                       to="/service-areas"
-                      className="text-[10px] uppercase tracking-wider text-[#F37021] underline underline-offset-4 hover:text-[#FAF8F5]"
+                      className="text-[10px] uppercase tracking-wider text-brand underline underline-offset-4 hover:text-[#FAF8F5]"
                     >
                       View All Locality Details →
                     </Link>
@@ -431,8 +438,7 @@ export function Footer() {
               className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em] text-center"
               style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
             >
-              © {new Date().getFullYear()} {BRAND_CONFIG.name || "InvisProtect"}. All Rights
-              Reserved.
+              © {new Date().getFullYear()} {BRAND_CONFIG.name}. All Rights Reserved.
             </p>
           </div>
 
@@ -444,11 +450,11 @@ export function Footer() {
                 <button
                   type="button"
                   onClick={() => setShowServiceArea(!showServiceArea)}
-                  className="text-[11px] text-[#A8A29E] hover:text-[#F37021] font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer transition-colors"
+                  className="text-[11px] text-[#A8A29E] hover:text-brand font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer transition-colors"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                   aria-expanded={showServiceArea}
                 >
-                  <span>Verified Service Hubs: Telangana &amp; Andhra Pradesh</span>
+                  <span>Service Areas: {BUSINESS.regionLabel}</span>
                   <span className="text-[9px]">{showServiceArea ? "▲" : "▼"}</span>
                 </button>
                 {showServiceArea && (
@@ -456,15 +462,18 @@ export function Footer() {
                     className="absolute bottom-full left-0 mb-2 w-80 bg-[#24201D] border border-white/15 p-4 shadow-2xl text-xs font-light text-[#D6D3D1] space-y-2 z-50 text-left"
                     style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                   >
-                    <p className="font-medium text-[11px] uppercase tracking-wider text-[#F37021]">
-                      Operational Hubs (7 Cities)
+                    <p className="font-medium text-[11px] uppercase tracking-wider text-brand">
+                      Operational Hubs ({HUB_COUNT} Cities)
                     </p>
-                    <p>• Telangana: Hyderabad &amp; Secunderabad, Warangal, Hanamkonda</p>
-                    <p>• Andhra Pradesh: Visakhapatnam, Vijayawada, Amaravati, Tirupati</p>
+                    {hubsByState("city").map(({ state, cities }) => (
+                      <p key={state}>
+                        • {state}: {cities.join(", ")}
+                      </p>
+                    ))}
                     <div className="pt-2 border-t border-white/10">
                       <Link
                         to="/service-areas"
-                        className="text-[10px] uppercase tracking-wider text-[#F37021] underline underline-offset-4 hover:text-[#FAF8F5]"
+                        className="text-[10px] uppercase tracking-wider text-brand underline underline-offset-4 hover:text-[#FAF8F5]"
                       >
                         View All Locality Details →
                       </Link>
@@ -483,8 +492,7 @@ export function Footer() {
                 className="text-[10px] uppercase font-light text-[#A8A29E] tracking-[0.2em]"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
-                © {new Date().getFullYear()} {BRAND_CONFIG.name || "InvisProtect"}. All Rights
-                Reserved.
+                © {new Date().getFullYear()} {BRAND_CONFIG.name}. All Rights Reserved.
               </p>
             </div>
           </div>

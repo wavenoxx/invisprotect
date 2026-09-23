@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { ProofSection } from "@/components/ProofSection";
 import { BRAND_CONFIG } from "@/config/brand";
+import { BUSINESS } from "@/config/business";
 import { buildMetaTags } from "@/lib/seo";
 
 export const Route = createFileRoute("/safety-faq")({
@@ -26,6 +27,18 @@ export const Route = createFileRoute("/safety-faq")({
     }),
   component: SafetyFaqPage,
 });
+
+const PRICE_FAQ = BUSINESS.priceGuide.enabled
+  ? [
+      {
+        q: "How much do invisible grills and safety nets cost?",
+        a: `${BUSINESS.priceGuide.items
+          .filter((item) => /\d/.test(item.range))
+          .map((item) => `${item.service}: ${item.range} ${item.unit}`)
+          .join(". ")}. ${BUSINESS.priceGuide.disclaimer}`,
+      },
+    ]
+  : [];
 
 const FAQ_SECTIONS = [
   {
@@ -69,9 +82,10 @@ const FAQ_SECTIONS = [
   {
     category: "Survey, Installation & Warranty",
     questions: [
+      ...PRICE_FAQ,
       {
         q: "Is the initial on-site laser measurement complimentary?",
-        a: "Yes. Our regional safety advisory team provides complimentary on-site digital laser measurements across all verified service hubs to inspect your structural substrate and calculate precise material requirements.",
+        a: "Yes. Our regional safety advisory team provides complimentary on-site digital laser measurements across all our service areas to inspect your structural substrate and calculate precise material requirements.",
       },
       {
         q: "How long does standard residential installation take?",
@@ -103,7 +117,7 @@ function SafetyFaqPage() {
       {/* Hero */}
       <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF8F5] border-b border-[#1C1917]/10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="sn-eyebrow text-[#F37021] mb-4 font-medium">Engineering Knowledge</p>
+          <p className="sn-eyebrow text-brand mb-4 font-medium">Engineering Knowledge</p>
           <h1 className="sn-h1 text-[#1C1917] mb-4">Safety, Materials &amp; Architecture FAQ</h1>
           <p className="sn-subtext text-[#44403C] max-w-2xl mx-auto">
             Clear, factual answers regarding materials, tensile behavior, emergency egress,
@@ -116,7 +130,7 @@ function SafetyFaqPage() {
       <main className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24 space-y-16">
         {FAQ_SECTIONS.map((sec, secIdx) => (
           <section key={sec.category} className="border-b border-[#1C1917]/10 pb-12">
-            <span className="text-[10px] font-mono tracking-widest text-[#F37021] uppercase font-medium">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
               Category 0{secIdx + 1}
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1 mb-8">{sec.category}</h2>
@@ -134,7 +148,7 @@ function SafetyFaqPage() {
                       className="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-sm md:text-base font-normal text-[#1C1917] hover:bg-[#FAF8F5] transition-colors focus-ring min-h-11 cursor-pointer"
                     >
                       <span>{faq.q}</span>
-                      <span className="text-xl font-light text-[#F37021] shrink-0">
+                      <span className="text-xl font-light text-brand shrink-0">
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
