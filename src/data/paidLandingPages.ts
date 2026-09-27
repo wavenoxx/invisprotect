@@ -27,24 +27,25 @@ export interface PaidTrustPoint {
   detail: string;
 }
 
+/** Cinematic image pair, shown uncropped: 4:5 on mobile, 2.39:1 on desktop. */
+export interface PaidHeroImage {
+  /** Base path without extension; `.webp` and `.jpg` both exist. */
+  mobile: string;
+  desktop: string;
+  alt: string;
+}
+
 interface PaidServiceTemplate {
   key: PaidServiceKey;
   serviceId: ServiceId;
   serviceName: string;
   /** Short code used in WhatsApp reference tags, e.g. "IG". */
   code: string;
-  priceFrom: string;
-  priceRange: string;
-  priceUnit: string;
-  priceNote: string;
-  priceFactors: string[];
+  quoteFactors: string[];
   benefits: string[];
   buyerChecklist: string[];
   needOptions: string[];
-  heroImage: string;
-  heroImageWidth: number;
-  heroImageHeight: number;
-  heroAlt: string;
+  hero: PaidHeroImage;
   faqs: PaidFaq[];
 }
 
@@ -75,11 +76,7 @@ export interface PaidLandingPageConfig {
   summary: string;
   metaTitle: string;
   localNote: string;
-  priceFrom: string;
-  priceRange: string;
-  priceUnit: string;
-  priceNote: string;
-  priceFactors: string[];
+  quoteFactors: string[];
   benefits: string[];
   buyerChecklist: string[];
   needOptions: string[];
@@ -93,15 +90,19 @@ export interface PaidLandingPageConfig {
   consentText: string;
   consentVersion: string;
   disclosure: string;
-  heroImage: string;
-  heroImageWebp: string;
-  heroImageWidth: number;
-  heroImageHeight: number;
-  heroAlt: string;
+  hero: PaidHeroImage;
+  /** Closing cinematic band (same 4:5 / 2.39:1 treatment as the hero). */
+  closingImage: PaidHeroImage;
   formVariant: string;
 }
 
 export const PAID_CONSENT_VERSION = "v3-2026-partner";
+
+const CLOSING_IMAGE: PaidHeroImage = {
+  mobile: "/images/homepage/banner-8-mobile",
+  desktop: "/images/homepage/banner-8-desktop",
+  alt: "Open living space with an uninterrupted balcony view",
+};
 export const PAID_FORM_VARIANT = "paid-v2";
 
 const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
@@ -110,17 +111,12 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     serviceId: "balcony-invisible-grills",
     serviceName: "Invisible Grills",
     code: "IG",
-    priceFrom: "₹140",
-    priceRange: "₹140 – ₹300",
-    priceUnit: "per sq ft",
-    priceNote:
-      "SS304 cable is at the lower end. Marine-grade SS316, thicker cable and premium track finishes are at the upper end.",
-    priceFactors: [
-      "Total area in sq ft",
+    quoteFactors: [
+      "Total area of the openings",
       "Cable grade: SS304 or marine-grade SS316",
-      "Cable thickness (in mm)",
-      "Gap between cables: 2-inch or 3-inch",
+      "Cable thickness and spacing",
       "Floor height and access",
+      "Track finish",
     ],
     benefits: [
       "Keeps your view open — no 'jail look' like iron grills",
@@ -135,15 +131,16 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Get the warranty in writing before you pay.",
     ],
     needOptions: ["Balcony", "Windows", "Staircase / duplex", "Full flat / villa"],
-    heroImage: "/images/paid/invisible-grills.webp",
-    heroImageWidth: 960,
-    heroImageHeight: 720,
-    heroAlt: "Illustrative image of invisible grill cables across a balcony opening",
+    hero: {
+      mobile: "/images/homepage/banner-1-mobile",
+      desktop: "/images/homepage/banner-1-desktop",
+      alt: "Sea-facing balcony protected by slim invisible grill cables",
+    },
     faqs: [
       {
-        question: "What is the price of invisible grills in {city}?",
+        question: "How is the price decided?",
         answer:
-          "Most homes pay ₹140 – ₹300 per sq ft. SS304 cable is at the lower end; marine-grade SS316, thicker cable and premium tracks are at the upper end. The installer gives an exact written quote after measuring at the free site visit.",
+          "Every home is different. At the free site visit the installer measures your openings and gives an exact written quote based on the area, the cable grade (SS304 or SS316), the cable thickness and spacing, and the floor height.",
       },
       {
         question: "How long does installation take?",
@@ -172,17 +169,12 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     serviceId: "balcony-safety-nets",
     serviceName: "Safety Nets",
     code: "SN",
-    priceFrom: "₹15",
-    priceRange: "₹15 – ₹35",
-    priceUnit: "per sq ft",
-    priceNote:
-      "Depends on the net material (HDPE or nylon), mesh size, UV grade and the fixing needed around beams and pillars.",
-    priceFactors: [
-      "Total area in sq ft",
+    quoteFactors: [
+      "Total area of the openings",
       "Net material: HDPE or nylon",
-      "Mesh size",
-      "UV-stabilised grade",
-      "Fixing around beams, pillars and parapets",
+      "Mesh size and UV grade",
+      "Fixing around beams and pillars",
+      "Floor height and access",
     ],
     benefits: [
       "Stops falls of kids, pets and things from balconies and ducts",
@@ -197,15 +189,16 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Get the warranty in writing before you pay.",
     ],
     needOptions: ["Balcony", "Duct / shaft", "Staircase", "Terrace / play area"],
-    heroImage: "/images/paid/safety-nets.webp",
-    heroImageWidth: 960,
-    heroImageHeight: 720,
-    heroAlt: "Illustrative image of a safety net across an apartment balcony",
+    hero: {
+      mobile: "/images/homepage/banner-2-mobile",
+      desktop: "/images/homepage/banner-2-desktop",
+      alt: "High-rise balcony fitted with a fine safety net, city view beyond",
+    },
     faqs: [
       {
-        question: "What is the price of safety nets in {city}?",
+        question: "How is the price decided?",
         answer:
-          "Most safety nets cost ₹15 – ₹35 per sq ft depending on the material (HDPE or nylon), mesh size, UV grade and fixing. The installer gives an exact written quote after the free site visit.",
+          "Every home is different. At the free site visit the installer measures your openings and gives an exact written quote based on the area, the net material, the mesh size and UV grade, and the fixing needed.",
       },
       {
         question: "How long does installation take?",
@@ -232,16 +225,11 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     serviceId: "pigeon-safety-nets",
     serviceName: "Pigeon Nets",
     code: "PN",
-    priceFrom: "₹15",
-    priceRange: "₹15 – ₹35",
-    priceUnit: "per sq ft",
-    priceNote:
-      "Depends on the net material, mesh size, UV grade and how the edges are sealed around the opening.",
-    priceFactors: [
-      "Total area in sq ft",
+    quoteFactors: [
+      "Total area of the openings",
       "Net material and mesh size",
       "UV-stabilised grade",
-      "Number of openings (balcony, windows, AC ledge)",
+      "Number of openings: balcony, windows, AC ledge",
       "Floor height and access",
     ],
     benefits: [
@@ -257,15 +245,16 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Get the warranty in writing before you pay.",
     ],
     needOptions: ["Balcony", "Windows / AC ledge", "Duct / shaft", "Whole building"],
-    heroImage: "/images/paid/pigeon-nets.webp",
-    heroImageWidth: 960,
-    heroImageHeight: 720,
-    heroAlt: "Illustrative image of a pigeon net covering an apartment balcony",
+    hero: {
+      mobile: "/images/homepage/banner-4-mobile",
+      desktop: "/images/homepage/banner-4-desktop",
+      alt: "Apartment balcony sealed with a near-invisible pigeon net",
+    },
     faqs: [
       {
-        question: "What is the price of pigeon nets in {city}?",
+        question: "How is the price decided?",
         answer:
-          "Most pigeon nets cost ₹15 – ₹35 per sq ft depending on the net, mesh size, UV grade and number of openings. The installer gives an exact written quote after the free site visit.",
+          "Every home is different. At the free site visit the installer measures your openings and gives an exact written quote based on the area, the net and mesh size, the number of openings and the floor height.",
       },
       {
         question: "Will it stop pigeons completely?",
@@ -511,12 +500,13 @@ function trustSignalsFor(city: string): PaidTrustPoint[] {
       detail: `Your number goes to one checked installer in ${city} only — never to a list of vendors.`,
     },
     {
-      title: "Price range upfront",
-      detail: `Typical ${city} prices are shown on this page. The installer gives an exact written quote after measuring.`,
+      title: "Free site visit",
+      detail: "Measurement at your home is free, with no obligation to go ahead.",
     },
     {
-      title: "Free site visit, no obligation",
-      detail: "Measurement and quote are free. You decide after you see the price.",
+      title: "Exact written quote",
+      detail:
+        "The installer measures first and gives a written quote before any work starts. You decide.",
     },
     {
       title: "Checked installers",
@@ -540,14 +530,10 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     state: city.state,
     eyebrow: `${city.fullName} · Free site visit`,
     headline: `${service.serviceName} in ${city.name}`,
-    summary: `Free site visit and exact price from a checked local installer in ${city.name}. Most homes pay ${service.priceRange} ${service.priceUnit}.`,
-    metaTitle: `${service.serviceName} in ${city.name} — Price from ${service.priceFrom}/sq ft`,
+    summary: `Free site visit and an exact written quote from one checked local installer in ${city.name}.`,
+    metaTitle: `${service.serviceName} in ${city.name} — Free Site Visit`,
     localNote: city.localNote[service.key],
-    priceFrom: service.priceFrom,
-    priceRange: service.priceRange,
-    priceUnit: service.priceUnit,
-    priceNote: service.priceNote,
-    priceFactors: service.priceFactors,
+    quoteFactors: service.quoteFactors,
     benefits: service.benefits,
     buyerChecklist: service.buyerChecklist,
     needOptions: service.needOptions,
@@ -562,11 +548,8 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     consentText: `I agree that InvisProtect may share these details with one checked installer in ${city.name}, and that InvisProtect and that installer may call or WhatsApp me about this request.`,
     consentVersion: PAID_CONSENT_VERSION,
     disclosure: `InvisProtect is a referral service. We connect you with one independent, checked installer in ${city.name}. The installer gives the final quote, does the installation and provides the warranty.`,
-    heroImage: service.heroImage,
-    heroImageWebp: service.heroImage,
-    heroImageWidth: service.heroImageWidth,
-    heroImageHeight: service.heroImageHeight,
-    heroAlt: service.heroAlt,
+    hero: service.hero,
+    closingImage: CLOSING_IMAGE,
     formVariant: PAID_FORM_VARIANT,
   };
 }

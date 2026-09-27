@@ -45,9 +45,27 @@ test("paid pages disclose the referral model and ask consent to share with one i
     assert.match(page.consentText, /one checked installer/);
     assert.ok(page.consentVersion.length <= 40);
     const copy = JSON.stringify(page).toLowerCase();
-    for (const banned of ["our technicians", "in-house", "our team", "our warranty", "5-year"]) {
+    for (const banned of [
+      "our technicians",
+      "in-house",
+      "our team",
+      "our warranty",
+      "5-year",
+      "illustrative",
+    ]) {
       assert.ok(!copy.includes(banned), `${page.id} contains "${banned}"`);
     }
+  }
+});
+
+test("paid pages never show prices — each installer sets their own", () => {
+  for (const page of Object.values(paidLandingPages)) {
+    const copy = JSON.stringify(page);
+    assert.ok(!copy.includes("₹"), `${page.id} shows a rupee amount`);
+    assert.ok(!/per sq\.? ?ft/i.test(copy), `${page.id} shows a per-sq-ft rate`);
+    assert.ok(page.quoteFactors.length >= 4, page.id);
+    assert.match(page.hero.mobile, /^\/images\/homepage\/banner-\d+-mobile$/);
+    assert.match(page.hero.desktop, /^\/images\/homepage\/banner-\d+-desktop$/);
   }
 });
 

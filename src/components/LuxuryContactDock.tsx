@@ -3,9 +3,15 @@ import { trackEngagement } from "@/lib/analytics";
 
 type ContactAction = "phone" | "whatsapp";
 
-function trackDockEngagement(action: ContactAction) {
+interface DockMetadata {
+  landingId?: string;
+  service?: string;
+  city?: string;
+}
+
+function trackDockEngagement(action: ContactAction, location: string, metadata?: DockMetadata) {
   try {
-    trackEngagement(action, "homepage_contact_dock");
+    trackEngagement(action, location, metadata);
   } catch {
     // Contact navigation must remain available if analytics is unavailable.
   }
@@ -49,11 +55,23 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 const glassActionClass =
   "group relative flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-0.5 before:rounded-full before:border before:border-white/38 before:bg-[linear-gradient(145deg,rgba(255,255,255,0.24),rgba(120,113,108,0.16)_46%,rgba(28,25,23,0.24))] before:shadow-[0_6px_18px_rgba(12,10,8,0.15),inset_0_1px_0_rgba(255,255,255,0.42),inset_0_-1px_0_rgba(0,0,0,0.12)] before:backdrop-blur-[12px] before:transition-[border-color,background-color,box-shadow] before:duration-[240ms] before:content-[''] after:pointer-events-none after:absolute after:top-[5px] after:left-[9px] after:h-[8px] after:w-[18px] after:rounded-full after:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.48),rgba(255,255,255,0))] after:opacity-70 after:transition-opacity after:duration-[240ms] after:content-[''] active:scale-[0.97] active:after:opacity-45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent md:hover:-translate-y-0.5 md:hover:scale-[1.03] md:hover:before:border-white/58 md:hover:before:bg-[linear-gradient(145deg,rgba(255,255,255,0.31),rgba(120,113,108,0.2)_46%,rgba(28,25,23,0.27))] md:hover:before:shadow-[0_8px_20px_rgba(12,10,8,0.17),inset_0_1px_0_rgba(255,255,255,0.52),inset_0_-1px_0_rgba(0,0,0,0.1)] md:hover:after:opacity-100";
 
-export function LuxuryContactDock() {
+interface LuxuryContactDockProps {
+  /** Overrides the WhatsApp link, e.g. with a prefilled message on a landing page. */
+  whatsappHref?: string;
+  /** Analytics interaction location. Defaults to the homepage dock. */
+  location?: string;
+  metadata?: DockMetadata;
+}
+
+export function LuxuryContactDock({
+  whatsappHref,
+  location = "homepage_contact_dock",
+  metadata,
+}: LuxuryContactDockProps = {}) {
   if (!BRAND_CONFIG.contact.enabled) return null;
 
   const phoneDial = BRAND_CONFIG.contact.phoneDial.trim();
-  const whatsappLink = BRAND_CONFIG.contact.whatsappLink.trim();
+  const whatsappLink = (whatsappHref || BRAND_CONFIG.contact.whatsappLink).trim();
 
   if (!phoneDial && !whatsappLink) return null;
 
@@ -64,7 +82,7 @@ export function LuxuryContactDock() {
           <a
             href={`tel:${phoneDial}`}
             aria-label={`Call ${BRAND_CONFIG.name}`}
-            onClick={() => trackDockEngagement("phone")}
+            onClick={() => trackDockEngagement("phone", location, metadata)}
             className={glassActionClass}
           >
             <span className="relative z-10 text-[#E99A68] transition-[color,filter] duration-[240ms] group-focus-visible:text-[#FFB07D] md:group-hover:text-[#FFB07D] md:group-hover:drop-shadow-[0_0_4px_rgba(233,154,104,0.24)]">
@@ -81,7 +99,7 @@ export function LuxuryContactDock() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Contact ${BRAND_CONFIG.name} on WhatsApp`}
-            onClick={() => trackDockEngagement("whatsapp")}
+            onClick={() => trackDockEngagement("whatsapp", location, metadata)}
             className={glassActionClass}
           >
             <span className="relative z-10 text-[#74B691] transition-[color,filter] duration-[240ms] group-focus-visible:text-[#8CC9A7] md:group-hover:text-[#8CC9A7] md:group-hover:drop-shadow-[0_0_4px_rgba(116,182,145,0.24)]">

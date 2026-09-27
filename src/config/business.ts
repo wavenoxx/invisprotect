@@ -44,9 +44,9 @@ export interface CustomerReview {
 
 export interface PriceGuideItem {
   service: string;
-  /** e.g. "₹140 – ₹300" */
+  /** e.g. "On survey" */
   range: string;
-  /** e.g. "per sq ft" */
+  /** e.g. "quoted per site" */
   unit: string;
   note: string;
   /** Optional link target, a service id from src/data/serviceIds.ts */
@@ -252,43 +252,16 @@ export const BUSINESS: BusinessConfig = {
   // Profile with the customer's permission). Empty = section hidden.
   reviews: [],
 
+  // Prices are never shown: every installer sets their own rates after the
+  // free site visit. Keep this disabled; the price section then stays hidden.
   priceGuide: {
-    enabled: true,
-    eyebrow: "Transparent Pricing",
-    heading: "Indicative Price Guide",
-    intro:
-      "Honest starting ranges so you can plan before the survey. Your exact quote depends on the opening size and the specification you choose.",
-    items: [
-      {
-        service: "Invisible Grills",
-        range: "₹140 – ₹300",
-        unit: "per sq ft",
-        note: "SS 304 cable at the lower end; AISI 316 marine-grade cable, thicker gauge and premium track finishes at the upper end.",
-        serviceId: "balcony-invisible-grills",
-      },
-      {
-        service: "Safety & Pigeon Nets",
-        range: "₹15 – ₹35",
-        unit: "per sq ft",
-        note: "Depends on net material (HDPE / nylon), mesh size, UV grade and the anchoring needed around beams and pillars.",
-        serviceId: "balcony-safety-nets",
-      },
-      {
-        service: "Bird Spikes, Hangers & Specialty",
-        range: "On survey",
-        unit: "quoted per site",
-        note: "Bird spikes, cloth drying hangers, sports, coconut and industrial nets are quoted after measuring the site.",
-      },
-    ],
-    factors: [
-      "Total area in sq ft",
-      "Cable grade & thickness (SS 304 vs AISI 316)",
-      "Cable spacing (2-inch child-safe vs 3-inch)",
-      "Floor height & access",
-      "Track finish & colour",
-    ],
-    disclaimer:
-      "Indicative ranges only, not a quotation. The final price is confirmed in writing after a free site survey.",
+    enabled: false,
+    eyebrow: "",
+    heading: "",
+    intro: "",
+    items: [],
+    factors: [],
+    disclaimer: "",
   },
 };
 

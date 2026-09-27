@@ -85,7 +85,6 @@ const organizationSchema = {
   name: BRAND_CONFIG.name,
   ...(BRAND_CONFIG.legalName ? { legalName: BRAND_CONFIG.legalName } : {}),
   description: BRAND_CONFIG.description,
-  priceRange: "₹₹₹",
   currenciesAccepted: "INR",
   paymentAccepted: "Cash, Credit Card, UPI, Bank Transfer",
   openingHoursSpecification: [
