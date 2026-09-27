@@ -112,6 +112,8 @@ export interface LeadConversionData {
   landingId?: string;
   campaign?: string;
   value?: number;
+  /** Called by gtag once the conversion hit has been sent (used before a redirect). */
+  eventCallback?: () => void;
 }
 
 function alreadyTracked(leadId: string): boolean {
@@ -161,11 +163,47 @@ export function trackConsultationLead(leadData: LeadConversionData) {
         send_to: GADS_PRIMARY_LEAD_CONVERSION,
         transaction_id: leadData.leadId,
         ...valueData,
+        ...(leadData.eventCallback ? { event_callback: leadData.eventCallback } : {}),
       });
     }
   } catch (err) {
     console.warn("[Analytics] Lead tracking notice:", err);
   }
+}
+
+/**
+ * Records the primary lead conversion, then runs `next` (for example a
+ * redirect to WhatsApp) once gtag confirms the hit was sent — or after
+ * `timeoutMs` at the latest, so a blocked or slow tag can never trap the user.
+ * `next` always runs exactly once.
+ */
+export function trackConsultationLeadThen(
+  leadData: Omit<LeadConversionData, "eventCallback">,
+  next: () => void,
+  timeoutMs = 1200,
+): void {
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    next();
+  };
+
+  const willSendConversion =
+    typeof window !== "undefined" &&
+    Boolean(leadData.leadId) &&
+    Boolean(GADS_PRIMARY_LEAD_CONVERSION) &&
+    typeof window.gtag === "function" &&
+    !alreadyTracked(leadData.leadId);
+
+  if (!willSendConversion) {
+    trackConsultationLead(leadData);
+    finish();
+    return;
+  }
+
+  setTimeout(finish, timeoutMs);
+  trackConsultationLead({ ...leadData, eventCallback: finish });
 }
 
 export function trackPageView(url: string, title?: string) {
