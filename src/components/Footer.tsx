@@ -125,7 +125,7 @@ export function Footer() {
                     fontWeight: 300,
                   }}
                 >
-                  Warranty Policy &amp; Terms
+                  Warranty Guide
                 </Link>
               </li>
               <li>
@@ -320,8 +320,8 @@ export function Footer() {
                 className="mb-4 text-xs font-light text-[#D6D3D1] leading-relaxed"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
-                An architectural safety advisor is available for scheduling on-site precision
-                measurements across {BUSINESS.regionLabel}:
+                Call or WhatsApp us to arrange a free site visit by a checked installer across{" "}
+                {BUSINESS.regionLabel}:
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-light text-[#D6D3D1]">
                 {BRAND_CONFIG.contact.phoneHref ||
@@ -392,6 +392,14 @@ export function Footer() {
       {/* SECTION 3: SUB-BOTTOM BAR */}
       <div className="border-t border-white/10 bg-[#141210]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5">
+          {/* Referral disclosure — InvisProtect is not the installer */}
+          <p
+            className="mb-5 border-b border-white/10 pb-5 text-center text-[11.5px] leading-relaxed font-light text-[#D6D3D1] md:text-left"
+            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+          >
+            {BRAND_CONFIG.name} is a referral service. We connect homeowners with checked,
+            independent installers, who provide the quote, installation and warranty.
+          </p>
           {/* Mobile view (< md): Centered column: Socials, then Hubs, then Copyright */}
           <div className="flex flex-col items-center gap-4 md:hidden">
             <SocialLinks />

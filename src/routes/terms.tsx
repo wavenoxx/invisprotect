@@ -8,7 +8,7 @@ export const Route = createFileRoute("/terms")({
   head: () =>
     buildMetaTags({
       title: `Terms and Conditions & Advisory Governance — ${BRAND_CONFIG.name}`,
-      description: `Official terms of service, installation policies, and client advisory terms for ${BRAND_CONFIG.name}.`,
+      description: `Terms for the ${BRAND_CONFIG.name} installer referral service: how requests, site visits, quotations and warranties work.`,
       canonicalPath: "/terms",
     }),
   component: TermsPage,
@@ -26,21 +26,19 @@ function TermsPage() {
           </p>
           <h1 className="sn-h1 text-[#1C1917]">Terms and Conditions</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
-            Effective Date: 2026 · Standard Terms for Residential &amp; Commercial Architectural
-            Safety Installations
+            Last updated: 28 September 2026 · Terms for the {BRAND_CONFIG.name} installer referral
+            service
           </p>
         </header>
 
         <article className="space-y-8 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">
-              1. Architectural Services &amp; Site Survey
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">1. Referral Service &amp; Site Visit</h2>
             <p>
-              {BRAND_CONFIG.name} provides custom-engineered safety installations including AISI 316
-              invisible grills, structural safety netting, bird deterrence systems, and specialty
-              residential barriers. All consultations, quotations, and measurements are subject to
-              physical site inspection by an authorized technical advisor.
+              {BRAND_CONFIG.name} is a referral service. We connect homeowners with one independent,
+              checked installer for invisible grills, safety netting, bird protection and specialty
+              residential barriers. {BRAND_CONFIG.name} is not the installer. Measurements and
+              quotations are made by the installer at a physical site visit.
             </p>
           </section>
 
@@ -50,31 +48,30 @@ function TermsPage() {
             </h2>
             <p>
               Installation requires structurally sound substrate anchoring (such as RCC concrete,
-              solid brickwork, or reinforced architectural framing). {BRAND_CONFIG.name} reserves
-              the right to recommend substrate reinforcement or modify anchoring configurations
-              where site conditions require structural enhancement for client safety.
+              solid brickwork, or reinforced architectural framing). The installer may recommend
+              substrate reinforcement or change the anchoring where site conditions require it for
+              your safety.
             </p>
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">
-              3. Quotations, Pricing &amp; Milestone Payments
-            </h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">3. Quotations, Pricing &amp; Payments</h2>
             <p>
-              Project quotations are formulated on verified square-footage dimensions, selected
-              tensile gauge options, and mounting specifications. Formal price agreements are issued
-              in writing following physical site survey measurements.
+              Quotations are prepared by the installer from the measured dimensions, the materials
+              you choose and the mounting required. The price, the contract and all payments are
+              between you and the installer, and are confirmed in writing after the site visit.
             </p>
           </section>
 
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">4. Warranty &amp; Maintenance Policy</h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">4. Warranty &amp; Complaints</h2>
             <p>
-              Warranty protections apply exclusively to systems installed by authorized{" "}
-              {BRAND_CONFIG.name} technicians according to manufacturer specifications. Complete
-              warranty terms and coverage durations are detailed on our{" "}
+              The warranty is given by the installer, in writing, at handover. {BRAND_CONFIG.name}{" "}
+              checks installers before sending them requests but does not guarantee their work. If
+              something goes wrong, tell us — we will follow up with the installer and may stop
+              sending them requests. See our{" "}
               <Link to="/warranty" className="underline text-brand font-medium">
-                Warranty Policy Page
+                Warranty Guide
               </Link>
               .
             </p>

@@ -37,7 +37,7 @@ function PrivacyPage() {
           <p className="sn-eyebrow text-brand mb-3 font-medium">Governance &amp; Transparency</p>
           <h1 className="sn-h1 text-[#1C1917]">Privacy Declaration</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
-            Effective Date: 2026 · Client Privacy &amp; Data Stewardship Protocol
+            Last updated: 28 September 2026 · Client Privacy &amp; Data Stewardship
           </p>
         </header>
 
@@ -48,63 +48,88 @@ function PrivacyPage() {
             <h2 className="sn-h2 text-[#1C1917] mb-3">01. Philosophy of Privacy</h2>
             <p>
               At {BRAND_CONFIG.name} (&quot;we&quot;, &quot;our&quot;, or &quot;the Atelier&quot;),
-              we hold privacy to the same rigorous standard of quiet elegance that defines our
-              architectural safety installations. This Privacy Declaration transparently details the
-              categories of information we collect, how that information is utilized to coordinate
-              on-site laser site surveys, and the third-party infrastructure processors involved in
-              delivering our services.
+              we hold privacy to the same standard of quiet elegance as everything else we do.{" "}
+              {BRAND_CONFIG.name} is a referral service: we connect homeowners with one independent,
+              checked installer. This Privacy Declaration explains what information we collect, how
+              your request reaches us and the installer, and which third parties are involved.
             </p>
           </section>
 
           {/* 2. Categories of Data Collected */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <h2 className="sn-h2 text-[#1C1917] mb-3">02. Categories of Information We Collect</h2>
-            <p>We strictly collect only the data necessary to fulfill your site survey request:</p>
+            <p>We collect only the information needed to handle your site survey request:</p>
             <ul className="list-disc pl-5 space-y-2 text-[#78716C]">
               <li>
-                <strong className="text-[#1C1917] font-medium">Contact Details:</strong> Your name,
-                10-digit mobile phone number, and email address (if provided) when scheduling a site
-                survey or inquiry.
+                <strong className="text-[#1C1917] font-medium">Contact Details:</strong> Your name
+                and 10-digit mobile number when you call us, message us on WhatsApp, or use a form
+                on this website (the form opens WhatsApp with your details filled in, and they reach
+                us only when you press Send).
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">Location &amp; Spatial Data:</strong>{" "}
-                Pincode, locality, city hub, and spatial requirements (such as balcony dimensions or
-                requested safety solutions) to assign the nearest regional master installation team.
+                Pincode, locality, city and your requirement (such as a balcony, windows or the
+                safety solution you need), so that we can pass your request to the nearest checked
+                installer.
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">
                   Measurement &amp; Attribution Identifiers:
                 </strong>{" "}
                 Technical identifiers (such as Google Click ID / GCLID, WBRAID, GBRAID, and campaign
-                UTM parameters) held in memory during the current visit and included with a site
-                survey request to identify its source. Persistent browser storage is used only after
-                optional measurement consent is granted.
+                UTM parameters) held in your browser during the visit, and a short lead reference
+                (for example IG-HYD-K7Q2M9XA) shown in your WhatsApp message and used to measure our
+                Google Ads. Persistent browser storage is used only after optional measurement
+                consent is granted.
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">Technical Log Data:</strong> IP
-                addresses, device operating system, browser type, and anonymous interaction
-                timestamps necessary for cybersecurity protection and rate-limiting abuse
-                prevention.
+                addresses, device operating system, browser type, and request timestamps recorded by
+                our website hosting provider for security and abuse prevention.
               </li>
             </ul>
           </section>
 
-          {/* 3. Third-Party Processors */}
+          {/* 3. Sharing with an installer */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">03. Disclosed Third-Party Processors</h2>
-            <p>
-              To maintain high operational security, {BRAND_CONFIG.name} engages trusted cloud
-              processors. We do NOT sell, lease, or rent customer personal information to data
-              brokers or third-party advertisers. Data is processed solely by:
-            </p>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">
+              03. Sharing Your Request With an Installer
+            </h2>
+            <ul className="list-disc pl-5 space-y-2 text-[#78716C]">
+              <li>
+                When you submit a request, call or WhatsApp us, we share your name, mobile number,
+                area / pincode and requirement with{" "}
+                <strong className="text-[#1C1917] font-medium">one</strong> independent installer in
+                your city, so they can contact you, visit and quote.
+              </li>
+              <li>
+                We do not share the same request with more than one installer unless you ask us to.
+              </li>
+              <li>
+                The installer is a separate business, responsible for its own quote, work and
+                warranty, and for handling your details under its own practices.
+              </li>
+              <li>{BRAND_CONFIG.name} may receive a fee from installers for introductions.</li>
+              <li>We never sell your details to data brokers or advertisers.</li>
+              <li>
+                To stop being contacted or to have your details deleted, WhatsApp or email us. We
+                will also ask the installer to stop.
+              </li>
+            </ul>
+          </section>
+
+          {/* 4. Third-Party Processors */}
+          <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
+            <h2 className="sn-h2 text-[#1C1917] mb-3">04. Disclosed Third-Party Processors</h2>
+            <p>Besides the installer described above, your information is handled only by:</p>
             <div className="border border-[#1C1917]/10 divide-y divide-[#1C1917]/10 mt-3">
               <div className="p-4 bg-[#FAF8F5]">
                 <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-brand">
-                  Supabase Inc. (Database &amp; Storage Infrastructure)
+                  WhatsApp (Meta Platforms)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
-                  Purpose: Encrypted storage of site survey consultation requests with Row-Level
-                  Security (RLS). Location: Secure regional AWS data centers.
+                  Purpose: Receiving your request and talking to you about it. Messages you send us
+                  on WhatsApp are handled under WhatsApp&apos;s own privacy policy.
                 </p>
               </div>
               <div className="p-4 bg-[#FAF8F5]">
@@ -118,26 +143,26 @@ function PrivacyPage() {
               </div>
               <div className="p-4 bg-[#FAF8F5]">
                 <p className="font-medium text-[#1C1917] text-xs uppercase tracking-wider text-brand">
-                  Meta Platforms Inc. (WhatsApp Business Cloud API)
+                  Vercel Inc. (Website Hosting)
                 </p>
                 <p className="text-[11.5px] text-[#78716C] mt-1">
-                  Purpose: Internal owner notification when a consultation request is stored.
+                  Purpose: Serving this website and keeping standard request logs for security.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* 4. Purpose of Processing */}
+          {/* 5. Purpose of Processing */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <h2 className="sn-h2 text-[#1C1917] mb-3">
-              04. Purpose &amp; Lawful Basis of Processing
+              05. Purpose &amp; Lawful Basis of Processing
             </h2>
             <p>We process your personal information based on:</p>
             <ul className="list-disc pl-5 space-y-1.5 text-[#78716C]">
               <li>
-                <strong className="text-[#1C1917] font-medium">Contractual Coordination:</strong>{" "}
-                Contacting you to confirm appointment timing, location access, and laser measurement
-                feasibility for requested safety systems.
+                <strong className="text-[#1C1917] font-medium">Your Request:</strong> Contacting you
+                about your request and passing it to one checked installer for a site visit and
+                quote, as you agreed when you submitted it.
               </li>
               <li>
                 <strong className="text-[#1C1917] font-medium">Legitimate Interest:</strong>{" "}
@@ -152,31 +177,32 @@ function PrivacyPage() {
             </ul>
           </section>
 
-          {/* 5. Retention & Erasure */}
+          {/* 6. Retention & Erasure */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">05. Data Retention &amp; Security</h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">06. Data Retention &amp; Security</h2>
             <p>
-              Site survey lead records are retained in our secure database for up to 24 months to
-              support active warranties, maintenance history, and retensioning requests. If an
-              inquiry does not proceed to an installation, you may request permanent erasure at any
-              time.
+              This website does not store your form details in a database. Your request lives in our
+              WhatsApp conversation with you, and we keep it only as long as needed to connect you
+              with an installer and follow up — never longer than 24 months.
             </p>
             <p>
-              All database records are protected by strict Row-Level Security policies ensuring
-              anonymous web visitors cannot query, read, or alter client personal records.
+              You may ask us at any time to delete the conversation and your details; we will also
+              ask the installer to delete them.
             </p>
           </section>
 
-          {/* 6. Your Rights & Contact */}
+          {/* 7. Your Rights & Contact */}
           <section className="space-y-3 bg-white p-6 border border-[#1C1917]/8 shadow-sm">
             <h2 className="sn-h2 text-[#1C1917] mb-3">
-              06. Access, Correction, Erasure &amp; Withdrawal
+              07. Access, Correction, Erasure &amp; Withdrawal
             </h2>
             <p>You maintain the right to:</p>
             <ul className="list-disc pl-5 space-y-1.5 text-[#78716C]">
-              <li>Request an export of the personal records associated with your phone number.</li>
+              <li>Request a copy of the personal information we hold about your phone number.</li>
               <li>Request immediate correction of inaccurate contact or address information.</li>
-              <li>Withdraw consent and request complete deletion (erasure) from our database.</li>
+              <li>
+                Withdraw consent, stop further contact and request complete deletion (erasure).
+              </li>
               <li>Reset cookie and measurement choices at any time.</li>
             </ul>
             <div className="bg-[#FAF8F5] p-6 border border-[#1C1917]/10 mt-4">

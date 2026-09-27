@@ -273,11 +273,11 @@ function StoryPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left w-full my-6 border-y border-white/10 py-6">
                 <div>
                   <h4 className="text-[11px] font-mono uppercase tracking-widest text-brand mb-1">
-                    Trained In-House Installers
+                    Checked Installer Partners
                   </h4>
                   <p className="text-xs text-[#A8A29E] font-light leading-relaxed">
-                    Every cable is laser-aligned and mechanically tension-locked by our own
-                    installation team.
+                    We work with independent local installers and check their past work and customer
+                    references before sending them requests.
                   </p>
                 </div>
                 <div>

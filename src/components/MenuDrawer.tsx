@@ -163,7 +163,7 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               onClick={onClose}
               className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
             >
-              Warranty Terms
+              Warranty Guide
             </Link>
             <Link
               to="/safety-faq"

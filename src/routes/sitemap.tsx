@@ -185,7 +185,7 @@ function SitemapPage() {
                   to="/warranty"
                   className="text-[#44403C] hover:text-brand hover:underline underline-offset-4 transition-colors"
                 >
-                  Warranty Policy &amp; Terms
+                  Warranty Guide
                 </Link>
               </li>
               <li>

@@ -138,7 +138,7 @@ function CraftsmanshipPage() {
           <p className="sn-eyebrow text-brand font-medium">By Appointment</p>
           <h2 className="sn-h2 text-[#1C1917] mt-4 mb-4">Inspect Your Space</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
-            A safety advisor will visit your residence, conduct precision site measurements, and
+            A checked installer will visit your residence, take precise site measurements, and
             propose an installation tailored to your architecture.
           </p>
           <Link to="/consultation" className="sn-btn-luxury-solid">

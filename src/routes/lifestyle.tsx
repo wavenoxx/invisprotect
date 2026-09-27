@@ -112,8 +112,8 @@ function LifestylePage() {
           <p className="sn-eyebrow text-brand font-medium">An Invitation</p>
           <h2 className="sn-h2 text-[#1C1917] mt-3 mb-3">Curate Your Sanctuary</h2>
           <p className="sn-subtext text-[#44403C] max-w-md mx-auto mb-8">
-            Begin a private survey of your space. Our advisors will compose a protection plan worthy
-            of the home you've built.
+            Begin a private survey of your space. A checked installer will measure your home and
+            propose a protection plan worthy of the home you've built.
           </p>
           <Link to="/consultation" className="sn-btn-luxury-solid">
             Begin Survey

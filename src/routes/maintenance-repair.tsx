@@ -166,9 +166,9 @@ function MaintenanceRepairPage() {
             Professional Inspection &amp; Retensioning
           </h2>
           <p className="text-xs md:text-sm text-[#44403C] font-light leading-relaxed mb-8">
-            While {BRAND_CONFIG.name} invisible grills utilize mechanical dual-key tension locks
-            designed for long-term tautness, structural building settling or exterior impact may
-            warrant inspection. Our regional service technicians provide:
+            Invisible grills use mechanical dual-key tension locks designed for long-term tautness,
+            but structural building settling or exterior impact may warrant inspection. Installer
+            partners can provide:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-[#44403C] font-light">
             <div className="border border-[#1C1917]/10 p-6 bg-white shadow-sm">

@@ -75,7 +75,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: "How are safety nets anchored into balcony ceilings and walls?",
-        a: "Our installers drill into the concrete slab or masonry perimeter at 8-to-12 inch intervals to seat stainless steel anchor hooks. A reinforced perimeter wire rope is threaded through the mesh to maintain uniform, sag-free tension.",
+        a: "Installers drill into the concrete slab or masonry perimeter at 8-to-12 inch intervals to seat stainless steel anchor hooks. A reinforced perimeter wire rope is threaded through the mesh to maintain uniform, sag-free tension.",
       },
     ],
   },
@@ -85,15 +85,15 @@ const FAQ_SECTIONS = [
       ...PRICE_FAQ,
       {
         q: "Is the initial on-site laser measurement complimentary?",
-        a: "Yes. Our regional safety advisory team provides complimentary on-site digital laser measurements across all our service areas to inspect your structural substrate and calculate precise material requirements.",
+        a: "Yes. The checked installer we introduce you to visits free of charge to measure your openings, inspect the structural substrate and calculate the exact material requirements.",
       },
       {
         q: "How long does standard residential installation take?",
-        a: "Most residential balcony and window installations are completed within 4 to 8 hours by our trained installation team.",
+        a: "Most residential balcony and window installations are completed within 4 to 8 hours by the installer.",
       },
       {
-        q: "What warranty coverage is provided upon handover?",
-        a: "Invisible grill cable and track systems receive a 5-Year Material Warranty against manufacturing defects and corrosion. HDPE safety netting carries a 3 to 5-Year Material Warranty against UV degradation.",
+        q: "Who provides the warranty?",
+        a: "The installer who fits your system gives the warranty, in writing, at handover. Coverage varies by installer and material, so always get the covered parts, the period and the claim process on the installer's letterhead or invoice before you pay. See our Warranty Guide for what it should include.",
       },
     ],
   },
@@ -171,8 +171,8 @@ function SafetyFaqPage() {
             Have a Specific Architectural Query?
           </h3>
           <p className="text-xs text-[#78716C] font-light mb-6">
-            Our regional safety advisors are available to review architectural drawings and site
-            plans.
+            Share your architectural drawings or site plans on WhatsApp and a checked installer will
+            review them.
           </p>
           <Link to="/consultation" className="sn-btn-luxury-solid">
             Connect with an Advisor

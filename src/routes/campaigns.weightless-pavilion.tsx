@@ -118,9 +118,8 @@ function WeightlessPavilion() {
           <p className="sn-eyebrow text-brand mb-3">Architectural Advisory</p>
           <h3 className="sn-h2 text-[#1C1917] mb-3">Commission a Private Balcony Evaluation</h3>
           <p className="text-xs md:text-sm font-light text-[#78716C] max-w-xl mx-auto mb-8">
-            Experience the architectural liberation of invisible safety. Our regional technical
-            advisors provide laser measurements and structural load assessments across{" "}
-            {hubCityList()}.
+            Experience the architectural liberation of invisible safety. Checked installer partners
+            provide laser measurements and structural load assessments across {hubCityList()}.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/consultation" className="sn-btn-luxury-solid w-full sm:w-auto">

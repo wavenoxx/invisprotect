@@ -250,7 +250,7 @@ function ServicePage() {
                 to="/warranty"
                 className="hover:text-brand underline underline-offset-4 focus-ring transition-colors"
               >
-                Written Warranty Matrix →
+                Warranty Guide →
               </Link>
             </div>
           </div>

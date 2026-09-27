@@ -72,14 +72,14 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
               Written Warranty
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
-              Transparent, system-specific material warranties documented upon final inspection and
-              handover, supported by our regional maintenance and tension-tuning team.
+              Your installer gives the warranty in writing at handover. Our warranty guide shows
+              exactly what it should cover before you pay.
             </p>
             <Link
               to="/warranty"
               className="mt-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
             >
-              Warranty Matrix →
+              Warranty Guide →
             </Link>
           </div>
 
@@ -92,7 +92,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
               Regional Operations
             </h3>
             <p className="text-xs text-[#44403C] font-light leading-relaxed">
-              Installers and safety advisors serving residential communities and commercial estates
+              Checked installer partners serving residential communities and commercial estates
               across {HUB_COUNT} cities in {BUSINESS.regionLabel}: {hubCityList()}.
             </p>
             <Link
@@ -145,7 +145,7 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
               Schedule a precision laser measurement of your balcony or window openings.
             </p>
             <p className="text-xs text-[#78716C] font-light mt-1">
-              Complimentary on-site evaluation by trained regional safety advisors.
+              Free site visit and written quote from a checked local installer.
             </p>
           </div>
           <Link

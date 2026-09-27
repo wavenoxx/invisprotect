@@ -7,12 +7,39 @@ import { buildMetaTags } from "@/lib/seo";
 export const Route = createFileRoute("/warranty")({
   head: () =>
     buildMetaTags({
-      title: `Written Warranty Matrix & Handover Terms — ${BRAND_CONFIG.name}`,
-      description: `Documented warranty terms for ${BRAND_CONFIG.name} invisible grills (5 years) and HDPE safety netting (3-5 years) issued upon laser alignment completion.`,
+      title: `Warranty Guide — What to Ask Your Installer — ${BRAND_CONFIG.name}`,
+      description: `How warranties work when ${BRAND_CONFIG.name} introduces you to an installer: what a written warranty for invisible grills, safety nets and bird protection should cover, and how to claim it.`,
       canonicalPath: "/warranty",
     }),
   component: WarrantyPage,
 });
+
+/**
+ * InvisProtect is a referral service, so it does not issue warranties.
+ * This page explains what a good written warranty from the installer covers.
+ */
+const CHECKS = [
+  {
+    system: "Invisible Grills (Balcony / Window / Stair)",
+    ask: "Cable grade (SS304 or SS316), cable thickness in mm, track material, and how many years each part is covered.",
+    why: "Grade and thickness decide rust resistance and strength — get them written, not just said.",
+  },
+  {
+    system: "Safety & Pigeon Nets",
+    ask: "Net material (HDPE or nylon), mesh size, UV-stabilised grade, hook material and the coverage period.",
+    why: "Cheap nets turn brittle in the sun. A written specification protects you.",
+  },
+  {
+    system: "Bird Spikes",
+    ask: "Base and spike material, the fixing method and the coverage period.",
+    why: "Poor adhesion or fixing is the most common failure.",
+  },
+  {
+    system: "Specialty & Industrial Systems",
+    ask: "The load specification and written terms for your specific project.",
+    why: "Commercial systems need project-specific terms.",
+  },
+];
 
 function WarrantyPage() {
   return (
@@ -22,15 +49,15 @@ function WarrantyPage() {
       <main className="flex-1 max-w-5xl mx-auto px-5 sm:px-8 md:px-12 pt-32 pb-24 w-full">
         <header className="mb-12 pb-8 border-b border-[#1C1917]/10">
           <p className="sn-eyebrow text-brand mb-3 font-medium">Client Assurance &amp; Integrity</p>
-          <h1 className="sn-h1 text-[#1C1917]">Warranty Policy &amp; Terms</h1>
+          <h1 className="sn-h1 text-[#1C1917]">Warranty Guide</h1>
           <p className="sn-subtext text-[#78716C] mt-3 max-w-2xl">
-            Warranty coverage varies by installed system; see written warranty terms issued upon
-            project completion.
+            {BRAND_CONFIG.name} is a referral service. The installer who fits your system gives the
+            warranty — in writing, at handover. Here is what that warranty should cover.
           </p>
         </header>
 
         <section className="mb-14">
-          <h2 className="sn-h2 text-[#1C1917] mb-6">System Coverage Matrix</h2>
+          <h2 className="sn-h2 text-[#1C1917] mb-6">What to Check</h2>
 
           {/* Desktop Presentation: Spacious Architectural Matrix */}
           <div className="hidden md:block border border-[#1C1917]/10 bg-white shadow-sm overflow-hidden">
@@ -38,127 +65,69 @@ function WarrantyPage() {
               <thead className="bg-[#FAF8F5] border-b border-[#1C1917]/10 text-[#1C1917] uppercase tracking-widest text-[10px] font-medium">
                 <tr>
                   <th className="py-4 px-6">Installed System</th>
-                  <th className="py-4 px-6">Primary Material</th>
-                  <th className="py-4 px-6">Coverage Period</th>
-                  <th className="py-4 px-6">Warranty Scope</th>
+                  <th className="py-4 px-6">Ask for in Writing</th>
+                  <th className="py-4 px-6">Why It Matters</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#1C1917]/8 text-[#44403C]">
-                <tr>
-                  <td className="py-4 px-6 font-medium text-[#1C1917]">
-                    Invisible Grills (Balcony / Window / Stair)
-                  </td>
-                  <td className="py-4 px-6">AISI 316 Marine Grade Stainless Steel</td>
-                  <td className="py-4 px-6 font-medium text-brand">5-Year Structural Warranty</td>
-                  <td className="py-4 px-6 text-[#78716C]">
-                    Cable tensile integrity, track anchorage &amp; corrosion resistance under
-                    standard atmospheric exposure.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium text-[#1C1917]">
-                    Core Safety Nets (Balcony / Children / Stair)
-                  </td>
-                  <td className="py-4 px-6">UV-Stabilized High-Density Polyethylene</td>
-                  <td className="py-4 px-6 font-medium text-brand">
-                    3 to 5-Year Material Warranty
-                  </td>
-                  <td className="py-4 px-6 text-[#78716C]">
-                    UV polymer degradation, knot junction stability &amp; anchor fixings.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium text-[#1C1917]">
-                    Bird Deterrence &amp; Spikes
-                  </td>
-                  <td className="py-4 px-6">Polycarbonate base + Stainless steel tips</td>
-                  <td className="py-4 px-6 font-medium text-brand">3-Year System Warranty</td>
-                  <td className="py-4 px-6 text-[#78716C]">
-                    Base track weatherability, spike bonding &amp; installation adhesion.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium text-[#1C1917]">
-                    Specialty &amp; Industrial Systems
-                  </td>
-                  <td className="py-4 px-6">Nylon / Anodized Aluminum / Polymer Weave</td>
-                  <td className="py-4 px-6 font-medium text-brand">As specified per project</td>
-                  <td className="py-4 px-6 text-[#78716C]">
-                    Customized written terms formulated according to commercial load specifications.
-                  </td>
-                </tr>
+                {CHECKS.map((item) => (
+                  <tr key={item.system}>
+                    <td className="py-4 px-6 font-medium text-[#1C1917]">{item.system}</td>
+                    <td className="py-4 px-6">{item.ask}</td>
+                    <td className="py-4 px-6 text-[#78716C]">{item.why}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
 
           {/* Mobile Presentation: Bespoke Luxury System Cards */}
           <div className="md:hidden space-y-4">
-            {[
-              {
-                system: "Invisible Grills (Balcony / Window / Stair)",
-                material: "AISI 316 Marine Grade Stainless Steel",
-                period: "5-Year Structural Warranty",
-                scope:
-                  "Cable tensile integrity, track anchorage & corrosion resistance under standard atmospheric exposure.",
-              },
-              {
-                system: "Core Safety Nets (Balcony / Children / Stair)",
-                material: "UV-Stabilized High-Density Polyethylene",
-                period: "3 to 5-Year Material Warranty",
-                scope: "UV polymer degradation, knot junction stability & anchor fixings.",
-              },
-              {
-                system: "Bird Deterrence & Spikes",
-                material: "Polycarbonate base + Stainless steel tips",
-                period: "3-Year System Warranty",
-                scope: "Base track weatherability, spike bonding & installation adhesion.",
-              },
-              {
-                system: "Specialty & Industrial Systems",
-                material: "Nylon / Anodized Aluminum / Polymer Weave",
-                period: "As specified per project",
-                scope:
-                  "Customized written terms formulated according to commercial load specifications.",
-              },
-            ].map((item) => (
+            {CHECKS.map((item) => (
               <article
                 key={item.system}
                 className="bg-white border border-[#1C1917]/10 p-5 shadow-xs flex flex-col gap-2"
               >
-                <div className="flex flex-col gap-1">
-                  <h3 className="font-display text-xs sm:text-sm font-medium text-[#1C1917] uppercase tracking-[0.10em]">
-                    {item.system}
-                  </h3>
-                  <p className="text-[11px] text-[#78716C] font-light">{item.material}</p>
-                </div>
-                <div>
-                  <span className="inline-block px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] bg-brand/8 text-brand border border-brand/20">
-                    {item.period}
+                <h3 className="font-display text-xs sm:text-sm font-medium text-[#1C1917] uppercase tracking-[0.10em]">
+                  {item.system}
+                </h3>
+                <p className="text-xs text-[#44403C] font-light leading-relaxed">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-brand">
+                    Ask for in writing ·{" "}
                   </span>
-                </div>
-                <p className="text-xs text-[#44403C] font-light leading-relaxed pt-2 border-t border-[#1C1917]/6">
-                  {item.scope}
+                  {item.ask}
+                </p>
+                <p className="text-xs text-[#78716C] font-light leading-relaxed pt-2 border-t border-[#1C1917]/6">
+                  {item.why}
                 </p>
               </article>
             ))}
           </div>
         </section>
 
-        {/* Exclusions */}
+        {/* How it works */}
         <section className="space-y-6 text-xs md:text-sm font-light leading-relaxed text-[#44403C] border-t border-[#1C1917]/10 pt-10">
-          <h2 className="sn-h2 text-[#1C1917]">Standard Conditions &amp; Exclusions</h2>
+          <h2 className="sn-h2 text-[#1C1917]">How Warranty Works</h2>
           <ul className="space-y-3 list-disc pl-5 text-[#78716C]">
             <li>
-              Warranty is valid exclusively for original installations completed and inspected by{" "}
-              {BRAND_CONFIG.name} technicians.
+              The warranty is issued by your installer, not by {BRAND_CONFIG.name}. Its length and
+              scope vary by installer and material.
             </li>
             <li>
-              Intentional cutting or mechanical tampering by external contractors during civil work
-              or painting is excluded from coverage.
+              A good written warranty states the materials used, what is covered (breakage,
+              corrosion, loosening, anchors, track), how long each part is covered, what is excluded
+              and how to raise a claim.
             </li>
             <li>
-              Damage resulting from open flames, structural building settling beyond tolerances, or
-              natural disasters is not covered.
+              Most warranties exclude cutting or tampering during later civil or painting work,
+              fire, and structural building damage.
+            </li>
+            <li>
+              Always get the warranty on the installer&apos;s letterhead or invoice before you pay.
+            </li>
+            <li>
+              If an installer we introduced does not honour their written warranty, tell us. We will
+              follow up and may stop sending them requests.
             </li>
           </ul>
 

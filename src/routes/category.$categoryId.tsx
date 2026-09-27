@@ -271,7 +271,7 @@ function CategoryPage() {
                   to="/warranty"
                   className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
                 >
-                  Warranty Terms &amp; Exclusions →
+                  Warranty Guide →
                 </Link>
               </div>
             </div>

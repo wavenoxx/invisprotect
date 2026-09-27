@@ -74,7 +74,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
       },
     ],
     measurementProcess:
-      "Our technicians perform precision digital laser measurements across all structural boundaries. We evaluate RCC wall density, balcony parapet alignment, railing load points, and structural clearances to fabricate custom-dimensioned aluminum tracks with uniform cable spacing (typically 2-inch for child protection or 3-inch for standard openings).",
+      "Installers take precise digital laser measurements across all structural boundaries, evaluating RCC wall density, balcony parapet alignment, railing load points, and structural clearances to fabricate custom-dimensioned aluminum tracks with uniform cable spacing (typically 2-inch for child protection or 3-inch for standard openings).",
     installationMethod:
       "Diamond-core drill bits are used to anchor the aluminum track profiles into RCC slabs or brickwork with heavy-duty stainless steel anchor fasteners. High-tensile cables are threaded continuously through precision nylon grommets and mechanically tensioned using calibrated dual-key locking mechanisms before final inspection handover.",
     maintenanceGuide:
@@ -153,7 +153,7 @@ export const categoriesData: Record<string, CategoryDetail> = {
       {
         question: "How long do HDPE safety nets last under direct sunlight?",
         answer:
-          "Our UV-stabilized virgin HDPE nets typically maintain structural integrity for 3 to 5+ years under standard tropical sun exposure, backed by a documented material warranty.",
+          "Good UV-stabilized virgin HDPE nets typically maintain structural integrity for 3 to 5+ years under standard tropical sun exposure. Ask your installer for the material warranty in writing.",
       },
       {
         question: "Does the netting block ventilation or balcony airflow?",
@@ -369,7 +369,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Architectural safety panels offering unobstructed skyline views with precision-engineered fall protection.",
     detailParagraphs: [
       "Your view is a luxury, not a vulnerability. A balcony should be a sanctuary of open horizons, not a source of constant anxiety. Traditional iron grates secure your space by enclosing it, cutting off the breeze and the skyline. We believe you shouldn't have to compromise on natural light or aesthetic calm.",
-      "Using precision-engineered AISI 316 marine-grade stainless steel cables wrapped in a translucent nylon-12 protective sleeve, we install an architectural barrier. High tensile resistance paired with high transparency allows you to enjoy true peace of mind.",
+      "Using precision-engineered AISI 316 marine-grade stainless steel cables wrapped in a translucent nylon-12 protective sleeve, an installer fits an architectural barrier. High tensile resistance paired with high transparency allows you to enjoy true peace of mind.",
     ],
     images: ["/images/balcony-invisible-grills.webp"],
     specs: [
@@ -379,7 +379,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Structural Profile", value: "6063-T6 Structural Aluminum Track" },
       {
         label: "Warranty Terms",
-        value: "5-Year Material Warranty on Cable & Track Systems",
+        value: "Written warranty from your installer",
       },
     ],
     processSteps: [
@@ -410,7 +410,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Mounting Sub-base", value: "Solid wood / marble / RCC anchor bolts" },
       {
         label: "Warranty Terms",
-        value: "5-Year Material Warranty on Cable & Track Systems",
+        value: "Written warranty from your installer",
       },
     ],
   },
@@ -434,7 +434,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Frame Integration", value: "Flush mounts for sliding/casement tracks" },
       {
         label: "Warranty Terms",
-        value: "5-Year Material Warranty on Cable & Track Systems",
+        value: "Written warranty from your installer",
       },
     ],
   },
@@ -447,8 +447,8 @@ export const servicesData: Record<string, ServiceDetail> = {
     description:
       "Enhanced safety grids featuring high-density micro-spacing and dual-key tension lockers.",
     detailParagraphs: [
-      "Unseen vigilance for what you cherish most. Children explore the world with boundless curiosity and little hesitation. For a parent, this means constant vigilance near balconies and high windows. Our team provides an architectural safeguard.",
-      "Our child-safety grids feature high-density 2-inch micro-spacing and dual-key tension lockers. It serves as a calm, protective boundary that watches over your toddlers and pets, letting you breathe easy in your own home.",
+      "Unseen vigilance for what you cherish most. Children explore the world with boundless curiosity and little hesitation. For a parent, this means constant vigilance near balconies and high windows. Invisible grills provide an architectural safeguard.",
+      "Child-safety grids feature high-density 2-inch micro-spacing and dual-key tension lockers. It serves as a calm, protective boundary that watches over your toddlers and pets, letting you breathe easy in your own home.",
     ],
     images: ["/images/child-safety-invisible-grills.webp"],
     specs: [
@@ -458,7 +458,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Coating Grade", value: "UV-stabilized Virgin Nylon-12 sheath" },
       {
         label: "Warranty Terms",
-        value: "5-Year Material Warranty on Cable & Track Systems",
+        value: "Written warranty from your installer",
       },
     ],
   },
@@ -480,7 +480,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Mesh Size", value: "25 mm / 30 mm square diamond mesh" },
       { label: "Anchorage", value: "Stainless steel expansion eye-hooks & border cord" },
       { label: "UV Resistance", value: "Thermal UV-stabilized for tropical sun" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "children-safety-nets": {
@@ -500,7 +500,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Mesh Pitch", value: "20 mm micro-gap child safety mesh" },
       { label: "Cord Ply", value: "Multi-ply high-tenacity HDPE yarn" },
       { label: "Installation", value: "Full floor-to-ceiling perimeter anchoring" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "staircase-safety-nets": {
@@ -520,7 +520,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Application", value: "Duplex stairwells, school corridors, atriums" },
       { label: "Cord Material", value: "High-tenacity nylon / HDPE monofilament" },
       { label: "Color Tone", value: "Translucent white / neutral beige / dark grey" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "building-safety-nets": {
@@ -533,14 +533,14 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Large-scale containment nets for multi-story duct shafts, open courtyards, and lightwells.",
     detailParagraphs: [
       "Building duct shafts and central courtyards in modern apartment complexes require protective containment to prevent falling objects and accidental falls.",
-      "Our technicians engineer large-span building safety nets anchored into concrete beams, protecting technicians, residents, and utility systems below.",
+      "Installers anchor large-span building safety nets into concrete beams, protecting workers, residents, and utility systems below.",
     ],
     images: ["/images/building-safety-nets.webp"],
     specs: [
       { label: "Coverage", value: "Large-span duct shafts & internal lightwells" },
       { label: "Anchoring", value: "Heavy-duty steel tension wire & turnbuckles" },
       { label: "UV Protection", value: "High-density carbon black UV additive" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "construction-safety-nets": {
@@ -580,7 +580,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Application", value: "Warehouse racking, mezzanine edges, plants" },
       { label: "Breaking Load", value: "Engineered for industrial pallet/box containment" },
       { label: "Mounting", value: "Steel beam clamps & industrial carabiners" },
-      { label: "Warranty Terms", value: "As specified per commercial project contract" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "terrace-top-nets": {
@@ -599,7 +599,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Structure", value: "Galvanized steel support posts with overhead wire grid" },
       { label: "Netting Type", value: "UV-stabilized HDPE sports/containment mesh" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "car-parking-safety-nets": {
@@ -612,13 +612,13 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Overhead safety nets protecting vehicles in parking bays from falling plaster and bird droppings.",
     detailParagraphs: [
       "Vehicles parked in open-to-sky podium bays or older apartment basements are exposed to falling plaster, concrete spalling, and bird fouling.",
-      "Our team installs horizontal canopy nets suspended above parking slots to keep vehicles clean and protected.",
+      "Installers fit horizontal canopy nets suspended above parking slots to keep vehicles clean and protected.",
     ],
     images: ["/images/car-parking-safety-nets.webp"],
     specs: [
       { label: "Netting", value: "High-density shade/safety mesh composite" },
       { label: "Rigging", value: "Stainless steel tension cables & turnbuckles" },
-      { label: "Warranty Terms", value: "3-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "pigeon-safety-nets": {
@@ -638,7 +638,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Mesh Gauge", value: "0.8 mm / 1.0 mm translucent monofilament" },
       { label: "Mesh Gap", value: "1-inch / 1.25-inch pigeon-exclusion spacing" },
       { label: "Color", value: "Translucent white / shadow grey" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "pigeons-bird-spikes": {
@@ -658,7 +658,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Rod Material", value: "AISI 304 Stainless Steel (Blunt tip)" },
       { label: "Base Material", value: "100% Virgin UV-Stabilized Polycarbonate" },
       { label: "Adhesion", value: "Neutral-cure silicone sealant / anchor screws" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "monkey-safety-nets": {
@@ -678,7 +678,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Cord Thickness", value: "2.5 mm heavy-gauge braided HDPE" },
       { label: "Mesh Spacing", value: "40 mm square mesh" },
       { label: "Anchoring", value: "Heavy-duty concrete anchor bolts & steel frame" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "mosquito-safety-nets": {
@@ -698,7 +698,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Mesh Screen", value: "Fiberglass / SS 304 micro-mesh" },
       { label: "Frame Material", value: "Extruded 6063 Aluminum Profile" },
       { label: "Finish", value: "Powder-coated anodized finish" },
-      { label: "Warranty Terms", value: "2 to 3-Year Mechanism Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "sports-practice-nets": {
@@ -717,7 +717,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Netting Type", value: "High-impact braided nylon / HDPE sports mesh" },
       { label: "Support Framework", value: "Galvanized iron (GI) structural poles" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "coconut-safety-nets": {
@@ -736,7 +736,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Netting", value: "Thick multi-strand knotted HDPE grid" },
       { label: "Support", value: "Stainless steel tension wire harness" },
-      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "swimming-pool-nets": {
@@ -755,7 +755,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Material", value: "High-tensile UV-resistant HDPE mesh" },
       { label: "Anchorage", value: "Flush brass / stainless steel deck anchors" },
-      { label: "Warranty Terms", value: "3-Year Material Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
   "cloth-drying-hangers": {
@@ -774,7 +774,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Pipes", value: "6 / 8 independent stainless steel / aluminum rods" },
       { label: "Pulley System", value: "Heavy-duty nylon pulleys with braided nylon rope" },
-      { label: "Warranty Terms", value: "2-Year Mechanism Warranty" },
+      { label: "Warranty Terms", value: "Written warranty from your installer" },
     ],
   },
 } satisfies Record<ServiceId, ServiceDetail>;
