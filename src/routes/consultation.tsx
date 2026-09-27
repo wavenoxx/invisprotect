@@ -3,8 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import { BRAND_CONFIG } from "@/config/brand";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
-import { trackEngagement } from "@/lib/analytics";
-import { buildConsultationWhatsappUrl } from "@/lib/consultation-whatsapp";
+import { trackConsultationLeadThen } from "@/lib/analytics";
+import { buildConsultationWhatsappUrl, createLeadRef } from "@/lib/consultation-whatsapp";
 import { buildMetaTags } from "@/lib/seo";
 import { Check, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/config/business";
@@ -124,6 +124,7 @@ function ConsultationPage() {
     const serviceNames = SERVICE_OPTIONS.filter((service) =>
       selectedServices.includes(service.id),
     ).map((service) => service.name);
+    const leadRef = createLeadRef("WEB");
     const whatsappUrl = buildConsultationWhatsappUrl(
       BRAND_CONFIG.contact.whatsappLink,
       {
@@ -133,17 +134,15 @@ function ConsultationPage() {
         localityCity,
         pincode,
         notes,
+        reference: leadRef,
       },
       BRAND_CONFIG.name,
     );
 
-    try {
-      trackEngagement("whatsapp", "consultation_quote");
-    } catch (trackErr) {
-      console.warn("[Analytics] Track notice:", trackErr);
-    }
-
-    window.location.assign(whatsappUrl);
+    // Fire the Google Ads lead conversion (reference = transaction_id), then open WhatsApp.
+    trackConsultationLeadThen({ leadId: leadRef, service: selectedServices[0] }, () =>
+      window.location.assign(whatsappUrl),
+    );
   };
 
   return (
