@@ -1,17 +1,31 @@
 # Lead Generation Architecture
 
+## Current lead flow (WhatsApp-first) — read this first
+
+InvisProtect is a referral / lead-generation service. The paid landing-page form (`src/components/PaidLeadForm.tsx`) and the organic `/consultation` form **do not write to a database**. On submit they:
+
+1. validate the details with `ConsultationInputSchema`
+2. create a lead reference with `createLeadRef` — e.g. `IG-HYD-K7Q2M9XA` on landing pages, `WEB-XXXXXXXX` on `/consultation`
+3. fire the primary Google Ads lead conversion with that reference as `transaction_id` (`trackConsultationLeadThen`, which waits for gtag's `event_callback`, at most 1.2 s)
+4. open WhatsApp (`wa.me`) with every detail and a `Ref:` line typed in; the visitor presses Send
+
+The same reference appears in the WhatsApp chat and in Google Ads, so a junk lead can later be matched and retracted by its order ID. Paid-form consent version: `v3-2026-partner`.
+
+Sections 2 and 6–9 below describe the earlier Supabase lead flow. That code is kept in the repository but is **not used by any form today**.
+
 ## 1. Organic and paid acquisition layers
 
 The existing homepage, service, category, service-area, material, warranty, FAQ, campaign, privacy, and terms routes remain the organic SEO and brand-authority website. They keep the established premium visual system and organic internal navigation.
 
-Paid search traffic should use `/lp/$landingId`. These pages use a reusable, direct-response layout with a short lead form, explicit Call and WhatsApp actions when configured, and a mobile sticky action bar. Paid routes emit `noindex, nofollow`, are absent from `public/sitemap.xml`, and are not linked from organic navigation.
+Paid search traffic should use `/lp/$landingId`. These pages use the site's own design language:
 
-The initial configurations live in `src/data/paidLandingPages.ts`:
+- a cinematic hero banner
+- the WhatsApp-first form
+- the glass Call / WhatsApp dock
 
-- `invisible-grills-hyderabad`
-- `safety-nets-hyderabad`
+Paid routes emit `noindex, nofollow`, are absent from `public/sitemap.xml`, and are not linked from organic navigation. No prices are shown on any page.
 
-Add another campaign by adding one typed configuration entry. Reuse approved service claims and a lightweight image; do not clone the route component.
+The 21 pages are generated in `src/data/paidLandingPages.ts` from 3 services × 7 cities. See `docs/PAID_LANDING_PAGES.md` for every final URL. Add a city or a service by extending the `CITIES` or `SERVICES` record; do not clone the route component.
 
 ## 2. Lead capture flow
 
