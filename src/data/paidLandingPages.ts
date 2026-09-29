@@ -9,11 +9,19 @@ import type { ServiceId } from "./serviceIds";
  * stay true under that model — no "our technicians", no InvisProtect
  * warranty, no invented reviews, counts or ratings.
  *
- * Pages are generated from 3 services x 7 cities = 21 landing IDs.
+ * Pages are generated from 8 services x 7 cities = 56 landing IDs.
  * `{city}` inside service copy is replaced with the city's display name.
  */
 
-export type PaidServiceKey = "invisible-grills" | "safety-nets" | "pigeon-nets";
+export type PaidServiceKey =
+  | "invisible-grills"
+  | "safety-nets"
+  | "pigeon-nets"
+  | "bird-spikes"
+  | "monkey-nets"
+  | "mosquito-nets"
+  | "cloth-drying-hangers"
+  | "cricket-nets";
 export type PaidCityKey =
   "hyderabad" | "vizag" | "vijayawada" | "amaravati" | "tirupati" | "warangal" | "hanamkonda";
 
@@ -42,6 +50,8 @@ interface PaidServiceTemplate {
   /** Short code used in WhatsApp reference tags, e.g. "IG". */
   code: string;
   quoteFactors: string[];
+  /** One line under "Why {service}" in Chapter 01. */
+  benefitsIntro: string;
   benefits: string[];
   buyerChecklist: string[];
   needOptions: string[];
@@ -77,6 +87,7 @@ export interface PaidLandingPageConfig {
   metaTitle: string;
   localNote: string;
   quoteFactors: string[];
+  benefitsIntro: string;
   benefits: string[];
   buyerChecklist: string[];
   needOptions: string[];
@@ -118,6 +129,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Floor height and access",
       "Track finish",
     ],
+    benefitsIntro: "Quiet protection that keeps your home open to light, air and view.",
     benefits: [
       "Keeps your view open — no 'jail look' like iron grills",
       "Child and pet safe with a 2-inch cable gap option",
@@ -132,8 +144,8 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     ],
     needOptions: ["Balcony", "Windows", "Staircase / duplex", "Full flat / villa"],
     hero: {
-      mobile: "/images/homepage/banner-1-mobile",
-      desktop: "/images/homepage/banner-1-desktop",
+      mobile: "/images/paid/invisible-grills-mobile",
+      desktop: "/images/paid/invisible-grills-desktop",
       alt: "Sea-facing balcony protected by slim invisible grill cables",
     },
     faqs: [
@@ -176,6 +188,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Fixing around beams and pillars",
       "Floor height and access",
     ],
+    benefitsIntro: "Quiet protection that keeps your home open to light, air and view.",
     benefits: [
       "Stops falls of kids, pets and things from balconies and ducts",
       "Thin, UV-stabilised net — light and air still pass through",
@@ -190,8 +203,8 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     ],
     needOptions: ["Balcony", "Duct / shaft", "Staircase", "Terrace / play area"],
     hero: {
-      mobile: "/images/homepage/banner-2-mobile",
-      desktop: "/images/homepage/banner-2-desktop",
+      mobile: "/images/paid/safety-nets-mobile",
+      desktop: "/images/paid/safety-nets-desktop",
       alt: "High-rise balcony fitted with a fine safety net, city view beyond",
     },
     faqs: [
@@ -232,6 +245,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       "Number of openings: balcony, windows, AC ledge",
       "Floor height and access",
     ],
+    benefitsIntro: "Quiet protection that keeps your home open to light, air and view.",
     benefits: [
       "Keeps pigeons out — no droppings, feathers or nesting",
       "Thin net that is hard to notice from a distance",
@@ -246,8 +260,8 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     ],
     needOptions: ["Balcony", "Windows / AC ledge", "Duct / shaft", "Whole building"],
     hero: {
-      mobile: "/images/homepage/banner-4-mobile",
-      desktop: "/images/homepage/banner-4-desktop",
+      mobile: "/images/paid/pigeon-nets-mobile",
+      desktop: "/images/paid/pigeon-nets-desktop",
       alt: "Apartment balcony sealed with a near-invisible pigeon net",
     },
     faqs: [
@@ -269,6 +283,304 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
         question: "How long does installation take?",
         answer:
           "Most balconies are done in a few hours once measured. The installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Who installs and who gives the warranty?",
+        answer:
+          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+      },
+    ],
+  },
+  "bird-spikes": {
+    key: "bird-spikes",
+    serviceId: "pigeons-bird-spikes",
+    serviceName: "Bird Spikes",
+    code: "BS",
+    quoteFactors: [
+      "Running length of ledges, sills and parapets",
+      "Spike material and base",
+      "Rows needed on each ledge",
+      "Surface: concrete, tile, metal or glass",
+      "Floor height and access",
+    ],
+    benefitsIntro: "A quiet fix that keeps pigeons off ledges, sills and AC units.",
+    benefits: [
+      "Stops pigeons sitting and nesting on ledges, sills and AC units",
+      "Humane — spikes stop birds landing without hurting them",
+      "Stainless steel spikes that don't rust in the rain",
+      "Low profile and hard to notice from the street",
+    ],
+    buyerChecklist: [
+      "Ask for stainless steel spikes on a UV-stabilised base — cheap plastic turns brittle in the sun.",
+      "Cover every ledge, sill and AC top where pigeons sit — they simply move to the next gap.",
+      "Ask how the spikes are fixed: outdoor adhesive or screws that suit your surface.",
+      "Get the warranty in writing before you pay.",
+    ],
+    needOptions: [
+      "Window sills / ledges",
+      "AC outdoor unit",
+      "Parapet / wall",
+      "Signboard / elevation",
+    ],
+    hero: {
+      mobile: "/images/paid/bird-spikes-mobile",
+      desktop: "/images/paid/bird-spikes-desktop",
+      alt: "Stainless steel bird spikes along a window ledge beside an AC unit",
+    },
+    faqs: [
+      {
+        question: "How is the price decided?",
+        answer:
+          "Every home is different. At the free site visit the installer measures the ledges and sills to be covered and gives an exact written quote based on the length, the spike material, the rows needed and the floor height.",
+      },
+      {
+        question: "Do bird spikes hurt pigeons?",
+        answer:
+          "No. The spikes are blunt and only stop pigeons from landing. Birds simply move elsewhere.",
+      },
+      {
+        question: "Spikes or a net — which do I need?",
+        answer:
+          "Spikes suit ledges, sills and AC tops where pigeons sit. If pigeons fly into an open balcony, a pigeon net is the better fix. The installer advises at the site visit.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "Most homes are done in a few hours once measured. The installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Who installs and who gives the warranty?",
+        answer:
+          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+      },
+    ],
+  },
+  "monkey-nets": {
+    key: "monkey-nets",
+    serviceId: "monkey-safety-nets",
+    serviceName: "Monkey Safety Nets",
+    code: "MK",
+    quoteFactors: [
+      "Total area to be covered",
+      "Net material and strength",
+      "Mesh size",
+      "Frame, cable or hook fixing",
+      "Floor height and access",
+    ],
+    benefitsIntro: "A strong, humane barrier that keeps monkeys out and lets light and air in.",
+    benefits: [
+      "Keeps monkeys out of balconies, terraces and open courtyards",
+      "Stronger net made for monkeys, not just birds",
+      "Light and air still pass through",
+      "Fixed tight at the edges so there is no way in",
+    ],
+    buyerChecklist: [
+      "Ask for a net made for monkeys — a light pigeon net can be torn.",
+      "Close the whole opening, including gaps near pipes, ledges and grills.",
+      "Ask how the edges and corners are fixed — monkeys test the weakest point.",
+      "Get the warranty in writing before you pay.",
+    ],
+    needOptions: ["Balcony", "Terrace", "Courtyard / duct", "Windows"],
+    hero: {
+      mobile: "/images/paid/monkey-nets-mobile",
+      desktop: "/images/paid/monkey-nets-desktop",
+      alt: "Balcony enclosed with a strong monkey safety net, trees beyond",
+    },
+    faqs: [
+      {
+        question: "How is the price decided?",
+        answer:
+          "Every home is different. At the free site visit the installer measures the openings and gives an exact written quote based on the area, the net strength, the fixing needed and the floor height.",
+      },
+      {
+        question: "Will a pigeon net stop monkeys?",
+        answer:
+          "Usually not. Monkeys can tear a light bird net. A monkey net uses stronger material and firmer fixing at the edges.",
+      },
+      {
+        question: "Does the net harm monkeys?",
+        answer: "No. The net is a barrier — it keeps monkeys out without hurting them.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "Most balconies and terraces are done in a day once measured. The installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Who installs and who gives the warranty?",
+        answer:
+          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+      },
+    ],
+  },
+  "mosquito-nets": {
+    key: "mosquito-nets",
+    serviceId: "mosquito-safety-nets",
+    serviceName: "Mosquito Nets",
+    code: "MQ",
+    quoteFactors: [
+      "Number and size of windows and doors",
+      "Type: fixed, sliding, pleated or velcro",
+      "Mesh material: fibreglass or stainless steel",
+      "Frame: aluminium or uPVC",
+      "Balcony or full enclosure",
+    ],
+    benefitsIntro: "Open windows and fresh air — without the mosquitoes.",
+    benefits: [
+      "Keeps mosquitoes out while windows and doors stay open",
+      "Fresh air and light without sprays or coils",
+      "Made to measure for each window, door and balcony",
+      "Sliding and pleated options for doors you use every day",
+    ],
+    buyerChecklist: [
+      "Ask what the mesh is made of — fibreglass or stainless steel — and get it in writing.",
+      "Check that every frame is sealed at the edges; small gaps let mosquitoes in.",
+      "Choose sliding or pleated mesh for doors and windows you open every day.",
+      "Get the warranty in writing before you pay.",
+    ],
+    needOptions: ["Windows", "Doors", "Balcony", "Full flat / villa"],
+    hero: {
+      mobile: "/images/paid/mosquito-nets-mobile",
+      desktop: "/images/paid/mosquito-nets-desktop",
+      alt: "Bedroom balcony door fitted with a fine mosquito mesh at dusk",
+    },
+    faqs: [
+      {
+        question: "How is the price decided?",
+        answer:
+          "Every home is different. At the free site visit the installer measures each window and door and gives an exact written quote based on the sizes, the mesh type and material, and the frame.",
+      },
+      {
+        question: "Which type suits my home?",
+        answer:
+          "Fixed or velcro mesh suits windows you rarely open. Sliding or pleated mesh suits doors and windows you use every day. The installer shows samples at the site visit.",
+      },
+      {
+        question: "Will the mesh block light or air?",
+        answer: "No. The mesh is fine and lets light and air through.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "Frames are made to your measurements, so fitting usually happens a few days after the site visit. The installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Who installs and who gives the warranty?",
+        answer:
+          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+      },
+    ],
+  },
+  "cloth-drying-hangers": {
+    key: "cloth-drying-hangers",
+    serviceId: "cloth-drying-hangers",
+    serviceName: "Cloth Drying Hangers",
+    code: "CH",
+    quoteFactors: [
+      "Number of drying rods",
+      "Rod length and material",
+      "Ceiling type and height",
+      "Pulley or fixed system",
+      "Balcony, utility area or terrace",
+    ],
+    benefitsIntro: "Dry clothes overhead and keep your balcony clear.",
+    benefits: [
+      "Dries clothes overhead and frees up balcony floor space",
+      "Raise and lower the rods with a smooth pulley",
+      "Stainless steel rod options that don't rust on open balconies",
+      "Fits balconies, utility areas and terraces",
+    ],
+    buyerChecklist: [
+      "Ask for stainless steel rods and pulleys — cheaper metal rusts on open balconies.",
+      "Check the ceiling fixing suits your ceiling: RCC slab, false ceiling or tiles.",
+      "Ask how much weight each rod is rated to carry, in writing.",
+      "Get the warranty in writing before you pay.",
+    ],
+    needOptions: ["Balcony", "Utility area", "Terrace", "More than one hanger"],
+    hero: {
+      mobile: "/images/paid/cloth-drying-hangers-mobile",
+      desktop: "/images/paid/cloth-drying-hangers-desktop",
+      alt: "Ceiling-mounted cloth drying hanger in a bright apartment balcony",
+    },
+    faqs: [
+      {
+        question: "How is the price decided?",
+        answer:
+          "Every home is different. At the free site visit the installer checks your ceiling and gives an exact written quote based on the number of rods, the rod length and material, and the pulley system.",
+      },
+      {
+        question: "Will it fit my balcony ceiling?",
+        answer:
+          "Most balcony and utility ceilings are suitable. The installer checks the ceiling type and height at the site visit.",
+      },
+      {
+        question: "How much weight can it hold?",
+        answer:
+          "It depends on the rods and the ceiling fixing. Ask the installer for the load rating in writing.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "Usually a few hours once measured. The installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Who installs and who gives the warranty?",
+        answer:
+          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+      },
+    ],
+  },
+  "cricket-nets": {
+    key: "cricket-nets",
+    serviceId: "sports-practice-nets",
+    serviceName: "Cricket Practice Nets",
+    code: "CN",
+    quoteFactors: [
+      "Length, width and height of the practice area",
+      "Net material and thickness",
+      "Poles and cables, or an existing structure",
+      "Terrace, open ground or indoor",
+      "Side, back and roof nets needed",
+    ],
+    benefitsIntro: "A safe practice space, fitted to your terrace, plot or community ground.",
+    benefits: [
+      "Safe batting and bowling practice close to home",
+      "Keeps the ball inside — no broken windows or lost balls",
+      "UV-stabilised nets made for outdoor use",
+      "Fitted to terraces, open plots, schools and communities",
+    ],
+    buyerChecklist: [
+      "Ask for a UV-stabilised net so it lasts in the sun.",
+      "Tell the installer if you play with a hard ball — it needs a thicker net.",
+      "Ask how the poles or cables are fixed, especially on a terrace.",
+      "Get the warranty in writing before you pay.",
+    ],
+    needOptions: ["Terrace", "Open plot / ground", "School / academy", "Apartment community"],
+    hero: {
+      mobile: "/images/paid/cricket-nets-mobile",
+      desktop: "/images/paid/cricket-nets-desktop",
+      alt: "Rooftop cricket practice net with a turf pitch at sunset",
+    },
+    faqs: [
+      {
+        question: "How is the price decided?",
+        answer:
+          "Every site is different. At the free site visit the installer measures the practice area and gives an exact written quote based on the size, the net thickness and the poles or cables needed.",
+      },
+      {
+        question: "Can a practice net be fitted on a terrace?",
+        answer:
+          "Often, yes. The installer checks the terrace size, parapet height and fixing points at the site visit.",
+      },
+      {
+        question: "Hard ball or tennis ball?",
+        answer:
+          "Tell the installer which ball you play with. Hard-ball cricket needs a thicker net than tennis-ball cricket.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "Most practice nets are fitted in one or two days once measured. The installer confirms the timeline in the quote.",
       },
       {
         question: "Who installs and who gives the warranty?",
@@ -315,6 +627,16 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "For balconies, ducts and staircases in Hyderabad apartments and independent houses — fitted tight with no gaps.",
       "pigeon-nets":
         "Pigeon droppings on your Hyderabad balcony or AC ledge? A full-cover net stops pigeons from sitting and nesting.",
+      "bird-spikes":
+        "Pigeons on your Hyderabad window sills and AC units? Spikes along every ledge stop them landing.",
+      "monkey-nets":
+        "Monkeys troubling your Hyderabad balcony or terrace? A strong net keeps them out and lets the light in.",
+      "mosquito-nets":
+        "Keep windows open on Hyderabad evenings without letting mosquitoes in — mesh made to measure for every window and door.",
+      "cloth-drying-hangers":
+        "Made for Hyderabad's apartment balconies and utility areas — dry clothes overhead and keep the floor clear.",
+      "cricket-nets":
+        "Turn a Hyderabad terrace or community ground into a safe practice net — measured and fitted on site.",
     },
   },
   vizag: {
@@ -347,6 +669,16 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "UV-stabilised nets with strong fixing for windy, sea-facing balconies in Vizag.",
       "pigeon-nets":
         "Stop pigeons nesting on sea-facing balconies and AC ledges — with rust-free stainless steel hooks for coastal air.",
+      "bird-spikes":
+        "Pigeons on sea-facing ledges and AC units in Vizag? Stainless steel spikes stand up to the coastal air.",
+      "monkey-nets":
+        "Monkeys troubling your Vizag balcony or terrace? A strong net keeps them out and lets the sea breeze in.",
+      "mosquito-nets":
+        "Let the Vizag sea breeze in and keep mosquitoes out — ask for rust-free mesh and frames near the coast.",
+      "cloth-drying-hangers":
+        "Salty coastal air rusts cheap rods — ask for stainless steel hangers for your Vizag balcony.",
+      "cricket-nets":
+        "UV-stabilised practice nets for Vizag terraces and grounds, fixed firmly for coastal wind.",
     },
   },
   vijayawada: {
@@ -377,6 +709,14 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "Balcony, duct and staircase safety nets for Vijayawada apartments and independent houses.",
       "pigeon-nets":
         "Pigeons troubling your Vijayawada balcony? A full-cover net keeps balconies and AC ledges clean.",
+      "bird-spikes":
+        "Stop pigeons sitting on window sills, ledges and AC units in Vijayawada homes.",
+      "monkey-nets": "A strong monkey net for Vijayawada balconies, terraces and open courtyards.",
+      "mosquito-nets":
+        "Mosquito mesh for Vijayawada windows, doors and balconies — made to measure and sealed at the edges.",
+      "cloth-drying-hangers":
+        "Ceiling cloth drying hangers for Vijayawada apartments and independent houses.",
+      "cricket-nets": "Practice nets for Vijayawada terraces, open plots and school grounds.",
     },
   },
   amaravati: {
@@ -404,6 +744,16 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "Safety nets for new apartments in Tadepalli, Mangalagiri and the capital region.",
       "pigeon-nets":
         "Net your new balcony before pigeons start nesting — much easier than removing them later.",
+      "bird-spikes":
+        "Moving into a new flat in the capital region? Fit spikes on the ledges before pigeons settle in.",
+      "monkey-nets":
+        "Keep monkeys out of new homes in Tadepalli, Mangalagiri and the capital region.",
+      "mosquito-nets":
+        "Add mosquito mesh to your new capital-region flat before you move in — measured to each window and door.",
+      "cloth-drying-hangers":
+        "Plan a ceiling cloth hanger for your new flat in Tadepalli, Mangalagiri or the capital region.",
+      "cricket-nets":
+        "Practice nets for terraces, open plots and community grounds across the capital region.",
     },
   },
   tirupati: {
@@ -432,6 +782,14 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "Monkeys and pigeons are common in Tirupati — a strong net keeps both out of balconies and terraces.",
       "pigeon-nets":
         "Keep pigeons — and, with a stronger net, monkeys — out of your Tirupati balcony.",
+      "bird-spikes": "Stop pigeons nesting on window sills, ledges and AC units in Tirupati homes.",
+      "monkey-nets":
+        "Monkeys are common in Tirupati — a strong net keeps them out of balconies, terraces and courtyards.",
+      "mosquito-nets":
+        "Mosquito mesh for Tirupati windows, doors and balconies — fresh air without the mosquitoes.",
+      "cloth-drying-hangers":
+        "Dry clothes overhead in your Tirupati balcony or utility area and keep the floor free.",
+      "cricket-nets": "Practice nets for Tirupati terraces, open plots and school grounds.",
     },
   },
   warangal: {
@@ -456,6 +814,13 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "For Warangal's new apartments and independent houses — child-safe balconies without the iron-grill look.",
       "safety-nets": "Balcony, staircase and terrace safety nets for Warangal homes.",
       "pigeon-nets": "Stop pigeon droppings and nesting on balconies and AC ledges in Warangal.",
+      "bird-spikes": "Stop pigeon droppings on window sills, ledges and AC units in Warangal.",
+      "monkey-nets":
+        "Monkeys troubling your Warangal home? A strong net keeps balconies and terraces closed to them.",
+      "mosquito-nets": "Mosquito mesh for Warangal windows, doors and balconies — made to measure.",
+      "cloth-drying-hangers":
+        "Ceiling cloth drying hangers for Warangal apartments and independent houses.",
+      "cricket-nets": "Practice nets for Warangal terraces, open plots and school grounds.",
     },
   },
   hanamkonda: {
@@ -482,6 +847,15 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
         "For Hanamkonda's apartments, duplexes and independent houses — keep the view, add the safety.",
       "safety-nets": "Balcony, staircase and terrace safety nets for Hanamkonda homes.",
       "pigeon-nets": "Stop pigeon droppings and nesting on balconies and AC ledges in Hanamkonda.",
+      "bird-spikes":
+        "Stop pigeon droppings on window sills, ledges and AC units in Hanamkonda and Kazipet.",
+      "monkey-nets":
+        "Monkeys troubling your Hanamkonda home? A strong net keeps balconies and terraces closed to them.",
+      "mosquito-nets":
+        "Mosquito mesh for Hanamkonda windows, doors and balconies — made to measure.",
+      "cloth-drying-hangers":
+        "Ceiling cloth drying hangers for Hanamkonda apartments, duplexes and independent houses.",
+      "cricket-nets": "Practice nets for Hanamkonda terraces, open plots and school grounds.",
     },
   },
 };
@@ -534,6 +908,7 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     metaTitle: `${service.serviceName} in ${city.name} — Free Site Visit`,
     localNote: city.localNote[service.key],
     quoteFactors: service.quoteFactors,
+    benefitsIntro: service.benefitsIntro,
     benefits: service.benefits,
     buyerChecklist: service.buyerChecklist,
     needOptions: service.needOptions,

@@ -25,7 +25,7 @@ Paid search traffic should use `/lp/$landingId`. These pages use the site's own 
 
 Paid routes emit `noindex, nofollow`, are absent from `public/sitemap.xml`, and are not linked from organic navigation. No prices are shown on any page.
 
-The 21 pages are generated in `src/data/paidLandingPages.ts` from 3 services × 7 cities. See `docs/PAID_LANDING_PAGES.md` for every final URL. Add a city or a service by extending the `CITIES` or `SERVICES` record; do not clone the route component.
+The 56 pages are generated in `src/data/paidLandingPages.ts` from 8 services × 7 cities. See `docs/PAID_LANDING_PAGES.md` for every final URL. Add a city or a service by extending the `CITIES` or `SERVICES` record; do not clone the route component.
 
 ## 2. Lead capture flow
 

@@ -172,7 +172,7 @@ function PaidLandingPage() {
     },
     {
       title: "Complimentary site visit",
-      detail: `A checked installer in ${landing.city} measures your openings and gives an exact written quote.`,
+      detail: `A checked installer in ${landing.city} visits, measures and gives an exact written quote.`,
     },
     {
       title: "Installation",
@@ -312,7 +312,7 @@ function PaidLandingPage() {
             <ChapterIntro
               chapter="Chapter 01 / The Benefits"
               title={`Why ${landing.serviceName}`}
-              text="Quiet protection that keeps your home open to light, air and view."
+              text={landing.benefitsIntro}
             />
             <EditorialRows items={landing.benefits} />
           </div>

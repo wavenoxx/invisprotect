@@ -15,7 +15,7 @@
 
   Forms do not use a database. The Supabase code is kept but unused.
 
-- **Google Ads landing pages:** `/lp/<service>-<city>` (21 pages), generated from `src/data/paidLandingPages.ts`. They are `noindex, nofollow` and not in the sitemap. See `docs/PAID_LANDING_PAGES.md`.
+- **Google Ads landing pages:** `/lp/<service>-<city>` (56 pages: 8 services × 7 cities), generated from `src/data/paidLandingPages.ts`. They are `noindex, nofollow` and not in the sitemap. See `docs/PAID_LANDING_PAGES.md`.
 - **Design:** use only the existing design system:
   - the `sn-*` classes in `src/styles.css`
   - cream `#FAF8F5` and ink `#1C1917`
