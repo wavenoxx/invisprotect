@@ -27,15 +27,84 @@ import { buildMetaTags } from "@/lib/seo";
 export const Route = createFileRoute("/lp/$landingId")({
   head: ({ params }) => {
     const landing = getPaidLandingPage(params.landingId);
+    if (!landing) {
+      return buildMetaTags({
+        title: "Free site visit",
+        description: `Request a free site visit through ${BRAND_CONFIG.name}.`,
+        canonicalPath: `/lp/${params.landingId}`,
+      });
+    }
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: landing.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
+
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `${landing.serviceName} in ${landing.city}`,
+      description: landing.summary,
+      serviceType: landing.serviceName,
+      provider: {
+        "@type": "LocalBusiness",
+        name: BRAND_CONFIG.name,
+        telephone: BRAND_CONFIG.contact.phoneDial,
+        url: `https://invisprotect.in/lp/${params.landingId}`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: landing.city,
+          addressRegion: landing.state,
+          addressCountry: "IN",
+        },
+      },
+      areaServed: {
+        "@type": "City",
+        name: landing.city,
+      },
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://invisprotect.in/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: "https://invisprotect.in/service-areas",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: `${landing.serviceName} in ${landing.city}`,
+          item: `https://invisprotect.in/lp/${params.landingId}`,
+        },
+      ],
+    };
+
     const seo = buildMetaTags({
-      title: landing ? landing.metaTitle : "Free site visit",
-      description: landing?.summary || `Request a free site visit through ${BRAND_CONFIG.name}.`,
+      title: landing.metaTitle,
+      description: landing.summary,
       canonicalPath: `/lp/${params.landingId}`,
-      ogImage: landing ? `${landing.hero.desktop}.jpg` : undefined,
-      noIndex: true,
-      noFollow: true,
+      ogImage: `${landing.hero.desktop}.jpg`,
+      jsonLd: [faqSchema, serviceSchema, breadcrumbSchema],
     });
-    if (!landing) return seo;
+
     return {
       ...seo,
       links: [
@@ -76,7 +145,7 @@ export const Route = createFileRoute("/lp/$landingId")({
   ),
 });
 
-const TRUST_LABELS = ["Referral", "Survey", "Quotation", "Vetting"];
+const TRUST_LABELS = ["Expert Partner", "Site Survey", "Direct Quotation", "Quality Vetting"];
 
 /** Art-directed cinematic image: 4:5 portrait on mobile, 2.39:1 panorama from md. */
 function CinematicPicture({
@@ -449,7 +518,7 @@ function PaidLandingPage() {
           </div>
         </section>
 
-        {/* ── Referral disclosure ── */}
+        {/* ── Partner network disclosure ── */}
         <section className="w-full px-6 py-10 md:py-12">
           <p className="mx-auto max-w-2xl text-center text-[12px] leading-relaxed font-light text-[#57534E]">
             {landing.disclosure}
@@ -473,9 +542,15 @@ function PaidLandingPage() {
             “The art of architectural protection — securing your sanctuary with quiet elegance.”
           </p>
           <nav
-            aria-label="Legal"
-            className="mt-8 flex gap-8 text-[10px] font-light uppercase tracking-[0.2em] text-[#A8A29E]"
+            aria-label="Site Navigation"
+            className="mt-8 flex flex-wrap justify-center gap-6 text-[10px] font-light uppercase tracking-[0.2em] text-[#A8A29E]"
           >
+            <Link to="/service-areas" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              Service Areas
+            </Link>
+            <Link to="/sitemap" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              Directory
+            </Link>
             <Link to="/privacy" className="transition-colors hover:text-[#FAF8F5] focus-ring">
               Privacy
             </Link>

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -120,4 +120,12 @@ test("WhatsApp links carry a prefilled message with a source tag", () => {
   assert.equal(url.hostname, "wa.me");
   assert.equal(url.searchParams.get("text"), "Hi, I need nets [ref PN-HYD]");
   assert.equal(buildWhatsAppHref("", "x"), "");
+});
+
+test("all 160 paid landing pages are included in public/sitemap.xml for organic indexing", () => {
+  const sitemap = readFileSync("public/sitemap.xml", "utf-8");
+  for (const id of Object.keys(paidLandingPages)) {
+    const loc = `<loc>https://invisprotect.in/lp/${id}</loc>`;
+    assert.ok(sitemap.includes(loc), `Missing ${loc} in public/sitemap.xml`);
+  }
 });

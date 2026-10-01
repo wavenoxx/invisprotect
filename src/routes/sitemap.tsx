@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo } from "react";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
+import { paidLandingPages } from "@/data/paidLandingPages";
 import { servicesData } from "@/data/servicesData";
 import { buildMetaTags } from "@/lib/seo";
 
@@ -15,8 +17,36 @@ export const Route = createFileRoute("/sitemap")({
   component: SitemapPage,
 });
 
+const REGIONAL_STATES = [
+  "Telangana",
+  "Andhra Pradesh",
+  "Karnataka",
+  "Maharashtra",
+  "Tamil Nadu",
+  "Kerala",
+] as const;
+
 function SitemapPage() {
   const serviceList = Object.values(servicesData);
+  const landingPagesList = useMemo(() => Object.values(paidLandingPages), []);
+
+  const regionalHubsByState = useMemo(() => {
+    return REGIONAL_STATES.map((state) => {
+      const inState = landingPagesList.filter((p) => p.state === state);
+      const cityMap = new Map<string, typeof landingPagesList>();
+      for (const p of inState) {
+        if (!cityMap.has(p.city)) cityMap.set(p.city, []);
+        cityMap.get(p.city)?.push(p);
+      }
+      return {
+        state,
+        cities: Array.from(cityMap.entries()).map(([city, pages]) => ({
+          city,
+          pages,
+        })),
+      };
+    });
+  }, [landingPagesList]);
 
   return (
     <div className="bg-[#FAF8F5] text-[#1C1917] min-h-screen flex flex-col">
@@ -27,7 +57,8 @@ function SitemapPage() {
           <p className="sn-eyebrow text-brand mb-3 font-medium">Index &amp; Navigation</p>
           <h1 className="sn-h1 text-[#1C1917]">Site Directory</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
-            Comprehensive index of all public pages and architectural safety solutions.
+            Comprehensive index of all public pages, architectural safety solutions, and regional
+            installation hubs.
           </p>
         </header>
 
@@ -223,6 +254,65 @@ function SitemapPage() {
             </ul>
           </div>
         </div>
+
+        {/* ── Regional Landing Pages (160 Hubs across 6 States) ── */}
+        <section className="mt-20 pt-12 border-t border-[#1C1917]/10">
+          <header className="mb-10">
+            <p className="sn-eyebrow text-brand mb-2 font-medium">
+              Regional Installation Network · {landingPagesList.length} Landing Pages
+            </p>
+            <h2 className="sn-h2 text-[#1C1917]">
+              City Landing Pages &amp; Local Engineering Hubs
+            </h2>
+            <p className="sn-subtext text-[#78716C] mt-2 max-w-2xl">
+              Direct access to dedicated invisible grill and safety net engineering teams across 20
+              cities in 6 southern and western states.
+            </p>
+          </header>
+
+          <div className="space-y-12">
+            {regionalHubsByState.map(({ state, cities }) => (
+              <div key={state}>
+                <div className="flex items-center gap-3 mb-6">
+                  <h3 className="text-xs uppercase tracking-widest font-semibold text-brand">
+                    {state} ({cities.length} {cities.length === 1 ? "Hub" : "Hubs"})
+                  </h3>
+                  <div className="flex-1 h-px bg-[#1C1917]/10" />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {cities.map(({ city, pages }) => (
+                    <div
+                      key={city}
+                      className="bg-white p-6 border border-[#1C1917]/8 shadow-sm flex flex-col"
+                    >
+                      <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-[#1C1917]/10">
+                        <h4 className="font-display text-sm uppercase tracking-wider font-semibold text-[#1C1917]">
+                          {city}
+                        </h4>
+                        <span className="text-[10px] uppercase font-mono tracking-widest text-[#78716C]">
+                          {pages.length} Services
+                        </span>
+                      </div>
+                      <ul className="space-y-2 text-xs font-light">
+                        {pages.map((p) => (
+                          <li key={p.id}>
+                            <Link
+                              to="/lp/$landingId"
+                              params={{ landingId: p.id }}
+                              className="text-[#44403C] hover:text-brand hover:underline underline-offset-2 transition-colors block leading-snug"
+                            >
+                              {p.serviceName}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />
