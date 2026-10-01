@@ -22,7 +22,26 @@ export type PaidServiceKey =
   | "cloth-drying-hangers"
   | "cricket-nets";
 export type PaidCityKey =
-  "hyderabad" | "vizag" | "vijayawada" | "amaravati" | "tirupati" | "warangal" | "hanamkonda";
+  | "hyderabad"
+  | "vizag"
+  | "vijayawada"
+  | "amaravati"
+  | "tirupati"
+  | "warangal"
+  | "hanamkonda"
+  | "bengaluru"
+  | "mysuru"
+  | "mangaluru"
+  | "pune"
+  | "mumbai"
+  | "thane"
+  | "navi-mumbai"
+  | "chennai"
+  | "coimbatore"
+  | "madurai"
+  | "kochi"
+  | "thiruvananthapuram"
+  | "kozhikode";
 
 export interface PaidFaq {
   question: string;
@@ -66,7 +85,7 @@ interface PaidCity {
   fullName: string;
   /** Short code used in WhatsApp reference tags, e.g. "VZG". */
   code: string;
-  state: "Telangana" | "Andhra Pradesh";
+  state: "Telangana" | "Andhra Pradesh" | "Karnataka" | "Maharashtra" | "Tamil Nadu" | "Kerala";
   localities: string[];
   localNote: Record<PaidServiceKey, string>;
 }
@@ -855,6 +874,496 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
       "cloth-drying-hangers":
         "Ceiling cloth drying hangers for Hanamkonda apartments, duplexes and independent houses.",
       "cricket-nets": "Practice nets for Hanamkonda terraces, open plots and school grounds.",
+    },
+  },
+  bengaluru: {
+    key: "bengaluru",
+    name: "Bengaluru",
+    fullName: "Bengaluru (Bangalore)",
+    code: "BLR",
+    state: "Karnataka",
+    localities: [
+      "Whitefield",
+      "Sarjapur Road",
+      "Bellandur",
+      "Electronic City",
+      "HSR Layout",
+      "Hebbal",
+      "Yelahanka",
+      "Kanakapura Road",
+      "Bannerghatta Road",
+      "Marathahalli",
+      "Indiranagar",
+      "JP Nagar",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Engineered for Bengaluru high-rise apartments and villa communities — slim high-tensile cables keep panoramic skyline views open without compromising child safety.",
+      "safety-nets":
+        "High-strength fall prevention nets for high-altitude balconies, utility ducts, and staircase voids across Bengaluru tech corridor residential towers.",
+      "pigeon-nets":
+        "Full-perimeter translucent netting stops pigeon roosting and droppings on Bengaluru apartment balconies, utility spaces, and AC ledges.",
+      "bird-spikes":
+        "Durable polycarbonate-base stainless steel spikes protect Bengaluru window sills, parapet ledges, and AC outdoor compressors from pest birds.",
+      "monkey-nets":
+        "Heavy-gauge reinforced safety netting engineered for Bengaluru green belts and peripheral residential townships frequented by monkey troops.",
+      "mosquito-nets":
+        "Custom-fitted architectural insect screens and sliding mesh frames designed for cool Bengaluru evenings without insect intrusion.",
+      "cloth-drying-hangers":
+        "Space-saving ceiling pulley cloth drying systems tailored for modern Bengaluru apartment balconies and compact utility balconies.",
+      "cricket-nets":
+        "High-density UV-resistant cricket practice net enclosures installed for Bengaluru gated society clubhouses, school grounds, and private rooftops.",
+    },
+  },
+  mysuru: {
+    key: "mysuru",
+    name: "Mysuru",
+    fullName: "Mysuru (Mysore)",
+    code: "MYS",
+    state: "Karnataka",
+    localities: [
+      "Gokulam",
+      "Vijayanagar",
+      "Jayalakshmipuram",
+      "Kuvempunagar",
+      "Saraswathipuram",
+      "Bogadi Road",
+      "Yadavagiri",
+      "Dattagalli",
+      "Siddartha Layout",
+      "Hebbal Ring Road",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Unobtrusive invisible grills crafted for Mysuru residential apartments, heritage duplexes, and independent villas — elegant safety without caged bars.",
+      "safety-nets":
+        "Precision-tensioned balcony and staircase safety nets providing reliable fall containment for Mysuru family homes.",
+      "pigeon-nets":
+        "Discreet pigeon barrier netting to maintain clean, hygienic balconies and window ledges across Mysuru neighborhoods.",
+      "bird-spikes":
+        "Precision ledge bird spikes preventing pigeon congregation on architectural cornices, window sills, and AC brackets in Mysuru.",
+      "monkey-nets":
+        "Durable monkey containment nets protecting Chamundi foothills and surrounding Mysuru residential gardens and terraces.",
+      "mosquito-nets":
+        "Made-to-measure mosquito screens and door mesh systems for Mysuru homes, ensuring fresh airflow and complete insect barrier.",
+      "cloth-drying-hangers":
+        "Overhead ceiling-mounted drying hanger rods for Mysuru apartment balconies and utility wash areas.",
+      "cricket-nets":
+        "Durable practice nets fitted for Mysuru sports academies, residential plots, and institutional grounds.",
+    },
+  },
+  mangaluru: {
+    key: "mangaluru",
+    name: "Mangaluru",
+    fullName: "Mangaluru (Mangalore)",
+    code: "MLR",
+    state: "Karnataka",
+    localities: [
+      "Kadri",
+      "Bejai",
+      "Urwa",
+      "Falnir",
+      "Bendoorwell",
+      "Mannagudda",
+      "Chilimbi",
+      "Kottara",
+      "Valencia",
+      "Derlakatte",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Marine-certified AISI 316 stainless steel invisible grills specifically engineered for Mangaluru sea-facing high-rises and salty coastal winds.",
+      "safety-nets":
+        "Heavy-duty UV-stabilized balcony safety netting built to withstand coastal monsoon downpours and open sea gusts in Mangaluru.",
+      "pigeon-nets":
+        "Corrosion-resistant bird netting for coastal Mangaluru apartments and commercial balconies.",
+      "bird-spikes":
+        "Marine-grade stainless steel bird spikes installed on Mangaluru coastal residences to stop birds nesting on damp exterior ledges.",
+      "monkey-nets":
+        "Sturdy anti-monkey safety netting tailored for hillside and coastal fringe residential communities in Mangaluru.",
+      "mosquito-nets":
+        "Rust-proof stainless steel and fiber mosquito mesh systems engineered for Mangaluru humid coastal climate.",
+      "cloth-drying-hangers":
+        "Anti-corrosive stainless steel ceiling drying hangers for Mangaluru high-humidity apartments.",
+      "cricket-nets":
+        "All-weather UV-stabilized cricket practice netting for Mangaluru coastal schools and sports complexes.",
+    },
+  },
+  pune: {
+    key: "pune",
+    name: "Pune",
+    fullName: "Pune & PCMC",
+    code: "PUN",
+    state: "Maharashtra",
+    localities: [
+      "Hinjawadi",
+      "Wakad",
+      "Baner",
+      "Balewadi",
+      "Kharadi",
+      "Viman Nagar",
+      "Magarpatta City",
+      "Kothrud",
+      "Aundh",
+      "Bavdhan",
+      "Pimple Saudagar",
+      "Hadapsar",
+    ],
+    localNote: {
+      "invisible-grills":
+        "High-tensile invisible grills tailored for Pune township developments and IT corridor high-rise balconies from Baner to Kharadi.",
+      "safety-nets":
+        "Engineered fall-prevention safety netting for high-altitude balconies and open shafts across Pune high-density residential towers.",
+      "pigeon-nets":
+        "Full-coverage pigeon exclusion netting keeping Pune balconies and utility shafts free from droppings and bird infestation.",
+      "bird-spikes":
+        "Weather-proof stainless steel bird deterrent spikes protecting Pune window sills, parapets, and AC compressor units.",
+      "monkey-nets":
+        "Heavy-gauge monkey barrier nets engineered for Pune hillside gated communities in Bavdhan, Baner, and Kothrud.",
+      "mosquito-nets":
+        "Custom-fitted mosquito mesh and sliding screens for Pune residential apartments and independent row houses.",
+      "cloth-drying-hangers":
+        "Ceiling-mounted pulley cloth drying racks designed to save floor space in modern Pune apartment balconies.",
+      "cricket-nets":
+        "Professional practice net cages installed for Pune township clubhouses, private terraces, and sports academies.",
+    },
+  },
+  mumbai: {
+    key: "mumbai",
+    name: "Mumbai",
+    fullName: "Mumbai Metropolitan",
+    code: "BOM",
+    state: "Maharashtra",
+    localities: [
+      "Powai",
+      "Andheri West",
+      "Bandra West",
+      "Goregaon East",
+      "Malad West",
+      "Borivali West",
+      "Worli",
+      "Lower Parel",
+      "Juhu",
+      "Chembur",
+      "Ghatkopar East",
+      "Kandivali East",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Certified AISI 316 marine-grade stainless steel invisible grills engineered to withstand Mumbai coastal sea salt spray and skyscraper wind pressure.",
+      "safety-nets":
+        "High-tensile UV-treated balcony safety nets engineered for Mumbai skyscraper heights and sea-facing apartments.",
+      "pigeon-nets":
+        "Heavy-duty translucent pigeon netting providing complete barrier protection for Mumbai apartment balconies and utility ducts.",
+      "bird-spikes":
+        "Corrosion-resistant bird spikes for Mumbai window ledges, pipe shafts, and AC outdoor compressors.",
+      "monkey-nets":
+        "Reinforced perimeter safety netting designed for Mumbai residential societies near Sanjay Gandhi National Park fringes.",
+      "mosquito-nets":
+        "Sleek mosquito screens and magnetic mesh doors designed for Mumbai apartments to block mosquitoes while keeping breezes flowing.",
+      "cloth-drying-hangers":
+        "Space-optimizing ceiling drying hangers designed for compact Mumbai high-rise balconies and utility areas.",
+      "cricket-nets":
+        "Heavy-gauge cricket practice nets fitted for Mumbai residential society terraces, turf clubs, and rooftop nets.",
+    },
+  },
+  thane: {
+    key: "thane",
+    name: "Thane",
+    fullName: "Thane Mega-Township Hub",
+    code: "THA",
+    state: "Maharashtra",
+    localities: [
+      "Ghodbunder Road",
+      "Hiranandani Estate",
+      "Majiwada",
+      "Vartak Nagar",
+      "Kavesar",
+      "Kasarvadavali",
+      "Manpada",
+      "Naupada",
+      "Panch Pakhadi",
+      "Wagle Estate",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Sleek architectural invisible grills designed for Thane mega-townships and lake-facing high-rises along Ghodbunder Road.",
+      "safety-nets":
+        "Child and pet safety nets securely anchored for high-rise apartment balconies and open shafts across Thane.",
+      "pigeon-nets":
+        "Balcony pigeon barrier nets preventing bird nesting and health hazards in Thane residential complexes.",
+      "bird-spikes":
+        "Precision stainless steel bird spikes installed on window sills and AC ledges across Thane apartments.",
+      "monkey-nets":
+        "Sturdy anti-monkey safety netting tailored for Yeoor hills adjacent residential enclaves in Thane.",
+      "mosquito-nets":
+        "Precision-fitted insect screens for Thane apartments to enjoy lake breezes with complete insect protection.",
+      "cloth-drying-hangers":
+        "Ceiling pulley cloth drying systems designed to maximize balcony utility in Thane high-rises.",
+      "cricket-nets":
+        "UV-treated practice cricket netting installed for Thane residential sports grounds and clubhouse terraces.",
+    },
+  },
+  "navi-mumbai": {
+    key: "navi-mumbai",
+    name: "Navi Mumbai",
+    fullName: "Navi Mumbai Planned Urban Hub",
+    code: "NVM",
+    state: "Maharashtra",
+    localities: [
+      "Kharghar",
+      "Vashi",
+      "Seawoods",
+      "Nerul",
+      "Palm Beach Road",
+      "Belapur",
+      "Koperkhairane",
+      "Airoli",
+      "Ulwe",
+      "Ghansoli",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Marine-grade invisible grills tailored for Navi Mumbai wide-open balconies and Palm Beach Road sea-facing towers.",
+      "safety-nets":
+        "High-tensile balcony safety netting calibrated for creek winds and high-rise fall prevention across Navi Mumbai sectors.",
+      "pigeon-nets":
+        "Full-aperture bird netting keeping Navi Mumbai apartment balconies, ducts, and AC ledges permanently pigeon-free.",
+      "bird-spikes":
+        "Non-harmful stainless steel bird deterrent spikes for window frames and external ledges in Navi Mumbai.",
+      "monkey-nets":
+        "Heavy-duty monkey exclusion netting protecting residential balconies near Parsik hill ranges in Navi Mumbai.",
+      "mosquito-nets":
+        "Durable insect screen mesh for creek-adjacent Navi Mumbai residences, keeping pests out year-round.",
+      "cloth-drying-hangers":
+        "Ceiling-mounted stainless steel pulley cloth drying hangers for Navi Mumbai modern apartments.",
+      "cricket-nets":
+        "All-weather cricket practice net enclosures for Navi Mumbai housing societies and sports facilities.",
+    },
+  },
+  chennai: {
+    key: "chennai",
+    name: "Chennai",
+    fullName: "Chennai Metropolitan",
+    code: "MAA",
+    state: "Tamil Nadu",
+    localities: [
+      "OMR (Old Mahabalipuram Road)",
+      "ECR (East Coast Road)",
+      "Sholinganallur",
+      "Thoraipakkam",
+      "Velachery",
+      "Anna Nagar",
+      "Adyar",
+      "Besant Nagar",
+      "Porur",
+      "Medavakkam",
+      "Perungudi",
+      "Nungambakkam",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Marine-certified AISI 316 stainless steel invisible grills engineered to withstand Chennai high coastal salinity, tropical humidity, and OMR IT high-rises.",
+      "safety-nets":
+        "UV-stabilized high-strength safety nets providing child and pet safety for Chennai seaside and high-rise apartments.",
+      "pigeon-nets":
+        "Durable translucent pigeon protection netting for Chennai residential and commercial balconies.",
+      "bird-spikes":
+        "Marine-grade stainless steel bird spikes installed on window sills and ledges across Chennai.",
+      "monkey-nets":
+        "Strong anti-monkey safety netting tailored for green residential areas and temple-adjacent localities in Chennai.",
+      "mosquito-nets":
+        "Heavy-duty architectural insect screens and sliding mosquito doors engineered for Chennai tropical climate.",
+      "cloth-drying-hangers":
+        "Rust-proof stainless steel ceiling cloth drying hangers tailored for Chennai humid coastal weather.",
+      "cricket-nets":
+        "High-density UV-treated cricket practice netting for Chennai residential communities, academies, and private rooftops.",
+    },
+  },
+  coimbatore: {
+    key: "coimbatore",
+    name: "Coimbatore",
+    fullName: "Coimbatore Industrial & Residential Hub",
+    code: "CBE",
+    state: "Tamil Nadu",
+    localities: [
+      "RS Puram",
+      "Race Course",
+      "Peelamedu",
+      "Saravanampatti",
+      "Saibaba Colony",
+      "Gandhipuram",
+      "Vadavalli",
+      "Ramanathapuram",
+      "Singanallur",
+      "Ganapathy",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Elegant invisible safety grills designed for Coimbatore gated communities, villas, and modern multi-storey apartments.",
+      "safety-nets":
+        "Precision-fitted balcony and staircase fall protection nets for Coimbatore family residences.",
+      "pigeon-nets":
+        "Pigeon deterrence netting preventing roosting and bird droppings on Coimbatore apartment balconies and AC units.",
+      "bird-spikes":
+        "Weather-resistant bird spikes protecting window ledges and building architectural projections in Coimbatore.",
+      "monkey-nets":
+        "Heavy-gauge monkey safety netting engineered for Coimbatore western ghats fringe residences.",
+      "mosquito-nets":
+        "Custom-fitted mosquito mesh systems designed to allow fresh Western Ghats breezes into Coimbatore homes.",
+      "cloth-drying-hangers":
+        "Space-efficient ceiling pulley cloth drying racks for Coimbatore modern apartment balconies.",
+      "cricket-nets":
+        "All-weather cricket practice nets fitted for Coimbatore sports grounds, schools, and private terraces.",
+    },
+  },
+  madurai: {
+    key: "madurai",
+    name: "Madurai",
+    fullName: "Madurai Cultural & Commercial Hub",
+    code: "MDU",
+    state: "Tamil Nadu",
+    localities: [
+      "KK Nagar",
+      "Anna Nagar",
+      "SS Colony",
+      "TVS Nagar",
+      "Koodal Nagar",
+      "Villianur",
+      "Pasumalai",
+      "Tallakulam",
+      "Sellur",
+      "Palanganatham",
+    ],
+    localNote: {
+      "invisible-grills":
+        "High-tensile invisible grills engineered for Madurai residential apartments and modern duplexes — maximum safety without blocking ventilation.",
+      "safety-nets":
+        "Durable UV-treated balcony safety nets providing fall prevention for Madurai family homes.",
+      "pigeon-nets":
+        "Clean and discreet pigeon netting protecting Madurai apartment balconies and open utility areas.",
+      "bird-spikes":
+        "Durable stainless steel bird spikes installed on window sills, parapets, and commercial ledges in Madurai.",
+      "monkey-nets":
+        "Heavy-duty monkey protection netting for Madurai residential terraces, balconies, and open backyards.",
+      "mosquito-nets":
+        "High-durability mosquito screens and sliding net doors designed for Madurai warm climate.",
+      "cloth-drying-hangers":
+        "Ceiling pulley cloth drying systems designed to save space in Madurai apartments and houses.",
+      "cricket-nets":
+        "Custom practice cricket nets fitted for Madurai school grounds, open plots, and private rooftops.",
+    },
+  },
+  kochi: {
+    key: "kochi",
+    name: "Kochi",
+    fullName: "Kochi (Cochin) Waterfront Hub",
+    code: "COK",
+    state: "Kerala",
+    localities: [
+      "Marine Drive",
+      "Kakkanad",
+      "Edappally",
+      "Panampilly Nagar",
+      "Kaloor",
+      "Palarivattom",
+      "Kadavanthra",
+      "Aluva",
+      "Vyttila",
+      "Maradu",
+      "Thevara",
+    ],
+    localNote: {
+      "invisible-grills":
+        "100% AISI 316 marine-grade stainless steel invisible grills engineered to resist Kochi backwater humidity, heavy monsoon rains, and Marine Drive winds.",
+      "safety-nets":
+        "Heavy-duty waterproof and UV-treated balcony safety nets engineered for Kochi waterfront towers and high-rise apartments.",
+      "pigeon-nets":
+        "Corrosion-free translucent pigeon barrier netting for Kochi high-rise balconies and duct spaces.",
+      "bird-spikes":
+        "Marine-grade stainless steel bird spikes for window ledges, rain gutters, and AC units across Kochi.",
+      "monkey-nets":
+        "Reinforced monkey safety netting designed for Kochi green residential belts and independent villas.",
+      "mosquito-nets":
+        "High-grade stainless steel and fiber mosquito mesh systems engineered for Kochi backwater tropical climate.",
+      "cloth-drying-hangers":
+        "Rust-proof stainless steel ceiling drying hangers for Kochi humid rainy season and compact balconies.",
+      "cricket-nets":
+        "Monsoon-resistant heavy-duty cricket practice net enclosures for Kochi sports clubs and residential societies.",
+    },
+  },
+  thiruvananthapuram: {
+    key: "thiruvananthapuram",
+    name: "Thiruvananthapuram",
+    fullName: "Thiruvananthapuram (Trivandrum)",
+    code: "TRV",
+    state: "Kerala",
+    localities: [
+      "Kazhakkoottam",
+      "Kowdiar",
+      "Sasthamangalam",
+      "Pattom",
+      "Vellayambalam",
+      "Vazhuthacaud",
+      "Peroorkada",
+      "Sreekariyam",
+      "Kumarapuram",
+      "Kesavadasapuram",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Marine-grade invisible grills tailored for Thiruvananthapuram Technopark residential high-rises and premium coastal villas.",
+      "safety-nets":
+        "High-tensile balcony safety nets engineered for child protection in Thiruvananthapuram multi-storey apartments.",
+      "pigeon-nets":
+        "Full-coverage bird netting keeping Thiruvananthapuram apartment balconies and AC ledges clean and pigeon-free.",
+      "bird-spikes":
+        "Weather-proof stainless steel bird deterrent spikes for window frames and parapets in Thiruvananthapuram.",
+      "monkey-nets":
+        "Sturdy anti-monkey safety nets protecting Thiruvananthapuram residential balconies, open courtyards, and terraces.",
+      "mosquito-nets":
+        "Precision-fitted mosquito screens and magnetic mesh doors designed for Thiruvananthapuram coastal climate.",
+      "cloth-drying-hangers":
+        "Ceiling-mounted stainless steel pulley cloth drying systems for Thiruvananthapuram modern flats.",
+      "cricket-nets":
+        "All-weather UV-stabilized cricket practice nets for Thiruvananthapuram sports grounds and residential societies.",
+    },
+  },
+  kozhikode: {
+    key: "kozhikode",
+    name: "Kozhikode",
+    fullName: "Kozhikode (Calicut)",
+    code: "CLT",
+    state: "Kerala",
+    localities: [
+      "Mavoor Road",
+      "PT Usha Road",
+      "Nadakkavu",
+      "Chevayur",
+      "Thondayad",
+      "Bilathikulam",
+      "Westhill",
+      "Pottammal",
+      "Kottooli",
+      "Panniyankara",
+    ],
+    localNote: {
+      "invisible-grills":
+        "Marine-certified AISI 316 invisible safety grills engineered for Kozhikode Arabian Sea winds and high-rise apartments.",
+      "safety-nets":
+        "High-strength UV-stabilized balcony safety netting providing child and pet safety for Kozhikode coastal residences.",
+      "pigeon-nets":
+        "Translucent bird netting providing complete protection against pigeons for Kozhikode apartment balconies.",
+      "bird-spikes":
+        "Rust-proof stainless steel bird spikes installed on window sills and ledges across Kozhikode.",
+      "monkey-nets":
+        "Heavy-gauge monkey barrier nets protecting Kozhikode coastal fringe and suburban residences.",
+      "mosquito-nets":
+        "Durable insect screens and sliding mesh frames designed for Kozhikode tropical coastal weather.",
+      "cloth-drying-hangers":
+        "Anti-corrosive stainless steel ceiling drying hangers for Kozhikode apartments.",
+      "cricket-nets":
+        "Durable cricket practice netting fitted for Kozhikode sports clubs, school grounds, and private rooftops.",
     },
   },
 };

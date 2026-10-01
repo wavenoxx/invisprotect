@@ -11,10 +11,10 @@ import {
 } from "../src/data/paidLandingPages.ts";
 import { isApprovedServiceId } from "../src/data/serviceIds.ts";
 
-test("paid landing pages cover 8 services x 7 cities and keep the original IDs", () => {
+test("paid landing pages cover 8 services x 20 cities and keep the original IDs", () => {
   assert.equal(PAID_SERVICE_KEYS.length, 8);
-  assert.equal(PAID_CITY_KEYS.length, 7);
-  assert.equal(Object.keys(paidLandingPages).length, 56);
+  assert.equal(PAID_CITY_KEYS.length, 20);
+  assert.equal(Object.keys(paidLandingPages).length, 160);
   assert.equal(
     getPaidLandingPage("invisible-grills-hyderabad")?.serviceId,
     "balcony-invisible-grills",
@@ -35,6 +35,14 @@ test("paid landing pages cover 8 services x 7 cities and keep the original IDs",
     getPaidLandingPage("cricket-nets-vizag")?.headline,
     "Cricket Practice Nets in Vizag",
   );
+  assert.equal(
+    getPaidLandingPage("invisible-grills-bengaluru")?.headline,
+    "Invisible Grills in Bengaluru",
+  );
+  assert.equal(getPaidLandingPage("safety-nets-pune")?.whatsappRef, "SN-PUN");
+  assert.equal(getPaidLandingPage("pigeon-nets-mumbai")?.whatsappRef, "PN-BOM");
+  assert.equal(getPaidLandingPage("mosquito-nets-chennai")?.city, "Chennai");
+  assert.equal(getPaidLandingPage("cricket-nets-kochi")?.whatsappRef, "CN-COK");
   assert.equal(getPaidLandingPage("unknown"), undefined);
   assert.equal(getPaidLandingPage("toString"), undefined);
 });
