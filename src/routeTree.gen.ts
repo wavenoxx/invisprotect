@@ -9,92 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WarrantyRouteImport } from './routes/warranty'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SolutionsRouteImport } from './routes/solutions'
-import { Route as SitemapRouteImport } from './routes/sitemap'
-import { Route as ServiceAreasRouteImport } from './routes/service-areas'
-import { Route as SafetyFaqRouteImport } from './routes/safety-faq'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as OurStoryRouteImport } from './routes/our-story'
-import { Route as MaterialStandardsRouteImport } from './routes/material-standards'
-import { Route as MaintenanceRepairRouteImport } from './routes/maintenance-repair'
-import { Route as LifestyleRouteImport } from './routes/lifestyle'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
-import { Route as ConsultationRouteImport } from './routes/consultation'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServiceServiceIdRouteImport } from './routes/service.$serviceId'
-import { Route as LpLandingIdRouteImport } from './routes/lp.$landingId'
-import { Route as CategoryCategoryIdRouteImport } from './routes/category.$categoryId'
-import { Route as CampaignsWeightlessPavilionRouteImport } from './routes/campaigns.weightless-pavilion'
-import { Route as CampaignsSilentPromiseRouteImport } from './routes/campaigns.silent-promise'
-import { Route as CampaignsLightAndSanctuaryRouteImport } from './routes/campaigns.light-and-sanctuary'
+import { Route as ConsultationRouteImport } from './routes/consultation'
+import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LifestyleRouteImport } from './routes/lifestyle'
+import { Route as MaintenanceRepairRouteImport } from './routes/maintenance-repair'
+import { Route as MaterialStandardsRouteImport } from './routes/material-standards'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SafetyFaqRouteImport } from './routes/safety-faq'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WarrantyRouteImport } from './routes/warranty'
 import { Route as ApiHealthRouteImport } from './routes/api.health'
+import { Route as CampaignsLightAndSanctuaryRouteImport } from './routes/campaigns.light-and-sanctuary'
+import { Route as CampaignsSilentPromiseRouteImport } from './routes/campaigns.silent-promise'
+import { Route as CampaignsWeightlessPavilionRouteImport } from './routes/campaigns.weightless-pavilion'
+import { Route as CategoryCategoryIdRouteImport } from './routes/category.$categoryId'
+import { Route as LpLandingIdRouteImport } from './routes/lp.$landingId'
+import { Route as ServiceServiceIdRouteImport } from './routes/service.$serviceId'
 
-const WarrantyRoute = WarrantyRouteImport.update({
-  id: '/warranty',
-  path: '/warranty',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolutionsRoute = SolutionsRouteImport.update({
-  id: '/solutions',
-  path: '/solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapRoute = SitemapRouteImport.update({
-  id: '/sitemap',
-  path: '/sitemap',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiceAreasRoute = ServiceAreasRouteImport.update({
-  id: '/service-areas',
-  path: '/service-areas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SafetyFaqRoute = SafetyFaqRouteImport.update({
-  id: '/safety-faq',
-  path: '/safety-faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OurStoryRoute = OurStoryRouteImport.update({
-  id: '/our-story',
-  path: '/our-story',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MaterialStandardsRoute = MaterialStandardsRouteImport.update({
-  id: '/material-standards',
-  path: '/material-standards',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MaintenanceRepairRoute = MaintenanceRepairRouteImport.update({
-  id: '/maintenance-repair',
-  path: '/maintenance-repair',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LifestyleRoute = LifestyleRouteImport.update({
-  id: '/lifestyle',
-  path: '/lifestyle',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
-  id: '/craftsmanship',
-  path: '/craftsmanship',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsultationRoute = ConsultationRouteImport.update({
@@ -102,35 +42,74 @@ const ConsultationRoute = ConsultationRouteImport.update({
   path: '/consultation',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
+  id: '/craftsmanship',
+  path: '/craftsmanship',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServiceServiceIdRoute = ServiceServiceIdRouteImport.update({
-  id: '/service/$serviceId',
-  path: '/service/$serviceId',
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LpLandingIdRoute = LpLandingIdRouteImport.update({
-  id: '/lp/$landingId',
-  path: '/lp/$landingId',
+const LifestyleRoute = LifestyleRouteImport.update({
+  id: '/lifestyle',
+  path: '/lifestyle',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CategoryCategoryIdRoute = CategoryCategoryIdRouteImport.update({
-  id: '/category/$categoryId',
-  path: '/category/$categoryId',
+const MaintenanceRepairRoute = MaintenanceRepairRouteImport.update({
+  id: '/maintenance-repair',
+  path: '/maintenance-repair',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CampaignsWeightlessPavilionRoute =
-  CampaignsWeightlessPavilionRouteImport.update({
-    id: '/campaigns/weightless-pavilion',
-    path: '/campaigns/weightless-pavilion',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const CampaignsSilentPromiseRoute = CampaignsSilentPromiseRouteImport.update({
-  id: '/campaigns/silent-promise',
-  path: '/campaigns/silent-promise',
+const MaterialStandardsRoute = MaterialStandardsRouteImport.update({
+  id: '/material-standards',
+  path: '/material-standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyFaqRoute = SafetyFaqRouteImport.update({
+  id: '/safety-faq',
+  path: '/safety-faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarrantyRoute = WarrantyRouteImport.update({
+  id: '/warranty',
+  path: '/warranty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CampaignsLightAndSanctuaryRoute =
@@ -139,9 +118,30 @@ const CampaignsLightAndSanctuaryRoute =
     path: '/campaigns/light-and-sanctuary',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiHealthRoute = ApiHealthRouteImport.update({
-  id: '/api/health',
-  path: '/api/health',
+const CampaignsSilentPromiseRoute = CampaignsSilentPromiseRouteImport.update({
+  id: '/campaigns/silent-promise',
+  path: '/campaigns/silent-promise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignsWeightlessPavilionRoute =
+  CampaignsWeightlessPavilionRouteImport.update({
+    id: '/campaigns/weightless-pavilion',
+    path: '/campaigns/weightless-pavilion',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CategoryCategoryIdRoute = CategoryCategoryIdRouteImport.update({
+  id: '/category/$categoryId',
+  path: '/category/$categoryId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpLandingIdRoute = LpLandingIdRouteImport.update({
+  id: '/lp/$landingId',
+  path: '/lp/$landingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceServiceIdRoute = ServiceServiceIdRouteImport.update({
+  id: '/service/$serviceId',
+  path: '/service/$serviceId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -320,95 +320,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/warranty': {
-      id: '/warranty'
-      path: '/warranty'
-      fullPath: '/warranty'
-      preLoaderRoute: typeof WarrantyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions': {
-      id: '/solutions'
-      path: '/solutions'
-      fullPath: '/solutions'
-      preLoaderRoute: typeof SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap': {
-      id: '/sitemap'
-      path: '/sitemap'
-      fullPath: '/sitemap'
-      preLoaderRoute: typeof SitemapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/service-areas': {
-      id: '/service-areas'
-      path: '/service-areas'
-      fullPath: '/service-areas'
-      preLoaderRoute: typeof ServiceAreasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/safety-faq': {
-      id: '/safety-faq'
-      path: '/safety-faq'
-      fullPath: '/safety-faq'
-      preLoaderRoute: typeof SafetyFaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/our-story': {
-      id: '/our-story'
-      path: '/our-story'
-      fullPath: '/our-story'
-      preLoaderRoute: typeof OurStoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/material-standards': {
-      id: '/material-standards'
-      path: '/material-standards'
-      fullPath: '/material-standards'
-      preLoaderRoute: typeof MaterialStandardsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/maintenance-repair': {
-      id: '/maintenance-repair'
-      path: '/maintenance-repair'
-      fullPath: '/maintenance-repair'
-      preLoaderRoute: typeof MaintenanceRepairRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lifestyle': {
-      id: '/lifestyle'
-      path: '/lifestyle'
-      fullPath: '/lifestyle'
-      preLoaderRoute: typeof LifestyleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/craftsmanship': {
-      id: '/craftsmanship'
-      path: '/craftsmanship'
-      fullPath: '/craftsmanship'
-      preLoaderRoute: typeof CraftsmanshipRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/consultation': {
@@ -418,46 +334,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsultationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/craftsmanship': {
+      id: '/craftsmanship'
+      path: '/craftsmanship'
+      fullPath: '/craftsmanship'
+      preLoaderRoute: typeof CraftsmanshipRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/service/$serviceId': {
-      id: '/service/$serviceId'
-      path: '/service/$serviceId'
-      fullPath: '/service/$serviceId'
-      preLoaderRoute: typeof ServiceServiceIdRouteImport
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lp/$landingId': {
-      id: '/lp/$landingId'
-      path: '/lp/$landingId'
-      fullPath: '/lp/$landingId'
-      preLoaderRoute: typeof LpLandingIdRouteImport
+    '/lifestyle': {
+      id: '/lifestyle'
+      path: '/lifestyle'
+      fullPath: '/lifestyle'
+      preLoaderRoute: typeof LifestyleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/category/$categoryId': {
-      id: '/category/$categoryId'
-      path: '/category/$categoryId'
-      fullPath: '/category/$categoryId'
-      preLoaderRoute: typeof CategoryCategoryIdRouteImport
+    '/maintenance-repair': {
+      id: '/maintenance-repair'
+      path: '/maintenance-repair'
+      fullPath: '/maintenance-repair'
+      preLoaderRoute: typeof MaintenanceRepairRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/campaigns/weightless-pavilion': {
-      id: '/campaigns/weightless-pavilion'
-      path: '/campaigns/weightless-pavilion'
-      fullPath: '/campaigns/weightless-pavilion'
-      preLoaderRoute: typeof CampaignsWeightlessPavilionRouteImport
+    '/material-standards': {
+      id: '/material-standards'
+      path: '/material-standards'
+      fullPath: '/material-standards'
+      preLoaderRoute: typeof MaterialStandardsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/campaigns/silent-promise': {
-      id: '/campaigns/silent-promise'
-      path: '/campaigns/silent-promise'
-      fullPath: '/campaigns/silent-promise'
-      preLoaderRoute: typeof CampaignsSilentPromiseRouteImport
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety-faq': {
+      id: '/safety-faq'
+      path: '/safety-faq'
+      fullPath: '/safety-faq'
+      preLoaderRoute: typeof SafetyFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warranty': {
+      id: '/warranty'
+      path: '/warranty'
+      fullPath: '/warranty'
+      preLoaderRoute: typeof WarrantyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/campaigns/light-and-sanctuary': {
@@ -467,11 +439,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsLightAndSanctuaryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/health': {
-      id: '/api/health'
-      path: '/api/health'
-      fullPath: '/api/health'
-      preLoaderRoute: typeof ApiHealthRouteImport
+    '/campaigns/silent-promise': {
+      id: '/campaigns/silent-promise'
+      path: '/campaigns/silent-promise'
+      fullPath: '/campaigns/silent-promise'
+      preLoaderRoute: typeof CampaignsSilentPromiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaigns/weightless-pavilion': {
+      id: '/campaigns/weightless-pavilion'
+      path: '/campaigns/weightless-pavilion'
+      fullPath: '/campaigns/weightless-pavilion'
+      preLoaderRoute: typeof CampaignsWeightlessPavilionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/category/$categoryId': {
+      id: '/category/$categoryId'
+      path: '/category/$categoryId'
+      fullPath: '/category/$categoryId'
+      preLoaderRoute: typeof CategoryCategoryIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp/$landingId': {
+      id: '/lp/$landingId'
+      path: '/lp/$landingId'
+      fullPath: '/lp/$landingId'
+      preLoaderRoute: typeof LpLandingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/$serviceId': {
+      id: '/service/$serviceId'
+      path: '/service/$serviceId'
+      fullPath: '/service/$serviceId'
+      preLoaderRoute: typeof ServiceServiceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
