@@ -8,7 +8,7 @@ export const Route = createFileRoute("/terms")({
   head: () =>
     buildMetaTags({
       title: `Terms and Conditions & Advisory Governance — ${BRAND_CONFIG.name}`,
-      description: `Terms for the ${BRAND_CONFIG.name} installer referral service: how requests, site visits, quotations and warranties work.`,
+      description: `Terms for the ${BRAND_CONFIG.name} architectural safety and certified installer network: how requests, site visits, quotations and warranties work.`,
       canonicalPath: "/terms",
     }),
   component: TermsPage,
@@ -26,19 +26,20 @@ function TermsPage() {
           </p>
           <h1 className="sn-h1 text-[#1C1917]">Terms and Conditions</h1>
           <p className="sn-subtext text-[#78716C] mt-3">
-            Last updated: 28 September 2026 · Terms for the {BRAND_CONFIG.name} installer referral
-            service
+            Last updated: 28 September 2026 · Operational Standards for the {BRAND_CONFIG.name}{" "}
+            Certified Installer Network
           </p>
         </header>
 
         <article className="space-y-8 text-xs md:text-sm font-light leading-relaxed text-[#44403C]">
           <section className="bg-white p-6 border border-[#1C1917]/8 shadow-sm">
-            <h2 className="sn-h2 text-[#1C1917] mb-3">1. Referral Service &amp; Site Visit</h2>
+            <h2 className="sn-h2 text-[#1C1917] mb-3">1. Operational Model &amp; Site Visit</h2>
             <p>
-              {BRAND_CONFIG.name} is a referral service. We connect homeowners with one independent,
-              checked installer for invisible grills, safety netting, bird protection and specialty
-              residential barriers. {BRAND_CONFIG.name} is not the installer. Measurements and
-              quotations are made by the installer at a physical site visit.
+              {BRAND_CONFIG.name} coordinates certified architectural safety solutions across India.
+              We connect homeowners with verified, expert local installation partners for invisible
+              grills, safety netting, bird protection and specialty residential barriers. Site
+              measurements, custom fabrication, and final quotations are provided directly by your
+              assigned certified installer at a physical site visit.
             </p>
           </section>
 

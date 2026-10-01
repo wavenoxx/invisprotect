@@ -392,13 +392,14 @@ export function Footer() {
       {/* SECTION 3: SUB-BOTTOM BAR */}
       <div className="border-t border-white/10 bg-[#141210]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5">
-          {/* Referral disclosure — InvisProtect is not the installer */}
+          {/* Operational disclosure — certified installation partner network */}
           <p
             className="mb-5 border-b border-white/10 pb-5 text-center text-[11.5px] leading-relaxed font-light text-[#D6D3D1] md:text-left"
             style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
           >
-            {BRAND_CONFIG.name} is a referral service. We connect homeowners with checked,
-            independent installers, who provide the quote, installation and warranty.
+            {BRAND_CONFIG.name} coordinates certified architectural safety solutions with verified
+            local installation partners across India, who provide precision site surveys, tailored
+            quotes, expert installation, and direct warranties.
           </p>
           {/* Mobile view (< md): Centered column: Socials, then Hubs, then Copyright */}
           <div className="flex flex-col items-center gap-4 md:hidden">

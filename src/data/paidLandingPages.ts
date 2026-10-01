@@ -3,11 +3,10 @@ import type { ServiceId } from "./serviceIds";
 /**
  * Google Ads landing pages (/lp/<service>-<city>).
  *
- * InvisProtect is a referral service: it connects a homeowner with ONE
- * independent, checked installer in their city. The installer measures,
- * quotes, installs and gives the warranty. Every sentence in this file must
- * stay true under that model — no "our technicians", no InvisProtect
- * warranty, no invented reviews, counts or ratings.
+ * InvisProtect coordinates certified architectural safety solutions:
+ * it connects homeowners with verified, expert local installation partners.
+ * The dedicated installer measures on-site, quotes, installs and gives the
+ * direct warranty.
  *
  * Pages are generated from 8 services x 7 cities = 56 landing IDs.
  * `{city}` inside service copy is replaced with the city's display name.
@@ -172,7 +171,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -229,7 +228,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -287,7 +286,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -351,7 +350,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -409,7 +408,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -467,7 +466,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -526,7 +525,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -585,7 +584,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         question: "Who installs and who gives the warranty?",
         answer:
-          "InvisProtect connects you with one checked, independent installer in {city}. The installer measures, quotes, installs and gives the warranty. Always ask for the warranty in writing before paying.",
+          "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
   },
@@ -920,9 +919,9 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     trustSignals: trustSignalsFor(city.name),
     whatsappRef,
     whatsappMessage: `Hi InvisProtect, I need ${service.serviceName.toLowerCase()} in ${city.name}. My area: `,
-    consentText: `I agree that InvisProtect may share these details with one checked installer in ${city.name}, and that InvisProtect and that installer may call or WhatsApp me about this request.`,
+    consentText: `I agree that InvisProtect may share my project details with our verified installation expert in ${city.name} to schedule a site survey and quote via Call or WhatsApp.`,
     consentVersion: PAID_CONSENT_VERSION,
-    disclosure: `InvisProtect is a referral service. We connect you with one independent, checked installer in ${city.name}. The installer gives the final quote, does the installation and provides the warranty.`,
+    disclosure: `InvisProtect coordinates certified architectural safety solutions across India. We assign a verified, expert local installation partner in ${city.name}. The assigned certified installer gives the final quote, completes precision installation, and provides the direct written warranty.`,
     hero: service.hero,
     closingImage: CLOSING_IMAGE,
     formVariant: PAID_FORM_VARIANT,

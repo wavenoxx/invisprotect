@@ -62,11 +62,11 @@ test("every paid landing page is complete, city-specific and uses an approved se
   }
 });
 
-test("paid pages disclose the referral model and ask consent to share with one installer", () => {
+test("paid pages disclose the certified partner network and ask consent to connect with expert installer", () => {
   for (const page of Object.values(paidLandingPages)) {
-    assert.match(page.disclosure, /referral service/);
+    assert.match(page.disclosure, /coordinates certified architectural safety solutions/);
     assert.match(page.disclosure, /installer gives the final quote/);
-    assert.match(page.consentText, /one checked installer/);
+    assert.match(page.consentText, /verified installation expert/);
     assert.ok(page.consentVersion.length <= 40);
     const copy = JSON.stringify(page).toLowerCase();
     for (const banned of [

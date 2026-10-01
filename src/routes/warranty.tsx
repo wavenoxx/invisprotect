@@ -51,8 +51,9 @@ function WarrantyPage() {
           <p className="sn-eyebrow text-brand mb-3 font-medium">Client Assurance &amp; Integrity</p>
           <h1 className="sn-h1 text-[#1C1917]">Warranty Guide</h1>
           <p className="sn-subtext text-[#78716C] mt-3 max-w-2xl">
-            {BRAND_CONFIG.name} is a referral service. The installer who fits your system gives the
-            warranty — in writing, at handover. Here is what that warranty should cover.
+            {BRAND_CONFIG.name} coordinates with verified, certified installation partners across
+            India. The dedicated installer who fits your system provides the direct warranty — in
+            writing, at handover. Here is what that warranty should cover.
           </p>
         </header>
 

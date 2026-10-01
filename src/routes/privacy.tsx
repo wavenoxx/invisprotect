@@ -49,9 +49,10 @@ function PrivacyPage() {
             <p>
               At {BRAND_CONFIG.name} (&quot;we&quot;, &quot;our&quot;, or &quot;the Atelier&quot;),
               we hold privacy to the same standard of quiet elegance as everything else we do.{" "}
-              {BRAND_CONFIG.name} is a referral service: we connect homeowners with one independent,
-              checked installer. This Privacy Declaration explains what information we collect, how
-              your request reaches us and the installer, and which third parties are involved.
+              {BRAND_CONFIG.name} coordinates certified architectural safety solutions across India
+              by connecting discerning homeowners with verified, expert local installation partners.
+              This Privacy Declaration explains what information we collect, how your request
+              reaches us and the dedicated installer, and which third parties are involved.
             </p>
           </section>
 
