@@ -29,7 +29,7 @@ function configuredLeadValue(): number | undefined {
 }
 
 export const GADS_ACCOUNT_ID = validAdsAccountId(
-  publicEnv("VITE_GADS_ACCOUNT_ID") || publicEnv("VITE_GOOGLE_ADS_ID") || "AW-18458426727",
+  publicEnv("VITE_GADS_ACCOUNT_ID") || publicEnv("VITE_GOOGLE_ADS_ID"),
 );
 
 const configuredConversionDestination = validConversionDestination(

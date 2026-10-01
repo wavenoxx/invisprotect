@@ -7,6 +7,16 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    define: {
+      "import.meta.env.VITE_GADS_ACCOUNT_ID": JSON.stringify(
+        process.env.VITE_GADS_ACCOUNT_ID || "AW-18458426727",
+      ),
+      "import.meta.env.VITE_GADS_PRIMARY_LEAD_CONVERSION": JSON.stringify(
+        process.env.VITE_GADS_PRIMARY_LEAD_CONVERSION || "AW-18458426727/y4y4CJW2m40dEOf61OFE",
+      ),
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
