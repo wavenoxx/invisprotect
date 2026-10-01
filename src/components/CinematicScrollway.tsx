@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { hubCityDots } from "@/config/business";
 
 export interface SlideItem {
   id: number;
@@ -113,7 +112,8 @@ export const slides: SlideItem[] = [
     id: 10,
     category: "Regional Operations",
     title: "Our Service Areas",
-    descriptor: hubCityDots("shortName"),
+    descriptor:
+      "20 Major Hubs across 6 States · Bengaluru · Mumbai · Pune · Hyderabad · Chennai · Kochi & More",
     action: "View Areas",
     link: "/service-areas",
     imageDesktop: "/images/homepage/banner-10-desktop.jpg",

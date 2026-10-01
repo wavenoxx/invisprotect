@@ -123,7 +123,15 @@ const organizationSchema = {
           ...(BRAND_CONFIG.contact.email ? { email: BRAND_CONFIG.contact.email } : {}),
           contactType: "customer service",
           areaServed: "IN",
-          availableLanguage: ["English", "Telugu", "Hindi"],
+          availableLanguage: [
+            "English",
+            "Hindi",
+            "Telugu",
+            "Kannada",
+            "Marathi",
+            "Tamil",
+            "Malayalam",
+          ],
         },
       }
     : {}),
