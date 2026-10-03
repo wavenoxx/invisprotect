@@ -227,6 +227,7 @@ function PaidLandingPage() {
     landing.whatsappMessage,
     landing.whatsappRef,
   );
+  const phoneHref = BRAND_CONFIG.contact.phoneHref;
   const meta = { landingId: landing.id, service: landing.serviceId, city: landing.city };
 
   const scrollToForm = (location: string) => {
@@ -278,11 +279,20 @@ function PaidLandingPage() {
             <p className="sn-subtext mb-6 max-w-md px-4 text-balance text-[#FAF8F5] drop-shadow-[0_1.5px_6px_rgba(0,0,0,0.85)]">
               {landing.summary}
             </p>
-            <div className="flex items-center justify-center gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5">
+              {phoneHref ? (
+                <a
+                  href={phoneHref}
+                  onClick={() => trackEngagement("phone", "paid_hero", meta)}
+                  className="sn-btn-luxury-hero focus-ring"
+                >
+                  Call Us
+                </a>
+              ) : null}
               <button
                 type="button"
                 onClick={() => scrollToForm("paid_hero")}
-                className="sn-btn-luxury cursor-pointer px-5 focus-ring sm:px-7"
+                className="sn-btn-luxury-hero cursor-pointer focus-ring"
               >
                 Free Site Visit
               </button>
@@ -292,7 +302,7 @@ function PaidLandingPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEngagement("whatsapp", "paid_hero", meta)}
-                  className="sn-btn-luxury px-5 focus-ring sm:px-7"
+                  className="sn-btn-luxury-hero focus-ring"
                 >
                   WhatsApp
                 </a>
