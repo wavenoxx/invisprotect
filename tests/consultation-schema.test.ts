@@ -9,12 +9,11 @@ test("Indian phone numbers are normalized for persistence", () => {
   assert.equal(normalizeIndianPhone("12345"), null);
 });
 
-test("paid lead input requires explicit contact consent and a six-digit pincode", () => {
+test("paid lead input requires explicit contact consent, while pincode is optional", () => {
   const base = {
     name: "Asha Rao",
     phone: "9876543210",
     city_hub: "Kondapur, Hyderabad",
-    pincode: "500084",
     services: ["balcony-invisible-grills"],
     contact_consent: true,
     landing_id: "invisible-grills-hyderabad",
@@ -22,6 +21,7 @@ test("paid lead input requires explicit contact consent and a six-digit pincode"
   };
 
   assert.equal(ConsultationInputSchema.safeParse(base).success, true);
+  assert.equal(ConsultationInputSchema.safeParse({ ...base, pincode: "500084" }).success, true);
   assert.equal(
     ConsultationInputSchema.safeParse({ ...base, contact_consent: false }).success,
     false,

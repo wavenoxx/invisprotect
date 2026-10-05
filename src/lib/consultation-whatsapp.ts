@@ -3,7 +3,7 @@ export interface ConsultationWhatsappDetails {
   mobile: string;
   serviceNames: string[];
   localityCity: string;
-  pincode: string;
+  pincode?: string;
   notes: string;
   /** Optional lead reference, e.g. "IG-HYD-K7Q2M9XA". Also used as the Google Ads transaction_id. */
   reference?: string;
@@ -15,6 +15,7 @@ export function buildConsultationWhatsappUrl(
   brandName = "InvisProtect",
 ) {
   const reference = details.reference?.trim();
+  const pincode = details.pincode?.trim();
   const message = [
     `Hello ${brandName},`,
     "",
@@ -24,7 +25,7 @@ export function buildConsultationWhatsappUrl(
     `Mobile: ${details.mobile}`,
     `Service: ${details.serviceNames.join(", ")}`,
     `Location: ${details.localityCity.trim()}`,
-    `Pincode: ${details.pincode.trim()}`,
+    ...(pincode ? [`Pincode: ${pincode}`] : []),
     `Requirement: ${details.notes.trim() || "Not specified"}`,
     ...(reference ? [`Ref: ${reference}`] : []),
     "",

@@ -1431,7 +1431,14 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     consentText: `I agree that InvisProtect may share my project details with our verified installation expert in ${city.name} to schedule a site survey and quote via Call or WhatsApp.`,
     consentVersion: PAID_CONSENT_VERSION,
     disclosure: `InvisProtect coordinates certified architectural safety solutions across India. We assign a verified, expert local installation partner in ${city.name}. The assigned certified installer gives the final quote, completes precision installation, and provides the direct written warranty.`,
-    hero: service.hero,
+    hero:
+      service.key === "invisible-grills" && city.key === "bengaluru"
+        ? {
+            mobile: "/images/paid/invisible-grills-bengaluru-mobile",
+            desktop: "/images/paid/invisible-grills-bengaluru-desktop",
+            alt: "Bengaluru high-rise balcony protected by slim invisible grill cables overlooking scenic lake and metro",
+          }
+        : service.hero,
     closingImage: CLOSING_IMAGE,
     formVariant: PAID_FORM_VARIANT,
   };

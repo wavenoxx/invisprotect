@@ -16,7 +16,8 @@ export const ConsultationInputSchema = z.object({
   pincode: z
     .string()
     .trim()
-    .regex(/^[1-9]\d{5}$/, "Please enter a valid 6-digit pincode"),
+    .regex(/^[1-9]\d{5}$/, "Please enter a valid 6-digit pincode")
+    .optional(),
   services: z
     .array(
       z.string().trim().min(1).refine(isApprovedServiceId, "Select a recognized safety solution"),

@@ -27,7 +27,6 @@ interface FormState {
   phone: string;
   locality: string;
   otherArea: string;
-  pincode: string;
   needs: string[];
   notes: string;
   consent: boolean;
@@ -40,7 +39,6 @@ const initialState: FormState = {
   phone: "",
   locality: "",
   otherArea: "",
-  pincode: "",
   needs: [],
   notes: "",
   consent: false,
@@ -99,7 +97,6 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
       name: form.name,
       phone: form.phone,
       city_hub: area ? `${area}, ${landing.city}` : "",
-      pincode: form.pincode,
       services: [landing.serviceId],
       notes: notes || undefined,
       contact_consent: form.consent,
@@ -148,7 +145,6 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
         mobile: form.phone,
         serviceNames: [landing.serviceName],
         localityCity: parsed.data.city_hub,
-        pincode: parsed.data.pincode,
         notes: parsed.data.notes ?? "",
         reference,
       },
@@ -252,12 +248,12 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
               autoComplete="name"
               value={form.name}
               onChange={(event) => setField("name", event.target.value)}
-              placeholder="e.g. Anand Varma"
+              placeholder="e.g. Arjun Mehta"
               className={fieldClass}
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 sm:col-span-2">
             <label htmlFor={id("phone")} className={labelClass}>
               Mobile Number
               <Required />
@@ -276,23 +272,6 @@ export function PaidLeadForm({ landing }: PaidLeadFormProps) {
                 className={`${fieldClass} pl-14`}
               />
             </div>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor={id("pincode")} className={labelClass}>
-              Pincode
-              <Required />
-            </label>
-            <input
-              id={id("pincode")}
-              inputMode="numeric"
-              autoComplete="postal-code"
-              maxLength={6}
-              value={form.pincode}
-              onChange={(event) => setField("pincode", event.target.value.replace(/\D/g, ""))}
-              placeholder="6-digit pincode"
-              className={fieldClass}
-            />
           </div>
 
           <div className="space-y-2 sm:col-span-2">
