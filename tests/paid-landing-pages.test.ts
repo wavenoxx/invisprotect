@@ -128,4 +128,6 @@ test("all 160 paid landing pages are included in public/sitemap.xml for organic 
     const loc = `<loc>https://invisprotect.in/lp/${id}</loc>`;
     assert.ok(sitemap.includes(loc), `Missing ${loc} in public/sitemap.xml`);
   }
+  assert.ok(sitemap.includes("<loc>https://invisprotect.in/service-areas</loc>"));
+  assert.ok(sitemap.includes("<lastmod>2026-10-06</lastmod>"));
 });

@@ -107,7 +107,27 @@ const organizationSchema = {
     latitude: BUSINESS.geo.latitude,
     longitude: BUSINESS.geo.longitude,
   },
-  areaServed: SERVICE_HUBS.map((hub) => ({ "@type": "City", name: hub.schemaName })),
+  areaServed: [
+    ...[
+      "Karnataka",
+      "Telangana",
+      "Andhra Pradesh",
+      "Maharashtra",
+      "Tamil Nadu",
+      "Kerala",
+    ].map((state) => ({
+      "@type": "AdministrativeArea",
+      name: state,
+    })),
+    ...SERVICE_HUBS.map((hub) => ({
+      "@type": "City",
+      name: hub.schemaName,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: hub.state,
+      },
+    })),
+  ],
   ...(socialProfiles.length > 0 ? { sameAs: socialProfiles } : {}),
   ...(BRAND_CONFIG.domain
     ? {

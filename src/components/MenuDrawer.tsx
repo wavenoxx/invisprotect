@@ -138,6 +138,13 @@ export function MenuDrawer({ isOpen, onClose, onOpenContact }: MenuDrawerProps) 
               Solutions Explorer
             </Link>
             <Link
+              to="/service-areas"
+              onClick={onClose}
+              className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"
+            >
+              Service Areas (20 Hubs)
+            </Link>
+            <Link
               to="/lifestyle"
               onClick={onClose}
               className="font-sans font-light tracking-[0.08em] text-[#1C1917] hover:text-brand transition-colors py-2 focus-ring"

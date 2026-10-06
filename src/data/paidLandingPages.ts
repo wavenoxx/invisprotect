@@ -8,7 +8,7 @@ import type { ServiceId } from "./serviceIds";
  * The dedicated installer measures on-site, quotes, installs and gives the
  * direct warranty.
  *
- * Pages are generated from 8 services x 7 cities = 56 landing IDs.
+ * Pages are generated from 8 services x 20 cities = 160 landing IDs.
  * `{city}` inside service copy is replaced with the city's display name.
  */
 

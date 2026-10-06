@@ -10,18 +10,39 @@ import { buildMetaTags } from "@/lib/seo";
 export const Route = createFileRoute("/service-areas")({
   head: () =>
     buildMetaTags({
-      title: `Service Areas (${BUSINESS.regionLabel}) — ${BRAND_CONFIG.name}`,
-      description: `Invisible grills and safety nets from ${BRAND_CONFIG.name} across ${HUB_COUNT} cities in ${BUSINESS.regionLabel}: ${hubCityList()}.`,
+      title: `Verified Service Areas (20 Hubs in 6 States) — ${BRAND_CONFIG.name}`,
+      description: `InvisProtect verified architectural safety hubs across 20 cities in 6 states: Bengaluru, Hyderabad, Mumbai, Pune, Chennai, Vizag, Kochi & more.`,
       canonicalPath: "/service-areas",
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        name: "Service Areas & Regional Operations",
-        description: `${BRAND_CONFIG.name} installation coverage across ${BUSINESS.regionLabel}.`,
+        name: `Verified Service Areas (${HUB_COUNT} Cities across 6 States) — ${BRAND_CONFIG.name}`,
+        description: `InvisProtect verified architectural safety hubs across 20 cities in Karnataka, Telangana, Andhra Pradesh, Maharashtra, Tamil Nadu & Kerala.`,
+        url: `${BRAND_CONFIG.domain}/service-areas`,
         publisher: {
           "@type": "Organization",
           name: BRAND_CONFIG.name,
           url: BRAND_CONFIG.domain,
+        },
+        mainEntity: {
+          "@type": "ItemList",
+          name: "InvisProtect Verified Operational Service Hubs",
+          numberOfItems: HUB_COUNT,
+          itemListElement: SERVICE_HUBS.map((hub, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            item: {
+              "@type": "Place",
+              name: hub.city,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: hub.schemaName,
+                addressRegion: hub.state,
+                addressCountry: "IN",
+              },
+              description: hub.description,
+            },
+          })),
         },
       },
     }),
@@ -90,10 +111,11 @@ function ServiceAreasPage() {
           <p className="sn-eyebrow text-brand mb-3 font-medium uppercase tracking-[0.24em]">
             6 States · {HUB_COUNT} Metropolitan Hubs
           </p>
-          <h1 className="sn-h1 text-[#1C1917] mb-4">Service Areas</h1>
+          <h1 className="sn-h1 text-[#1C1917] mb-4">Verified Service Areas</h1>
           <p className="sn-subtext text-[#44403C] max-w-2xl mx-auto mb-8">
-            {BRAND_CONFIG.name} checked installation and site-survey teams operate across{" "}
-            {HUB_COUNT} cities in {BUSINESS.regionLabel}.
+            {BRAND_CONFIG.name} verified installation and precision laser site-survey teams operate
+            across {HUB_COUNT} metropolitan hubs in 6 states: Karnataka, Telangana, Andhra Pradesh,
+            Maharashtra, Tamil Nadu, and Kerala.
           </p>
 
           {/* Quick Metrics Ribbon */}

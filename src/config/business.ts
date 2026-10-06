@@ -64,7 +64,7 @@ export interface PriceGuideConfig {
 }
 
 export interface BusinessConfig {
-  /** Human-readable coverage, e.g. "Telangana & Andhra Pradesh". */
+  /** Human-readable coverage, e.g. "Karnataka, Telangana, Andhra Pradesh, Maharashtra, Tamil Nadu & Kerala". */
   regionLabel: string;
   /** Main city used for the LocalBusiness address in structured data. */
   primaryCity: string;
@@ -81,7 +81,7 @@ export interface BusinessConfig {
 
 export const BUSINESS: BusinessConfig = {
   regionLabel:
-    "South & Western India (Telangana, Andhra Pradesh, Karnataka, Maharashtra, Tamil Nadu & Kerala)",
+    "South & Western India (Karnataka, Telangana, Andhra Pradesh, Maharashtra, Tamil Nadu & Kerala)",
   primaryCity: "Hyderabad",
   primaryRegion: "Telangana",
   localityPlaceholder: "e.g. Kondapur, Whitefield, Baner, Powai, OMR, Kakkanad",
