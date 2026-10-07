@@ -15,7 +15,9 @@
 
   Forms do not use a database. The Supabase code is kept but unused.
 
-- **Google Ads landing pages:** `/lp/<service>-<city>` (56 pages: 8 services × 7 cities), generated from `src/data/paidLandingPages.ts`. They are `noindex, nofollow` and not in the sitemap. See `docs/PAID_LANDING_PAGES.md`.
+- **Google Ads landing pages:** `/lp/<service>-<city>` (160 pages: 8 services × 20 cities), generated from `src/data/paidLandingPages.ts`. They are indexable city pages and are listed in `public/sitemap.xml`. See `docs/PAID_LANDING_PAGES.md`.
+- **Service coverage (states, cities, counts):** InvisProtect serves 20 cities in 6 states (Telangana, Andhra Pradesh, Karnataka, Maharashtra, Tamil Nadu, Kerala). Never type states, city names or counts into page copy, meta tags or schema. Always read them from `src/config/business.ts` (`BUSINESS.regionLabel`, `HUB_COUNT`, `hubCityList()`, `hubsByState()`). `tests/service-coverage.test.ts` fails if old two-state copy comes back.
+- **After any coverage or SEO change:** update `<lastmod>` in `public/sitemap.xml` to the change date, then request indexing for `/` and `/service-areas` in Google Search Console.
 - **Design:** use only the existing design system:
   - the `sn-*` classes in `src/styles.css`
   - cream `#FAF8F5` and ink `#1C1917`
