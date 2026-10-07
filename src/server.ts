@@ -37,12 +37,30 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
+// HTML pages must never be served stale from a browser or CDN cache, otherwise
+// visitors and Googlebot keep seeing old copy (e.g. old service areas) after a
+// deploy. Hashed JS/CSS/images are unaffected; only HTML without its own
+// cache-control header gets "revalidate every time".
+function withFreshHtml(response: Response): Response {
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.includes("text/html") || response.headers.has("cache-control")) {
+    return response;
+  }
+  const headers = new Headers(response.headers);
+  headers.set("cache-control", "public, max-age=0, must-revalidate");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withFreshHtml(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
