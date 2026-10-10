@@ -1412,14 +1412,12 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
   const id = `${service.key}-${city.key}`;
   const whatsappRef = `${service.code}-${city.code}`;
   const isInvisibleGrills = service.key === "invisible-grills";
-  const headline = isInvisibleGrills
-    ? `${service.serviceName} in ${city.name} — Balcony & Windows`
-    : `${service.serviceName} in ${city.name}`;
+  const headline = `${service.serviceName} in ${city.name}`;
   const metaTitle = isInvisibleGrills
-    ? `${service.serviceName} for Balcony & Windows in ${city.name} | InvisProtect`
+    ? `${service.serviceName} in ${city.name} | Balconies, Windows & Villas | InvisProtect`
     : `${service.serviceName} in ${city.name} — Free Site Visit`;
   const summary = isInvisibleGrills
-    ? `Certified invisible safety grills for balcony and windows in ${city.name}. High-tensile SS316 wire grills, free site visit & exact per sq.ft written quote.`
+    ? `High-tensile architectural safety for balconies, windows, staircases, and luxury villas in ${city.name}. Complimentary laser measurement & transparent written quotation.`
     : `Free site visit and an exact written quote from one checked local installer in ${city.name}.`;
 
   return {

@@ -324,24 +324,26 @@ function PaidLandingPage() {
               <span className="sn-eyebrow mb-3 block text-brand">Private Site Visit</span>
               <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">
                 {landing.serviceKey === "invisible-grills"
-                  ? `Invisible Grills for Balcony & Windows in ${landing.city}`
+                  ? `Invisible Grills for your ${landing.city} Home`
                   : `${landing.serviceName} for your ${landing.city} home`}
               </h2>
               <p className="sn-subtext text-balance text-[#44403C]">
-                Complimentary laser measurement, custom opening inspection, and an exact written per sq.ft quotation from one checked local installer. No obligation.
+                {landing.serviceKey === "invisible-grills"
+                  ? `Complimentary laser measurement for balconies, windows, staircases, or villas across ${landing.city}. Exact per sq.ft written quotation from one checked installer. No obligation.`
+                  : `Complimentary laser measurement, custom opening inspection, and an exact written per sq.ft quotation from one checked local installer. No obligation.`}
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-2 text-[11px] font-medium tracking-wide text-[#57534E] md:justify-start">
                 <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Balcony &amp; Window Safety
+                  Balcony Fall Protection
                 </span>
                 <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  SS316 Marine Cable
+                  Window &amp; Staircase Safety
                 </span>
                 <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Laser Measurement
+                  Marine-Grade SS316 Cable
                 </span>
                 <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Direct Warranty
+                  Villas &amp; High-Rise Flats
                 </span>
               </div>
               <p className="mt-8 border-t border-[#1C1917]/10 pt-8 font-serif text-xl leading-relaxed font-light text-[#1C1917] italic md:text-2xl">
