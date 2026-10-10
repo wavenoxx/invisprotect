@@ -284,7 +284,7 @@ function PaidLandingPage() {
               <button
                 type="button"
                 onClick={() => scrollToForm("paid_hero")}
-                className="sn-btn-luxury-hero is-primary cursor-pointer focus-ring"
+                className="sn-btn-luxury-hero cursor-pointer focus-ring"
               >
                 Free Site Visit
               </button>

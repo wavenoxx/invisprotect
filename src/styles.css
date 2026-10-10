@@ -358,19 +358,6 @@
   box-shadow: 0 4px 14px color-mix(in oklab, var(--brand) 28%, transparent);
 }
 
-.sn-btn-luxury-hero.is-primary {
-  border-color: var(--brand);
-  background-color: var(--brand);
-  color: #ffffff;
-  box-shadow: 0 4px 14px color-mix(in oklab, var(--brand) 28%, transparent);
-}
-
-.sn-btn-luxury-hero.is-primary:hover {
-  border-color: var(--brand-deep);
-  background-color: var(--brand-deep);
-  color: #ffffff;
-}
-
 /* Louis Vuitton Dark Outlined Button (for light surfaces) */
 .sn-btn-luxury-dark {
   display: inline-flex;
