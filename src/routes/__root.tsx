@@ -13,8 +13,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Toaster } from "@/components/ui/sonner";
 import { BRAND_CONFIG } from "@/config/brand";
+
 import { captureAttribution } from "@/lib/attribution";
 import { GADS_ACCOUNT_ID, trackEngagement, trackPageView } from "@/lib/analytics";
 import { getGoogleTagHeadScripts } from "@/lib/google-tag";
@@ -178,14 +178,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "stylesheet", href: appCss },
-      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
-      { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as const },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap",
-      },
     ];
 
     return {
@@ -258,7 +250,6 @@ function RootComponent() {
       <div className="min-h-screen bg-[#FAF8F5] text-[#1C1917]">
         <Outlet />
       </div>
-      <Toaster position="bottom-center" />
     </QueryClientProvider>
   );
 }
