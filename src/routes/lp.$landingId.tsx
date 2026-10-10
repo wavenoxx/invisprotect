@@ -105,6 +105,8 @@ export const Route = createFileRoute("/lp/$landingId")({
           rel: "preload",
           as: "image",
           href: `${landing.hero.desktop}.webp`,
+          imageSrcSet: `${landing.hero.desktop}-1280.webp 1280w, ${landing.hero.desktop}.webp 1939w`,
+          imageSizes: "100vw",
           media: "(min-width: 768px)",
           type: "image/webp",
         },
@@ -112,6 +114,8 @@ export const Route = createFileRoute("/lp/$landingId")({
           rel: "preload",
           as: "image",
           href: `${landing.hero.mobile}.webp`,
+          imageSrcSet: `${landing.hero.mobile}-640.webp 640w, ${landing.hero.mobile}-828.webp 828w, ${landing.hero.mobile}.webp 1122w`,
+          imageSizes: "100vw",
           media: "(max-width: 767px)",
           type: "image/webp",
         },
@@ -149,9 +153,18 @@ function CinematicPicture({
 }) {
   return (
     <picture>
-      <source media="(min-width: 768px)" srcSet={`${image.desktop}.webp`} type="image/webp" />
+      <source
+        media="(min-width: 768px)"
+        type="image/webp"
+        srcSet={`${image.desktop}-1280.webp 1280w, ${image.desktop}.webp 1939w`}
+        sizes="100vw"
+      />
       <source media="(min-width: 768px)" srcSet={`${image.desktop}.jpg`} type="image/jpeg" />
-      <source srcSet={`${image.mobile}.webp`} type="image/webp" />
+      <source
+        type="image/webp"
+        srcSet={`${image.mobile}-640.webp 640w, ${image.mobile}-828.webp 828w, ${image.mobile}.webp 1122w`}
+        sizes="100vw"
+      />
       <img
         src={`${image.mobile}.jpg`}
         alt={image.alt}
@@ -410,8 +423,8 @@ function PaidLandingPage() {
                         <img
                           src={app.image}
                           alt={app.alt}
-                          width={1086}
-                          height={1448}
+                          width={480}
+                          height={640}
                           loading="lazy"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />

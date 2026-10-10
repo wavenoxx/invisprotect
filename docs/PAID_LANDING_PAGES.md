@@ -196,6 +196,13 @@ node scripts/make-paid-hero.mjs <source-image> public/images/paid/<service>-mobi
 node scripts/make-paid-hero.mjs <source-image> public/images/paid/<service>-desktop desktop
 ```
 
+After `make-paid-hero.mjs`, you must run `make-variants.mjs` for the new image:
+
+```bash
+node scripts/make-variants.mjs public/images/paid/<service>-mobile.webp 640 828
+node scripts/make-variants.mjs public/images/paid/<service>-desktop.webp 1280
+```
+
 The script crops to the exact ratio, never upscales, and writes both `.webp` and `.jpg`. An optional last argument (0–1) moves the crop up or down.
 
 ## Google Ads setup notes

@@ -188,3 +188,45 @@ test("invisible-grills landing pages define applications, comparison, and siteVi
     assert.ok(app.title.length > 0 && app.detail.length > 0 && app.href.length > 0);
   }
 });
+
+test("every landing-page hero base has -640.webp and -828.webp (mobile) and -1280.webp (desktop)", () => {
+  const seenMobile = new Set<string>();
+  const seenDesktop = new Set<string>();
+  for (const page of Object.values(paidLandingPages)) {
+    seenMobile.add(page.hero.mobile);
+    seenDesktop.add(page.hero.desktop);
+  }
+  for (const mobileBase of seenMobile) {
+    assert.ok(
+      existsSync(`public${mobileBase}-640.webp`),
+      `Missing variant: public${mobileBase}-640.webp`,
+    );
+    assert.ok(
+      existsSync(`public${mobileBase}-828.webp`),
+      `Missing variant: public${mobileBase}-828.webp`,
+    );
+  }
+  for (const desktopBase of seenDesktop) {
+    assert.ok(
+      existsSync(`public${desktopBase}-1280.webp`),
+      `Missing variant: public${desktopBase}-1280.webp`,
+    );
+  }
+});
+
+test("every applications image exists", () => {
+  for (const page of Object.values(paidLandingPages)) {
+    if (!page.applications) continue;
+    for (const app of page.applications) {
+      assert.ok(existsSync(`public${app.image}`), `Missing applications image: ${app.image}`);
+    }
+  }
+});
+
+test("src/routes/__root.tsx contains no fonts.googleapis.com", () => {
+  const file = readFileSync("src/routes/__root.tsx", "utf8");
+  assert.ok(
+    !file.includes("fonts.googleapis.com"),
+    "src/routes/__root.tsx contains Google Fonts link",
+  );
+});
