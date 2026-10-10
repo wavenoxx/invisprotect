@@ -141,24 +141,25 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     serviceName: "Invisible Grills",
     code: "IG",
     quoteFactors: [
-      "Total area of the openings",
-      "Cable grade: SS304 or marine-grade SS316",
-      "Cable thickness and spacing",
-      "Floor height and access",
-      "Track finish",
+      "Total area of openings (per sq.ft measurement)",
+      "High-tensile cable grade: SS304 or marine-grade SS316",
+      "Cable thickness (2.5mm / 3.0mm / 3.16mm) and 2-inch or 3-inch gap",
+      "Balcony, window, terrace, or staircase opening structure",
+      "Heavy-duty aluminum track profile and rust-proof tensioners",
     ],
-    benefitsIntro: "Quiet protection that keeps your home open to light, air and view.",
+    benefitsIntro: "Architectural safety that secures your balcony and windows without blocking light, breeze or scenic views.",
     benefits: [
-      "Keeps your view open — no 'jail look' like iron grills",
-      "Child and pet safe with a 2-inch cable gap option",
-      "Rust-resistant SS304 or marine-grade SS316 cable",
-      "Can be cut with a cable cutter in a fire emergency",
+      "Unobstructed panoramic balcony views — zero jail look or visual obstruction",
+      "Child and pet fall prevention with certified 2-inch cable gap options",
+      "Rust-resistant SS304 or marine-grade SS316 high-tensile wire grills",
+      "Emergency fire escape safe — cuts cleanly in seconds with a cable cutter",
+      "Engineered for high-rise balconies, bedroom windows, duplexes, and luxury villas",
     ],
     buyerChecklist: [
-      "Ask for SS316 if you live near the sea; SS304 suits most city flats.",
-      "Make sure the cable thickness (in mm) is written in the quote.",
-      "Choose a 2-inch gap for toddlers and pets, 3-inch for others.",
-      "Get the warranty in writing before you pay.",
+      "Ask for marine-grade SS316 wire cables with protective nylon coating for maximum longevity.",
+      "Ensure exact cable thickness (in mm) and 2-inch or 3-inch spacing is written in your quote.",
+      "Verify heavy-duty aluminum track mounting and stainless steel cross-locking clamps.",
+      "Get a clear written quote with transparent per-sq-ft price and direct installer warranty before work starts.",
     ],
     needOptions: ["Balcony", "Windows", "Staircase / duplex", "Full flat / villa"],
     hero: {
@@ -168,27 +169,32 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     },
     faqs: [
       {
-        question: "How is the price decided?",
+        question: "How is the price of invisible grills decided in {city}?",
         answer:
-          "Every home is different. At the free site visit the installer measures your openings and gives an exact written quote based on the area, the cable grade (SS304 or SS316), the cable thickness and spacing, and the floor height.",
+          "Invisible grill price in {city} is calculated transparently per square foot (sq.ft) based on your opening dimensions, wire cable grade (SS304 vs marine-grade SS316), cable spacing (2-inch or 3-inch), and track mounting. During your free site visit, the certified installer takes exact laser measurements and gives an exact written quote with zero hidden charges.",
       },
       {
-        question: "How long does installation take?",
+        question: "Are invisible grills safe for balconies and windows with children?",
         answer:
-          "Once measured, most flats are done in a day. Larger villas can take longer — the installer confirms the timeline in the quote.",
+          "Yes. A 2-inch cable gap provides tested, reliable fall prevention for toddlers, children, and pets. High-tensile stainless steel wire cables withstand high tension while keeping panoramic views completely open.",
       },
       {
-        question: "Are invisible grills safe for small children?",
+        question: "How long does invisible grill installation take in {city}?",
         answer:
-          "Choose a 2-inch cable gap for toddlers and pets. Invisible grills are a fall-prevention barrier; they don't replace adult supervision.",
+          "Once measured, most standard apartment balconies or window openings in {city} are fully installed within a single day. Larger villas or multi-balcony flats take 1 to 2 days.",
+      },
+      {
+        question: "Can invisible safety grills be installed near me across {city}?",
+        answer:
+          "Yes. Our verified partner installers cover all major residential localities, gated societies, and high-rise apartment towers across {city}.",
       },
       {
         question: "What happens in a fire emergency?",
         answer:
-          "The cables can be cut with a standard cable cutter, unlike iron grills that need a grinder.",
+          "Unlike traditional fixed iron grills that trap occupants, invisible wire grills can be cut within seconds using a standard cable cutter in emergencies.",
       },
       {
-        question: "Who installs and who gives the warranty?",
+        question: "Who installs and who gives the direct warranty?",
         answer:
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
@@ -890,6 +896,10 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
       "HSR Layout",
       "Hebbal",
       "Yelahanka",
+      "Devanahalli",
+      "West of Chord Road",
+      "Rajajinagar",
+      "Koramangala",
       "Kanakapura Road",
       "Bannerghatta Road",
       "Marathahalli",
@@ -898,7 +908,7 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     ],
     localNote: {
       "invisible-grills":
-        "Engineered for Bengaluru high-rise apartments and villa communities — slim high-tensile cables keep panoramic skyline views open without compromising child safety.",
+        "Engineered for Bengaluru high-rise apartments, luxury villas, and modern duplexes — certified 3.16mm SS316 marine-grade invisible wire grills keep panoramic skyline views open while ensuring uncompromised child and pet safety.",
       "safety-nets":
         "High-strength fall prevention nets for high-altitude balconies, utility ducts, and staircase voids across Bengaluru tech corridor residential towers.",
       "pigeon-nets":
@@ -1401,6 +1411,17 @@ function trustSignalsFor(city: string): PaidTrustPoint[] {
 function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLandingPageConfig {
   const id = `${service.key}-${city.key}`;
   const whatsappRef = `${service.code}-${city.code}`;
+  const isInvisibleGrills = service.key === "invisible-grills";
+  const headline = isInvisibleGrills
+    ? `${service.serviceName} in ${city.name} — Balcony & Windows`
+    : `${service.serviceName} in ${city.name}`;
+  const metaTitle = isInvisibleGrills
+    ? `${service.serviceName} for Balcony & Windows in ${city.name} | InvisProtect`
+    : `${service.serviceName} in ${city.name} — Free Site Visit`;
+  const summary = isInvisibleGrills
+    ? `Certified invisible safety grills for balcony and windows in ${city.name}. High-tensile SS316 wire grills, free site visit & exact per sq.ft written quote.`
+    : `Free site visit and an exact written quote from one checked local installer in ${city.name}.`;
+
   return {
     id,
     serviceKey: service.key,
@@ -1411,9 +1432,9 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     cityFullName: city.fullName,
     state: city.state,
     eyebrow: `${city.fullName} · Free site visit`,
-    headline: `${service.serviceName} in ${city.name}`,
-    summary: `Free site visit and an exact written quote from one checked local installer in ${city.name}.`,
-    metaTitle: `${service.serviceName} in ${city.name} — Free Site Visit`,
+    headline,
+    summary,
+    metaTitle,
     localNote: city.localNote[service.key],
     quoteFactors: service.quoteFactors,
     benefitsIntro: service.benefitsIntro,

@@ -54,6 +54,12 @@ export const Route = createFileRoute("/lp/$landingId")({
       name: `${landing.serviceName} in ${landing.city}`,
       description: landing.summary,
       serviceType: landing.serviceName,
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        price: "0",
+        description: "Complimentary on-site measurement & transparent written quotation",
+      },
       provider: {
         "@type": "LocalBusiness",
         name: BRAND_CONFIG.name,
@@ -317,12 +323,27 @@ function PaidLandingPage() {
             <div className="text-center md:sticky md:top-16 md:text-left">
               <span className="sn-eyebrow mb-3 block text-brand">Private Site Visit</span>
               <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">
-                {landing.serviceName} for your {landing.city} home
+                {landing.serviceKey === "invisible-grills"
+                  ? `Invisible Grills for Balcony & Windows in ${landing.city}`
+                  : `${landing.serviceName} for your ${landing.city} home`}
               </h2>
               <p className="sn-subtext text-balance text-[#44403C]">
-                Complimentary measurement and an exact written quote from one checked installer. No
-                obligation.
+                Complimentary laser measurement, custom opening inspection, and an exact written per sq.ft quotation from one checked local installer. No obligation.
               </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-2 text-[11px] font-medium tracking-wide text-[#57534E] md:justify-start">
+                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
+                  Balcony &amp; Window Safety
+                </span>
+                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
+                  SS316 Marine Cable
+                </span>
+                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
+                  Laser Measurement
+                </span>
+                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
+                  Direct Warranty
+                </span>
+              </div>
               <p className="mt-8 border-t border-[#1C1917]/10 pt-8 font-serif text-xl leading-relaxed font-light text-[#1C1917] italic md:text-2xl">
                 “{landing.localNote}”
               </p>
