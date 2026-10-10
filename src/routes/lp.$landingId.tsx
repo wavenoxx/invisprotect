@@ -52,29 +52,15 @@ export const Route = createFileRoute("/lp/$landingId")({
       "@context": "https://schema.org",
       "@type": "Service",
       name: `${landing.serviceName} in ${landing.city}`,
-      description: landing.summary,
       serviceType: landing.serviceName,
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "INR",
-        price: "0",
-        description: "Complimentary on-site measurement & transparent written quotation",
-      },
-      provider: {
-        "@type": "LocalBusiness",
-        name: BRAND_CONFIG.name,
-        telephone: BRAND_CONFIG.contact.phoneDial,
-        url: `https://invisprotect.in/lp/${params.landingId}`,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: landing.city,
-          addressRegion: landing.state,
-          addressCountry: "IN",
-        },
-      },
+      description: landing.summary,
+      url: `https://invisprotect.in/lp/${params.landingId}`,
+      image: `https://invisprotect.in${landing.hero.desktop}.jpg`,
+      provider: { "@id": "https://invisprotect.in/#organization" },
       areaServed: {
         "@type": "City",
         name: landing.city,
+        containedInPlace: { "@type": "State", name: landing.state },
       },
     };
 
@@ -322,30 +308,18 @@ function PaidLandingPage() {
           <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:px-12">
             <div className="text-center md:sticky md:top-16 md:text-left">
               <span className="sn-eyebrow mb-3 block text-brand">Private Site Visit</span>
-              <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">
-                {landing.serviceKey === "invisible-grills"
-                  ? `Invisible Grills for your ${landing.city} Home`
-                  : `${landing.serviceName} for your ${landing.city} home`}
-              </h2>
-              <p className="sn-subtext text-balance text-[#44403C]">
-                {landing.serviceKey === "invisible-grills"
-                  ? `Complimentary laser measurement for balconies, windows, staircases, or villas across ${landing.city}. Exact per sq.ft written quotation from one checked installer. No obligation.`
-                  : `Complimentary laser measurement, custom opening inspection, and an exact written per sq.ft quotation from one checked local installer. No obligation.`}
-              </p>
-              <div className="mt-5 flex flex-wrap justify-center gap-2 text-[11px] font-medium tracking-wide text-[#57534E] md:justify-start">
-                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Balcony Fall Protection
-                </span>
-                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Window &amp; Staircase Safety
-                </span>
-                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Marine-Grade SS316 Cable
-                </span>
-                <span className="rounded-full border border-[#1C1917]/10 bg-white px-3 py-1 shadow-xs">
-                  Villas &amp; High-Rise Flats
-                </span>
-              </div>
+              <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">{landing.formIntroTitle}</h2>
+              <p className="sn-subtext text-balance text-[#44403C]">{landing.formIntroText}</p>
+              <ul className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
+                {landing.scopeChips.map((chip) => (
+                  <li
+                    key={chip}
+                    className="border border-[#1C1917]/10 bg-white px-3 py-1.5 text-[11px] text-[#1C1917]"
+                  >
+                    {chip}
+                  </li>
+                ))}
+              </ul>
               <p className="mt-8 border-t border-[#1C1917]/10 pt-8 font-serif text-xl leading-relaxed font-light text-[#1C1917] italic md:text-2xl">
                 “{landing.localNote}”
               </p>

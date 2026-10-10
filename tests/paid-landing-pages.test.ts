@@ -53,11 +53,22 @@ test("every paid landing page is complete, city-specific and uses an approved se
     assert.ok(isApprovedServiceId(page.serviceId), page.id);
     assert.ok(page.headline.endsWith(`in ${page.city}`), page.id);
     assert.ok(page.localities.length >= 8, page.id);
-    assert.equal(page.faqs.length, 5, page.id);
+    assert.ok(
+      page.faqs.length >= 5 && page.faqs.length <= 8,
+      `${page.id} has ${page.faqs.length} faqs`,
+    );
     assert.equal(page.faqs[0].question, "How is the price decided?", page.id);
-    assert.equal(page.faqs[4].question, "Who installs and who gives the warranty?", page.id);
+    assert.equal(
+      page.faqs[page.faqs.length - 1].question,
+      "Who installs and who gives the warranty?",
+      page.id,
+    );
     for (const faq of page.faqs) {
       assert.ok(!faq.question.includes("{city}") && !faq.answer.includes("{city}"), page.id);
+      assert.ok(
+        !faq.question.includes("{cableAdvice}") && !faq.answer.includes("{cableAdvice}"),
+        page.id,
+      );
     }
     assert.ok(page.localNote.length > 20, page.id);
     assert.ok(page.benefitsIntro.length > 20, page.id);
@@ -84,6 +95,13 @@ test("paid pages disclose the certified partner network and ask consent to conne
       "our warranty",
       "5-year",
       "illustrative",
+      "per sq",
+      "zero hidden",
+      "certified 2-inch",
+      "certified 3.16",
+      "tested, reliable",
+      "near me",
+      "all major residential localities",
     ]) {
       assert.ok(!copy.includes(banned), `${page.id} contains "${banned}"`);
     }
@@ -129,5 +147,18 @@ test("all 160 paid landing pages are included in public/sitemap.xml for organic 
     assert.ok(sitemap.includes(loc), `Missing ${loc} in public/sitemap.xml`);
   }
   assert.ok(sitemap.includes("<loc>https://invisprotect.in/service-areas</loc>"));
-  assert.ok(sitemap.includes("<lastmod>2026-10-06</lastmod>"));
+  assert.ok(sitemap.includes("<lastmod>2026-10-10</lastmod>"));
+});
+
+test("no rounded-full inside src/routes/lp.$landingId.tsx", () => {
+  const file = readFileSync("src/routes/lp.$landingId.tsx", "utf8");
+  assert.ok(!file.includes("rounded-full"), "src/routes/lp.$landingId.tsx contains rounded-full");
+});
+
+test("every page has scopeChips.length >= 3 and a non-empty formIntroTitle", () => {
+  for (const page of Object.values(paidLandingPages)) {
+    assert.ok(page.scopeChips.length >= 3, `${page.id} scopeChips < 3`);
+    assert.ok(page.formIntroTitle.length > 0, `${page.id} missing formIntroTitle`);
+    assert.ok(page.formIntroText.length > 0, `${page.id} missing formIntroText`);
+  }
 });

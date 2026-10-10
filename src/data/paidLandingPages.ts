@@ -75,6 +75,18 @@ interface PaidServiceTemplate {
   needOptions: string[];
   hero: PaidHeroImage;
   faqs: PaidFaq[];
+  /** Headline of the form section, e.g. "Invisible Grills for your {city} home". */
+  formIntroTitle: string;
+  /** One or two sentences under it. */
+  formIntroText: string;
+  /** 3–4 short square chips under the intro. */
+  scopeChips: string[];
+  /** Optional "Where it fits" tiles (see 3.3). */
+  applications?: { title: string; detail: string; image: string; alt: string; href: string }[];
+  /** Optional comparison rows (see 3.4). */
+  comparison?: { label: string; ours: string; theirs: string }[];
+  /** Optional "At your free site visit" list (see 3.5). */
+  siteVisitIncludes?: string[];
 }
 
 interface PaidCity {
@@ -86,8 +98,14 @@ interface PaidCity {
   /** Short code used in WhatsApp reference tags, e.g. "VZG". */
   code: string;
   state: "Telangana" | "Andhra Pradesh" | "Karnataka" | "Maharashtra" | "Tamil Nadu" | "Kerala";
+  /** Name used in titles/descriptions, including the common search spelling. */
+  searchName: string;
+  /** Drives cable advice text. Owner confirms per city. */
+  climate: "coastal" | "inland";
   localities: string[];
   localNote: Record<PaidServiceKey, string>;
+  /** Optional per-service hero override (replaces the Bengaluru special case in buildLandingPage). */
+  heroOverrides?: Partial<Record<PaidServiceKey, PaidHeroImage>>;
 }
 
 export interface PaidLandingPageConfig {
@@ -123,6 +141,12 @@ export interface PaidLandingPageConfig {
   /** Closing cinematic band (same 4:5 / 2.39:1 treatment as the hero). */
   closingImage: PaidHeroImage;
   formVariant: string;
+  formIntroTitle: string;
+  formIntroText: string;
+  scopeChips: string[];
+  applications?: { title: string; detail: string; image: string; alt: string; href: string }[];
+  comparison?: { label: string; ours: string; theirs: string }[];
+  siteVisitIncludes?: string[];
 }
 
 export const PAID_CONSENT_VERSION = "v3-2026-partner";
@@ -141,25 +165,25 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     serviceName: "Invisible Grills",
     code: "IG",
     quoteFactors: [
-      "Total area of openings (per sq.ft measurement)",
-      "High-tensile cable grade: SS304 or marine-grade SS316",
-      "Cable thickness (2.5mm / 3.0mm / 3.16mm) and 2-inch or 3-inch gap",
-      "Balcony, window, terrace, or staircase opening structure",
-      "Heavy-duty aluminum track profile and rust-proof tensioners",
+      "Total area of the openings",
+      "Cable grade: SS304 or marine-grade SS316",
+      "Cable thickness (in mm) and gap: 2-inch or 3-inch",
+      "Type of opening: balcony, window, staircase or terrace",
+      "Track finish, floor height and access",
     ],
-    benefitsIntro: "Architectural safety that secures your balcony and windows without blocking light, breeze or scenic views.",
+    benefitsIntro:
+      "Quiet protection that keeps your balcony and windows open to light, breeze and view.",
     benefits: [
-      "Unobstructed panoramic balcony views — zero jail look or visual obstruction",
-      "Child and pet fall prevention with certified 2-inch cable gap options",
-      "Rust-resistant SS304 or marine-grade SS316 high-tensile wire grills",
-      "Emergency fire escape safe — cuts cleanly in seconds with a cable cutter",
-      "Engineered for high-rise balconies, bedroom windows, duplexes, and luxury villas",
+      "Keeps your view, light and breeze — no 'jail look' like iron grills",
+      "Child and pet safe with a 2-inch cable gap option",
+      "Rust-resistant SS304 or marine-grade SS316 stainless-steel cable",
+      "Can be cut with a cable cutter in a fire emergency — iron grills need a grinder",
     ],
     buyerChecklist: [
-      "Ask for marine-grade SS316 wire cables with protective nylon coating for maximum longevity.",
-      "Ensure exact cable thickness (in mm) and 2-inch or 3-inch spacing is written in your quote.",
-      "Verify heavy-duty aluminum track mounting and stainless steel cross-locking clamps.",
-      "Get a clear written quote with transparent per-sq-ft price and direct installer warranty before work starts.",
+      "SS304 suits most city flats; ask for marine-grade SS316 near the sea or a pool.",
+      "Make sure the cable grade, thickness (in mm) and gap are written in the quote.",
+      "Choose a 2-inch gap for toddlers and pets, 3-inch for others.",
+      "Get the installer's warranty in writing before you pay.",
     ],
     needOptions: ["Balcony", "Windows", "Staircase / duplex", "Full flat / villa"],
     hero: {
@@ -169,36 +193,49 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     },
     faqs: [
       {
-        question: "How is the price of invisible grills decided in {city}?",
+        question: "How is the price decided?",
         answer:
-          "Invisible grill price in {city} is calculated transparently per square foot (sq.ft) based on your opening dimensions, wire cable grade (SS304 vs marine-grade SS316), cable spacing (2-inch or 3-inch), and track mounting. During your free site visit, the certified installer takes exact laser measurements and gives an exact written quote with zero hidden charges.",
+          "Every home is different. At the free site visit the installer in {city} measures your openings and gives an exact written quote based on the area, the cable grade (SS304 or SS316), the cable thickness and gap, and the floor height.",
       },
       {
-        question: "Are invisible grills safe for balconies and windows with children?",
+        question: "Are invisible grills safe for small children and pets?",
         answer:
-          "Yes. A 2-inch cable gap provides tested, reliable fall prevention for toddlers, children, and pets. High-tensile stainless steel wire cables withstand high tension while keeping panoramic views completely open.",
+          "Choose a 2-inch cable gap for toddlers and pets. Invisible grills are a fall-prevention barrier; they don't replace adult supervision.",
       },
       {
-        question: "How long does invisible grill installation take in {city}?",
-        answer:
-          "Once measured, most standard apartment balconies or window openings in {city} are fully installed within a single day. Larger villas or multi-balcony flats take 1 to 2 days.",
+        question: "SS304 or SS316 — which cable should I choose in {city}?",
+        answer: "{cableAdvice}",
       },
       {
-        question: "Can invisible safety grills be installed near me across {city}?",
+        question: "How long does installation take?",
         answer:
-          "Yes. Our verified partner installers cover all major residential localities, gated societies, and high-rise apartment towers across {city}.",
+          "Once measured, most flats are done in a day. Larger villas can take longer — the installer confirms the timeline in the quote.",
+      },
+      {
+        question: "Do I need my apartment society's permission?",
+        answer:
+          "Some societies have rules about what can be fitted to balconies and the building's outside. Check with your association first — the installer can share photos and the specification to help you get approval.",
+      },
+      {
+        question: "Will invisible grills stop pigeons?",
+        answer:
+          "Invisible grills are made for fall safety, not bird control. Pigeons can still perch on the cables and ledges, so if birds are the problem, ask about a pigeon net.",
       },
       {
         question: "What happens in a fire emergency?",
         answer:
-          "Unlike traditional fixed iron grills that trap occupants, invisible wire grills can be cut within seconds using a standard cable cutter in emergencies.",
+          "The cables can be cut with a standard cable cutter, unlike iron grills that need a grinder.",
       },
       {
-        question: "Who installs and who gives the direct warranty?",
+        question: "Who installs and who gives the warranty?",
         answer:
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Invisible Grills for your {city} home",
+    formIntroText:
+      "Free site visit for balconies, windows, staircases or the full flat. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Balconies", "Windows", "Staircases & duplexes", "Villas & high-rise flats"],
   },
   "safety-nets": {
     key: "safety-nets",
@@ -256,6 +293,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Safety Nets for your {city} home",
+    formIntroText:
+      "Free site visit for balconies, ducts, staircases or terraces. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Balconies", "Ducts & shafts", "Staircase voids", "Terraces & play areas"],
   },
   "pigeon-nets": {
     key: "pigeon-nets",
@@ -314,6 +355,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Pigeon Nets for your {city} home",
+    formIntroText:
+      "Free site visit for balconies, windows, AC ledges or building shafts. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Balconies", "Window sills", "AC outdoor ledges", "Building utility shafts"],
   },
   "bird-spikes": {
     key: "bird-spikes",
@@ -378,6 +423,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Bird Spikes for your {city} home",
+    formIntroText:
+      "Free site visit for window sills, parapet ledges and AC units. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Window sills", "Parapet ledges", "AC outdoor units", "Signboards & beams"],
   },
   "monkey-nets": {
     key: "monkey-nets",
@@ -436,6 +485,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Monkey Safety Nets for your {city} home",
+    formIntroText:
+      "Free site visit for balconies, open terraces or courtyards. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Balconies", "Open terraces", "Courtyards", "Utility verandas"],
   },
   "mosquito-nets": {
     key: "mosquito-nets",
@@ -494,6 +547,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Mosquito Mesh for your {city} home",
+    formIntroText:
+      "Free site visit for windows, French doors and balconies. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Bedroom windows", "Balcony French doors", "Kitchen windows", "Main door mesh"],
   },
   "cloth-drying-hangers": {
     key: "cloth-drying-hangers",
@@ -553,6 +610,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Ceiling Cloth Drying Hangers for your {city} home",
+    formIntroText:
+      "Free site visit for apartment balconies and utility spaces. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Balconies", "Utility corridors", "Wash areas", "Ceiling pullies"],
   },
   "cricket-nets": {
     key: "cricket-nets",
@@ -612,6 +673,10 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
           "InvisProtect assigns a verified, expert local installation partner in {city} for your project. The installer measures on-site, provides the exact written quote, completes precision installation, and issues the direct written warranty at handover.",
       },
     ],
+    formIntroTitle: "Cricket Practice Nets for your {city} home",
+    formIntroText:
+      "Free site visit for private terraces, open plots or society grounds. An exact written quote from one checked installer. No obligation.",
+    scopeChips: ["Rooftop terraces", "Society clubhouses", "School grounds", "Open backyards"],
   },
 };
 
@@ -622,6 +687,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Hyderabad & Secunderabad",
     code: "HYD",
     state: "Telangana",
+    searchName: "Hyderabad",
+    climate: "inland",
     localities: [
       "Gachibowli",
       "Kondapur",
@@ -669,6 +736,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Visakhapatnam (Vizag)",
     code: "VZG",
     state: "Andhra Pradesh",
+    searchName: "Visakhapatnam (Vizag)",
+    climate: "coastal",
     localities: [
       "Madhurawada",
       "PM Palem",
@@ -711,6 +780,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Vijayawada",
     code: "VJA",
     state: "Andhra Pradesh",
+    searchName: "Vijayawada",
+    climate: "inland",
     localities: [
       "Benz Circle",
       "Patamata",
@@ -749,6 +820,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Amaravati · Tadepalli · Mangalagiri",
     code: "AMR",
     state: "Andhra Pradesh",
+    searchName: "Amaravati",
+    climate: "inland",
     localities: [
       "Tadepalli",
       "Mangalagiri",
@@ -786,6 +859,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Tirupati",
     code: "TPT",
     state: "Andhra Pradesh",
+    searchName: "Tirupati",
+    climate: "inland",
     localities: [
       "Tiruchanur",
       "MR Palli",
@@ -822,6 +897,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Warangal",
     code: "WGL",
     state: "Telangana",
+    searchName: "Warangal",
+    climate: "inland",
     localities: [
       "Kareemabad",
       "Desaipet",
@@ -853,6 +930,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Hanamkonda & Kazipet",
     code: "HNK",
     state: "Telangana",
+    searchName: "Hanamkonda",
+    climate: "inland",
     localities: [
       "Balasamudram",
       "Subedari",
@@ -888,6 +967,15 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Bengaluru (Bangalore)",
     code: "BLR",
     state: "Karnataka",
+    searchName: "Bengaluru (Bangalore)",
+    climate: "inland",
+    heroOverrides: {
+      "invisible-grills": {
+        mobile: "/images/paid/invisible-grills-bengaluru-mobile",
+        desktop: "/images/paid/invisible-grills-bengaluru-desktop",
+        alt: "Bengaluru high-rise balcony protected by slim invisible grill cables overlooking scenic lake and metro",
+      },
+    },
     localities: [
       "Whitefield",
       "Sarjapur Road",
@@ -908,7 +996,7 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     ],
     localNote: {
       "invisible-grills":
-        "Engineered for Bengaluru high-rise apartments, luxury villas, and modern duplexes — certified 3.16mm SS316 marine-grade invisible wire grills keep panoramic skyline views open while ensuring uncompromised child and pet safety.",
+        "For Bengaluru's high-rise apartments, villas and duplexes — slim stainless-steel cables keep the skyline and the breeze, while a 2-inch gap keeps little ones safe.",
       "safety-nets":
         "High-strength fall prevention nets for high-altitude balconies, utility ducts, and staircase voids across Bengaluru tech corridor residential towers.",
       "pigeon-nets":
@@ -931,6 +1019,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Mysuru (Mysore)",
     code: "MYS",
     state: "Karnataka",
+    searchName: "Mysuru (Mysore)",
+    climate: "inland",
     localities: [
       "Gokulam",
       "Vijayanagar",
@@ -968,6 +1058,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Mangaluru (Mangalore)",
     code: "MLR",
     state: "Karnataka",
+    searchName: "Mangaluru (Mangalore)",
+    climate: "coastal",
     localities: [
       "Kadri",
       "Bejai",
@@ -1005,6 +1097,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Pune & PCMC",
     code: "PUN",
     state: "Maharashtra",
+    searchName: "Pune",
+    climate: "inland",
     localities: [
       "Hinjawadi",
       "Wakad",
@@ -1044,6 +1138,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Mumbai Metropolitan",
     code: "BOM",
     state: "Maharashtra",
+    searchName: "Mumbai",
+    climate: "coastal",
     localities: [
       "Powai",
       "Andheri West",
@@ -1083,6 +1179,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Thane Mega-Township Hub",
     code: "THA",
     state: "Maharashtra",
+    searchName: "Thane",
+    climate: "coastal",
     localities: [
       "Ghodbunder Road",
       "Hiranandani Estate",
@@ -1120,6 +1218,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Navi Mumbai Planned Urban Hub",
     code: "NVM",
     state: "Maharashtra",
+    searchName: "Navi Mumbai",
+    climate: "coastal",
     localities: [
       "Kharghar",
       "Vashi",
@@ -1157,6 +1257,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Chennai Metropolitan",
     code: "MAA",
     state: "Tamil Nadu",
+    searchName: "Chennai",
+    climate: "coastal",
     localities: [
       "OMR (Old Mahabalipuram Road)",
       "ECR (East Coast Road)",
@@ -1196,6 +1298,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Coimbatore Industrial & Residential Hub",
     code: "CBE",
     state: "Tamil Nadu",
+    searchName: "Coimbatore",
+    climate: "inland",
     localities: [
       "RS Puram",
       "Race Course",
@@ -1233,6 +1337,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Madurai Cultural & Commercial Hub",
     code: "MDU",
     state: "Tamil Nadu",
+    searchName: "Madurai",
+    climate: "inland",
     localities: [
       "KK Nagar",
       "Anna Nagar",
@@ -1270,6 +1376,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Kochi (Cochin) Waterfront Hub",
     code: "COK",
     state: "Kerala",
+    searchName: "Kochi (Cochin)",
+    climate: "coastal",
     localities: [
       "Marine Drive",
       "Kakkanad",
@@ -1308,6 +1416,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Thiruvananthapuram (Trivandrum)",
     code: "TRV",
     state: "Kerala",
+    searchName: "Thiruvananthapuram (Trivandrum)",
+    climate: "coastal",
     localities: [
       "Kazhakkoottam",
       "Kowdiar",
@@ -1345,6 +1455,8 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
     fullName: "Kozhikode (Calicut)",
     code: "CLT",
     state: "Kerala",
+    searchName: "Kozhikode (Calicut)",
+    climate: "coastal",
     localities: [
       "Mavoor Road",
       "PT Usha Road",
@@ -1411,14 +1523,19 @@ function trustSignalsFor(city: string): PaidTrustPoint[] {
 function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLandingPageConfig {
   const id = `${service.key}-${city.key}`;
   const whatsappRef = `${service.code}-${city.code}`;
-  const isInvisibleGrills = service.key === "invisible-grills";
+  const isIG = service.key === "invisible-grills";
   const headline = `${service.serviceName} in ${city.name}`;
-  const metaTitle = isInvisibleGrills
-    ? `${service.serviceName} in ${city.name} | Balconies, Windows & Villas | InvisProtect`
+  const metaTitle = isIG
+    ? `${service.serviceName} in ${city.searchName} | Balcony & Windows | InvisProtect`
     : `${service.serviceName} in ${city.name} — Free Site Visit`;
-  const summary = isInvisibleGrills
-    ? `High-tensile architectural safety for balconies, windows, staircases, and luxury villas in ${city.name}. Complimentary laser measurement & transparent written quotation.`
+  const summary = isIG
+    ? `Invisible grills for balconies & windows in ${city.searchName}. Free site visit and an exact written quote from one checked installer.`
     : `Free site visit and an exact written quote from one checked local installer in ${city.name}.`;
+
+  const cableAdvice =
+    city.climate === "coastal"
+      ? `${city.name} is close to the sea, so marine-grade SS316 is the safer choice — salty air corrodes ordinary steel faster. Make sure the grade is written in the quote.`
+      : `${city.name} is inland, so SS304 suits most apartments. Choose marine-grade SS316 for pool-facing balconies or if you want extra corrosion resistance. Make sure the grade is written in the quote.`;
 
   return {
     id,
@@ -1442,7 +1559,7 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     localities: city.localities,
     faqs: service.faqs.map((faq) => ({
       question: withCity(faq.question, city.name),
-      answer: withCity(faq.answer, city.name),
+      answer: withCity(faq.answer, city.name).split("{cableAdvice}").join(cableAdvice),
     })),
     trustSignals: trustSignalsFor(city.name),
     whatsappRef,
@@ -1450,16 +1567,15 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     consentText: `I agree that InvisProtect may share my project details with our verified installation expert in ${city.name} to schedule a site survey and quote via Call or WhatsApp.`,
     consentVersion: PAID_CONSENT_VERSION,
     disclosure: `InvisProtect coordinates certified architectural safety solutions across India. We assign a verified, expert local installation partner in ${city.name}. The assigned certified installer gives the final quote, completes precision installation, and provides the direct written warranty.`,
-    hero:
-      service.key === "invisible-grills" && city.key === "bengaluru"
-        ? {
-            mobile: "/images/paid/invisible-grills-bengaluru-mobile",
-            desktop: "/images/paid/invisible-grills-bengaluru-desktop",
-            alt: "Bengaluru high-rise balcony protected by slim invisible grill cables overlooking scenic lake and metro",
-          }
-        : service.hero,
+    hero: city.heroOverrides?.[service.key] ?? service.hero,
     closingImage: CLOSING_IMAGE,
     formVariant: PAID_FORM_VARIANT,
+    formIntroTitle: withCity(service.formIntroTitle, city.name),
+    formIntroText: withCity(service.formIntroText, city.name),
+    scopeChips: service.scopeChips,
+    applications: service.applications,
+    comparison: service.comparison,
+    siteVisitIncludes: service.siteVisitIncludes,
   };
 }
 

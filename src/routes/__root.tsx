@@ -83,6 +83,7 @@ const socialProfiles = [
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
+  "@id": "https://invisprotect.in/#organization",
   name: BRAND_CONFIG.name,
   ...(BRAND_CONFIG.legalName ? { legalName: BRAND_CONFIG.legalName } : {}),
   description: BRAND_CONFIG.description,
@@ -108,17 +109,12 @@ const organizationSchema = {
     longitude: BUSINESS.geo.longitude,
   },
   areaServed: [
-    ...[
-      "Karnataka",
-      "Telangana",
-      "Andhra Pradesh",
-      "Maharashtra",
-      "Tamil Nadu",
-      "Kerala",
-    ].map((state) => ({
-      "@type": "AdministrativeArea",
-      name: state,
-    })),
+    ...["Karnataka", "Telangana", "Andhra Pradesh", "Maharashtra", "Tamil Nadu", "Kerala"].map(
+      (state) => ({
+        "@type": "AdministrativeArea",
+        name: state,
+      }),
+    ),
     ...SERVICE_HUBS.map((hub) => ({
       "@type": "City",
       name: hub.schemaName,
