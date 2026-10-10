@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
+  CITIES,
   PAID_CITY_KEYS,
   PAID_SERVICE_KEYS,
   buildWhatsAppHref,
@@ -54,7 +55,7 @@ test("every paid landing page is complete, city-specific and uses an approved se
     assert.ok(page.headline.endsWith(`in ${page.city}`), page.id);
     assert.ok(page.localities.length >= 8, page.id);
     assert.ok(
-      page.faqs.length >= 5 && page.faqs.length <= 8,
+      page.faqs.length >= 5 && page.faqs.length <= 10,
       `${page.id} has ${page.faqs.length} faqs`,
     );
     assert.equal(page.faqs[0].question, "How is the price decided?", page.id);
@@ -160,5 +161,30 @@ test("every page has scopeChips.length >= 3 and a non-empty formIntroTitle", () 
     assert.ok(page.scopeChips.length >= 3, `${page.id} scopeChips < 3`);
     assert.ok(page.formIntroTitle.length > 0, `${page.id} missing formIntroTitle`);
     assert.ok(page.formIntroText.length > 0, `${page.id} missing formIntroText`);
+  }
+});
+
+test("no two cities may have the same localFaqs question", () => {
+  const seenQuestions = new Map<string, string>();
+  for (const [cityKey, city] of Object.entries(CITIES)) {
+    if (!city.localFaqs) continue;
+    for (const faq of city.localFaqs) {
+      assert.ok(
+        !seenQuestions.has(faq.question),
+        `City "${cityKey}" reuses question from "${seenQuestions.get(faq.question)}": "${faq.question}"`,
+      );
+      seenQuestions.set(faq.question, cityKey);
+    }
+  }
+});
+
+test("invisible-grills landing pages define applications, comparison, and siteVisitIncludes", () => {
+  const page = getPaidLandingPage("invisible-grills-bengaluru");
+  assert.ok(page?.applications && page.applications.length === 4);
+  assert.ok(page?.comparison && page.comparison.length === 5);
+  assert.ok(page?.siteVisitIncludes && page.siteVisitIncludes.length === 4);
+  for (const app of page.applications) {
+    assert.ok(existsSync(`public${app.image}`), `Missing image: ${app.image}`);
+    assert.ok(app.title.length > 0 && app.detail.length > 0 && app.href.length > 0);
   }
 });

@@ -5,8 +5,9 @@ import { Footer } from "@/components/Footer";
 import { ProofSection } from "@/components/ProofSection";
 import { servicesData, categoriesData, type ServiceDetail } from "@/data/servicesData";
 import { BRAND_CONFIG } from "@/config/brand";
+import { BUSINESS, HUB_COUNT } from "@/config/business";
+import { PAID_CITY_KEYS, paidLandingPages } from "@/data/paidLandingPages";
 import { buildMetaTags } from "@/lib/seo";
-import { BUSINESS } from "@/config/business";
 
 export const Route = createFileRoute("/service/$serviceId")({
   head: ({ params }) => {
@@ -313,6 +314,44 @@ function ServicePage() {
                 </span>
               </Link>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* 20 City Installation Hubs for Balcony Invisible Grills */}
+      {service.id === "balcony-invisible-grills" && (
+        <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-[#1C1917]/10">
+          <div className="mb-10 text-center md:text-left">
+            <span className="text-[10px] font-mono tracking-widest text-brand uppercase font-medium">
+              Verified Partner Network
+            </span>
+            <h2 className="sn-h2 text-[#1C1917] mt-1.5">Find an Installer in Your City</h2>
+            <p className="sn-subtext text-[#44403C] max-w-2xl mt-2">
+              Free site visit and an exact written quote from one checked local installer in{" "}
+              {HUB_COUNT} cities.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {PAID_CITY_KEYS.map((cityKey) => {
+              const lp = paidLandingPages[`invisible-grills-${cityKey}`];
+              if (!lp) return null;
+              return (
+                <Link
+                  key={cityKey}
+                  to="/lp/$landingId"
+                  params={{ landingId: lp.id }}
+                  className="border border-[#1C1917]/10 bg-white p-3.5 hover:border-brand hover:shadow-sm transition-all text-left group focus-ring flex flex-col justify-between"
+                >
+                  <span className="text-xs font-medium text-[#1C1917] group-hover:text-brand transition-colors">
+                    {lp.city}
+                  </span>
+                  <span className="text-[10px] text-[#78716C] font-light mt-1">
+                    Invisible grills →
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </section>
       )}

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ProofSection } from "@/components/ProofSection";
 import { BRAND_CONFIG } from "@/config/brand";
 import { BUSINESS, HUB_COUNT, SERVICE_HUBS, hubCityList } from "@/config/business";
+import { getPaidLandingPage } from "@/data/paidLandingPages";
 import { buildMetaTags } from "@/lib/seo";
 
 export const Route = createFileRoute("/service-areas")({
@@ -228,6 +229,9 @@ function ServiceAreasPage() {
         {filteredHubs.length > 0 ? (
           filteredHubs.map((hub) => {
             const originalIndex = SERVICE_HUBS.findIndex((h) => h.city === hub.city);
+            const cityKey = hub.shortName.toLowerCase().replace(/\s+/g, "-");
+            const lpId = `invisible-grills-${cityKey}`;
+            const hasLp = Boolean(getPaidLandingPage(lpId));
             return (
               <article
                 key={hub.city}
@@ -285,13 +289,22 @@ function ServiceAreasPage() {
                       </h3>
                       <p className="text-[#78716C] leading-relaxed">{hub.climateNotes}</p>
                     </div>
-                    <div className="mt-6 pt-4 border-t border-[#1C1917]/10">
+                    <div className="mt-6 pt-4 border-t border-[#1C1917]/10 flex flex-wrap items-center justify-between gap-3">
                       <Link
                         to="/consultation"
                         className="text-[10px] uppercase tracking-[0.2em] font-medium text-brand hover:text-brand-deep hover:underline underline-offset-4 focus-ring transition-colors"
                       >
                         Schedule Survey in {hub.shortName} →
                       </Link>
+                      {hasLp ? (
+                        <Link
+                          to="/lp/$landingId"
+                          params={{ landingId: lpId }}
+                          className="text-[10px] uppercase tracking-[0.2em] font-light text-[#1C1917] hover:text-brand hover:underline underline-offset-4 focus-ring transition-colors"
+                        >
+                          Invisible grills in {hub.shortName}
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </div>
