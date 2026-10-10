@@ -280,7 +280,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
       {
         label: "Look",
         ours: "Barely visible from outside",
-        theirs: '"Jail look"',
+        theirs: "“Jail look”",
       },
       {
         label: "Fire emergency",

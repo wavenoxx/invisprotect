@@ -308,7 +308,7 @@ function PaidLandingPage() {
 
         {/* ── The private site visit: introduction + form ── */}
         <section className="border-b border-[#1C1917]/10 py-16 md:py-24">
-          <div className="mx-auto flex flex-col gap-12 px-5 sm:px-8 md:grid md:grid-cols-[0.9fr_1.1fr] md:items-start md:gap-x-16 md:gap-y-0 lg:px-12">
+          <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 sm:px-8 md:grid md:grid-cols-[0.9fr_1.1fr] md:grid-rows-[auto_1fr] md:items-start md:gap-x-16 md:gap-y-0 lg:px-12">
             <div className="order-1 text-center md:order-none md:col-start-1 md:row-start-1 md:text-left">
               <span className="sn-eyebrow mb-3 block text-brand">Private Site Visit</span>
               <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">{landing.formIntroTitle}</h2>
@@ -398,15 +398,15 @@ function PaidLandingPage() {
                 title="Where Invisible Grills Fit"
                 text="Balconies, windows, staircases — wherever an open edge needs to stay safe."
               />
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
                 {landing.applications.map((app) => (
                   <Link
                     key={app.title}
                     to={app.href}
-                    className="group flex flex-col justify-between border border-[#1C1917]/10 bg-white p-5 transition-all duration-300 hover:border-brand hover:shadow-md focus-ring"
+                    className="group flex flex-col justify-between border border-[#1C1917]/10 bg-white p-3 sm:p-5 transition-all duration-300 hover:border-brand hover:shadow-md focus-ring"
                   >
                     <div>
-                      <div className="aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] mb-4 border border-[#1C1917]/8">
+                      <div className="aspect-[4/5] w-full overflow-hidden bg-[#FAF8F5] mb-4 border border-[#1C1917]/8">
                         <img
                           src={app.image}
                           alt={app.alt}
@@ -569,7 +569,7 @@ function PaidLandingPage() {
               <SectionIntro
                 eyebrow="Recent Work"
                 title={`Installations in ${landing.city}`}
-                text={`Verified installations completed by our checked partners in ${landing.city}.`}
+                text={`Recent installations by checked installers in ${landing.city}.`}
               />
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {landing.gallery.map((item) => (
@@ -577,6 +577,8 @@ function PaidLandingPage() {
                     <img
                       src={item.image}
                       alt={item.alt ?? item.caption}
+                      width={800}
+                      height={600}
                       loading="lazy"
                       className="aspect-[4/3] w-full object-cover"
                     />

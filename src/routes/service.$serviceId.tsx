@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ProofSection } from "@/components/ProofSection";
 import { servicesData, categoriesData, type ServiceDetail } from "@/data/servicesData";
 import { BRAND_CONFIG } from "@/config/brand";
-import { BUSINESS } from "@/config/business";
+import { BUSINESS, HUB_COUNT } from "@/config/business";
 import { PAID_CITY_KEYS, paidLandingPages } from "@/data/paidLandingPages";
 import { buildMetaTags } from "@/lib/seo";
 
@@ -327,8 +327,8 @@ function ServicePage() {
             </span>
             <h2 className="sn-h2 text-[#1C1917] mt-1.5">Find an Installer in Your City</h2>
             <p className="sn-subtext text-[#44403C] max-w-2xl mt-2">
-              Free site visit and an exact written quote from one checked local installer across 20
-              metropolitan hubs.
+              Free site visit and an exact written quote from one checked local installer in{" "}
+              {HUB_COUNT} cities.
             </p>
           </div>
 
