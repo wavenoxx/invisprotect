@@ -269,9 +269,15 @@ function PaidLandingPage() {
           <div className="pointer-events-none absolute inset-0" style={bannerVignette} />
 
           <header className="absolute inset-x-0 top-0 z-20 flex h-16 items-center justify-center md:h-20">
-            <span className="font-brand text-[14px] font-extrabold uppercase tracking-[0.14em] mr-[-0.14em] text-[#FAF8F5] drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] sm:text-[16px]">
-              {BRAND_CONFIG.name}
-            </span>
+            <Link
+              to="/"
+              className="flex items-center justify-center focus-ring transition-opacity hover:opacity-85"
+              aria-label={`${BRAND_CONFIG.name} Home`}
+            >
+              <span className="font-brand font-extrabold uppercase leading-none tracking-[0.13em] mr-[-0.13em] md:tracking-[0.18em] md:mr-[-0.18em] lg:tracking-[0.20em] lg:mr-[-0.20em] text-[clamp(15.5px,calc(0.5rem+1.8vw),16.5px)] md:text-[24px] lg:text-[26px] text-[#FAF8F5] drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)] whitespace-nowrap select-none">
+                {BRAND_CONFIG.name}
+              </span>
+            </Link>
           </header>
 
           <div className="absolute inset-x-0 bottom-0 z-20 mx-auto flex max-w-3xl flex-col items-center px-4 pb-10 text-center sm:px-6 sm:pb-12 md:px-12 md:pb-[4.5%]">
