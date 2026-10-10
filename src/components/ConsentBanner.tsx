@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 import { readStoredConsent, updateGoogleConsent } from "@/lib/consent";
 import { clearPersistedAttribution, persistCurrentAttribution } from "@/lib/attribution";
 
 export function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isPaidLanding = pathname.startsWith("/lp/");
 
   useEffect(() => {
     try {
@@ -33,6 +35,46 @@ export function ConsentBanner() {
   };
 
   if (!isVisible) return null;
+
+  if (isPaidLanding) {
+    return (
+      <aside
+        aria-label="Privacy and Cookie Choices"
+        className="fixed bottom-[calc(4.25rem+env(safe-area-inset-bottom))] left-3 right-3 z-50 animate-in fade-in slide-in-from-bottom-2 duration-300 md:bottom-6 md:left-auto md:right-6 md:max-w-xl"
+      >
+        <div className="border border-[#1C1917]/15 bg-white/95 px-4 py-2.5 text-[#1C1917] shadow-xl backdrop-blur-md">
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[11px] leading-snug font-light text-[#44403C]">
+              {BRAND_CONFIG.name || "InvisProtect"} uses essential cookies, and optional ones to
+              measure enquiries.{" "}
+              <Link
+                to="/privacy"
+                className="underline decoration-[#1C1917]/30 underline-offset-2 hover:text-brand focus-ring"
+              >
+                Privacy
+              </Link>
+            </p>
+            <div className="flex shrink-0 items-center gap-2">
+              <button
+                type="button"
+                onClick={handleAcceptAll}
+                className="inline-flex min-h-8 cursor-pointer items-center justify-center bg-brand px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-deep focus-ring"
+              >
+                Accept
+              </button>
+              <button
+                type="button"
+                onClick={handleEssentialOnly}
+                className="inline-flex min-h-8 cursor-pointer items-center justify-center border border-[#1C1917]/20 bg-[#FAF8F5] px-3 py-1 text-[10px] font-light uppercase tracking-[0.16em] text-[#1C1917] transition-colors hover:border-[#1C1917]/40 focus-ring"
+              >
+                Essential only
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    );
+  }
 
   return (
     <aside

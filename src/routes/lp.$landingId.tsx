@@ -284,7 +284,7 @@ function PaidLandingPage() {
               <button
                 type="button"
                 onClick={() => scrollToForm("paid_hero")}
-                className="sn-btn-luxury-hero cursor-pointer focus-ring"
+                className="sn-btn-luxury-hero is-primary cursor-pointer focus-ring"
               >
                 Free Site Visit
               </button>
@@ -300,13 +300,16 @@ function PaidLandingPage() {
                 </a>
               ) : null}
             </div>
+            <p className="sn-subtext mt-4 max-w-md px-2 text-[#FAF8F5]/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] text-[11px] sm:text-xs">
+              One checked installer · Written quote · No obligation
+            </p>
           </div>
         </section>
 
         {/* ── The private site visit: introduction + form ── */}
         <section className="border-b border-[#1C1917]/10 py-16 md:py-24">
-          <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:px-12">
-            <div className="text-center md:sticky md:top-16 md:text-left">
+          <div className="mx-auto flex flex-col gap-12 px-5 sm:px-8 md:grid md:grid-cols-[0.9fr_1.1fr] md:items-start md:gap-x-16 md:gap-y-0 lg:px-12">
+            <div className="order-1 text-center md:order-none md:col-start-1 md:row-start-1 md:text-left">
               <span className="sn-eyebrow mb-3 block text-brand">Private Site Visit</span>
               <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">{landing.formIntroTitle}</h2>
               <p className="sn-subtext text-balance text-[#44403C]">{landing.formIntroText}</p>
@@ -320,11 +323,15 @@ function PaidLandingPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2">
+              <PaidLeadForm landing={landing} />
+            </div>
+            <div className="order-3 md:order-none md:col-start-1 md:row-start-2 text-center md:text-left">
               <p className="mt-8 border-t border-[#1C1917]/10 pt-8 font-serif text-xl leading-relaxed font-light text-[#1C1917] italic md:text-2xl">
                 “{landing.localNote}”
               </p>
             </div>
-            <PaidLeadForm landing={landing} />
           </div>
         </section>
 
@@ -382,6 +389,50 @@ function PaidLandingPage() {
           </div>
         </section>
 
+        {/* ── Where invisible grills fit (applications) ── */}
+        {landing.applications && landing.applications.length > 0 ? (
+          <section className="w-full border-t border-[#1C1917]/10 py-20 md:py-28">
+            <div className="mx-auto max-w-7xl px-6 md:px-12">
+              <SectionIntro
+                eyebrow="Applications"
+                title="Where Invisible Grills Fit"
+                text="Balconies, windows, staircases — wherever an open edge needs to stay safe."
+              />
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {landing.applications.map((app) => (
+                  <Link
+                    key={app.title}
+                    to={app.href}
+                    className="group flex flex-col justify-between border border-[#1C1917]/10 bg-white p-5 transition-all duration-300 hover:border-brand hover:shadow-md focus-ring"
+                  >
+                    <div>
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] mb-4 border border-[#1C1917]/8">
+                        <img
+                          src={app.image}
+                          alt={app.alt}
+                          width={1086}
+                          height={1448}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <h3 className="font-display text-[13px] font-medium uppercase tracking-[0.14em] text-[#1C1917] group-hover:text-brand transition-colors">
+                        {app.title}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed font-light text-[#44403C]">
+                        {app.detail}
+                      </p>
+                    </div>
+                    <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-medium text-brand">
+                      View Service →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         {/* ── Chapter 01: benefits ── */}
         <section className="w-full border-t border-[#1C1917]/10 bg-[#F4EFEA] py-20 md:py-28">
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:px-12">
@@ -394,11 +445,79 @@ function PaidLandingPage() {
           </div>
         </section>
 
-        {/* ── Chapter 02: buyer's guide ── */}
-        <section className="w-full border-t border-[#1C1917]/10 py-20 md:py-28">
+        {/* ── Chapter 02: comparison ── */}
+        {landing.comparison && landing.comparison.length > 0 ? (
+          <section className="w-full border-t border-[#1C1917]/10 bg-white py-20 md:py-28">
+            <div className="mx-auto max-w-5xl px-6 md:px-12">
+              <div className="mb-12 text-center md:mb-16">
+                <span className="mb-2 block font-mono text-[9px] font-medium uppercase tracking-widest text-brand">
+                  Chapter 02 / Comparison
+                </span>
+                <h2 className="sn-h1 mb-3 text-balance text-[#1C1917]">
+                  Invisible Grills vs Iron Grills
+                </h2>
+                <p className="sn-subtext mx-auto max-w-md text-balance text-[#44403C]">
+                  The same safety job, done two very different ways.
+                </p>
+              </div>
+
+              {/* Desktop table */}
+              <div className="hidden border border-[#1C1917]/10 md:block">
+                <div className="grid grid-cols-[1.2fr_1.4fr_1.4fr] border-b border-[#1C1917]/10 bg-[#FAF8F5] px-6 py-4 text-[10px] font-mono uppercase tracking-widest text-[#78716C]">
+                  <span>Feature</span>
+                  <span className="font-medium text-brand">Invisible grills</span>
+                  <span>Iron grills</span>
+                </div>
+                <div className="divide-y divide-[#1C1917]/10 bg-white">
+                  {landing.comparison.map((row) => (
+                    <div
+                      key={row.label}
+                      className="grid grid-cols-[1.2fr_1.4fr_1.4fr] items-center px-6 py-4 text-[13px]"
+                    >
+                      <span className="font-medium text-[#1C1917]">{row.label}</span>
+                      <span className="font-light text-[#1C1917]">{row.ours}</span>
+                      <span className="font-light text-[#78716C]">{row.theirs}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="space-y-3 md:hidden">
+                {landing.comparison.map((row) => (
+                  <div
+                    key={row.label}
+                    className="border border-[#1C1917]/10 bg-white p-4.5 shadow-sm"
+                  >
+                    <span className="mb-2.5 block text-xs font-medium uppercase tracking-wider text-[#1C1917]">
+                      {row.label}
+                    </span>
+                    <div className="space-y-2 border-t border-[#1C1917]/8 pt-2.5 text-xs font-light">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="shrink-0 text-[11px] font-mono uppercase tracking-wider text-brand">
+                          Invisible grills:
+                        </span>
+                        <span className="text-right text-[#1C1917]">{row.ours}</span>
+                      </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="shrink-0 text-[11px] font-mono uppercase tracking-wider text-[#78716C]">
+                          Iron grills:
+                        </span>
+                        <span className="text-right text-[#78716C]">{row.theirs}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* ── Chapter 03: buyer's guide ── */}
+        <section className="w-full border-t border-[#1C1917]/10 bg-[#FAF8F5] py-20 md:py-28">
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:px-12">
             <ChapterIntro
-              chapter="Chapter 02 / Buyer's Guide"
+              chapter="Chapter 03 / Buyer's Guide"
               title="Know Before You Buy"
               text="Four questions worth asking any installer before you agree."
             />
@@ -406,11 +525,25 @@ function PaidLandingPage() {
           </div>
         </section>
 
-        {/* ── Chapter 03: what decides the quote (no prices) ── */}
+        {/* ── Chapter 04: site visit includes ── */}
+        {landing.siteVisitIncludes && landing.siteVisitIncludes.length > 0 ? (
+          <section className="w-full border-t border-[#1C1917]/10 bg-[#F4EFEA] py-20 md:py-28">
+            <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:px-12">
+              <ChapterIntro
+                chapter="Chapter 04 / Site Visit"
+                title="At Your Free Site Visit"
+                text="What the installer does before quoting."
+              />
+              <EditorialRows items={landing.siteVisitIncludes} />
+            </div>
+          </section>
+        ) : null}
+
+        {/* ── Chapter 05: what decides the quote (no prices) ── */}
         <section className="w-full border-t border-[#1C1917]/10 bg-white py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
             <span className="mb-2 block font-mono text-[9px] font-medium uppercase tracking-widest text-brand">
-              Chapter 03 / The Quotation
+              Chapter 05 / The Quotation
             </span>
             <h2 className="sn-h2 mb-3 text-[#1C1917]">What Decides Your Quote</h2>
             <p className="sn-subtext mx-auto mb-10 max-w-xl text-[#44403C]">
@@ -429,8 +562,34 @@ function PaidLandingPage() {
           </div>
         </section>
 
+        {/* ── City installation gallery (renders only when non-empty) ── */}
+        {landing.gallery && landing.gallery.length > 0 ? (
+          <section className="w-full border-t border-[#1C1917]/10 py-20 md:py-28">
+            <div className="mx-auto max-w-7xl px-6 md:px-12">
+              <SectionIntro
+                eyebrow="Recent Work"
+                title={`Installations in ${landing.city}`}
+                text={`Verified installations completed by our checked partners in ${landing.city}.`}
+              />
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {landing.gallery.map((item) => (
+                  <div key={item.image} className="border border-[#1C1917]/10 bg-white p-4">
+                    <img
+                      src={item.image}
+                      alt={item.alt ?? item.caption}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                    <p className="mt-3 text-xs font-light text-[#44403C]">{item.caption}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         {/* ── Service area ── */}
-        <section className="w-full border-t border-[#1C1917]/10 py-20 md:py-28">
+        <section className="w-full border-t border-[#1C1917]/10 bg-[#FAF8F5] py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
             <SectionIntro
               eyebrow="Service Area"
@@ -464,12 +623,12 @@ function PaidLandingPage() {
           </div>
         </section>
 
-        {/* ── Knowledge base: category-page FAQ cards ── */}
+        {/* ── Chapter 06: Knowledge base ── */}
         <section className="w-full border-t border-[#1C1917]/10 bg-[#F4EFEA] py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 md:px-12">
             <div className="mb-10 text-center">
               <span className="mb-2 block font-mono text-[9px] font-medium uppercase tracking-widest text-brand">
-                Chapter 04 / Knowledge Base
+                Chapter 06 / Knowledge Base
               </span>
               <h2 className="sn-h2 text-[#1C1917]">Questions, Answered</h2>
             </div>
@@ -548,21 +707,67 @@ function PaidLandingPage() {
           <p className="mt-8 max-w-md font-serif text-base leading-relaxed font-light text-[#E7E5E4] italic md:text-lg">
             “The art of architectural protection — securing your sanctuary with quiet elegance.”
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-light text-[#D6D3D1]">
+            {BRAND_CONFIG.contact.phoneHref ? (
+              <a
+                href={BRAND_CONFIG.contact.phoneHref}
+                onClick={() => trackEngagement("phone", "paid_footer", meta)}
+                className="transition-colors hover:text-brand focus-ring"
+              >
+                Call: {BRAND_CONFIG.contact.phoneDisplay}
+              </a>
+            ) : null}
+            {whatsappHref ? (
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEngagement("whatsapp", "paid_footer", meta)}
+                className="transition-colors hover:text-brand focus-ring"
+              >
+                WhatsApp: {BRAND_CONFIG.contact.whatsappDisplay}
+              </a>
+            ) : null}
+            {BRAND_CONFIG.contact.emailHref ? (
+              <a
+                href={BRAND_CONFIG.contact.emailHref}
+                onClick={() => trackEngagement("email", "paid_footer", meta)}
+                className="transition-colors hover:text-brand focus-ring"
+              >
+                Email: {BRAND_CONFIG.contact.email}
+              </a>
+            ) : null}
+            <span className="text-[#A8A29E]">Replies 8 AM – 8 PM</span>
+          </div>
+
           <nav
             aria-label="Site Navigation"
-            className="mt-8 flex flex-wrap justify-center gap-6 text-[10px] font-light uppercase tracking-[0.2em] text-[#A8A29E]"
+            className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-light uppercase tracking-[0.2em] text-[#A8A29E]"
           >
-            <Link to="/service-areas" className="transition-colors hover:text-[#FAF8F5] focus-ring">
-              Service Areas
+            <Link to="/our-story" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              How {BRAND_CONFIG.name} works
             </Link>
-            <Link to="/sitemap" className="transition-colors hover:text-[#FAF8F5] focus-ring">
-              Directory
+            <Link to="/warranty" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              Warranty
+            </Link>
+            <Link
+              to="/material-standards"
+              className="transition-colors hover:text-[#FAF8F5] focus-ring"
+            >
+              Material Standards
             </Link>
             <Link to="/privacy" className="transition-colors hover:text-[#FAF8F5] focus-ring">
               Privacy
             </Link>
             <Link to="/terms" className="transition-colors hover:text-[#FAF8F5] focus-ring">
               Terms
+            </Link>
+            <Link to="/service-areas" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              Service Areas
+            </Link>
+            <Link to="/sitemap" className="transition-colors hover:text-[#FAF8F5] focus-ring">
+              Directory
             </Link>
           </nav>
           <p

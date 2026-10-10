@@ -106,6 +106,10 @@ interface PaidCity {
   localNote: Record<PaidServiceKey, string>;
   /** Optional per-service hero override (replaces the Bengaluru special case in buildLandingPage). */
   heroOverrides?: Partial<Record<PaidServiceKey, PaidHeroImage>>;
+  /** Optional city installation gallery. Empty until real photos exist. */
+  gallery?: { image: string; caption: string; alt?: string }[];
+  /** Optional city-specific FAQs inserted before the last FAQ. */
+  localFaqs?: { question: string; answer: string }[];
 }
 
 export interface PaidLandingPageConfig {
@@ -147,6 +151,7 @@ export interface PaidLandingPageConfig {
   applications?: { title: string; detail: string; image: string; alt: string; href: string }[];
   comparison?: { label: string; ours: string; theirs: string }[];
   siteVisitIncludes?: string[];
+  gallery?: { image: string; caption: string; alt?: string }[];
 }
 
 export const PAID_CONSENT_VERSION = "v3-2026-partner";
@@ -236,6 +241,69 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     formIntroText:
       "Free site visit for balconies, windows, staircases or the full flat. An exact written quote from one checked installer. No obligation.",
     scopeChips: ["Balconies", "Windows", "Staircases & duplexes", "Villas & high-rise flats"],
+    applications: [
+      {
+        title: "Balconies",
+        detail: "Open views from high-rise balconies, with a child-safe gap.",
+        image: "/images/balcony-invisible-grills.webp",
+        alt: "High-rise balcony with slim invisible grill cables",
+        href: "/service/balcony-invisible-grills",
+      },
+      {
+        title: "Windows",
+        detail: "Bedroom and French windows stay open to light and air.",
+        image: "/images/windows-invisible-grills.webp",
+        alt: "Bedroom window fitted with invisible grill cables",
+        href: "/service/windows-invisible-grills",
+      },
+      {
+        title: "Staircases & duplexes",
+        detail: "Safe edges for open staircases and duplex voids.",
+        image: "/images/staircase-invisible-grills.webp",
+        alt: "Open staircase edge protected by invisible grill cables",
+        href: "/service/staircase-invisible-grills",
+      },
+      {
+        title: "Child & pet safety",
+        detail: "A 2-inch gap option for homes with toddlers and pets.",
+        image: "/images/child-safety-invisible-grills.webp",
+        alt: "Child at a window protected by invisible grill cables",
+        href: "/service/child-safety-invisible-grills",
+      },
+    ],
+    comparison: [
+      {
+        label: "View & light",
+        ours: "Open — thin cables",
+        theirs: "Blocked by bars",
+      },
+      {
+        label: "Look",
+        ours: "Barely visible from outside",
+        theirs: '"Jail look"',
+      },
+      {
+        label: "Fire emergency",
+        ours: "Cut with a cable cutter",
+        theirs: "Needs a grinder",
+      },
+      {
+        label: "Rust",
+        ours: "Stainless steel (SS304 / SS316)",
+        theirs: "Needs repainting",
+      },
+      {
+        label: "Children & pets",
+        ours: "2-inch gap option",
+        theirs: "Depends on bar spacing",
+      },
+    ],
+    siteVisitIncludes: [
+      "Measures every opening you want covered",
+      "Checks the wall, slab or railing where the track will be fixed",
+      "Advises the gap (2-inch for children and pets) and the cable grade",
+      "Gives a written quote with cable grade, thickness in mm, gap, finish and warranty terms",
+    ],
   },
   "safety-nets": {
     key: "safety-nets",
@@ -613,7 +681,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
     formIntroTitle: "Ceiling Cloth Drying Hangers for your {city} home",
     formIntroText:
       "Free site visit for apartment balconies and utility spaces. An exact written quote from one checked installer. No obligation.",
-    scopeChips: ["Balconies", "Utility corridors", "Wash areas", "Ceiling pullies"],
+    scopeChips: ["Balconies", "Utility corridors", "Wash areas", "Ceiling pulleys"],
   },
   "cricket-nets": {
     key: "cricket-nets",
@@ -680,7 +748,7 @@ const SERVICES: Record<PaidServiceKey, PaidServiceTemplate> = {
   },
 };
 
-const CITIES: Record<PaidCityKey, PaidCity> = {
+export const CITIES: Record<PaidCityKey, PaidCity> = {
   hyderabad: {
     key: "hyderabad",
     name: "Hyderabad",
@@ -1012,6 +1080,18 @@ const CITIES: Record<PaidCityKey, PaidCity> = {
       "cricket-nets":
         "High-density UV-resistant cricket practice net enclosures installed for Bengaluru gated society clubhouses, school grounds, and private rooftops.",
     },
+    localFaqs: [
+      {
+        question: "Can invisible grills be fitted on a high floor in Bengaluru?",
+        answer:
+          "Yes. Installers fit the tracks from inside the balcony, so high floors are usually not a problem. Floor height and access can affect the quote and the timeline — the installer confirms both at the site visit.",
+      },
+      {
+        question: "How do invisible grills handle Bengaluru's monsoon and dust?",
+        answer:
+          "Stainless-steel cable resists rust in the rain. Wipe the cables with a damp cloth every few months to keep dust off, and ask the installer how the bottom track drains rainwater.",
+      },
+    ],
   },
   mysuru: {
     key: "mysuru",
@@ -1557,10 +1637,21 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     buyerChecklist: service.buyerChecklist,
     needOptions: service.needOptions,
     localities: city.localities,
-    faqs: service.faqs.map((faq) => ({
-      question: withCity(faq.question, city.name),
-      answer: withCity(faq.answer, city.name).split("{cableAdvice}").join(cableAdvice),
-    })),
+    faqs: (() => {
+      const baseFaqs = service.faqs.map((faq) => ({
+        question: withCity(faq.question, city.name),
+        answer: withCity(faq.answer, city.name).split("{cableAdvice}").join(cableAdvice),
+      }));
+      const cityFaqs = (
+        service.key === "invisible-grills" && city.localFaqs ? city.localFaqs : []
+      ).map((faq) => ({
+        question: withCity(faq.question, city.name),
+        answer: withCity(faq.answer, city.name).split("{cableAdvice}").join(cableAdvice),
+      }));
+      return cityFaqs.length > 0 && baseFaqs.length > 0
+        ? [...baseFaqs.slice(0, -1), ...cityFaqs, baseFaqs[baseFaqs.length - 1]]
+        : baseFaqs;
+    })(),
     trustSignals: trustSignalsFor(city.name),
     whatsappRef,
     whatsappMessage: `Hi InvisProtect, I need ${service.serviceName.toLowerCase()} in ${city.name}. My area: `,
@@ -1576,6 +1667,7 @@ function buildLandingPage(service: PaidServiceTemplate, city: PaidCity): PaidLan
     applications: service.applications,
     comparison: service.comparison,
     siteVisitIncludes: service.siteVisitIncludes,
+    gallery: city.gallery,
   };
 }
 
